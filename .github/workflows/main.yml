@@ -22,6 +22,11 @@ jobs:
       - name: Generate documentation
         run: doxygen Doxyfile
 
+      - name: Copy Doxygen Awesome CSS
+        run: |
+          mkdir -p docs/html/theme
+          cp docs/theme/doxygen-awesome.css docs/html/theme/
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
