@@ -10,36 +10,32 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Doxygen and Graphviz
-        run: sudo apt-get update && sudo apt-get install -y graphviz
-
-      - name: Install modern Doxygen
+      # 1️⃣ Install modern Doxygen (you already fixed this)
+      - name: Install Doxygen 1.16.1
         run: |
+          sudo apt remove -y doxygen
           wget https://www.doxygen.nl/files/doxygen-1.16.1.linux.bin.tar.gz
           tar -xzf doxygen-1.16.1.linux.bin.tar.gz
           sudo cp doxygen-1.16.1/bin/doxygen /usr/local/bin/
           doxygen --version
 
-      - name: Debug folder
-        run: ls -la  # confirm Doxyfile is here
+      - name: Install Graphviz
+        run: sudo apt-get update && sudo apt-get install -y graphviz
 
-      - name: Clean docs
-        run: rm -rf docs/html/* # Clean all
+      # 2️⃣ PREPARE OUTPUT + THEME **BEFORE** DOXYGEN
+      - name: Prepare doxygen-awesome theme
+        run: |
+          mkdir -p docs/html
+          cp docs/theme/doxygen-awesome.css docs/html/
 
+      # 3️⃣ Generate documentation
       - name: Generate documentation
         run: doxygen Doxyfile
 
-      - name: Copy Doxygen Awesome CSS
-        run: |
-          mkdir -p docs/html/theme
-          cp docs/theme/doxygen-awesome.css docs/html/theme/
-
+      # 4️⃣ Deploy
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/html
           force_orphan: true
-          user_name: github-actions
-          user_email: github-actions@github.com
-          commit_message: "Update documentation"
