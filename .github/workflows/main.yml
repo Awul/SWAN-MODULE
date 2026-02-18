@@ -16,6 +16,9 @@ jobs:
       - name: Debug folder
         run: ls -la  # confirm Doxyfile is here
 
+      - name: Clean docs
+        run: rm -rf docs/html/* # Clean all
+
       - name: Generate documentation
         run: doxygen Doxyfile
 
