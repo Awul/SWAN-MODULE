@@ -44,5 +44,5 @@ SHOW_MODULES = YES
 HTML_DYNAMIC_SECTIONS  = YES    # collapsible sections
 
 # CSS for styling
-HTML_EXTRA_STYLESHEET = docs\theme\doxygen-awesome.css
+HTML_EXTRA_STYLESHEET = docs/theme/doxygen-awesome.css
 
