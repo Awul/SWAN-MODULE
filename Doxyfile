@@ -38,7 +38,7 @@ CALLER_GRAPH           = NO
 #--------------------------------------------------------------------------- 
 SHOW_USED_FILES        = NO   # hides irrelevant files
 SHOW_DIRECTORIES       = NO   # hides directory structure, focus on modules
-USE_MDFILE_AS_MAINPAGE = docs\mainpage.h
+#USE_MDFILE_AS_MAINPAGE = docs\mainpage.h
 SHOW_MODULES = YES
 
 HTML_DYNAMIC_SECTIONS  = YES    # collapsible sections
