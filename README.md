@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/diagram.png" width="200">
+  <img src="docs/images/SWAN-Logo_circle.png" width="200">
 </p>
 
 # SWAN-MODULE
