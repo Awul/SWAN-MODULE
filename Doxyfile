@@ -1,0 +1,42 @@
+#--------------------------------------------------------------------------- 
+# Project
+#--------------------------------------------------------------------------- 
+PROJECT_NAME           = "SWAN-MODULE"
+PROJECT_BRIEF          = "ESP32-based sensor module for environmental monitoring"
+OUTPUT_DIRECTORY       = docs
+INPUT = main components docs/mainpage.h
+RECURSIVE              = YES
+EXTRACT_ALL            = NO
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+EXTRACT_LOCAL_CLASSES  = NO
+FULL_PATH_NAMES        = NO
+#STRIP_FROM_PATH        = ${PROJECT_SOURCE_DIR}
+INLINE_SIMPLE_STRUCTS  = YES
+
+#--------------------------------------------------------------------------- 
+# Build
+#--------------------------------------------------------------------------- 
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_TREEVIEW      = YES
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+
+#--------------------------------------------------------------------------- 
+# Diagrams (requires Graphviz)
+#--------------------------------------------------------------------------- 
+HAVE_DOT               = YES
+DOT_IMAGE_FORMAT       = svg
+CLASS_DIAGRAMS         = YES
+CALL_GRAPH             = NO
+CALLER_GRAPH           = NO
+
+#--------------------------------------------------------------------------- 
+# Grouping
+#--------------------------------------------------------------------------- 
+SHOW_USED_FILES        = NO   # hides irrelevant files
+SHOW_DIRECTORIES       = NO   # hides directory structure, focus on modules
+USE_MDFILE_AS_MAINPAGE = docs\html\mainpage.h
+SHOW_MODULES = YES
