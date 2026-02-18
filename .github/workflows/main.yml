@@ -10,7 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # 1️⃣ Install modern Doxygen (you already fixed this)
       - name: Install Doxygen 1.16.1
         run: |
           sudo apt remove -y doxygen
@@ -22,11 +21,12 @@ jobs:
       - name: Install Graphviz
         run: sudo apt-get update && sudo apt-get install -y graphviz
 
-      # 2️⃣ PREPARE OUTPUT + THEME **BEFORE** DOXYGEN
-      - name: Prepare doxygen-awesome theme
+      - name: Prepare Doxygen Awesome theme
         run: |
-          mkdir -p docs/html
-          cp docs/theme/doxygen-awesome.css docs/html/
+          mkdir -p theme
+          cp docs/theme/doxygen-awesome.css theme/doxygen-awesome.css
+          ls -la
+
 
       # 3️⃣ Generate documentation
       - name: Generate documentation
