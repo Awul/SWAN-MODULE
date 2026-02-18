@@ -21,5 +21,4 @@ HTML_DYNAMIC_SECTIONS  = YES    # collapsible sections
 HTML_EXTRA_STYLESHEET = theme/doxygen-awesome.css
 
 
-# JS for dark mode toggle
-#HTML_EXTRA_FILES       = docs/theme/doxygen-awesome-darkmode-toggle.js
+
