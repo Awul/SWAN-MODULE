@@ -18,7 +18,8 @@ GENERATE_HTML          = YES
 HTML_DYNAMIC_SECTIONS  = YES    # collapsible sections
 
 # Sidebar-only Awesome theme CSS
-HTML_EXTRA_STYLESHEET  = docs/theme/doxygen-awesome.css
+HTML_EXTRA_STYLESHEET = theme/doxygen-awesome.css
+
 
 # JS for dark mode toggle
 #HTML_EXTRA_FILES       = docs/theme/doxygen-awesome-darkmode-toggle.js
