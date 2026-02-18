@@ -2,20 +2,21 @@ name: Build Docs
 
 on:
   push:
-    branches:
-      - main  # or master
+    branches: [ main ]
 
 jobs:
   build-docs:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Install dependencies
+      - name: Install Doxygen and Graphviz
         run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
 
-      - name: Generate Doxygen documentation
+      - name: Debug folder
+        run: ls -la  # confirm Doxyfile is here
+
+      - name: Generate documentation
         run: doxygen Doxyfile
 
       - name: Deploy to GitHub Pages
@@ -23,3 +24,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/html
+          user_name: github-actions
+          user_email: github-actions@github.com
+          commit_message: "Update documentation"
