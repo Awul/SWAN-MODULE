@@ -1,45 +1,30 @@
-name: Build Docs
+name: Deploy MkDocs Documentation
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main 
 
 jobs:
-  build-docs:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Install Doxygen 1.16.1
-        run: |
-          sudo apt remove -y doxygen
-          wget https://www.doxygen.nl/files/doxygen-1.16.1.linux.bin.tar.gz
-          tar -xzf doxygen-1.16.1.linux.bin.tar.gz
-          sudo cp doxygen-1.16.1/bin/doxygen /usr/local/bin/
-          doxygen --version
-
-      - name: Install Graphviz
-        run: sudo apt-get update && sudo apt-get install -y graphviz
-
-      - name: Prepare Doxygen Awesome theme
-        run: |
-          mkdir -p theme
-          cp docs/theme/doxygen-awesome.css theme/doxygen-awesome.css
-          ls -la
-
-      - name: Generate documentation
-        run: doxygen Doxyfile
-
-      - name: Debug Doxygen output
-        run: |
-          echo "==== docs ===="
-          ls -la docs || true
-          echo "==== docs/html ===="
-          ls -la docs/html || true
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/html
-          force_orphan: true
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs mkdocs-material pymdown-extensions
+
+      - name: Deploy MkDocs to GitHub Pages
+        run: |
+          mkdocs gh-deploy --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
