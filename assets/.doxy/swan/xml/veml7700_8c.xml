@@ -165,12 +165,12 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" line="49" column="18" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="49" bodyend="68"/>
       </memberdef>
-      <member refid="group__veml7700_1gab0046b26c04321b163b8ccf99b8132f9" kind="function"><name>veml7700_print_registers</name></member>
-      <member refid="group__veml7700_1ga006e7792045ae69f92ba4e700c13fe7a" kind="function"><name>veml7700_init</name></member>
-      <member refid="group__veml7700_1ga16eadd501548d1f9b92a332d1573f2c1" kind="function"><name>veml7700_read_als</name></member>
-      <member refid="group__veml7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kind="function"><name>veml7700_responsivity</name></member>
-      <member refid="group__veml7700_1gaad7e2b3b7923b3246c421bdded71534b" kind="function"><name>veml7700_gain_factor</name></member>
-      <member refid="group__veml7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kind="function"><name>veml7700_read_lux</name></member>
+      <member refid="group___v_e_m_l7700_1gab0046b26c04321b163b8ccf99b8132f9" kind="function"><name>veml7700_print_registers</name></member>
+      <member refid="group___v_e_m_l7700_1ga006e7792045ae69f92ba4e700c13fe7a" kind="function"><name>veml7700_init</name></member>
+      <member refid="group___v_e_m_l7700_1ga16eadd501548d1f9b92a332d1573f2c1" kind="function"><name>veml7700_read_als</name></member>
+      <member refid="group___v_e_m_l7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kind="function"><name>veml7700_responsivity</name></member>
+      <member refid="group___v_e_m_l7700_1gaad7e2b3b7923b3246c421bdded71534b" kind="function"><name>veml7700_gain_factor</name></member>
+      <member refid="group___v_e_m_l7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kind="function"><name>veml7700_read_lux</name></member>
     </sectiondef>
     <briefdescription>
 <para>VEML7700 ambient light sensor driver implementation. </para>
@@ -222,7 +222,7 @@
 <codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>err;</highlight></codeline>
 <codeline lineno="68"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__veml7700_1gab0046b26c04321b163b8ccf99b8132f9" kindref="member">veml7700_print_registers</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___v_e_m_l7700_1gab0046b26c04321b163b8ccf99b8132f9" kindref="member">veml7700_print_registers</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev)</highlight></codeline>
 <codeline lineno="71"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>registers<sp/>are<sp/>all<sp/>16-bit</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>r[8];</highlight></codeline>
@@ -304,30 +304,30 @@
 <codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;==========================================&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="150"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"></highlight></codeline>
-<codeline lineno="152"><highlight class="normal">esp_err_t<sp/><ref refid="group__veml7700_1ga006e7792045ae69f92ba4e700c13fe7a" kindref="member">veml7700_init</ref>(<ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev,<sp/>i2c_port_t<sp/>port)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">esp_err_t<sp/><ref refid="group___v_e_m_l7700_1ga006e7792045ae69f92ba4e700c13fe7a" kindref="member">veml7700_init</ref>(<ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev,<sp/>i2c_port_t<sp/>port)</highlight></codeline>
 <codeline lineno="153"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dev)<sp/>{</highlight></codeline>
 <codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_ERR_INVALID_ARG;</highlight></codeline>
 <codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="157"><highlight class="normal"></highlight></codeline>
 <codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>dev-&gt;<ref refid="structveml7700__t_1ad1f0f7733534deeaef959b9fcb340115" kindref="member">i2c_port</ref><sp/>=<sp/>port;</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>dev-&gt;<ref refid="structveml7700__t_1ab2cce0803e5b6c79f176e22e51181e0a" kindref="member">i2c_addr</ref><sp/>=<sp/><ref refid="group__veml7700_1gabac407cb1f1d1116af61cfb34b2c9f6e" kindref="member">VEML7700_I2C_ADDR_DEFAULT</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>dev-&gt;<ref refid="structveml7700__t_1ab2cce0803e5b6c79f176e22e51181e0a" kindref="member">i2c_addr</ref><sp/>=<sp/><ref refid="group___v_e_m_l7700_1gabac407cb1f1d1116af61cfb34b2c9f6e" kindref="member">VEML7700_I2C_ADDR_DEFAULT</ref>;</highlight></codeline>
 <codeline lineno="160"><highlight class="normal"></highlight></codeline>
 <codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Power<sp/>on<sp/>the<sp/>sensor<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(veml7700_write16(dev,<sp/><ref refid="group__veml7700_1gaf9030eb4b977b04cfb9e62b7b6cb49ab" kindref="member">VEML7700_REG_POWER_SAVING</ref>,<sp/>0x0000));</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(veml7700_write16(dev,<sp/><ref refid="group___v_e_m_l7700_1gaf9030eb4b977b04cfb9e62b7b6cb49ab" kindref="member">VEML7700_REG_POWER_SAVING</ref>,<sp/>0x0000));</highlight></codeline>
 <codeline lineno="163"><highlight class="normal"></highlight></codeline>
 <codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Default<sp/>ALS<sp/>configuration:</highlight></codeline>
 <codeline lineno="165"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Gain<sp/>=<sp/>1×</highlight></codeline>
 <codeline lineno="166"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Integration<sp/>time<sp/>=<sp/>100<sp/>ms</highlight></codeline>
 <codeline lineno="167"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>ALS<sp/>enabled</highlight></codeline>
 <codeline lineno="168"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(veml7700_write16(dev,<sp/><ref refid="group__veml7700_1ga582090a184b871e34a88052d3561b467" kindref="member">VEML7700_REG_ALS_CONF_0</ref>,<sp/>0x0000));</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(veml7700_write16(dev,<sp/><ref refid="group___v_e_m_l7700_1ga582090a184b871e34a88052d3561b467" kindref="member">VEML7700_REG_ALS_CONF_0</ref>,<sp/>0x0000));</highlight></codeline>
 <codeline lineno="170"><highlight class="normal"></highlight></codeline>
 <codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(10));</highlight></codeline>
 <codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_OK;</highlight></codeline>
 <codeline lineno="173"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="174"><highlight class="normal"></highlight></codeline>
-<codeline lineno="175"><highlight class="normal">esp_err_t<sp/><ref refid="group__veml7700_1ga16eadd501548d1f9b92a332d1573f2c1" kindref="member">veml7700_read_als</ref>(<ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev,<sp/>uint16_t<sp/>*als)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">esp_err_t<sp/><ref refid="group___v_e_m_l7700_1ga16eadd501548d1f9b92a332d1573f2c1" kindref="member">veml7700_read_als</ref>(<ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev,<sp/>uint16_t<sp/>*als)</highlight></codeline>
 <codeline lineno="176"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dev<sp/>||<sp/>!als)<sp/>{</highlight></codeline>
 <codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_ERR_INVALID_ARG;</highlight></codeline>
@@ -335,10 +335,10 @@
 <codeline lineno="180"><highlight class="normal"></highlight></codeline>
 <codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>ALS<sp/>register<sp/>is<sp/>16-bit,<sp/>so<sp/>we<sp/>can<sp/>use<sp/>the<sp/>read16<sp/>helper<sp/>function</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>reads<sp/>the<sp/>ALS<sp/>but<sp/>not<sp/>the<sp/>WHITE<sp/>channel.<sp/>The<sp/>white<sp/>channel<sp/>can<sp/>be<sp/>read<sp/>separately<sp/>if<sp/>needed.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>veml7700_read16(dev,<sp/><ref refid="group__veml7700_1gaf29161b09b43a08270b5ea6ad82903bc" kindref="member">VEML7700_REG_ALS</ref>,<sp/>als);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>veml7700_read16(dev,<sp/><ref refid="group___v_e_m_l7700_1gaf29161b09b43a08270b5ea6ad82903bc" kindref="member">VEML7700_REG_ALS</ref>,<sp/>als);</highlight></codeline>
 <codeline lineno="184"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="185"><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__veml7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kindref="member">veml7700_responsivity</ref>(uint8_t<sp/>it_bits)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group___v_e_m_l7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kindref="member">veml7700_responsivity</ref>(uint8_t<sp/>it_bits)<sp/>{</highlight></codeline>
 <codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(it_bits)<sp/>{</highlight></codeline>
 <codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b1100:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.2304f;<sp/></highlight><highlight class="comment">//<sp/>25<sp/>ms</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b1000:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.1152f;<sp/></highlight><highlight class="comment">//<sp/>50<sp/>ms</highlight><highlight class="normal"></highlight></codeline>
@@ -350,7 +350,7 @@
 <codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0576f;<sp/></highlight><highlight class="comment">//<sp/>fallback<sp/>100<sp/>ms</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="199"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="200"><highlight class="normal"></highlight></codeline>
-<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__veml7700_1gaad7e2b3b7923b3246c421bdded71534b" kindref="member">veml7700_gain_factor</ref>(uint8_t<sp/>gain_bits)<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group___v_e_m_l7700_1gaad7e2b3b7923b3246c421bdded71534b" kindref="member">veml7700_gain_factor</ref>(uint8_t<sp/>gain_bits)<sp/>{</highlight></codeline>
 <codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(gain_bits)<sp/>{</highlight></codeline>
 <codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b00:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1.0f;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>x1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b01:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>2.0f;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>x2</highlight><highlight class="normal"></highlight></codeline>
@@ -360,7 +360,7 @@
 <codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1.0f;<sp/></highlight><highlight class="comment">//<sp/>fallback</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="212"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="213"><highlight class="normal"></highlight></codeline>
-<codeline lineno="214"><highlight class="normal">esp_err_t<sp/><ref refid="group__veml7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kindref="member">veml7700_read_lux</ref>(<ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*lux)</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">esp_err_t<sp/><ref refid="group___v_e_m_l7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kindref="member">veml7700_read_lux</ref>(<ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*lux)</highlight></codeline>
 <codeline lineno="215"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dev<sp/>||<sp/>!lux)<sp/>{</highlight></codeline>
 <codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_ERR_INVALID_ARG;</highlight></codeline>
@@ -370,11 +370,11 @@
 <codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>esp_err_t<sp/>ret;</highlight></codeline>
 <codeline lineno="222"><highlight class="normal"></highlight></codeline>
 <codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//read<sp/>ALS_CONF_0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/>veml7700_read16(dev,<sp/><ref refid="group__veml7700_1ga582090a184b871e34a88052d3561b467" kindref="member">VEML7700_REG_ALS_CONF_0</ref>,<sp/>&amp;als_conf);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/>veml7700_read16(dev,<sp/><ref refid="group___v_e_m_l7700_1ga582090a184b871e34a88052d3561b467" kindref="member">VEML7700_REG_ALS_CONF_0</ref>,<sp/>&amp;als_conf);</highlight></codeline>
 <codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>ESP_OK)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
 <codeline lineno="226"><highlight class="normal"></highlight></codeline>
 <codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//read<sp/>ALS<sp/>data</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="group__veml7700_1ga16eadd501548d1f9b92a332d1573f2c1" kindref="member">veml7700_read_als</ref>(dev,<sp/>&amp;als_data);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="group___v_e_m_l7700_1ga16eadd501548d1f9b92a332d1573f2c1" kindref="member">veml7700_read_als</ref>(dev,<sp/>&amp;als_data);</highlight></codeline>
 <codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>ESP_OK)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
 <codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>gain<sp/>and<sp/>integration<sp/>time<sp/>settings<sp/>from<sp/>the<sp/>configuration<sp/>register</highlight><highlight class="normal"></highlight></codeline>
@@ -382,8 +382,8 @@
 <codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>it_bits<sp/><sp/><sp/>=<sp/>(als_conf<sp/>&gt;&gt;<sp/>6)<sp/><sp/>&amp;<sp/>0x0F;</highlight></codeline>
 <codeline lineno="234"><highlight class="normal"></highlight></codeline>
 <codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Lookup<sp/>gain<sp/>factor<sp/>and<sp/>responsivity</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>gain_factor<sp/>=<sp/><ref refid="group__veml7700_1gaad7e2b3b7923b3246c421bdded71534b" kindref="member">veml7700_gain_factor</ref>(gain_bits);</highlight></codeline>
-<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>responsivity<sp/>=<sp/><ref refid="group__veml7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kindref="member">veml7700_responsivity</ref>(it_bits);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>gain_factor<sp/>=<sp/><ref refid="group___v_e_m_l7700_1gaad7e2b3b7923b3246c421bdded71534b" kindref="member">veml7700_gain_factor</ref>(gain_bits);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>responsivity<sp/>=<sp/><ref refid="group___v_e_m_l7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kindref="member">veml7700_responsivity</ref>(it_bits);</highlight></codeline>
 <codeline lineno="238"><highlight class="normal"></highlight></codeline>
 <codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Conversion<sp/>of<sp/>als_data<sp/>to<sp/>lux</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>*lux<sp/>=<sp/>als_data<sp/>/<sp/>gain_factor<sp/>*<sp/>responsivity;</highlight></codeline>

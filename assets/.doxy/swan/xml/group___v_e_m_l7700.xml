@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
-  <compounddef id="group__veml7700" kind="group">
-    <compoundname>veml7700</compoundname>
+  <compounddef id="group___v_e_m_l7700" kind="group">
+    <compoundname>VEML7700</compoundname>
     <title>VEML7700 Ambient Light Sensor</title>
     <innerclass refid="structveml7700__t" prot="public">veml7700_t</innerclass>
     <sectiondef kind="func">
-      <memberdef kind="function" id="group__veml7700_1ga006e7792045ae69f92ba4e700c13fe7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group___v_e_m_l7700_1ga006e7792045ae69f92ba4e700c13fe7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>esp_err_t</type>
         <definition>esp_err_t veml7700_init</definition>
         <argsstring>(veml7700_t *dev, i2c_port_t port)</argsstring>
@@ -52,7 +52,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="76" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="152" bodyend="173" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" declline="76" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="group__veml7700_1ga16eadd501548d1f9b92a332d1573f2c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group___v_e_m_l7700_1ga16eadd501548d1f9b92a332d1573f2c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>esp_err_t</type>
         <definition>esp_err_t veml7700_read_als</definition>
         <argsstring>(veml7700_t *dev, uint16_t *als)</argsstring>
@@ -99,7 +99,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="91" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="175" bodyend="184" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" declline="91" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="group__veml7700_1ga6e783ea941b281e5de9b29f27ff36cc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group___v_e_m_l7700_1ga6e783ea941b281e5de9b29f27ff36cc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>esp_err_t</type>
         <definition>esp_err_t veml7700_read_lux</definition>
         <argsstring>(veml7700_t *dev, float *lux)</argsstring>
@@ -146,7 +146,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="106" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="214" bodyend="242" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" declline="106" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="group__veml7700_1ga0f667070dbcbb366e7c1d64d68bd6197" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group___v_e_m_l7700_1ga0f667070dbcbb366e7c1d64d68bd6197" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
         <definition>float veml7700_responsivity</definition>
         <argsstring>(uint8_t it_bits)</argsstring>
@@ -177,7 +177,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="116" column="7" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="189" bodyend="199" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" declline="116" declcolumn="7"/>
       </memberdef>
-      <memberdef kind="function" id="group__veml7700_1gaad7e2b3b7923b3246c421bdded71534b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group___v_e_m_l7700_1gaad7e2b3b7923b3246c421bdded71534b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
         <definition>float veml7700_gain_factor</definition>
         <argsstring>(uint8_t gain_bits)</argsstring>
@@ -208,7 +208,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="126" column="7" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="204" bodyend="212" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" declline="126" declcolumn="7"/>
       </memberdef>
-      <memberdef kind="function" id="group__veml7700_1gab0046b26c04321b163b8ccf99b8132f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group___v_e_m_l7700_1gab0046b26c04321b163b8ccf99b8132f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void veml7700_print_registers</definition>
         <argsstring>(const veml7700_t *dev)</argsstring>
@@ -247,7 +247,7 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="define">
-      <memberdef kind="define" id="group__veml7700_1ga582090a184b871e34a88052d3561b467" prot="public" static="no">
+      <memberdef kind="define" id="group___v_e_m_l7700_1ga582090a184b871e34a88052d3561b467" prot="public" static="no">
         <name>VEML7700_REG_ALS_CONF_0</name>
         <initializer>0x00</initializer>
         <briefdescription>
@@ -259,7 +259,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="29" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="29" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="group__veml7700_1gac46b25f024c98c50e30008ff9e20a565" prot="public" static="no">
+      <memberdef kind="define" id="group___v_e_m_l7700_1gac46b25f024c98c50e30008ff9e20a565" prot="public" static="no">
         <name>VEML7700_REG_ALS_WH</name>
         <initializer>0x01</initializer>
         <briefdescription>
@@ -271,7 +271,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="31" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="31" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="group__veml7700_1ga02fa2685d96794746e8a73ba6e932943" prot="public" static="no">
+      <memberdef kind="define" id="group___v_e_m_l7700_1ga02fa2685d96794746e8a73ba6e932943" prot="public" static="no">
         <name>VEML7700_REG_ALS_WL</name>
         <initializer>0x02</initializer>
         <briefdescription>
@@ -283,7 +283,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="33" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="33" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="group__veml7700_1gaf9030eb4b977b04cfb9e62b7b6cb49ab" prot="public" static="no">
+      <memberdef kind="define" id="group___v_e_m_l7700_1gaf9030eb4b977b04cfb9e62b7b6cb49ab" prot="public" static="no">
         <name>VEML7700_REG_POWER_SAVING</name>
         <initializer>0x03</initializer>
         <briefdescription>
@@ -295,7 +295,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="35" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="35" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="group__veml7700_1gaf29161b09b43a08270b5ea6ad82903bc" prot="public" static="no">
+      <memberdef kind="define" id="group___v_e_m_l7700_1gaf29161b09b43a08270b5ea6ad82903bc" prot="public" static="no">
         <name>VEML7700_REG_ALS</name>
         <initializer>0x04</initializer>
         <briefdescription>
@@ -307,7 +307,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="37" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="37" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="group__veml7700_1ga2f2dd0aab64d80bf86d45c76f7e35fe0" prot="public" static="no">
+      <memberdef kind="define" id="group___v_e_m_l7700_1ga2f2dd0aab64d80bf86d45c76f7e35fe0" prot="public" static="no">
         <name>VEML7700_REG_WHITE</name>
         <initializer>0x05</initializer>
         <briefdescription>
@@ -319,7 +319,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="39" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="39" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="group__veml7700_1gaa04f26be4201ef5be609d41492ef3a86" prot="public" static="no">
+      <memberdef kind="define" id="group___v_e_m_l7700_1gaa04f26be4201ef5be609d41492ef3a86" prot="public" static="no">
         <name>VEML7700_REG_ALS_INT</name>
         <initializer>0x06</initializer>
         <briefdescription>
@@ -331,7 +331,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="41" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="41" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="group__veml7700_1ga413d603676c94f679618845a2d865f87" prot="public" static="no">
+      <memberdef kind="define" id="group___v_e_m_l7700_1ga413d603676c94f679618845a2d865f87" prot="public" static="no">
         <name>VEML7700_REG_ID</name>
         <initializer>0x07</initializer>
         <briefdescription>
@@ -343,7 +343,7 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="43" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="43" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="group__veml7700_1gabac407cb1f1d1116af61cfb34b2c9f6e" prot="public" static="no">
+      <memberdef kind="define" id="group___v_e_m_l7700_1gabac407cb1f1d1116af61cfb34b2c9f6e" prot="public" static="no">
         <name>VEML7700_I2C_ADDR_DEFAULT</name>
         <initializer>0x10</initializer>
         <briefdescription>

@@ -1,10 +1,10 @@
 
 
-# Group veml7700
+# Group VEML7700
 
 
 
-[**Modules**](modules.md) **>** [**veml7700**](group__veml7700.md)
+[**Modules**](modules.md) **>** [**VEML7700**](group___v_e_m_l7700.md)
 
 
 
@@ -93,15 +93,15 @@
 
 | Type | Name |
 | ---: | :--- |
-| define  | [**VEML7700\_I2C\_ADDR\_DEFAULT**](group__veml7700.md#define-veml7700_i2c_addr_default)  `0x10`<br>_VEML7700 I2C address._  |
-| define  | [**VEML7700\_REG\_ALS**](group__veml7700.md#define-veml7700_reg_als)  `0x04`<br>_ALS measurement output._  |
-| define  | [**VEML7700\_REG\_ALS\_CONF\_0**](group__veml7700.md#define-veml7700_reg_als_conf_0)  `0x00`<br>_ALS configuration register._  |
-| define  | [**VEML7700\_REG\_ALS\_INT**](group__veml7700.md#define-veml7700_reg_als_int)  `0x06`<br>_Interrupt status register._  |
-| define  | [**VEML7700\_REG\_ALS\_WH**](group__veml7700.md#define-veml7700_reg_als_wh)  `0x01`<br>_ALS high threshold window._  |
-| define  | [**VEML7700\_REG\_ALS\_WL**](group__veml7700.md#define-veml7700_reg_als_wl)  `0x02`<br>_ALS low threshold window._  |
-| define  | [**VEML7700\_REG\_ID**](group__veml7700.md#define-veml7700_reg_id)  `0x07`<br>_Device ID register._  |
-| define  | [**VEML7700\_REG\_POWER\_SAVING**](group__veml7700.md#define-veml7700_reg_power_saving)  `0x03`<br>_Power saving mode register._  |
-| define  | [**VEML7700\_REG\_WHITE**](group__veml7700.md#define-veml7700_reg_white)  `0x05`<br>_White channel measurement output._  |
+| define  | [**VEML7700\_I2C\_ADDR\_DEFAULT**](group___v_e_m_l7700.md#define-veml7700_i2c_addr_default)  `0x10`<br>_VEML7700 I2C address._  |
+| define  | [**VEML7700\_REG\_ALS**](group___v_e_m_l7700.md#define-veml7700_reg_als)  `0x04`<br>_ALS measurement output._  |
+| define  | [**VEML7700\_REG\_ALS\_CONF\_0**](group___v_e_m_l7700.md#define-veml7700_reg_als_conf_0)  `0x00`<br>_ALS configuration register._  |
+| define  | [**VEML7700\_REG\_ALS\_INT**](group___v_e_m_l7700.md#define-veml7700_reg_als_int)  `0x06`<br>_Interrupt status register._  |
+| define  | [**VEML7700\_REG\_ALS\_WH**](group___v_e_m_l7700.md#define-veml7700_reg_als_wh)  `0x01`<br>_ALS high threshold window._  |
+| define  | [**VEML7700\_REG\_ALS\_WL**](group___v_e_m_l7700.md#define-veml7700_reg_als_wl)  `0x02`<br>_ALS low threshold window._  |
+| define  | [**VEML7700\_REG\_ID**](group___v_e_m_l7700.md#define-veml7700_reg_id)  `0x07`<br>_Device ID register._  |
+| define  | [**VEML7700\_REG\_POWER\_SAVING**](group___v_e_m_l7700.md#define-veml7700_reg_power_saving)  `0x03`<br>_Power saving mode register._  |
+| define  | [**VEML7700\_REG\_WHITE**](group___v_e_m_l7700.md#define-veml7700_reg_white)  `0x05`<br>_White channel measurement output._  |
 
 ## Public Functions Documentation
 

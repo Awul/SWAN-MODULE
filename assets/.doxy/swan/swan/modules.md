@@ -17,7 +17,7 @@ Here is a list of all modules:
 
 
 
-* [**VEML7700 Ambient Light Sensor**](group__veml7700.md) 
+* [**VEML7700 Ambient Light Sensor**](group___v_e_m_l7700.md) 
     
 
 

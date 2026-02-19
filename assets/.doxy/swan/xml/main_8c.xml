@@ -162,9 +162,9 @@
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Scan<sp/>for<sp/>devices</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___i2_c___b_u_s_1gaa819bd0ae3c495644c3a9ffc26abee4e" kindref="member">i2c_scan</ref>();</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__veml7700_1ga006e7792045ae69f92ba4e700c13fe7a" kindref="member">veml7700_init</ref>(&amp;veml_sensor,<sp/><ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___v_e_m_l7700_1ga006e7792045ae69f92ba4e700c13fe7a" kindref="member">veml7700_init</ref>(&amp;veml_sensor,<sp/><ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>);</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__veml7700_1gab0046b26c04321b163b8ccf99b8132f9" kindref="member">veml7700_print_registers</ref>(&amp;veml_sensor);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___v_e_m_l7700_1gab0046b26c04321b163b8ccf99b8132f9" kindref="member">veml7700_print_registers</ref>(&amp;veml_sensor);</highlight></codeline>
 <codeline lineno="33"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>app_main(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
@@ -174,7 +174,7 @@
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(1)<sp/>{</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>lux;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>esp_err_t<sp/>err<sp/>=<sp/><ref refid="group__veml7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kindref="member">veml7700_read_lux</ref>(&amp;veml_sensor,<sp/>&amp;lux);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>esp_err_t<sp/>err<sp/>=<sp/><ref refid="group___v_e_m_l7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kindref="member">veml7700_read_lux</ref>(&amp;veml_sensor,<sp/>&amp;lux);</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(err<sp/>==<sp/>ESP_OK)<sp/>{</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Ambient<sp/>Light:<sp/>%.2f<sp/>lux&quot;</highlight><highlight class="normal">,<sp/>lux);</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>

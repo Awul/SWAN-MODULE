@@ -1881,29 +1881,29 @@
   <compound refid="veml7700_8c" kind="file"><name>veml7700.c</name>
     <member refid="veml7700_8c_1ae07d3b9e289868dfd2a524a25caa8005" kind="function"><name>veml7700_write16</name></member>
     <member refid="veml7700_8c_1a90daf0d5a7c6e40015c3e88799c58715" kind="function"><name>veml7700_read16</name></member>
-    <member refid="group__veml7700_1gab0046b26c04321b163b8ccf99b8132f9" kind="function"><name>veml7700_print_registers</name></member>
-    <member refid="group__veml7700_1ga006e7792045ae69f92ba4e700c13fe7a" kind="function"><name>veml7700_init</name></member>
-    <member refid="group__veml7700_1ga16eadd501548d1f9b92a332d1573f2c1" kind="function"><name>veml7700_read_als</name></member>
-    <member refid="group__veml7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kind="function"><name>veml7700_responsivity</name></member>
-    <member refid="group__veml7700_1gaad7e2b3b7923b3246c421bdded71534b" kind="function"><name>veml7700_gain_factor</name></member>
-    <member refid="group__veml7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kind="function"><name>veml7700_read_lux</name></member>
+    <member refid="group___v_e_m_l7700_1gab0046b26c04321b163b8ccf99b8132f9" kind="function"><name>veml7700_print_registers</name></member>
+    <member refid="group___v_e_m_l7700_1ga006e7792045ae69f92ba4e700c13fe7a" kind="function"><name>veml7700_init</name></member>
+    <member refid="group___v_e_m_l7700_1ga16eadd501548d1f9b92a332d1573f2c1" kind="function"><name>veml7700_read_als</name></member>
+    <member refid="group___v_e_m_l7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kind="function"><name>veml7700_responsivity</name></member>
+    <member refid="group___v_e_m_l7700_1gaad7e2b3b7923b3246c421bdded71534b" kind="function"><name>veml7700_gain_factor</name></member>
+    <member refid="group___v_e_m_l7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kind="function"><name>veml7700_read_lux</name></member>
   </compound>
   <compound refid="veml7700_8h" kind="file"><name>veml7700.h</name>
-    <member refid="group__veml7700_1ga582090a184b871e34a88052d3561b467" kind="define"><name>VEML7700_REG_ALS_CONF_0</name></member>
-    <member refid="group__veml7700_1gac46b25f024c98c50e30008ff9e20a565" kind="define"><name>VEML7700_REG_ALS_WH</name></member>
-    <member refid="group__veml7700_1ga02fa2685d96794746e8a73ba6e932943" kind="define"><name>VEML7700_REG_ALS_WL</name></member>
-    <member refid="group__veml7700_1gaf9030eb4b977b04cfb9e62b7b6cb49ab" kind="define"><name>VEML7700_REG_POWER_SAVING</name></member>
-    <member refid="group__veml7700_1gaf29161b09b43a08270b5ea6ad82903bc" kind="define"><name>VEML7700_REG_ALS</name></member>
-    <member refid="group__veml7700_1ga2f2dd0aab64d80bf86d45c76f7e35fe0" kind="define"><name>VEML7700_REG_WHITE</name></member>
-    <member refid="group__veml7700_1gaa04f26be4201ef5be609d41492ef3a86" kind="define"><name>VEML7700_REG_ALS_INT</name></member>
-    <member refid="group__veml7700_1ga413d603676c94f679618845a2d865f87" kind="define"><name>VEML7700_REG_ID</name></member>
-    <member refid="group__veml7700_1gabac407cb1f1d1116af61cfb34b2c9f6e" kind="define"><name>VEML7700_I2C_ADDR_DEFAULT</name></member>
-    <member refid="group__veml7700_1ga006e7792045ae69f92ba4e700c13fe7a" kind="function"><name>veml7700_init</name></member>
-    <member refid="group__veml7700_1ga16eadd501548d1f9b92a332d1573f2c1" kind="function"><name>veml7700_read_als</name></member>
-    <member refid="group__veml7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kind="function"><name>veml7700_read_lux</name></member>
-    <member refid="group__veml7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kind="function"><name>veml7700_responsivity</name></member>
-    <member refid="group__veml7700_1gaad7e2b3b7923b3246c421bdded71534b" kind="function"><name>veml7700_gain_factor</name></member>
-    <member refid="group__veml7700_1gab0046b26c04321b163b8ccf99b8132f9" kind="function"><name>veml7700_print_registers</name></member>
+    <member refid="group___v_e_m_l7700_1ga582090a184b871e34a88052d3561b467" kind="define"><name>VEML7700_REG_ALS_CONF_0</name></member>
+    <member refid="group___v_e_m_l7700_1gac46b25f024c98c50e30008ff9e20a565" kind="define"><name>VEML7700_REG_ALS_WH</name></member>
+    <member refid="group___v_e_m_l7700_1ga02fa2685d96794746e8a73ba6e932943" kind="define"><name>VEML7700_REG_ALS_WL</name></member>
+    <member refid="group___v_e_m_l7700_1gaf9030eb4b977b04cfb9e62b7b6cb49ab" kind="define"><name>VEML7700_REG_POWER_SAVING</name></member>
+    <member refid="group___v_e_m_l7700_1gaf29161b09b43a08270b5ea6ad82903bc" kind="define"><name>VEML7700_REG_ALS</name></member>
+    <member refid="group___v_e_m_l7700_1ga2f2dd0aab64d80bf86d45c76f7e35fe0" kind="define"><name>VEML7700_REG_WHITE</name></member>
+    <member refid="group___v_e_m_l7700_1gaa04f26be4201ef5be609d41492ef3a86" kind="define"><name>VEML7700_REG_ALS_INT</name></member>
+    <member refid="group___v_e_m_l7700_1ga413d603676c94f679618845a2d865f87" kind="define"><name>VEML7700_REG_ID</name></member>
+    <member refid="group___v_e_m_l7700_1gabac407cb1f1d1116af61cfb34b2c9f6e" kind="define"><name>VEML7700_I2C_ADDR_DEFAULT</name></member>
+    <member refid="group___v_e_m_l7700_1ga006e7792045ae69f92ba4e700c13fe7a" kind="function"><name>veml7700_init</name></member>
+    <member refid="group___v_e_m_l7700_1ga16eadd501548d1f9b92a332d1573f2c1" kind="function"><name>veml7700_read_als</name></member>
+    <member refid="group___v_e_m_l7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kind="function"><name>veml7700_read_lux</name></member>
+    <member refid="group___v_e_m_l7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kind="function"><name>veml7700_responsivity</name></member>
+    <member refid="group___v_e_m_l7700_1gaad7e2b3b7923b3246c421bdded71534b" kind="function"><name>veml7700_gain_factor</name></member>
+    <member refid="group___v_e_m_l7700_1gab0046b26c04321b163b8ccf99b8132f9" kind="function"><name>veml7700_print_registers</name></member>
   </compound>
   <compound refid="license_8md" kind="file"><name>license.md</name>
   </compound>
@@ -1936,22 +1936,22 @@
     <member refid="group___i2_c___b_u_s_1ga212ca328a6409c98f8c3dfbbe1ba561d" kind="define"><name>I2C_SCL</name></member>
     <member refid="group___i2_c___b_u_s_1ga8b7500a141450a9df212017430c0df9e" kind="define"><name>I2C_FREQ</name></member>
   </compound>
-  <compound refid="group__veml7700" kind="group"><name>veml7700</name>
-    <member refid="group__veml7700_1ga006e7792045ae69f92ba4e700c13fe7a" kind="function"><name>veml7700_init</name></member>
-    <member refid="group__veml7700_1ga16eadd501548d1f9b92a332d1573f2c1" kind="function"><name>veml7700_read_als</name></member>
-    <member refid="group__veml7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kind="function"><name>veml7700_read_lux</name></member>
-    <member refid="group__veml7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kind="function"><name>veml7700_responsivity</name></member>
-    <member refid="group__veml7700_1gaad7e2b3b7923b3246c421bdded71534b" kind="function"><name>veml7700_gain_factor</name></member>
-    <member refid="group__veml7700_1gab0046b26c04321b163b8ccf99b8132f9" kind="function"><name>veml7700_print_registers</name></member>
-    <member refid="group__veml7700_1ga582090a184b871e34a88052d3561b467" kind="define"><name>VEML7700_REG_ALS_CONF_0</name></member>
-    <member refid="group__veml7700_1gac46b25f024c98c50e30008ff9e20a565" kind="define"><name>VEML7700_REG_ALS_WH</name></member>
-    <member refid="group__veml7700_1ga02fa2685d96794746e8a73ba6e932943" kind="define"><name>VEML7700_REG_ALS_WL</name></member>
-    <member refid="group__veml7700_1gaf9030eb4b977b04cfb9e62b7b6cb49ab" kind="define"><name>VEML7700_REG_POWER_SAVING</name></member>
-    <member refid="group__veml7700_1gaf29161b09b43a08270b5ea6ad82903bc" kind="define"><name>VEML7700_REG_ALS</name></member>
-    <member refid="group__veml7700_1ga2f2dd0aab64d80bf86d45c76f7e35fe0" kind="define"><name>VEML7700_REG_WHITE</name></member>
-    <member refid="group__veml7700_1gaa04f26be4201ef5be609d41492ef3a86" kind="define"><name>VEML7700_REG_ALS_INT</name></member>
-    <member refid="group__veml7700_1ga413d603676c94f679618845a2d865f87" kind="define"><name>VEML7700_REG_ID</name></member>
-    <member refid="group__veml7700_1gabac407cb1f1d1116af61cfb34b2c9f6e" kind="define"><name>VEML7700_I2C_ADDR_DEFAULT</name></member>
+  <compound refid="group___v_e_m_l7700" kind="group"><name>VEML7700</name>
+    <member refid="group___v_e_m_l7700_1ga006e7792045ae69f92ba4e700c13fe7a" kind="function"><name>veml7700_init</name></member>
+    <member refid="group___v_e_m_l7700_1ga16eadd501548d1f9b92a332d1573f2c1" kind="function"><name>veml7700_read_als</name></member>
+    <member refid="group___v_e_m_l7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kind="function"><name>veml7700_read_lux</name></member>
+    <member refid="group___v_e_m_l7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kind="function"><name>veml7700_responsivity</name></member>
+    <member refid="group___v_e_m_l7700_1gaad7e2b3b7923b3246c421bdded71534b" kind="function"><name>veml7700_gain_factor</name></member>
+    <member refid="group___v_e_m_l7700_1gab0046b26c04321b163b8ccf99b8132f9" kind="function"><name>veml7700_print_registers</name></member>
+    <member refid="group___v_e_m_l7700_1ga582090a184b871e34a88052d3561b467" kind="define"><name>VEML7700_REG_ALS_CONF_0</name></member>
+    <member refid="group___v_e_m_l7700_1gac46b25f024c98c50e30008ff9e20a565" kind="define"><name>VEML7700_REG_ALS_WH</name></member>
+    <member refid="group___v_e_m_l7700_1ga02fa2685d96794746e8a73ba6e932943" kind="define"><name>VEML7700_REG_ALS_WL</name></member>
+    <member refid="group___v_e_m_l7700_1gaf9030eb4b977b04cfb9e62b7b6cb49ab" kind="define"><name>VEML7700_REG_POWER_SAVING</name></member>
+    <member refid="group___v_e_m_l7700_1gaf29161b09b43a08270b5ea6ad82903bc" kind="define"><name>VEML7700_REG_ALS</name></member>
+    <member refid="group___v_e_m_l7700_1ga2f2dd0aab64d80bf86d45c76f7e35fe0" kind="define"><name>VEML7700_REG_WHITE</name></member>
+    <member refid="group___v_e_m_l7700_1gaa04f26be4201ef5be609d41492ef3a86" kind="define"><name>VEML7700_REG_ALS_INT</name></member>
+    <member refid="group___v_e_m_l7700_1ga413d603676c94f679618845a2d865f87" kind="define"><name>VEML7700_REG_ID</name></member>
+    <member refid="group___v_e_m_l7700_1gabac407cb1f1d1116af61cfb34b2c9f6e" kind="define"><name>VEML7700_I2C_ADDR_DEFAULT</name></member>
   </compound>
   <compound refid="md_docs-site_2about_2license" kind="page"><name>md_docs-site_2about_2license</name>
   </compound>
