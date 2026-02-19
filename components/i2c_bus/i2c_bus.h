@@ -1,10 +1,9 @@
 /**
  * @file i2c_bus.h
- * @brief Thread-safe I2C bus access for multiple sensors
+ * @brief I2C Bus testing and utility module
  *
  * @defgroup I2C_BUS I2C Bus Module
- * This module provides a singleton I2C bus instance and
- * thread-safe functions to read/write over the bus.
+ * This module provides initialization, status reporting, and scanning utilities for the I2C bus.
  * @{
  */
 

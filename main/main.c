@@ -5,54 +5,14 @@
 #include "esp_err.h"
 
 #include "i2c_bus.h"
+#include "veml7700.h"
 
 #define TAG "MAIN"
 
-/*static void i2c_scan(void)
-{
-    printf("\nScanning I2C bus...\n");
+veml7700_t veml_sensor;
 
-    for (uint8_t addr = 3; addr < 0x78; addr++) {
-        i2c_cmd_handle_t cmd = i2c_cmd_link_create();
-        i2c_master_start(cmd);
-        i2c_master_write_byte(cmd, (addr << 1) | I2C_MASTER_WRITE, true);
-        i2c_master_stop(cmd);
-
-        esp_err_t ret = i2c_master_cmd_begin(I2C_PORT, cmd, pdMS_TO_TICKS(50));
-        i2c_cmd_link_delete(cmd);
-
-        if (ret == ESP_OK) {
-            printf("Found I2C device at 0x%02X\n", addr);
-        }
-    }
-
-    printf("Scan done.\n\n");
-}*/
-
-/*static void i2c_probe_veml7700(void)
-{
-    uint8_t addr = 0x10;
-
-    i2c_cmd_handle_t cmd = i2c_cmd_link_create();
-    i2c_master_start(cmd);
-    i2c_master_write_byte(cmd, (addr << 1) | I2C_MASTER_WRITE, true);
-    i2c_master_stop(cmd);
-
-    esp_err_t ret = i2c_master_cmd_begin(I2C_PORT, cmd, pdMS_TO_TICKS(100));
-    i2c_cmd_link_delete(cmd);
-
-    if (ret == ESP_OK) {
-        printf("VEML7700 FOUND at 0x10\n");
-    } else {
-        printf("No response from VEML7700 (err=%s)\n", esp_err_to_name(ret));
-    }
-}*/
-
-
-void app_main(void)
-{
-    ESP_LOGI(TAG, "BOOTING SWAN-MODULE");
-    vTaskDelay(pdMS_TO_TICKS(1000));
+void setup() {
+    ESP_LOGI(TAG, "Setting up SWAN MODULE...");
 
     // Initialize the I2C bus
     esp_err_t ret = i2c_bus_init();
@@ -67,20 +27,27 @@ void app_main(void)
     // Scan for devices
     i2c_scan();
 
-    // Read from VEML7700 (if present)
-    uint8_t device_addr = 0x10;       // your device's I2C address
-    uint8_t reg_addr = 0x00;          // register to read
-    uint8_t value = 0;
+    veml7700_init(&veml_sensor, I2C_PORT);
 
-    ret = i2c_master_write_read_device(I2C_PORT, device_addr, &reg_addr, 1, &value, 1, pdMS_TO_TICKS(100));
-    if (ret == ESP_OK) {
-        ESP_LOGI(TAG, "Read 0x%02X from device 0x%02X", value, device_addr);
-    } else {
-        ESP_LOGW(TAG, "Failed to read from device 0x%02X: %s", device_addr, esp_err_to_name(ret));
-    }
+    veml7700_print_registers(&veml_sensor);
+}
+
+void app_main(void)
+{
+    setup();
 
     while (1) {
+
+        float lux;
+        esp_err_t err = veml7700_read_lux(&veml_sensor, &lux);
+        if (err == ESP_OK) {
+            ESP_LOGI(TAG, "Ambient Light: %.2f lux", lux);
+        } else {
+            ESP_LOGE(TAG, "Failed to read lux: %s", esp_err_to_name(err));
+        }
+
         vTaskDelay(pdMS_TO_TICKS(5000));
+
         i2c_scan();
     }
 }
