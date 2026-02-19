@@ -1859,17 +1859,20 @@
   <compound refid="project__elf__src__esp32s3_8c" kind="file"><name>project_elf_src_esp32s3.c</name>
   </compound>
   <compound refid="i2c__bus_8c" kind="file"><name>i2c_bus.c</name>
-    <member refid="i2c__bus_8c_1a18aefd12ad84d4c33dc97923cb821e47" kind="define"><name>I2C_SDA</name></member>
-    <member refid="i2c__bus_8c_1a212ca328a6409c98f8c3dfbbe1ba561d" kind="define"><name>I2C_SCL</name></member>
-    <member refid="i2c__bus_8c_1a8b7500a141450a9df212017430c0df9e" kind="define"><name>I2C_FREQ</name></member>
+    <member refid="i2c__bus_8c_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>
     <member refid="i2c__bus_8c_1a43711ee8200bef84749449589ca78af2" kind="variable"><name>i2c_mutex</name></member>
     <member refid="group___i2_c___b_u_s_1ga47974f18a15ed3b8a3b65a1a8167c47c" kind="function"><name>i2c_bus_init</name></member>
-    <member refid="group___i2_c___b_u_s_1ga3d633f2ba7f05e5425f0293eca192e55" kind="function"><name>i2c_bus_write_read</name></member>
+    <member refid="group___i2_c___b_u_s_1ga10bdee66bb314fb8a15303e94fee1284" kind="function"><name>i2c_bus_status</name></member>
+    <member refid="group___i2_c___b_u_s_1gaa819bd0ae3c495644c3a9ffc26abee4e" kind="function"><name>i2c_scan</name></member>
   </compound>
   <compound refid="i2c__bus_8h" kind="file"><name>i2c_bus.h</name>
     <member refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kind="define"><name>I2C_PORT</name></member>
+    <member refid="group___i2_c___b_u_s_1ga18aefd12ad84d4c33dc97923cb821e47" kind="define"><name>I2C_SDA</name></member>
+    <member refid="group___i2_c___b_u_s_1ga212ca328a6409c98f8c3dfbbe1ba561d" kind="define"><name>I2C_SCL</name></member>
+    <member refid="group___i2_c___b_u_s_1ga8b7500a141450a9df212017430c0df9e" kind="define"><name>I2C_FREQ</name></member>
     <member refid="group___i2_c___b_u_s_1ga47974f18a15ed3b8a3b65a1a8167c47c" kind="function"><name>i2c_bus_init</name></member>
-    <member refid="group___i2_c___b_u_s_1ga3d633f2ba7f05e5425f0293eca192e55" kind="function"><name>i2c_bus_write_read</name></member>
+    <member refid="group___i2_c___b_u_s_1ga10bdee66bb314fb8a15303e94fee1284" kind="function"><name>i2c_bus_status</name></member>
+    <member refid="group___i2_c___b_u_s_1gaa819bd0ae3c495644c3a9ffc26abee4e" kind="function"><name>i2c_scan</name></member>
   </compound>
   <compound refid="license_8md" kind="file"><name>license.md</name>
   </compound>
@@ -1886,20 +1889,19 @@
   <compound refid="mainpage_8h" kind="file"><name>mainpage.h</name>
   </compound>
   <compound refid="main_8c" kind="file"><name>main.c</name>
-    <member refid="main_8c_1ad9ecf80e1eac083d16ec47f9d3aeb39f" kind="define"><name>I2C_PORT</name></member>
-    <member refid="main_8c_1a18aefd12ad84d4c33dc97923cb821e47" kind="define"><name>I2C_SDA</name></member>
-    <member refid="main_8c_1a212ca328a6409c98f8c3dfbbe1ba561d" kind="define"><name>I2C_SCL</name></member>
-    <member refid="main_8c_1a8b7500a141450a9df212017430c0df9e" kind="define"><name>I2C_FREQ</name></member>
-    <member refid="main_8c_1a8355e5b94b25f393e93f6926eaee61b2" kind="function"><name>i2c_scan</name></member>
-    <member refid="main_8c_1af19f02d304ba293ae4b73ff6dea29e73" kind="function"><name>i2c_probe_veml7700</name></member>
+    <member refid="main_8c_1afc3d101f633a076cc1ca84b85b6224b2" kind="define"><name>TAG</name></member>
     <member refid="main_8c_1a630544a7f0a2cc40d8a7fefab7e2fe70" kind="function"><name>app_main</name></member>
   </compound>
   <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
   </compound>
   <compound refid="group___i2_c___b_u_s" kind="group"><name>I2C_BUS</name>
     <member refid="group___i2_c___b_u_s_1ga47974f18a15ed3b8a3b65a1a8167c47c" kind="function"><name>i2c_bus_init</name></member>
-    <member refid="group___i2_c___b_u_s_1ga3d633f2ba7f05e5425f0293eca192e55" kind="function"><name>i2c_bus_write_read</name></member>
+    <member refid="group___i2_c___b_u_s_1ga10bdee66bb314fb8a15303e94fee1284" kind="function"><name>i2c_bus_status</name></member>
+    <member refid="group___i2_c___b_u_s_1gaa819bd0ae3c495644c3a9ffc26abee4e" kind="function"><name>i2c_scan</name></member>
     <member refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kind="define"><name>I2C_PORT</name></member>
+    <member refid="group___i2_c___b_u_s_1ga18aefd12ad84d4c33dc97923cb821e47" kind="define"><name>I2C_SDA</name></member>
+    <member refid="group___i2_c___b_u_s_1ga212ca328a6409c98f8c3dfbbe1ba561d" kind="define"><name>I2C_SCL</name></member>
+    <member refid="group___i2_c___b_u_s_1ga8b7500a141450a9df212017430c0df9e" kind="define"><name>I2C_FREQ</name></member>
   </compound>
   <compound refid="md_docs-site_2about_2license" kind="page"><name>md_docs-site_2about_2license</name>
   </compound>

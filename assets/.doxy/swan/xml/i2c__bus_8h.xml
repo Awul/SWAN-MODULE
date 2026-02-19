@@ -5,6 +5,7 @@
     <includes local="yes">esp_err.h</includes>
     <includes local="yes">driver/i2c.h</includes>
     <includedby refid="i2c__bus_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c</includedby>
+    <includedby refid="main_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/main/main.c</includedby>
     <incdepgraph>
       <node id="1">
         <label>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h</label>
@@ -23,10 +24,14 @@
     </incdepgraph>
     <sectiondef kind="define">
       <member refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kind="define"><name>I2C_PORT</name></member>
+      <member refid="group___i2_c___b_u_s_1ga18aefd12ad84d4c33dc97923cb821e47" kind="define"><name>I2C_SDA</name></member>
+      <member refid="group___i2_c___b_u_s_1ga212ca328a6409c98f8c3dfbbe1ba561d" kind="define"><name>I2C_SCL</name></member>
+      <member refid="group___i2_c___b_u_s_1ga8b7500a141450a9df212017430c0df9e" kind="define"><name>I2C_FREQ</name></member>
     </sectiondef>
     <sectiondef kind="func">
       <member refid="group___i2_c___b_u_s_1ga47974f18a15ed3b8a3b65a1a8167c47c" kind="function"><name>i2c_bus_init</name></member>
-      <member refid="group___i2_c___b_u_s_1ga3d633f2ba7f05e5425f0293eca192e55" kind="function"><name>i2c_bus_write_read</name></member>
+      <member refid="group___i2_c___b_u_s_1ga10bdee66bb314fb8a15303e94fee1284" kind="function"><name>i2c_bus_status</name></member>
+      <member refid="group___i2_c___b_u_s_1gaa819bd0ae3c495644c3a9ffc26abee4e" kind="function"><name>i2c_scan</name></member>
     </sectiondef>
     <briefdescription>
 <para>Thread-safe I2C bus access for multiple sensors. </para>
@@ -42,14 +47,16 @@
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
 <codeline lineno="18" refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C_PORT<sp/>I2C_NUM_0</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal">esp_err_t<sp/><ref refid="group___i2_c___b_u_s_1ga47974f18a15ed3b8a3b65a1a8167c47c" kindref="member">i2c_bus_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal">esp_err_t<sp/><ref refid="group___i2_c___b_u_s_1ga3d633f2ba7f05e5425f0293eca192e55" kindref="member">i2c_bus_write_read</ref>(uint8_t<sp/>addr,</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>*write_buf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>write_len,</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>*read_buf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>read_len,</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TickType_t<sp/>ticks_to_wait);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>end<sp/>of<sp/>I2C_BUS<sp/>group</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="group___i2_c___b_u_s_1ga18aefd12ad84d4c33dc97923cb821e47" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C_SDA<sp/><sp/>8<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Default<sp/>SDA<sp/>pin</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="group___i2_c___b_u_s_1ga212ca328a6409c98f8c3dfbbe1ba561d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C_SCL<sp/><sp/>9<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Default<sp/>SCL<sp/>pin</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="group___i2_c___b_u_s_1ga8b7500a141450a9df212017430c0df9e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C_FREQ<sp/>100000<sp/><sp/></highlight><highlight class="comment">//<sp/>Default<sp/>I2C<sp/>frequency<sp/>(100<sp/>kHz)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">esp_err_t<sp/><ref refid="group___i2_c___b_u_s_1ga47974f18a15ed3b8a3b65a1a8167c47c" kindref="member">i2c_bus_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___i2_c___b_u_s_1ga10bdee66bb314fb8a15303e94fee1284" kindref="member">i2c_bus_status</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___i2_c___b_u_s_1gaa819bd0ae3c495644c3a9ffc26abee4e" kindref="member">i2c_scan</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>end<sp/>of<sp/>I2C_BUS<sp/>group</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h"/>
   </compounddef>

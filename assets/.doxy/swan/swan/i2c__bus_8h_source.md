@@ -16,13 +16,15 @@
 
 #define I2C_PORT I2C_NUM_0
 
+#define I2C_SDA  8       // Default SDA pin
+#define I2C_SCL  9       // Default SCL pin
+#define I2C_FREQ 100000  // Default I2C frequency (100 kHz)
+
 esp_err_t i2c_bus_init(void);
 
-esp_err_t i2c_bus_write_read(uint8_t addr,
-                             uint8_t *write_buf, size_t write_len,
-                             uint8_t *read_buf, size_t read_len,
-                             TickType_t ticks_to_wait);
+void i2c_bus_status(void);
 
+void i2c_scan(void);
  // end of I2C_BUS group
 ```
 

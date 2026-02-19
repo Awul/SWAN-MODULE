@@ -19,108 +19,49 @@
 <para>Sets up the I2C peripheral with predefined SDA/SCL pins (8, 9) and frequency (100kHz). Creates a mutex for thread-safe access.</para>
 <para><simplesect kind="return"><para>ESP_OK if bus initialized successfully </para>
 </simplesect>
-<simplesect kind="return"><para>ESP_ERR_INVALID_ARG if configuration fails </para>
+<simplesect kind="return"><para>ESP_ERR_INVALID_ARG if configuration fails</para>
 </simplesect>
-</para>
+Configures the I2C peripheral with default pins and frequency. Creates a mutex for thread-safe operations. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="29" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="10" bodyend="31" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" declline="29" declcolumn="11"/>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="42" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="17" bodyend="46" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" declline="42" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="group___i2_c___b_u_s_1ga3d633f2ba7f05e5425f0293eca192e55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>esp_err_t</type>
-        <definition>esp_err_t i2c_bus_write_read</definition>
-        <argsstring>(uint8_t addr, uint8_t *write_buf, size_t write_len, uint8_t *read_buf, size_t read_len, TickType_t ticks_to_wait)</argsstring>
-        <name>i2c_bus_write_read</name>
+      <memberdef kind="function" id="group___i2_c___b_u_s_1ga10bdee66bb314fb8a15303e94fee1284" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void i2c_bus_status</definition>
+        <argsstring>(void)</argsstring>
+        <name>i2c_bus_status</name>
         <param>
-          <type>uint8_t</type>
-          <declname>addr</declname>
-        </param>
-        <param>
-          <type>uint8_t *</type>
-          <declname>write_buf</declname>
-        </param>
-        <param>
-          <type>size_t</type>
-          <declname>write_len</declname>
-        </param>
-        <param>
-          <type>uint8_t *</type>
-          <declname>read_buf</declname>
-        </param>
-        <param>
-          <type>size_t</type>
-          <declname>read_len</declname>
-        </param>
-        <param>
-          <type>TickType_t</type>
-          <declname>ticks_to_wait</declname>
+          <type>void</type>
         </param>
         <briefdescription>
-<para>Perform a write/read operation on the I2C bus. </para>
+<para>Print the current I2C bus status. </para>
         </briefdescription>
         <detaileddescription>
-<para>This function is mutex-protected to allow multiple sensors to safely share the same I2C bus.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>addr</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>The 7-bit I2C address of the device </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>write_buf</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to data to write (can be NULL if no write) </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>write_len</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Number of bytes to write </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>read_buf</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to buffer for read data (can be NULL if no read) </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>read_len</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Number of bytes to read </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>ticks_to_wait</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Maximum time to wait for bus access (FreeRTOS ticks)</para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>ESP_OK on success </para>
-</simplesect>
-<simplesect kind="return"><para>ESP_ERR_TIMEOUT if mutex or bus timed out </para>
-</simplesect>
-<simplesect kind="return"><para>Other ESP_ERR_* codes if I2C operation fails </para>
-</simplesect>
-</para>
+<para>Logs whether the I2C bus is initialized and whether the mutex exists. Useful for debugging and verifying proper initialization. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="48" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="33" bodyend="51" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" declline="48" declcolumn="11"/>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="50" column="6" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="52" bodyend="67" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" declline="50" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___i2_c___b_u_s_1gaa819bd0ae3c495644c3a9ffc26abee4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void i2c_scan</definition>
+        <argsstring>(void)</argsstring>
+        <name>i2c_scan</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Scan the I2C bus for connected devices. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Attempts communication with all valid 7-bit I2C addresses (1–126) and logs any devices that respond. Useful for detecting attached sensors. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="58" column="6" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="72" bodyend="90" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" declline="58" declcolumn="6"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="define">
@@ -135,6 +76,42 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="18" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___i2_c___b_u_s_1ga18aefd12ad84d4c33dc97923cb821e47" prot="public" static="no">
+        <name>I2C_SDA</name>
+        <initializer>8</initializer>
+        <briefdescription>
+<para>Default I2C SDA Pin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="23" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___i2_c___b_u_s_1ga212ca328a6409c98f8c3dfbbe1ba561d" prot="public" static="no">
+        <name>I2C_SCL</name>
+        <initializer>9</initializer>
+        <briefdescription>
+<para>Default I2C SCL Pin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="27" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___i2_c___b_u_s_1ga8b7500a141450a9df212017430c0df9e" prot="public" static="no">
+        <name>I2C_FREQ</name>
+        <initializer>100000</initializer>
+        <briefdescription>
+<para>Default I2C Frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="31" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" bodystart="31" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

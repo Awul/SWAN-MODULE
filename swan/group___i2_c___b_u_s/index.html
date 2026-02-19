@@ -110,8 +110,12 @@
 <td style="text-align: left;"><a href="#function-i2c_bus_init"><strong>i2c_bus_init</strong></a> (void) <br><em>Initialize the I2C bus.</em></td>
 </tr>
 <tr>
-<td style="text-align: right;">esp_err_t</td>
-<td style="text-align: left;"><a href="#function-i2c_bus_write_read"><strong>i2c_bus_write_read</strong></a> (uint8_t addr, uint8_t * write_buf, size_t write_len, uint8_t * read_buf, size_t read_len, TickType_t ticks_to_wait) <br><em>Perform a write/read operation on the I2C bus.</em></td>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-i2c_bus_status"><strong>i2c_bus_status</strong></a> (void) <br><em>Print the current I2C bus status.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-i2c_scan"><strong>i2c_scan</strong></a> (void) <br><em>Scan the I2C bus for connected devices.</em></td>
 </tr>
 </tbody>
 </table>
@@ -126,7 +130,19 @@
 <tbody>
 <tr>
 <td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-i2c_freq"><strong>I2C_FREQ</strong></a>  <code>100000</code><br><em>Default I2C Frequency.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
 <td style="text-align: left;"><a href="./#define-i2c_port"><strong>I2C_PORT</strong></a>  <code>I2C\_NUM\_0</code><br><em>The I2C port used by the bus.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-i2c_scl"><strong>I2C_SCL</strong></a>  <code>9</code><br><em>Default I2C SCL Pin.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-i2c_sda"><strong>I2C_SDA</strong></a>  <code>8</code><br><em>Default I2C SDA Pin.</em></td>
 </tr>
 </tbody>
 </table>
@@ -143,41 +159,49 @@
 <p><strong>Returns:</strong></p>
 <p>ESP_OK if bus initialized successfully </p>
 <p><strong>Returns:</strong></p>
-<p>ESP_ERR_INVALID_ARG if configuration fails </p>
+<p>ESP_ERR_INVALID_ARG if configuration fails</p>
+<p>Configures the I2C peripheral with default pins and frequency. Creates a mutex for thread-safe operations. </p>
 <hr>
 
-<h3 id="function-i2c_bus_write_read">function i2c_bus_write_read</h3>
-<p><em>Perform a write/read operation on the I2C bus.</em> </p>
-<pre><code>esp_err_t i2c_bus_write_read (
-    uint8_t addr,
-    uint8_t * write_buf,
-    size_t write_len,
-    uint8_t * read_buf,
-    size_t read_len,
-    TickType_t ticks_to_wait
+<h3 id="function-i2c_bus_status">function i2c_bus_status</h3>
+<p><em>Print the current I2C bus status.</em> </p>
+<pre><code>void i2c_bus_status (
+    void
 ) 
 </code></pre>
-<p>This function is mutex-protected to allow multiple sensors to safely share the same I2C bus.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><code>addr</code> The 7-bit I2C address of the device </li>
-<li><code>write_buf</code> Pointer to data to write (can be NULL if no write) </li>
-<li><code>write_len</code> Number of bytes to write </li>
-<li><code>read_buf</code> Pointer to buffer for read data (can be NULL if no read) </li>
-<li><code>read_len</code> Number of bytes to read </li>
-<li><code>ticks_to_wait</code> Maximum time to wait for bus access (FreeRTOS ticks)</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<p>ESP_OK on success </p>
-<p><strong>Returns:</strong></p>
-<p>ESP_ERR_TIMEOUT if mutex or bus timed out </p>
-<p><strong>Returns:</strong></p>
-<p>Other ESP_ERR_* codes if I2C operation fails </p>
+<p>Logs whether the I2C bus is initialized and whether the mutex exists. Useful for debugging and verifying proper initialization. </p>
+<hr>
+
+<h3 id="function-i2c_scan">function i2c_scan</h3>
+<p><em>Scan the I2C bus for connected devices.</em> </p>
+<pre><code>void i2c_scan (
+    void
+) 
+</code></pre>
+<p>Attempts communication with all valid 7-bit I2C addresses (1–126) and logs any devices that respond. Useful for detecting attached sensors. </p>
 <hr>
 <h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
+<h3 id="define-i2c_freq">define I2C_FREQ</h3>
+<p><em>Default I2C Frequency.</em> </p>
+<pre><code>#define I2C_FREQ `100000`
+</code></pre>
+<hr>
+
 <h3 id="define-i2c_port">define I2C_PORT</h3>
 <p><em>The I2C port used by the bus.</em> </p>
 <pre><code>#define I2C_PORT `I2C_NUM_0`
+</code></pre>
+<hr>
+
+<h3 id="define-i2c_scl">define I2C_SCL</h3>
+<p><em>Default I2C SCL Pin.</em> </p>
+<pre><code>#define I2C_SCL `9`
+</code></pre>
+<hr>
+
+<h3 id="define-i2c_sda">define I2C_SDA</h3>
+<p><em>Default I2C SDA Pin.</em> </p>
+<pre><code>#define I2C_SDA `8`
 </code></pre>
 <hr>
 

@@ -1102,14 +1102,6 @@
 * **HEX** ([**CMakeCCompilerId.c**](_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md), [**CMakeCCompilerId.c**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md))
 
 
-## i
-
-* **I2C\_FREQ** ([**i2c\_bus.c**](i2c__bus_8c.md), [**main.c**](main_8c.md))
-* **I2C\_SCL** ([**i2c\_bus.c**](i2c__bus_8c.md), [**main.c**](main_8c.md))
-* **I2C\_SDA** ([**i2c\_bus.c**](i2c__bus_8c.md), [**main.c**](main_8c.md))
-* **I2C\_PORT** ([**main.c**](main_8c.md))
-
-
 ## p
 
 * **PLATFORM\_ID** ([**CMakeCCompilerId.c**](_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md), [**CMakeCCompilerId.c**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md))
@@ -1119,6 +1111,11 @@
 
 * **STRINGIFY** ([**CMakeCCompilerId.c**](_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md), [**CMakeCCompilerId.c**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md))
 * **STRINGIFY\_HELPER** ([**CMakeCCompilerId.c**](_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md), [**CMakeCCompilerId.c**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md))
+
+
+## t
+
+* **TAG** ([**main.c**](main_8c.md))
 
 
 ## _

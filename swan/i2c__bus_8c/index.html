@@ -99,6 +99,7 @@
 <ul>
 <li><code>#include "i2c_bus.h"</code></li>
 <li><code>#include "freertos/semphr.h"</code></li>
+<li><code>#include "esp_log.h"</code></li>
 </ul>
 <h2 id="public-static-attributes">Public Static Attributes</h2>
 <table>
@@ -110,52 +111,23 @@
 </thead>
 <tbody>
 <tr>
+<td style="text-align: right;">const char *</td>
+<td style="text-align: left;"><a href="#variable-tag"><strong>TAG</strong></a>   = <code>"I2C\_BUS"</code><br></td>
+</tr>
+<tr>
 <td style="text-align: right;">SemaphoreHandle_t</td>
 <td style="text-align: left;"><a href="#variable-i2c_mutex"><strong>i2c_mutex</strong></a>   = <code>NULL</code><br></td>
 </tr>
 </tbody>
 </table>
-<h2 id="macros">Macros</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">Type</th>
-<th style="text-align: left;">Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">define</td>
-<td style="text-align: left;"><a href="./#define-i2c_freq"><strong>I2C_FREQ</strong></a>  <code>100000</code><br></td>
-</tr>
-<tr>
-<td style="text-align: right;">define</td>
-<td style="text-align: left;"><a href="./#define-i2c_scl"><strong>I2C_SCL</strong></a>  <code>9</code><br></td>
-</tr>
-<tr>
-<td style="text-align: right;">define</td>
-<td style="text-align: left;"><a href="./#define-i2c_sda"><strong>I2C_SDA</strong></a>  <code>8</code><br></td>
-</tr>
-</tbody>
-</table>
 <h2 id="public-static-attributes-documentation">Public Static Attributes Documentation</h2>
+<h3 id="variable-tag">variable TAG</h3>
+<pre><code class="language-C++">const char* TAG;
+</code></pre>
+<hr>
+
 <h3 id="variable-i2c_mutex">variable i2c_mutex</h3>
 <pre><code class="language-C++">SemaphoreHandle_t i2c_mutex;
-</code></pre>
-<hr>
-<h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
-<h3 id="define-i2c_freq">define I2C_FREQ</h3>
-<pre><code class="language-C++">#define I2C_FREQ `100000`
-</code></pre>
-<hr>
-
-<h3 id="define-i2c_scl">define I2C_SCL</h3>
-<pre><code class="language-C++">#define I2C_SCL `9`
-</code></pre>
-<hr>
-
-<h3 id="define-i2c_sda">define I2C_SDA</h3>
-<pre><code class="language-C++">#define I2C_SDA `8`
 </code></pre>
 <hr>
 

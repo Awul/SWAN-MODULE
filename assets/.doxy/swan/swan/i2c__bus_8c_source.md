@@ -10,54 +10,81 @@
 ```C++
 #include "i2c_bus.h"
 #include "freertos/semphr.h"
+#include "esp_log.h"
 
-#define I2C_SDA  8
-#define I2C_SCL  9
-#define I2C_FREQ 100000
 
+static const char *TAG = "I2C_BUS";
+
+// Mutex to protect the I2C bus for thread-safe access
 static SemaphoreHandle_t i2c_mutex = NULL;
 
 esp_err_t i2c_bus_init(void)
 {
-    static bool initialized = false;
+    static bool initialized = false; // Ensure bus is only initialized once
     if (initialized) return ESP_OK;
 
+    // I2C configuration structure
     i2c_config_t conf = {
-        .mode = I2C_MODE_MASTER,
-        .sda_io_num = I2C_SDA,
-        .scl_io_num = I2C_SCL,
-        .sda_pullup_en = GPIO_PULLUP_ENABLE,
+        .mode = I2C_MODE_MASTER,        // Master mode
+        .sda_io_num = I2C_SDA,          // SDA pin
+        .scl_io_num = I2C_SCL,          // SCL pin
+        .sda_pullup_en = GPIO_PULLUP_ENABLE, // Enable internal pull-ups
         .scl_pullup_en = GPIO_PULLUP_ENABLE,
-        .master.clk_speed = I2C_FREQ,
+        .master.clk_speed = I2C_FREQ,   // Clock speed
     };
 
+    // Configure I2C parameters
     ESP_ERROR_CHECK(i2c_param_config(I2C_PORT, &conf));
+
+    // Install I2C driver (no RX/TX buffer for master)
     ESP_ERROR_CHECK(i2c_driver_install(I2C_PORT, conf.mode, 0, 0, 0));
 
-    if (!i2c_mutex) i2c_mutex = xSemaphoreCreateMutex();
+    // Create mutex if not already created
+    if (!i2c_mutex) {
+        i2c_mutex = xSemaphoreCreateMutex();
+    }
 
     initialized = true;
+    ESP_LOGI(TAG, "I2C bus initialized (SDA=%d, SCL=%d, Freq=%d)", I2C_SDA, I2C_SCL, I2C_FREQ);
     return ESP_OK;
 }
 
-esp_err_t i2c_bus_write_read(uint8_t addr,
-                             uint8_t *write_buf, size_t write_len,
-                             uint8_t *read_buf, size_t read_len,
-                             TickType_t ticks_to_wait)
+
+void i2c_bus_status(void)
 {
-    esp_err_t err = ESP_OK;
-    if (xSemaphoreTake(i2c_mutex, ticks_to_wait) == pdTRUE) {
-        if (write_len && read_len)
-            err = i2c_master_write_read_device(I2C_PORT, addr, write_buf, write_len, read_buf, read_len, ticks_to_wait);
-        else if (write_len)
-            err = i2c_master_write_to_device(I2C_PORT, addr, write_buf, write_len, ticks_to_wait);
-        else if (read_len)
-            err = i2c_master_read_from_device(I2C_PORT, addr, read_buf, read_len, ticks_to_wait);
-        xSemaphoreGive(i2c_mutex);
+    ESP_LOGI(TAG, "I2C Status:");
+    ESP_LOGI(TAG, "Port: %d", I2C_PORT);
+    ESP_LOGI(TAG, "Mutex created: %s", i2c_mutex ? "Yes" : "No");
+    ESP_LOGI(TAG, "SDA: %d, SCL: %d, Freq: %d Hz", I2C_SDA, I2C_SCL, I2C_FREQ);
+
+    // test write/read to address 0x00
+    uint8_t test = 0;
+    esp_err_t err = i2c_master_write_read_device(I2C_PORT, 0x00, &test, 1, NULL, 0, pdMS_TO_TICKS(100));
+    if (err == ESP_OK) {
+        ESP_LOGI(TAG, "Test write to 0x00 succeeded");
     } else {
-        err = ESP_ERR_TIMEOUT;
+        ESP_LOGW(TAG, "Test write to 0x00 failed: %s", esp_err_to_name(err));
     }
-    return err;
+}
+
+void i2c_scan(void)
+{
+    ESP_LOGI(TAG, "Scanning I2C bus...");
+
+    uint8_t dummy = 0;  // dummy byte for probing
+
+    for (uint8_t addr = 3; addr < 0x78; addr++) {
+
+        // ESP_LOGI(TAG, "Scanning: 0x%02X", addr);
+
+        esp_err_t err = i2c_master_write_to_device(I2C_PORT, addr, &dummy, 1, pdMS_TO_TICKS(50));
+
+        if (err == ESP_OK) {
+            ESP_LOGI(TAG, "Found I2C device at 0x%02X", addr);
+        }
+    }
+
+    ESP_LOGI(TAG, "Scan complete.");
 }
 ```
 

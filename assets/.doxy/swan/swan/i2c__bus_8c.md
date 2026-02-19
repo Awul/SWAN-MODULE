@@ -12,6 +12,7 @@
 
 * `#include "i2c_bus.h"`
 * `#include "freertos/semphr.h"`
+* `#include "esp_log.h"`
 
 
 
@@ -39,6 +40,7 @@
 
 | Type | Name |
 | ---: | :--- |
+|  const char \* | [**TAG**](#variable-tag)   = `"I2C\_BUS"`<br> |
 |  SemaphoreHandle\_t | [**i2c\_mutex**](#variable-i2c_mutex)   = `NULL`<br> |
 
 
@@ -81,16 +83,22 @@
 
 
 
-## Macros
-
-| Type | Name |
-| ---: | :--- |
-| define  | [**I2C\_FREQ**](i2c__bus_8c.md#define-i2c_freq)  `100000`<br> |
-| define  | [**I2C\_SCL**](i2c__bus_8c.md#define-i2c_scl)  `9`<br> |
-| define  | [**I2C\_SDA**](i2c__bus_8c.md#define-i2c_sda)  `8`<br> |
 
 ## Public Static Attributes Documentation
 
+
+
+
+### variable TAG 
+
+```C++
+const char* TAG;
+```
+
+
+
+
+<hr>
 
 
 
@@ -98,48 +106,6 @@
 
 ```C++
 SemaphoreHandle_t i2c_mutex;
-```
-
-
-
-
-<hr>
-## Macro Definition Documentation
-
-
-
-
-
-### define I2C\_FREQ 
-
-```C++
-#define I2C_FREQ `100000`
-```
-
-
-
-
-<hr>
-
-
-
-### define I2C\_SCL 
-
-```C++
-#define I2C_SCL `9`
-```
-
-
-
-
-<hr>
-
-
-
-### define I2C\_SDA 
-
-```C++
-#define I2C_SDA `8`
 ```
 
 

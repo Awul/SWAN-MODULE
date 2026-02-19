@@ -4,6 +4,7 @@
     <compoundname>i2c_bus.c</compoundname>
     <includes refid="i2c__bus_8h" local="yes">i2c_bus.h</includes>
     <includes local="yes">freertos/semphr.h</includes>
+    <includes local="yes">esp_log.h</includes>
     <incdepgraph>
       <node id="1">
         <label>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c</label>
@@ -11,6 +12,8 @@
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -27,46 +30,28 @@
       <node id="3">
         <label>esp_err.h</label>
       </node>
+      <node id="6">
+        <label>esp_log.h</label>
+      </node>
       <node id="5">
         <label>freertos/semphr.h</label>
       </node>
     </incdepgraph>
-    <sectiondef kind="define">
-      <memberdef kind="define" id="i2c__bus_8c_1a18aefd12ad84d4c33dc97923cb821e47" prot="public" static="no">
-        <name>I2C_SDA</name>
-        <initializer>8</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" line="4" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="4" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="i2c__bus_8c_1a212ca328a6409c98f8c3dfbbe1ba561d" prot="public" static="no">
-        <name>I2C_SCL</name>
-        <initializer>9</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" line="5" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="5" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="i2c__bus_8c_1a8b7500a141450a9df212017430c0df9e" prot="public" static="no">
-        <name>I2C_FREQ</name>
-        <initializer>100000</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" line="6" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="6" bodyend="-1"/>
-      </memberdef>
-    </sectiondef>
     <sectiondef kind="var">
+      <memberdef kind="variable" id="i2c__bus_8c_1a5a85b9c772bbeb480b209a3e6ea92b4c" prot="public" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* TAG</definition>
+        <argsstring></argsstring>
+        <name>TAG</name>
+        <initializer>= &quot;I2C_BUS&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" line="6" column="19" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="6" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="i2c__bus_8c_1a43711ee8200bef84749449589ca78af2" prot="public" static="yes" mutable="no">
         <type>SemaphoreHandle_t</type>
         <definition>SemaphoreHandle_t i2c_mutex</definition>
@@ -79,12 +64,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" line="8" column="26" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="8" bodyend="-1"/>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" line="9" column="26" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="9" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
       <member refid="group___i2_c___b_u_s_1ga47974f18a15ed3b8a3b65a1a8167c47c" kind="function"><name>i2c_bus_init</name></member>
-      <member refid="group___i2_c___b_u_s_1ga3d633f2ba7f05e5425f0293eca192e55" kind="function"><name>i2c_bus_write_read</name></member>
+      <member refid="group___i2_c___b_u_s_1ga10bdee66bb314fb8a15303e94fee1284" kind="function"><name>i2c_bus_status</name></member>
+      <member refid="group___i2_c___b_u_s_1gaa819bd0ae3c495644c3a9ffc26abee4e" kind="function"><name>i2c_scan</name></member>
     </sectiondef>
     <briefdescription>
     </briefdescription>
@@ -93,55 +79,82 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="i2c__bus_8h" kindref="compound">i2c_bus.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/semphr.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C_SDA<sp/><sp/>8</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C_SCL<sp/><sp/>9</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C_FREQ<sp/>100000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_log.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*TAG<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;I2C_BUS&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>SemaphoreHandle_t<sp/>i2c_mutex<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal">esp_err_t<sp/><ref refid="group___i2_c___b_u_s_1ga47974f18a15ed3b8a3b65a1a8167c47c" kindref="member">i2c_bus_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>initialized<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(initialized)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_OK;</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>i2c_config_t<sp/>conf<sp/>=<sp/>{</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.mode<sp/>=<sp/>I2C_MODE_MASTER,</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.sda_io_num<sp/>=<sp/>I2C_SDA,</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.scl_io_num<sp/>=<sp/>I2C_SCL,</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.sda_pullup_en<sp/>=<sp/>GPIO_PULLUP_ENABLE,</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.scl_pullup_en<sp/>=<sp/>GPIO_PULLUP_ENABLE,</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.master.clk_speed<sp/>=<sp/>I2C_FREQ,</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(i2c_param_config(<ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>,<sp/>&amp;conf));</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(i2c_driver_install(<ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>,<sp/>conf.mode,<sp/>0,<sp/>0,<sp/>0));</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!i2c_mutex)<sp/>i2c_mutex<sp/>=<sp/>xSemaphoreCreateMutex();</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>initialized<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_OK;</highlight></codeline>
-<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal">esp_err_t<sp/><ref refid="group___i2_c___b_u_s_1ga3d633f2ba7f05e5425f0293eca192e55" kindref="member">i2c_bus_write_read</ref>(uint8_t<sp/>addr,</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>*write_buf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>write_len,</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>*read_buf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>read_len,</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TickType_t<sp/>ticks_to_wait)</highlight></codeline>
-<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>esp_err_t<sp/>err<sp/>=<sp/>ESP_OK;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(xSemaphoreTake(i2c_mutex,<sp/>ticks_to_wait)<sp/>==<sp/>pdTRUE)<sp/>{</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(write_len<sp/>&amp;&amp;<sp/>read_len)</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/>i2c_master_write_read_device(<ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>,<sp/>addr,<sp/>write_buf,<sp/>write_len,<sp/>read_buf,<sp/>read_len,<sp/>ticks_to_wait);</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(write_len)</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/>i2c_master_write_to_device(<ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>,<sp/>addr,<sp/>write_buf,<sp/>write_len,<sp/>ticks_to_wait);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(read_len)</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/>i2c_master_read_from_device(<ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>,<sp/>addr,<sp/>read_buf,<sp/>read_len,<sp/>ticks_to_wait);</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xSemaphoreGive(i2c_mutex);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/>ESP_ERR_TIMEOUT;</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>err;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Mutex<sp/>to<sp/>protect<sp/>the<sp/>I2C<sp/>bus<sp/>for<sp/>thread-safe<sp/>access</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>SemaphoreHandle_t<sp/>i2c_mutex<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">esp_err_t<sp/><ref refid="group___i2_c___b_u_s_1ga47974f18a15ed3b8a3b65a1a8167c47c" kindref="member">i2c_bus_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>initialized<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Ensure<sp/>bus<sp/>is<sp/>only<sp/>initialized<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(initialized)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_OK;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>I2C<sp/>configuration<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>i2c_config_t<sp/>conf<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.mode<sp/>=<sp/>I2C_MODE_MASTER,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Master<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.sda_io_num<sp/>=<sp/><ref refid="group___i2_c___b_u_s_1ga18aefd12ad84d4c33dc97923cb821e47" kindref="member">I2C_SDA</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>SDA<sp/>pin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.scl_io_num<sp/>=<sp/><ref refid="group___i2_c___b_u_s_1ga212ca328a6409c98f8c3dfbbe1ba561d" kindref="member">I2C_SCL</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>SCL<sp/>pin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.sda_pullup_en<sp/>=<sp/>GPIO_PULLUP_ENABLE,<sp/></highlight><highlight class="comment">//<sp/>Enable<sp/>internal<sp/>pull-ups</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.scl_pullup_en<sp/>=<sp/>GPIO_PULLUP_ENABLE,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.master.clk_speed<sp/>=<sp/><ref refid="group___i2_c___b_u_s_1ga8b7500a141450a9df212017430c0df9e" kindref="member">I2C_FREQ</ref>,<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Clock<sp/>speed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Configure<sp/>I2C<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(i2c_param_config(<ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>,<sp/>&amp;conf));</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Install<sp/>I2C<sp/>driver<sp/>(no<sp/>RX/TX<sp/>buffer<sp/>for<sp/>master)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(i2c_driver_install(<ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>,<sp/>conf.mode,<sp/>0,<sp/>0,<sp/>0));</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>mutex<sp/>if<sp/>not<sp/>already<sp/>created</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!i2c_mutex)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i2c_mutex<sp/>=<sp/>xSemaphoreCreateMutex();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>initialized<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;I2C<sp/>bus<sp/>initialized<sp/>(SDA=%d,<sp/>SCL=%d,<sp/>Freq=%d)&quot;</highlight><highlight class="normal">,<sp/><ref refid="group___i2_c___b_u_s_1ga18aefd12ad84d4c33dc97923cb821e47" kindref="member">I2C_SDA</ref>,<sp/><ref refid="group___i2_c___b_u_s_1ga212ca328a6409c98f8c3dfbbe1ba561d" kindref="member">I2C_SCL</ref>,<sp/><ref refid="group___i2_c___b_u_s_1ga8b7500a141450a9df212017430c0df9e" kindref="member">I2C_FREQ</ref>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_OK;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___i2_c___b_u_s_1ga10bdee66bb314fb8a15303e94fee1284" kindref="member">i2c_bus_status</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;I2C<sp/>Status:&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Port:<sp/>%d&quot;</highlight><highlight class="normal">,<sp/><ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Mutex<sp/>created:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>i2c_mutex<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;Yes&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;No&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;SDA:<sp/>%d,<sp/>SCL:<sp/>%d,<sp/>Freq:<sp/>%d<sp/>Hz&quot;</highlight><highlight class="normal">,<sp/><ref refid="group___i2_c___b_u_s_1ga18aefd12ad84d4c33dc97923cb821e47" kindref="member">I2C_SDA</ref>,<sp/><ref refid="group___i2_c___b_u_s_1ga212ca328a6409c98f8c3dfbbe1ba561d" kindref="member">I2C_SCL</ref>,<sp/><ref refid="group___i2_c___b_u_s_1ga8b7500a141450a9df212017430c0df9e" kindref="member">I2C_FREQ</ref>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>write/read<sp/>to<sp/>address<sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>test<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>esp_err_t<sp/>err<sp/>=<sp/>i2c_master_write_read_device(<ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>,<sp/>0x00,<sp/>&amp;test,<sp/>1,<sp/>NULL,<sp/>0,<sp/>pdMS_TO_TICKS(100));</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(err<sp/>==<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Test<sp/>write<sp/>to<sp/>0x00<sp/>succeeded&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGW(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Test<sp/>write<sp/>to<sp/>0x00<sp/>failed:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>esp_err_to_name(err));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___i2_c___b_u_s_1gaa819bd0ae3c495644c3a9ffc26abee4e" kindref="member">i2c_scan</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Scanning<sp/>I2C<sp/>bus...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>dummy<sp/>=<sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>dummy<sp/>byte<sp/>for<sp/>probing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>addr<sp/>=<sp/>3;<sp/>addr<sp/>&lt;<sp/>0x78;<sp/>addr++)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ESP_LOGI(TAG,<sp/>&quot;Scanning:<sp/>0x%02X&quot;,<sp/>addr);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>esp_err_t<sp/>err<sp/>=<sp/>i2c_master_write_to_device(<ref refid="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" kindref="member">I2C_PORT</ref>,<sp/>addr,<sp/>&amp;dummy,<sp/>1,<sp/>pdMS_TO_TICKS(50));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(err<sp/>==<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Found<sp/>I2C<sp/>device<sp/>at<sp/>0x%02X&quot;</highlight><highlight class="normal">,<sp/>addr);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Scan<sp/>complete.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c"/>
   </compounddef>
