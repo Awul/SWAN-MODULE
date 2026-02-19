@@ -18,6 +18,19 @@
 #define I2C_PORT I2C_NUM_0
 
 /**
+ * @brief Default I2C SDA Pin
+ */
+#define I2C_SDA  8       // Default SDA pin
+/**
+ * @brief Default I2C SCL Pin
+ */
+#define I2C_SCL  9       // Default SCL pin
+/**
+ * @brief Default I2C Frequency
+ */
+#define I2C_FREQ 100000  // Default I2C frequency (100 kHz)
+
+/**
  * @brief Initialize the I2C bus
  *
  * Sets up the I2C peripheral with predefined SDA/SCL pins (8, 9) and frequency (100kHz).
@@ -29,26 +42,19 @@
 esp_err_t i2c_bus_init(void);
 
 /**
- * @brief Perform a write/read operation on the I2C bus
+ * @brief Print the current I2C bus status
  *
- * This function is mutex-protected to allow multiple sensors to safely
- * share the same I2C bus.
- *
- * @param addr The 7-bit I2C address of the device
- * @param write_buf Pointer to data to write (can be NULL if no write)
- * @param write_len Number of bytes to write
- * @param read_buf Pointer to buffer for read data (can be NULL if no read)
- * @param read_len Number of bytes to read
- * @param ticks_to_wait Maximum time to wait for bus access (FreeRTOS ticks)
- *
- * @return ESP_OK on success
- * @return ESP_ERR_TIMEOUT if mutex or bus timed out
- * @return Other ESP_ERR_* codes if I2C operation fails
+ * Logs whether the I2C bus is initialized and whether the mutex exists.
+ * Useful for debugging and verifying proper initialization.
  */
-esp_err_t i2c_bus_write_read(uint8_t addr,
-                             uint8_t *write_buf, size_t write_len,
-                             uint8_t *read_buf, size_t read_len,
-                             TickType_t ticks_to_wait);
+void i2c_bus_status(void);
 
+/**
+ * @brief Scan the I2C bus for connected devices
+ *
+ * Attempts communication with all valid 7-bit I2C addresses (1–126) and logs
+ * any devices that respond. Useful for detecting attached sensors.
+ */
+void i2c_scan(void);
 
 /** @} */ // end of I2C_BUS group

@@ -1,15 +1,14 @@
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "driver/i2c.h"
+#include "esp_log.h"
 #include "esp_err.h"
 
-#define I2C_PORT I2C_NUM_0
-#define I2C_SDA  8
-#define I2C_SCL  9
-#define I2C_FREQ 100000
+#include "i2c_bus.h"
 
-static void i2c_scan(void)
+#define TAG "MAIN"
+
+/*static void i2c_scan(void)
 {
     printf("\nScanning I2C bus...\n");
 
@@ -28,9 +27,9 @@ static void i2c_scan(void)
     }
 
     printf("Scan done.\n\n");
-}
+}*/
 
-static void i2c_probe_veml7700(void)
+/*static void i2c_probe_veml7700(void)
 {
     uint8_t addr = 0x10;
 
@@ -47,25 +46,41 @@ static void i2c_probe_veml7700(void)
     } else {
         printf("No response from VEML7700 (err=%s)\n", esp_err_to_name(ret));
     }
-}
+}*/
 
 
 void app_main(void)
 {
-    i2c_config_t conf = {
-        .mode = I2C_MODE_MASTER,
-        .sda_io_num = I2C_SDA,
-        .scl_io_num = I2C_SCL,
-        .sda_pullup_en = GPIO_PULLUP_ENABLE,
-        .scl_pullup_en = GPIO_PULLUP_ENABLE,
-        .master.clk_speed = I2C_FREQ,
-    };
+    ESP_LOGI(TAG, "BOOTING SWAN-MODULE");
+    vTaskDelay(pdMS_TO_TICKS(1000));
 
-    i2c_param_config(I2C_PORT, &conf);
-    i2c_driver_install(I2C_PORT, conf.mode, 0, 0, 0);
+    // Initialize the I2C bus
+    esp_err_t ret = i2c_bus_init();
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to initialize I2C: %s", esp_err_to_name(ret));
+        return;
+    }
+
+    // Print the status
+    i2c_bus_status();
+
+    // Scan for devices
+    i2c_scan();
+
+    // Read from VEML7700 (if present)
+    uint8_t device_addr = 0x10;       // your device's I2C address
+    uint8_t reg_addr = 0x00;          // register to read
+    uint8_t value = 0;
+
+    ret = i2c_master_write_read_device(I2C_PORT, device_addr, &reg_addr, 1, &value, 1, pdMS_TO_TICKS(100));
+    if (ret == ESP_OK) {
+        ESP_LOGI(TAG, "Read 0x%02X from device 0x%02X", value, device_addr);
+    } else {
+        ESP_LOGW(TAG, "Failed to read from device 0x%02X: %s", device_addr, esp_err_to_name(ret));
+    }
 
     while (1) {
+        vTaskDelay(pdMS_TO_TICKS(5000));
         i2c_scan();
-        vTaskDelay(pdMS_TO_TICKS(3000));
     }
 }
