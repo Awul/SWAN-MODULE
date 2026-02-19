@@ -1,0 +1,91 @@
+site_name: SWAN Module Documentation
+site_description: Firmware and API documentation for the SWAN ESP32 module
+site_author: SWAN Team
+repo_url: https://github.com/Awul/SWAN-MODULE
+repo_name: Awul/SWAN-MODULE
+
+docs_dir: docs-site
+site_dir: site
+
+theme:
+  name: readthedocs
+
+  language: en
+  favicon: assets/favicon.png
+
+  features:
+    # Navigation
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+
+    # Content
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
+
+    # Search
+    - search.highlight
+    - search.suggest
+    - search.share
+
+
+plugins:
+  - search
+  - mkdoxy:
+      projects:
+        swan:
+          src-dirs: ../../
+          doxygen: ../../Doxyfile
+          xml: ../xml
+
+markdown_extensions:
+  # Basic
+  - admonition
+  - footnotes
+  - attr_list
+  - md_in_html
+
+  # Code
+  - pymdownx.highlight:
+      anchor_linenums: true   # adds line numbers with anchors
+      line_spans: __span      # optional spans for inline references
+      pygments_lang_class: true
+
+  # Layout & UX
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Awul/SWAN-MODULE
+
+nav:
+  - Home: index.md
+
+  - Getting Started:
+      - Overview: getting-started/overview.md
+      - Build & Flash: getting-started/build.md
+
+  - API Reference:
+      - Overview: swan/index.md
+      - Modules: swan/modules.md
+
+  - Guides:
+      - Architecture: guides/architecture.md
+      - Coding Style: guides/style.md
+
+  - About:
+      - License: about/license.md

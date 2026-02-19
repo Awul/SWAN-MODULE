@@ -6,19 +6,29 @@ OUTPUT_DIRECTORY       = docs
 INPUT = main components docs/mainpage.h
 RECURSIVE              = YES
 
-
-HAVE_DOT               = YES
-DOT_IMAGE_FORMAT       = svg
-CLASS_DIAGRAMS         = YES
 GENERATE_LATEX         = NO
-GENERATE_TREEVIEW      = YES
-
-# HTML generation
-GENERATE_HTML          = YES
-HTML_DYNAMIC_SECTIONS  = YES    # collapsible sections
-
-# Sidebar-only Awesome theme CSS
-HTML_EXTRA_STYLESHEET = theme/doxygen-awesome.css
+GENERATE_XML = YES
+XML_OUTPUT = xml
 
 
+FILE_PATTERNS          = *.c *.h
+
+# Kill the noise
+EXCLUDE_PATTERNS += */build/*
+EXCLUDE_PATTERNS += */CMakeFiles/*
+EXCLUDE_PATTERNS += */bootloader/*
+EXCLUDE_PATTERNS += */sdkconfig*
+EXCLUDE_PATTERNS += */.pio/*
+EXCLUDE_PATTERNS += */.git/*
+EXCLUDE_PATTERNS += */docs-site/*
+
+# Better structure
+EXTRACT_ALL            = NO
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+
+# Grouping
+OPTIMIZE_OUTPUT_C      = YES
+SHOW_FILES             = YES
+SHOW_NAMESPACES        = NO
 
