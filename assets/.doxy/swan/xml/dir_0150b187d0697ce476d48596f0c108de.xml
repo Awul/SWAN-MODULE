@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_0150b187d0697ce476d48596f0c108de" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700</compoundname>
+    <innerfile refid="veml7700_8c">veml7700.c</innerfile>
+    <innerfile refid="veml7700_8h">veml7700.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/"/>
+  </compounddef>
+</doxygen>

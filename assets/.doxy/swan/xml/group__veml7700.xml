@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="group__veml7700" kind="group">
+    <compoundname>veml7700</compoundname>
+    <title>VEML7700 Ambient Light Sensor</title>
+    <innerclass refid="structveml7700__t" prot="public">veml7700_t</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__veml7700_1ga006e7792045ae69f92ba4e700c13fe7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t veml7700_init</definition>
+        <argsstring>(veml7700_t *dev, i2c_port_t port)</argsstring>
+        <name>veml7700_init</name>
+        <param>
+          <type><ref refid="structveml7700__t" kindref="compound">veml7700_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the VEML7700 sensor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Powers on the sensor and applies a default ALS configuration (Gain = 1×, Integration Time = 100 ms).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a VEML7700 device descriptor </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>I²C port on which the sensor is connected</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><itemizedlist>
+<listitem><para>ESP_OK on success</para>
+</listitem><listitem><para>ESP_FAIL or ESP_ERR_* on I²C communication error </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="76" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="152" bodyend="173" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" declline="76" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__veml7700_1ga16eadd501548d1f9b92a332d1573f2c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t veml7700_read_als</definition>
+        <argsstring>(veml7700_t *dev, uint16_t *als)</argsstring>
+        <name>veml7700_read_als</name>
+        <param>
+          <type><ref refid="structveml7700__t" kindref="compound">veml7700_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>uint16_t *</type>
+          <declname>als</declname>
+        </param>
+        <briefdescription>
+<para>Read raw ALS (ambient light sensor) counts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the raw 16-bit ALS register value. This value is not converted to physical units.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to initialized VEML7700 device descriptor </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">als</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to store the raw ALS value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><itemizedlist>
+<listitem><para>ESP_OK on success</para>
+</listitem><listitem><para>ESP_FAIL or ESP_ERR_* on I²C communication error </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="91" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="175" bodyend="184" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" declline="91" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__veml7700_1ga6e783ea941b281e5de9b29f27ff36cc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t veml7700_read_lux</definition>
+        <argsstring>(veml7700_t *dev, float *lux)</argsstring>
+        <name>veml7700_read_lux</name>
+        <param>
+          <type><ref refid="structveml7700__t" kindref="compound">veml7700_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>lux</declname>
+        </param>
+        <briefdescription>
+<para>Read ambient light in lux. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the raw ALS value and converts it to lux using the current gain and integration time settings. The conversion factors are based on the VEML7700 datasheet and the helper functions for responsivity and gain factor. The formula used is: lux = ALS_counts / gain_factor * responsivity</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to initialized VEML7700 device descriptor </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">lux</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to store the calculated lux value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><itemizedlist>
+<listitem><para>ESP_OK on success</para>
+</listitem><listitem><para>ESP_FAIL or ESP_ERR_* on I²C communication error </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="106" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="214" bodyend="242" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" declline="106" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__veml7700_1ga0f667070dbcbb366e7c1d64d68bd6197" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float veml7700_responsivity</definition>
+        <argsstring>(uint8_t it_bits)</argsstring>
+        <name>veml7700_responsivity</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>it_bits</declname>
+        </param>
+        <briefdescription>
+<para>Gets the responsivity (lux/count) based on the integration time setting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The VEML7700&apos;s responsivity changes based on the integration time setting. This function calculates the lux/count factor for the current integration time configuration.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">it_bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The integration time bits extracted from the ALS_CONF_0 register </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The responsivity in lux/count for the given integration time setting</para>
+</simplesect>
+@ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="116" column="7" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="189" bodyend="199" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" declline="116" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="group__veml7700_1gaad7e2b3b7923b3246c421bdded71534b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float veml7700_gain_factor</definition>
+        <argsstring>(uint8_t gain_bits)</argsstring>
+        <name>veml7700_gain_factor</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>gain_bits</declname>
+        </param>
+        <briefdescription>
+<para>Gets the gain factor based on the gain setting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The VEML7700&apos;s gain setting affects the scaling of the ALS counts. This function returns the gain factor corresponding to the gain bits from the configuration register.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">gain_bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gain bits extracted from the ALS_CONF_0 register </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The gain factor (e.g., 1.0 for x1, 2.0 for x2, etc.) corresponding to the gain setting </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="126" column="7" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="204" bodyend="212" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" declline="126" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="group__veml7700_1gab0046b26c04321b163b8ccf99b8132f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void veml7700_print_registers</definition>
+        <argsstring>(const veml7700_t *dev)</argsstring>
+        <name>veml7700_print_registers</name>
+        <param>
+          <type>const <ref refid="structveml7700__t" kindref="compound">veml7700_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <briefdescription>
+<para>Print a full register dump and interpreted sensor status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function reads all registers (0x00–0x07) and prints:<itemizedlist>
+<listitem><para>Raw register values</para>
+</listitem><listitem><para>Configuration decoding (gain, integration time, shutdown)</para>
+</listitem><listitem><para>Power saving status</para>
+</listitem><listitem><para>Interrupt flags</para>
+</listitem><listitem><para>Device ID interpretation</para>
+</listitem></itemizedlist>
+</para>
+<para>Intended for debugging and sensor bring-up.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to VEML7700 device structure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="142" column="6" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="70" bodyend="150" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" declline="142" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="group__veml7700_1ga582090a184b871e34a88052d3561b467" prot="public" static="no">
+        <name>VEML7700_REG_ALS_CONF_0</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+<para>ALS configuration register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="29" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__veml7700_1gac46b25f024c98c50e30008ff9e20a565" prot="public" static="no">
+        <name>VEML7700_REG_ALS_WH</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+<para>ALS high threshold window. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="31" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__veml7700_1ga02fa2685d96794746e8a73ba6e932943" prot="public" static="no">
+        <name>VEML7700_REG_ALS_WL</name>
+        <initializer>0x02</initializer>
+        <briefdescription>
+<para>ALS low threshold window. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="33" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__veml7700_1gaf9030eb4b977b04cfb9e62b7b6cb49ab" prot="public" static="no">
+        <name>VEML7700_REG_POWER_SAVING</name>
+        <initializer>0x03</initializer>
+        <briefdescription>
+<para>Power saving mode register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="35" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__veml7700_1gaf29161b09b43a08270b5ea6ad82903bc" prot="public" static="no">
+        <name>VEML7700_REG_ALS</name>
+        <initializer>0x04</initializer>
+        <briefdescription>
+<para>ALS measurement output. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="37" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__veml7700_1ga2f2dd0aab64d80bf86d45c76f7e35fe0" prot="public" static="no">
+        <name>VEML7700_REG_WHITE</name>
+        <initializer>0x05</initializer>
+        <briefdescription>
+<para>White channel measurement output. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="39" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__veml7700_1gaa04f26be4201ef5be609d41492ef3a86" prot="public" static="no">
+        <name>VEML7700_REG_ALS_INT</name>
+        <initializer>0x06</initializer>
+        <briefdescription>
+<para>Interrupt status register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="41" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__veml7700_1ga413d603676c94f679618845a2d865f87" prot="public" static="no">
+        <name>VEML7700_REG_ID</name>
+        <initializer>0x07</initializer>
+        <briefdescription>
+<para>Device ID register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="43" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__veml7700_1gabac407cb1f1d1116af61cfb34b2c9f6e" prot="public" static="no">
+        <name>VEML7700_I2C_ADDR_DEFAULT</name>
+        <initializer>0x10</initializer>
+        <briefdescription>
+<para>VEML7700 I2C address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The VEML7700 has a fixed 7-bit I2C address of 0x10. This is the default address used by the driver, but it can be overridden in the device descriptor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="50" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

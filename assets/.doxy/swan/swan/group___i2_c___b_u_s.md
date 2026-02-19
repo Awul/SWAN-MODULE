@@ -93,7 +93,7 @@
 ## Detailed Description
 
 
-This module provides a singleton I2C bus instance and thread-safe functions to read/write over the bus. 
+This module provides initialization, status reporting, and scanning utilities for the I2C bus. 
 
 
     

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Group veml7700 - SWAN Module Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Group veml7700";
+        var mkdocs_page_input_path = "swan\\group__veml7700.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> SWAN Module Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/build/">Build & Flash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/style/">Coding Style</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/license/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">SWAN Module Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Group veml7700</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/group__veml7700.md">Edit on Awul/SWAN-MODULE</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="group-veml7700">Group veml7700</h1>
+<p><a href="../modules/"><strong>Modules</strong></a> <strong>&gt;</strong> <a href="./"><strong>veml7700</strong></a></p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structveml7700__t/"><strong>veml7700_t</strong></a> <br><em>VEML7700 device descriptor.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">float</td>
+<td style="text-align: left;"><a href="#function-veml7700_gain_factor"><strong>veml7700_gain_factor</strong></a> (uint8_t gain_bits) <br><em>Gets the gain factor based on the gain setting.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-veml7700_init"><strong>veml7700_init</strong></a> (<a href="../structveml7700__t/"><strong>veml7700_t</strong></a> * dev, i2c_port_t port) <br><em>Initialize the VEML7700 sensor.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-veml7700_print_registers"><strong>veml7700_print_registers</strong></a> (const <a href="../structveml7700__t/"><strong>veml7700_t</strong></a> * dev) <br><em>Print a full register dump and interpreted sensor status.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-veml7700_read_als"><strong>veml7700_read_als</strong></a> (<a href="../structveml7700__t/"><strong>veml7700_t</strong></a> * dev, uint16_t * als) <br><em>Read raw ALS (ambient light sensor) counts.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-veml7700_read_lux"><strong>veml7700_read_lux</strong></a> (<a href="../structveml7700__t/"><strong>veml7700_t</strong></a> * dev, float * lux) <br><em>Read ambient light in lux.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">float</td>
+<td style="text-align: left;"><a href="#function-veml7700_responsivity"><strong>veml7700_responsivity</strong></a> (uint8_t it_bits) <br><em>Gets the responsivity (lux/count) based on the integration time setting.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="macros">Macros</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-veml7700_i2c_addr_default"><strong>VEML7700_I2C_ADDR_DEFAULT</strong></a>  <code>0x10</code><br><em>VEML7700 I2C address.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-veml7700_reg_als"><strong>VEML7700_REG_ALS</strong></a>  <code>0x04</code><br><em>ALS measurement output.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-veml7700_reg_als_conf_0"><strong>VEML7700_REG_ALS_CONF_0</strong></a>  <code>0x00</code><br><em>ALS configuration register.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-veml7700_reg_als_int"><strong>VEML7700_REG_ALS_INT</strong></a>  <code>0x06</code><br><em>Interrupt status register.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-veml7700_reg_als_wh"><strong>VEML7700_REG_ALS_WH</strong></a>  <code>0x01</code><br><em>ALS high threshold window.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-veml7700_reg_als_wl"><strong>VEML7700_REG_ALS_WL</strong></a>  <code>0x02</code><br><em>ALS low threshold window.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-veml7700_reg_id"><strong>VEML7700_REG_ID</strong></a>  <code>0x07</code><br><em>Device ID register.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-veml7700_reg_power_saving"><strong>VEML7700_REG_POWER_SAVING</strong></a>  <code>0x03</code><br><em>Power saving mode register.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-veml7700_reg_white"><strong>VEML7700_REG_WHITE</strong></a>  <code>0x05</code><br><em>White channel measurement output.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-veml7700_gain_factor">function veml7700_gain_factor</h3>
+<p><em>Gets the gain factor based on the gain setting.</em> </p>
+<pre><code>float veml7700_gain_factor (
+    uint8_t gain_bits
+) 
+</code></pre>
+<p>The VEML7700's gain setting affects the scaling of the ALS counts. This function returns the gain factor corresponding to the gain bits from the configuration register.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>gain_bits</code> The gain bits extracted from the ALS_CONF_0 register </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>The gain factor (e.g., 1.0 for x1, 2.0 for x2, etc.) corresponding to the gain setting </p>
+<hr>
+
+<h3 id="function-veml7700_init">function veml7700_init</h3>
+<p><em>Initialize the VEML7700 sensor.</em> </p>
+<pre><code>esp_err_t veml7700_init (
+    veml7700_t * dev,
+    i2c_port_t port
+) 
+</code></pre>
+<p>Powers on the sensor and applies a default ALS configuration (Gain = 1×, Integration Time = 100 ms).</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>dev</code> Pointer to a VEML7700 device descriptor </li>
+<li><code>port</code> I²C port on which the sensor is connected</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>ESP_OK on success</li>
+<li>ESP_FAIL or ESP_ERR_* on I²C communication error </li>
+</ul>
+<hr>
+
+<h3 id="function-veml7700_print_registers">function veml7700_print_registers</h3>
+<p><em>Print a full register dump and interpreted sensor status.</em> </p>
+<pre><code>void veml7700_print_registers (
+    const veml7700_t * dev
+) 
+</code></pre>
+<p>This function reads all registers (0x00–0x07) and prints:
+* Raw register values
+* Configuration decoding (gain, integration time, shutdown)
+* Power saving status
+* Interrupt flags
+* Device ID interpretation</p>
+<p>Intended for debugging and sensor bring-up.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>dev</code> Pointer to VEML7700 device structure </li>
+</ul>
+<hr>
+
+<h3 id="function-veml7700_read_als">function veml7700_read_als</h3>
+<p><em>Read raw ALS (ambient light sensor) counts.</em> </p>
+<pre><code>esp_err_t veml7700_read_als (
+    veml7700_t * dev,
+    uint16_t * als
+) 
+</code></pre>
+<p>Reads the raw 16-bit ALS register value. This value is not converted to physical units.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>dev</code> Pointer to initialized VEML7700 device descriptor </li>
+<li><code>als</code> Pointer to store the raw ALS value</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>ESP_OK on success</li>
+<li>ESP_FAIL or ESP_ERR_* on I²C communication error </li>
+</ul>
+<hr>
+
+<h3 id="function-veml7700_read_lux">function veml7700_read_lux</h3>
+<p><em>Read ambient light in lux.</em> </p>
+<pre><code>esp_err_t veml7700_read_lux (
+    veml7700_t * dev,
+    float * lux
+) 
+</code></pre>
+<p>Reads the raw ALS value and converts it to lux using the current gain and integration time settings. The conversion factors are based on the VEML7700 datasheet and the helper functions for responsivity and gain factor. The formula used is: lux = ALS_counts / gain_factor * responsivity</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>dev</code> Pointer to initialized VEML7700 device descriptor </li>
+<li><code>lux</code> Pointer to store the calculated lux value</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>ESP_OK on success</li>
+<li>ESP_FAIL or ESP_ERR_* on I²C communication error </li>
+</ul>
+<hr>
+
+<h3 id="function-veml7700_responsivity">function veml7700_responsivity</h3>
+<p><em>Gets the responsivity (lux/count) based on the integration time setting.</em> </p>
+<pre><code>float veml7700_responsivity (
+    uint8_t it_bits
+) 
+</code></pre>
+<p>The VEML7700's responsivity changes based on the integration time setting. This function calculates the lux/count factor for the current integration time configuration.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>it_bits</code> The integration time bits extracted from the ALS_CONF_0 register </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>The responsivity in lux/count for the given integration time setting</p>
+<p>@ </p>
+<hr>
+<h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
+<h3 id="define-veml7700_i2c_addr_default">define VEML7700_I2C_ADDR_DEFAULT</h3>
+<p><em>VEML7700 I2C address.</em> </p>
+<pre><code>#define VEML7700_I2C_ADDR_DEFAULT `0x10`
+</code></pre>
+<p>The VEML7700 has a fixed 7-bit I2C address of 0x10. This is the default address used by the driver, but it can be overridden in the device descriptor. </p>
+<hr>
+
+<h3 id="define-veml7700_reg_als">define VEML7700_REG_ALS</h3>
+<p><em>ALS measurement output.</em> </p>
+<pre><code>#define VEML7700_REG_ALS `0x04`
+</code></pre>
+<hr>
+
+<h3 id="define-veml7700_reg_als_conf_0">define VEML7700_REG_ALS_CONF_0</h3>
+<p><em>ALS configuration register.</em> </p>
+<pre><code>#define VEML7700_REG_ALS_CONF_0 `0x00`
+</code></pre>
+<hr>
+
+<h3 id="define-veml7700_reg_als_int">define VEML7700_REG_ALS_INT</h3>
+<p><em>Interrupt status register.</em> </p>
+<pre><code>#define VEML7700_REG_ALS_INT `0x06`
+</code></pre>
+<hr>
+
+<h3 id="define-veml7700_reg_als_wh">define VEML7700_REG_ALS_WH</h3>
+<p><em>ALS high threshold window.</em> </p>
+<pre><code>#define VEML7700_REG_ALS_WH `0x01`
+</code></pre>
+<hr>
+
+<h3 id="define-veml7700_reg_als_wl">define VEML7700_REG_ALS_WL</h3>
+<p><em>ALS low threshold window.</em> </p>
+<pre><code>#define VEML7700_REG_ALS_WL `0x02`
+</code></pre>
+<hr>
+
+<h3 id="define-veml7700_reg_id">define VEML7700_REG_ID</h3>
+<p><em>Device ID register.</em> </p>
+<pre><code>#define VEML7700_REG_ID `0x07`
+</code></pre>
+<hr>
+
+<h3 id="define-veml7700_reg_power_saving">define VEML7700_REG_POWER_SAVING</h3>
+<p><em>Power saving mode register.</em> </p>
+<pre><code>#define VEML7700_REG_POWER_SAVING `0x03`
+</code></pre>
+<hr>
+
+<h3 id="define-veml7700_reg_white">define VEML7700_REG_WHITE</h3>
+<p><em>White channel measurement output.</em> </p>
+<pre><code>#define VEML7700_REG_WHITE `0x05`
+</code></pre>
+<hr>
+
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Awul/SWAN-MODULE" class="fa fa-code-fork" style="color: #fcfcfc"> Awul/SWAN-MODULE</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

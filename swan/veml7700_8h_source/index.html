@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>File i2c_bus.h - SWAN Module Documentation</title>
+    <title>File veml7700.h - SWAN Module Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "File i2c_bus.h";
-        var mkdocs_page_input_path = "swan\\i2c__bus_8h.md";
+        var mkdocs_page_name = "File veml7700.h";
+        var mkdocs_page_input_path = "swan\\veml7700_8h_source.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -83,9 +83,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">File i2c_bus.h</li>
+      <li class="breadcrumb-item active">File veml7700.h</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/i2c__bus_8h.md">Edit on Awul/SWAN-MODULE</a>
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/veml7700_8h_source.md">Edit on Awul/SWAN-MODULE</a>
     </li>
   </ul>
   <hr/>
@@ -93,16 +93,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="file-i2c_bush">File i2c_bus.h</h1>
-<p><a href="../files/"><strong>FileList</strong></a> <strong>&gt;</strong> <a href="../dir_409f97388efe006bc3438b95e9edef48/"><strong>components</strong></a> <strong>&gt;</strong> <a href="../dir_b27305f47d68ba65b41a21460fb415ed/"><strong>i2c_bus</strong></a> <strong>&gt;</strong> <a href="./"><strong>i2c_bus.h</strong></a></p>
-<p><a href="../i2c__bus_8h_source/">Go to the source code of this file</a></p>
-<p><em>I2C Bus testing and utility module.</em> </p>
-<ul>
-<li><code>#include "esp_err.h"</code></li>
-<li><code>#include "driver/i2c.h"</code></li>
-</ul>
-<hr />
-<p>The documentation for this class was generated from the following file <code>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h</code></p>
+                <h1 id="file-veml7700h">File veml7700.h</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_409f97388efe006bc3438b95e9edef48/"><strong>components</strong></a> <strong>&gt;</strong> <a href="../dir_0150b187d0697ce476d48596f0c108de/"><strong>veml7700</strong></a> <strong>&gt;</strong> <a href="../veml7700_8h/"><strong>veml7700.h</strong></a></p>
+<p><a href="../veml7700_8h/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">
+
+#pragma once
+
+#include &quot;i2c_bus.h&quot;
+#include &quot;esp_err.h&quot;
+#include &quot;esp_log.h&quot;
+
+#include &quot;freertos/FreeRTOS.h&quot;
+#include &quot;freertos/task.h&quot;
+
+
+
+#define VEML7700_REG_ALS_CONF_0      0x00
+#define VEML7700_REG_ALS_WH          0x01
+#define VEML7700_REG_ALS_WL          0x02
+#define VEML7700_REG_POWER_SAVING    0x03
+#define VEML7700_REG_ALS             0x04
+#define VEML7700_REG_WHITE           0x05
+#define VEML7700_REG_ALS_INT         0x06
+#define VEML7700_REG_ID              0x07
+
+#define VEML7700_I2C_ADDR_DEFAULT    0x10
+
+typedef struct {
+    i2c_port_t i2c_port;   
+    uint8_t    i2c_addr;   
+} veml7700_t;
+
+esp_err_t veml7700_init(veml7700_t *dev, i2c_port_t port);
+
+esp_err_t veml7700_read_als(veml7700_t *dev, uint16_t *als);
+
+esp_err_t veml7700_read_lux(veml7700_t *dev, float *lux);
+
+float veml7700_responsivity(uint8_t it_bits);
+
+float veml7700_gain_factor(uint8_t gain_bits);
+
+void veml7700_print_registers(const veml7700_t *dev);
+
+</code></pre>
               
             </div>
           </div><footer>

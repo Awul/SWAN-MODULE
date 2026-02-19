@@ -27,7 +27,10 @@ Here is a list of all files with brief descriptions:
 * **dir** [**components**](dir_409f97388efe006bc3438b95e9edef48.md)     
     * **dir** [**i2c\_bus**](dir_b27305f47d68ba65b41a21460fb415ed.md)     
         * **file** [**i2c\_bus.c**](i2c__bus_8c.md)     
-        * **file** [**i2c\_bus.h**](i2c__bus_8h.md) _Thread-safe I2C bus access for multiple sensors._ 
+        * **file** [**i2c\_bus.h**](i2c__bus_8h.md) _I2C Bus testing and utility module._ 
+    * **dir** [**veml7700**](dir_0150b187d0697ce476d48596f0c108de.md)     
+        * **file** [**veml7700.c**](veml7700_8c.md) _VEML7700 ambient light sensor driver implementation._     
+        * **file** [**veml7700.h**](veml7700_8h.md) _Driver for the Vishay VEML7700 ambient light sensor._     
 * **dir** [**main**](dir_5c982d53a68cdbcd421152b4020263a9.md)     
     * **file** [**main.c**](main_8c.md)     
 * **file** [**README.md**](_r_e_a_d_m_e_8md.md) 

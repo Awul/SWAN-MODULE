@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>File i2c_bus.h - SWAN Module Documentation</title>
+    <title>Struct veml7700_t - SWAN Module Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "File i2c_bus.h";
-        var mkdocs_page_input_path = "swan\\i2c__bus_8h.md";
+        var mkdocs_page_name = "Struct veml7700_t";
+        var mkdocs_page_input_path = "swan\\structveml7700__t.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -83,9 +83,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">File i2c_bus.h</li>
+      <li class="breadcrumb-item active">Struct veml7700_t</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/i2c__bus_8h.md">Edit on Awul/SWAN-MODULE</a>
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/structveml7700__t.md">Edit on Awul/SWAN-MODULE</a>
     </li>
   </ul>
   <hr/>
@@ -93,16 +93,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="file-i2c_bush">File i2c_bus.h</h1>
-<p><a href="../files/"><strong>FileList</strong></a> <strong>&gt;</strong> <a href="../dir_409f97388efe006bc3438b95e9edef48/"><strong>components</strong></a> <strong>&gt;</strong> <a href="../dir_b27305f47d68ba65b41a21460fb415ed/"><strong>i2c_bus</strong></a> <strong>&gt;</strong> <a href="./"><strong>i2c_bus.h</strong></a></p>
-<p><a href="../i2c__bus_8h_source/">Go to the source code of this file</a></p>
-<p><em>I2C Bus testing and utility module.</em> </p>
+                <h1 id="struct-veml7700_t">Struct veml7700_t</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>veml7700_t</strong></a></p>
+<p><em>VEML7700 device descriptor.</em> <a href="#detailed-description">More...</a></p>
 <ul>
-<li><code>#include "esp_err.h"</code></li>
-<li><code>#include "driver/i2c.h"</code></li>
+<li><code>#include &lt;veml7700.h&gt;</code></li>
 </ul>
+<h2 id="public-attributes">Public Attributes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">uint8_t</td>
+<td style="text-align: left;"><a href="#variable-i2c_addr"><strong>i2c_addr</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">i2c_port_t</td>
+<td style="text-align: left;"><a href="#variable-i2c_port"><strong>i2c_port</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>Holds the I²C configuration required to communicate with a VEML7700 instance. One struct instance corresponds to one sensor on the bus. </p>
+<h2 id="public-attributes-documentation">Public Attributes Documentation</h2>
+<h3 id="variable-i2c_addr">variable i2c_addr</h3>
+<pre><code class="language-C++">uint8_t veml7700_t::i2c_addr;
+</code></pre>
+<p>7-bit I²C address of the sensor </p>
+<hr>
+
+<h3 id="variable-i2c_port">variable i2c_port</h3>
+<pre><code class="language-C++">i2c_port_t veml7700_t::i2c_port;
+</code></pre>
+<p>I²C port used by the sensor </p>
+<hr>
+
 <hr />
-<p>The documentation for this class was generated from the following file <code>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h</code></p>
+<p>The documentation for this class was generated from the following file <code>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h</code></p>
               
             </div>
           </div><footer>

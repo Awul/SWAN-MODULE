@@ -8,7 +8,7 @@
 
 [Go to the source code of this file](i2c__bus_8h_source.md)
 
-_Thread-safe I2C bus access for multiple sensors._ 
+_I2C Bus testing and utility module._ 
 
 * `#include "esp_err.h"`
 * `#include "driver/i2c.h"`

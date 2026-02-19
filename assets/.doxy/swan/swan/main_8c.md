@@ -16,6 +16,7 @@
 * `#include "esp_log.h"`
 * `#include "esp_err.h"`
 * `#include "i2c_bus.h"`
+* `#include "veml7700.h"`
 
 
 
@@ -37,6 +38,11 @@
 
 
 
+## Public Attributes
+
+| Type | Name |
+| ---: | :--- |
+|  [**veml7700\_t**](structveml7700__t.md) | [**veml\_sensor**](#variable-veml_sensor)  <br> |
 
 
 
@@ -58,6 +64,7 @@
 | Type | Name |
 | ---: | :--- |
 |  void | [**app\_main**](#function-app_main) (void) <br> |
+|  void | [**setup**](#function-setup) () <br> |
 
 
 
@@ -91,6 +98,21 @@
 | ---: | :--- |
 | define  | [**TAG**](main_8c.md#define-tag)  `"MAIN"`<br> |
 
+## Public Attributes Documentation
+
+
+
+
+### variable veml\_sensor 
+
+```C++
+veml7700_t veml_sensor;
+```
+
+
+
+
+<hr>
 ## Public Functions Documentation
 
 
@@ -102,6 +124,19 @@
 void app_main (
     void
 ) 
+```
+
+
+
+
+<hr>
+
+
+
+### function setup 
+
+```C++
+void setup () 
 ```
 
 

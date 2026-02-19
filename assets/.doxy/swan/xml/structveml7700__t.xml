@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="structveml7700__t" kind="struct" language="C++" prot="public">
+    <compoundname>veml7700_t</compoundname>
+    <includes refid="veml7700_8h" local="no">veml7700.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structveml7700__t_1ad1f0f7733534deeaef959b9fcb340115" prot="public" static="no" mutable="no">
+        <type>i2c_port_t</type>
+        <definition>i2c_port_t veml7700_t::i2c_port</definition>
+        <argsstring></argsstring>
+        <name>i2c_port</name>
+        <qualifiedname>veml7700_t::i2c_port</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I²C port used by the sensor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="59" column="16" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structveml7700__t_1ab2cce0803e5b6c79f176e22e51181e0a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t veml7700_t::i2c_addr</definition>
+        <argsstring></argsstring>
+        <name>i2c_addr</name>
+        <qualifiedname>veml7700_t::i2c_addr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>7-bit I²C address of the sensor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="60" column="16" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>VEML7700 device descriptor. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Holds the I²C configuration required to communicate with a VEML7700 instance. One struct instance corresponds to one sensor on the bus. </para>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" line="58" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h" bodystart="58" bodyend="61"/>
+    <listofallmembers>
+      <member refid="structveml7700__t_1ab2cce0803e5b6c79f176e22e51181e0a" prot="public" virt="non-virtual"><scope>veml7700_t</scope><name>i2c_addr</name></member>
+      <member refid="structveml7700__t_1ad1f0f7733534deeaef959b9fcb340115" prot="public" virt="non-virtual"><scope>veml7700_t</scope><name>i2c_port</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

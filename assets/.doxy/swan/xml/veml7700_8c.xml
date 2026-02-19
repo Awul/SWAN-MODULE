@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="veml7700_8c" kind="file" language="C++">
+    <compoundname>veml7700.c</compoundname>
+    <includes refid="veml7700_8h" local="yes">veml7700.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>i2c_bus.h</label>
+        <link refid="i2c__bus_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c</label>
+        <link refid="veml7700_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>veml7700.h</label>
+        <link refid="veml7700_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>driver/i2c.h</label>
+      </node>
+      <node id="4">
+        <label>esp_err.h</label>
+      </node>
+      <node id="6">
+        <label>esp_log.h</label>
+      </node>
+      <node id="7">
+        <label>freertos/FreeRTOS.h</label>
+      </node>
+      <node id="8">
+        <label>freertos/task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="veml7700_8c_1ae07d3b9e289868dfd2a524a25caa8005" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>static esp_err_t veml7700_write16</definition>
+        <argsstring>(const veml7700_t *dev, uint8_t reg, uint16_t val)</argsstring>
+        <name>veml7700_write16</name>
+        <param>
+          <type>const <ref refid="structveml7700__t" kindref="compound">veml7700_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Write a 16-bit value to a VEML7700 register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to device descriptor </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register address </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>16-bit value to write (LSB first)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><itemizedlist>
+<listitem><para>ESP_OK on success</para>
+</listitem><listitem><para>ESP_ERR_* on I²C error </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" line="21" column="18" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="21" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="veml7700_8c_1a90daf0d5a7c6e40015c3e88799c58715" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>static esp_err_t veml7700_read16</definition>
+        <argsstring>(const veml7700_t *dev, uint8_t reg, uint16_t *val)</argsstring>
+        <name>veml7700_read16</name>
+        <param>
+          <type>const <ref refid="structveml7700__t" kindref="compound">veml7700_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>uint16_t *</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Read a 16-bit value from a VEML7700 register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to device descriptor </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register address </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to store the read value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><itemizedlist>
+<listitem><para>ESP_OK on success</para>
+</listitem><listitem><para>ESP_ERR_* on I²C error </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" line="49" column="18" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c" bodystart="49" bodyend="68"/>
+      </memberdef>
+      <member refid="group__veml7700_1gab0046b26c04321b163b8ccf99b8132f9" kind="function"><name>veml7700_print_registers</name></member>
+      <member refid="group__veml7700_1ga006e7792045ae69f92ba4e700c13fe7a" kind="function"><name>veml7700_init</name></member>
+      <member refid="group__veml7700_1ga16eadd501548d1f9b92a332d1573f2c1" kind="function"><name>veml7700_read_als</name></member>
+      <member refid="group__veml7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kind="function"><name>veml7700_responsivity</name></member>
+      <member refid="group__veml7700_1gaad7e2b3b7923b3246c421bdded71534b" kind="function"><name>veml7700_gain_factor</name></member>
+      <member refid="group__veml7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kind="function"><name>veml7700_read_lux</name></member>
+    </sectiondef>
+    <briefdescription>
+<para>VEML7700 ambient light sensor driver implementation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="veml7700_8h" kindref="compound">veml7700.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>esp_err_t<sp/>veml7700_write16(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev,<sp/>uint8_t<sp/>reg,<sp/>uint16_t<sp/>val)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>data[3]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reg,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>&amp;<sp/>0xFF,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>&gt;&gt;<sp/>8</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i2c_master_write_to_device(</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;<ref refid="structveml7700__t_1ad1f0f7733534deeaef959b9fcb340115" kindref="member">i2c_port</ref>,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;<ref refid="structveml7700__t_1ab2cce0803e5b6c79f176e22e51181e0a" kindref="member">i2c_addr</ref>,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(data),</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pdMS_TO_TICKS(100)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>esp_err_t<sp/>veml7700_read16(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev,<sp/>uint8_t<sp/>reg,<sp/>uint16_t<sp/>*val)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>data[2];</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>esp_err_t<sp/>err<sp/>=<sp/>i2c_master_write_read_device(</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;<ref refid="structveml7700__t_1ad1f0f7733534deeaef959b9fcb340115" kindref="member">i2c_port</ref>,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;<ref refid="structveml7700__t_1ab2cce0803e5b6c79f176e22e51181e0a" kindref="member">i2c_addr</ref>,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;reg,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(data),</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pdMS_TO_TICKS(100)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(err<sp/>==<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*val<sp/>=<sp/>data[0]<sp/>|<sp/>(data[1]<sp/>&lt;&lt;<sp/>8);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>err;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__veml7700_1gab0046b26c04321b163b8ccf99b8132f9" kindref="member">veml7700_print_registers</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>registers<sp/>are<sp/>all<sp/>16-bit</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>r[8];</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>7;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(veml7700_read16(dev,<sp/>i,<sp/>&amp;r[i])<sp/>!=<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>read<sp/>register<sp/>0x%02X&quot;</highlight><highlight class="normal">,<sp/>i);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;==========<sp/>VEML7700<sp/>REGISTER<sp/>DUMP<sp/>==========&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ALS_CONF_0<sp/>(0x00):<sp/>0x%04X&quot;</highlight><highlight class="normal">,<sp/><sp/><sp/>r[0]);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ALS_WH<sp/><sp/><sp/><sp/><sp/>(0x01):<sp/>%u&quot;</highlight><highlight class="normal">,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>r[1]);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ALS_WL<sp/><sp/><sp/><sp/><sp/>(0x02):<sp/>%u&quot;</highlight><highlight class="normal">,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>r[2]);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;POWER_SAVE<sp/>(0x03):<sp/>0x%04X&quot;</highlight><highlight class="normal">,<sp/><sp/><sp/>r[3]);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ALS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04):<sp/>%u&quot;</highlight><highlight class="normal">,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>r[4]);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;WHITE<sp/><sp/><sp/><sp/><sp/><sp/>(0x05):<sp/>%u&quot;</highlight><highlight class="normal">,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>r[5]);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ALS_INT<sp/><sp/><sp/><sp/>(0x06):<sp/>0x%04X&quot;</highlight><highlight class="normal">,<sp/><sp/><sp/>r[6]);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x07):<sp/>0x%04X&quot;</highlight><highlight class="normal">,<sp/><sp/><sp/>r[7]);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>----------<sp/>Interpret<sp/>configuration<sp/>----------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>conf<sp/>=<sp/>r[0];</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Decode<sp/>the<sp/>bit<sp/>fields</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>0x01<sp/>=<sp/>0b1,<sp/>0x03<sp/>=<sp/>0b11,<sp/>0x0F<sp/>=<sp/>0b1111<sp/>-&gt;<sp/>bit<sp/>masking</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Shift<sp/>right<sp/>to<sp/>align<sp/>the<sp/>field,<sp/>then<sp/>mask<sp/>to<sp/>extract<sp/>the<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>gain<sp/>=<sp/>(conf<sp/>&gt;&gt;<sp/>11)<sp/>&amp;<sp/>0x03;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>it<sp/><sp/><sp/>=<sp/>(conf<sp/>&gt;&gt;<sp/>6)<sp/><sp/>&amp;<sp/>0x0F;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>pers<sp/>=<sp/>(conf<sp/>&gt;&gt;<sp/>4)<sp/><sp/>&amp;<sp/>0x03;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>int_en<sp/><sp/>=<sp/>(conf<sp/>&gt;&gt;<sp/>1)<sp/><sp/>&amp;<sp/>0x01;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>shutdown<sp/>=<sp/>conf<sp/>&amp;<sp/>0x01;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Based<sp/>on<sp/>the<sp/>datasheet,<sp/>these<sp/>are<sp/>the<sp/>possible<sp/>gain<sp/>and<sp/>integration<sp/>time<sp/>settings</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>Can<sp/>use<sp/>the<sp/>new<sp/>helper<sp/>functions<sp/>to<sp/>calculate<sp/>responsivity<sp/>and<sp/>gain<sp/>factor<sp/>instead<sp/>of<sp/>hardcoding<sp/>the<sp/>strings<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*gain_str[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;x1&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;x2&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;x1/8&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;x1/4&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*it_str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;UNKNOWN&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(it)<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0x0:<sp/>it_str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;100<sp/>ms&quot;</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0x1:<sp/>it_str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;200<sp/>ms&quot;</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0x2:<sp/>it_str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;400<sp/>ms&quot;</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0x3:<sp/>it_str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;800<sp/>ms&quot;</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0x8:<sp/>it_str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;50<sp/>ms&quot;</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0xC:<sp/>it_str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;25<sp/>ms&quot;</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;----------<sp/>Configuration<sp/>----------&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ALS<sp/>Gain<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>gain_str[gain]);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Integration<sp/>Time<sp/><sp/><sp/>:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>it_str);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Persistence<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>%u<sp/>sample(s)&quot;</highlight><highlight class="normal">,<sp/>1<sp/>&lt;&lt;<sp/>pers);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Interrupt<sp/>Enabled<sp/><sp/>:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>int_en<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;YES&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;NO&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Sensor<sp/>State<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>shutdown<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;SHUTDOWN&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;ACTIVE&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>----------<sp/>Power<sp/>saving<sp/>----------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>psm<sp/>=<sp/>(r[3]<sp/>&gt;&gt;<sp/>1)<sp/>&amp;<sp/>0x03;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>psm_en<sp/>=<sp/>r[3]<sp/>&amp;<sp/>0x01;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;----------<sp/>Power<sp/>Saving<sp/>----------&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;PSM<sp/>Enabled<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>psm_en<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;YES&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;NO&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;PSM<sp/>Mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>%u&quot;</highlight><highlight class="normal">,<sp/>psm<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>----------<sp/>Interrupt<sp/>status<sp/>----------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;----------<sp/>Interrupt<sp/>Status<sp/>----------&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Low<sp/>Threshold<sp/>Hit<sp/><sp/>:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>(r[6]<sp/>&amp;<sp/>(1<sp/>&lt;&lt;<sp/>15))<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;YES&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;NO&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;High<sp/>Threshold<sp/>Hit<sp/>:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>(r[6]<sp/>&amp;<sp/>(1<sp/>&lt;&lt;<sp/>14))<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;YES&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;NO&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>----------<sp/>ID<sp/>decoding<sp/>----------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>id_lsb<sp/>=<sp/>r[7]<sp/>&amp;<sp/>0xFF;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>id_msb<sp/>=<sp/>r[7]<sp/>&gt;&gt;<sp/>8;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;----------<sp/>Device<sp/>ID<sp/>----------&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Device<sp/>ID<sp/>Code<sp/><sp/><sp/><sp/><sp/>:<sp/>0x%02X<sp/>(%s)&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>id_lsb,<sp/>(id_lsb<sp/>==<sp/>0x81)<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;VALID&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;UNKNOWN&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Address<sp/>Option<sp/><sp/><sp/><sp/><sp/>:<sp/>0x%02X&quot;</highlight><highlight class="normal">,<sp/>id_msb);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(</highlight><highlight class="stringliteral">&quot;VEML7700&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;==========================================&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal">esp_err_t<sp/><ref refid="group__veml7700_1ga006e7792045ae69f92ba4e700c13fe7a" kindref="member">veml7700_init</ref>(<ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev,<sp/>i2c_port_t<sp/>port)</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dev)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_ERR_INVALID_ARG;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>dev-&gt;<ref refid="structveml7700__t_1ad1f0f7733534deeaef959b9fcb340115" kindref="member">i2c_port</ref><sp/>=<sp/>port;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>dev-&gt;<ref refid="structveml7700__t_1ab2cce0803e5b6c79f176e22e51181e0a" kindref="member">i2c_addr</ref><sp/>=<sp/><ref refid="group__veml7700_1gabac407cb1f1d1116af61cfb34b2c9f6e" kindref="member">VEML7700_I2C_ADDR_DEFAULT</ref>;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Power<sp/>on<sp/>the<sp/>sensor<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(veml7700_write16(dev,<sp/><ref refid="group__veml7700_1gaf9030eb4b977b04cfb9e62b7b6cb49ab" kindref="member">VEML7700_REG_POWER_SAVING</ref>,<sp/>0x0000));</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Default<sp/>ALS<sp/>configuration:</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Gain<sp/>=<sp/>1×</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Integration<sp/>time<sp/>=<sp/>100<sp/>ms</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>ALS<sp/>enabled</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(veml7700_write16(dev,<sp/><ref refid="group__veml7700_1ga582090a184b871e34a88052d3561b467" kindref="member">VEML7700_REG_ALS_CONF_0</ref>,<sp/>0x0000));</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(10));</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_OK;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">esp_err_t<sp/><ref refid="group__veml7700_1ga16eadd501548d1f9b92a332d1573f2c1" kindref="member">veml7700_read_als</ref>(<ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev,<sp/>uint16_t<sp/>*als)</highlight></codeline>
+<codeline lineno="176"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dev<sp/>||<sp/>!als)<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_ERR_INVALID_ARG;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>ALS<sp/>register<sp/>is<sp/>16-bit,<sp/>so<sp/>we<sp/>can<sp/>use<sp/>the<sp/>read16<sp/>helper<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>reads<sp/>the<sp/>ALS<sp/>but<sp/>not<sp/>the<sp/>WHITE<sp/>channel.<sp/>The<sp/>white<sp/>channel<sp/>can<sp/>be<sp/>read<sp/>separately<sp/>if<sp/>needed.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>veml7700_read16(dev,<sp/><ref refid="group__veml7700_1gaf29161b09b43a08270b5ea6ad82903bc" kindref="member">VEML7700_REG_ALS</ref>,<sp/>als);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__veml7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kindref="member">veml7700_responsivity</ref>(uint8_t<sp/>it_bits)<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(it_bits)<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b1100:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.2304f;<sp/></highlight><highlight class="comment">//<sp/>25<sp/>ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b1000:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.1152f;<sp/></highlight><highlight class="comment">//<sp/>50<sp/>ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b0000:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0576f;<sp/></highlight><highlight class="comment">//<sp/>100<sp/>ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b0001:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0288f;<sp/></highlight><highlight class="comment">//<sp/>200<sp/>ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b0010:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0144f;<sp/></highlight><highlight class="comment">//<sp/>400<sp/>ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b0011:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0072f;<sp/></highlight><highlight class="comment">//<sp/>800<sp/>ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0576f;<sp/></highlight><highlight class="comment">//<sp/>fallback<sp/>100<sp/>ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__veml7700_1gaad7e2b3b7923b3246c421bdded71534b" kindref="member">veml7700_gain_factor</ref>(uint8_t<sp/>gain_bits)<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(gain_bits)<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b00:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1.0f;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>x1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b01:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>2.0f;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>x2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b10:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.125f;<sp/></highlight><highlight class="comment">//<sp/>x1/8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0b11:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.25f;<sp/><sp/></highlight><highlight class="comment">//<sp/>x1/4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1.0f;<sp/></highlight><highlight class="comment">//<sp/>fallback</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal">esp_err_t<sp/><ref refid="group__veml7700_1ga6e783ea941b281e5de9b29f27ff36cc6" kindref="member">veml7700_read_lux</ref>(<ref refid="structveml7700__t" kindref="compound">veml7700_t</ref><sp/>*dev,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*lux)</highlight></codeline>
+<codeline lineno="215"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dev<sp/>||<sp/>!lux)<sp/>{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_ERR_INVALID_ARG;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>als_conf,<sp/>als_data;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>esp_err_t<sp/>ret;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//read<sp/>ALS_CONF_0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/>veml7700_read16(dev,<sp/><ref refid="group__veml7700_1ga582090a184b871e34a88052d3561b467" kindref="member">VEML7700_REG_ALS_CONF_0</ref>,<sp/>&amp;als_conf);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>ESP_OK)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//read<sp/>ALS<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="group__veml7700_1ga16eadd501548d1f9b92a332d1573f2c1" kindref="member">veml7700_read_als</ref>(dev,<sp/>&amp;als_data);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>ESP_OK)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>gain<sp/>and<sp/>integration<sp/>time<sp/>settings<sp/>from<sp/>the<sp/>configuration<sp/>register</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>gain_bits<sp/>=<sp/>(als_conf<sp/>&gt;&gt;<sp/>11)<sp/>&amp;<sp/>0x03;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>it_bits<sp/><sp/><sp/>=<sp/>(als_conf<sp/>&gt;&gt;<sp/>6)<sp/><sp/>&amp;<sp/>0x0F;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Lookup<sp/>gain<sp/>factor<sp/>and<sp/>responsivity</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>gain_factor<sp/>=<sp/><ref refid="group__veml7700_1gaad7e2b3b7923b3246c421bdded71534b" kindref="member">veml7700_gain_factor</ref>(gain_bits);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>responsivity<sp/>=<sp/><ref refid="group__veml7700_1ga0f667070dbcbb366e7c1d64d68bd6197" kindref="member">veml7700_responsivity</ref>(it_bits);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Conversion<sp/>of<sp/>als_data<sp/>to<sp/>lux</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>*lux<sp/>=<sp/>als_data<sp/>/<sp/>gain_factor<sp/>*<sp/>responsivity;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_OK;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c"/>
+  </compounddef>
+</doxygen>

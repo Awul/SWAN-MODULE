@@ -2,6 +2,12 @@
 # Class Member Variables
 
 
-Nothing related to **Class Member Variables** found.
+
+## i
+
+* **i2c\_addr** ([**veml7700\_t**](structveml7700__t.md))
+* **i2c\_port** ([**veml7700\_t**](structveml7700__t.md))
+
+
 
 

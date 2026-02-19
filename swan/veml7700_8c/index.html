@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>File i2c_bus.h - SWAN Module Documentation</title>
+    <title>File veml7700.c - SWAN Module Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "File i2c_bus.h";
-        var mkdocs_page_input_path = "swan\\i2c__bus_8h.md";
+        var mkdocs_page_name = "File veml7700.c";
+        var mkdocs_page_input_path = "swan\\veml7700_8c.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -83,9 +83,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">File i2c_bus.h</li>
+      <li class="breadcrumb-item active">File veml7700.c</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/i2c__bus_8h.md">Edit on Awul/SWAN-MODULE</a>
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/veml7700_8c.md">Edit on Awul/SWAN-MODULE</a>
     </li>
   </ul>
   <hr/>
@@ -93,16 +93,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="file-i2c_bush">File i2c_bus.h</h1>
-<p><a href="../files/"><strong>FileList</strong></a> <strong>&gt;</strong> <a href="../dir_409f97388efe006bc3438b95e9edef48/"><strong>components</strong></a> <strong>&gt;</strong> <a href="../dir_b27305f47d68ba65b41a21460fb415ed/"><strong>i2c_bus</strong></a> <strong>&gt;</strong> <a href="./"><strong>i2c_bus.h</strong></a></p>
-<p><a href="../i2c__bus_8h_source/">Go to the source code of this file</a></p>
-<p><em>I2C Bus testing and utility module.</em> </p>
+                <h1 id="file-veml7700c">File veml7700.c</h1>
+<p><a href="../files/"><strong>FileList</strong></a> <strong>&gt;</strong> <a href="../dir_409f97388efe006bc3438b95e9edef48/"><strong>components</strong></a> <strong>&gt;</strong> <a href="../dir_0150b187d0697ce476d48596f0c108de/"><strong>veml7700</strong></a> <strong>&gt;</strong> <a href="./"><strong>veml7700.c</strong></a></p>
+<p><a href="../veml7700_8c_source/">Go to the source code of this file</a></p>
+<p><em>VEML7700 ambient light sensor driver implementation.</em> </p>
 <ul>
-<li><code>#include "esp_err.h"</code></li>
-<li><code>#include "driver/i2c.h"</code></li>
+<li><code>#include "veml7700.h"</code></li>
 </ul>
+<h2 id="public-static-functions">Public Static Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-veml7700_read16"><strong>veml7700_read16</strong></a> (const <a href="../structveml7700__t/"><strong>veml7700_t</strong></a> * dev, uint8_t reg, uint16_t * val) <br><em>Read a 16-bit value from a VEML7700 register.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-veml7700_write16"><strong>veml7700_write16</strong></a> (const <a href="../structveml7700__t/"><strong>veml7700_t</strong></a> * dev, uint8_t reg, uint16_t val) <br><em>Write a 16-bit value to a VEML7700 register.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-functions-documentation">Public Static Functions Documentation</h2>
+<h3 id="function-veml7700_read16">function veml7700_read16</h3>
+<p><em>Read a 16-bit value from a VEML7700 register.</em> </p>
+<pre><code class="language-C++">static esp_err_t veml7700_read16 (
+    const veml7700_t * dev,
+    uint8_t reg,
+    uint16_t * val
+) 
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>dev</code> Pointer to device descriptor </li>
+<li><code>reg</code> Register address </li>
+<li><code>val</code> Pointer to store the read value</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_* on I²C error </li>
+</ul>
+<hr>
+
+<h3 id="function-veml7700_write16">function veml7700_write16</h3>
+<p><em>Write a 16-bit value to a VEML7700 register.</em> </p>
+<pre><code class="language-C++">static esp_err_t veml7700_write16 (
+    const veml7700_t * dev,
+    uint8_t reg,
+    uint16_t val
+) 
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>dev</code> Pointer to device descriptor </li>
+<li><code>reg</code> Register address </li>
+<li><code>val</code> 16-bit value to write (LSB first)</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_* on I²C error </li>
+</ul>
+<hr>
+
 <hr />
-<p>The documentation for this class was generated from the following file <code>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h</code></p>
+<p>The documentation for this class was generated from the following file <code>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c</code></p>
               
             </div>
           </div><footer>

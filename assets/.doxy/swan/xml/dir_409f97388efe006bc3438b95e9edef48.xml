@@ -3,6 +3,7 @@
   <compounddef id="dir_409f97388efe006bc3438b95e9edef48" kind="dir">
     <compoundname>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components</compoundname>
     <innerdir refid="dir_b27305f47d68ba65b41a21460fb415ed">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus</innerdir>
+    <innerdir refid="dir_0150b187d0697ce476d48596f0c108de">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700</innerdir>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
