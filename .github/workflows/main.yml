@@ -25,6 +25,8 @@ jobs:
 
       - name: Deploy MkDocs to GitHub Pages
         run: |
+          cd docs
+          ls -la
           mkdocs gh-deploy --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
