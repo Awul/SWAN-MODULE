@@ -93,8 +93,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>HOW to build.</p>
-<p>Press build. done. </p>
+                <p>Build &amp; Flash SWAN Module (ESP32) in VS Code</p>
+<p>This guide explains how to build and flash the SWAN module firmware using Visual Studio Code and ESP-IDF.</p>
+<h2 id="1-install-requirements">1️⃣ Install Requirements</h2>
+<ul>
+<li><strong>ESP-IDF</strong> 
+ Download and install the ESP-IDF from <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/">https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/</a>.</li>
+<li><strong>VS Code Extensions</strong> 
+ Install the following in VS Code:</li>
+<li><strong>ESP-IDF</strong> (by Espressif)</li>
+<li>
+<p><strong>C/C++</strong> (for IntelliSense)</p>
+</li>
+<li>
+<p><strong>Python</strong> 
+ ESP-IDF requires Python (usually ≥3.8). Make sure <code>python</code> and <code>pip</code> are in your PATH.</p>
+</li>
+</ul>
+<h2 id="2-open-the-project-in-vs-code">2️⃣ Open the Project in VS Code</h2>
+<ul>
+<li>Open VS Code.</li>
+<li>Go to <strong>File → Open Folder</strong>.</li>
+<li>Select the root folder of the SWAN module project (where <code>CMakeLists.txt</code> is located).</li>
+</ul>
+<h2 id="3-set-up-esp-idf-extension">3️⃣ Set Up ESP-IDF Extension</h2>
+<ul>
+<li>Press <code>Ctrl+Shift+P</code> → <strong>ESP-IDF: Configure ESP-IDF Extension</strong>.</li>
+<li>Follow the prompts to set:</li>
+<li>ESP-IDF directory</li>
+<li>Python interpreter</li>
+<li>Serial port (optional)</li>
+</ul>
+<blockquote>
+<p>The extension automatically sets environment variables for 
+<code>idf.py</code>
+. </p>
+</blockquote>
               
             </div>
           </div><footer>

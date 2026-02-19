@@ -7,9 +7,46 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline><highlight class="normal">#<sp/>HOW<sp/>to<sp/>build.</highlight></codeline>
-<codeline><highlight class="normal">Press<sp/>build.</highlight></codeline>
-<codeline><highlight class="normal">done.</highlight></codeline>
+<codeline><highlight class="normal">#<sp/>Build<sp/>&amp;<sp/>Flash<sp/>SWAN<sp/>Module<sp/>(ESP32)<sp/>in<sp/>VS<sp/>Code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>guide<sp/>explains<sp/>how<sp/>to<sp/>build<sp/>and<sp/>flash<sp/>the<sp/>SWAN<sp/>module<sp/>firmware<sp/>using<sp/>Visual<sp/>Studio<sp/>Code<sp/>and<sp/>ESP-IDF.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>1️⃣<sp/>Install<sp/>Requirements</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>**ESP-IDF**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>Download<sp/>and<sp/>install<sp/>the<sp/>ESP-IDF<sp/>from<sp/>[https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">2.<sp/>**VS<sp/>Code<sp/>Extensions**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>Install<sp/>the<sp/>following<sp/>in<sp/>VS<sp/>Code:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>**ESP-IDF**<sp/>(by<sp/>Espressif)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>**C/C++**<sp/>(for<sp/>IntelliSense)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">3.<sp/>**Python**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>ESP-IDF<sp/>requires<sp/>Python<sp/>(usually<sp/>≥3.8).<sp/>Make<sp/>sure<sp/>`python`<sp/>and<sp/>`pip`<sp/>are<sp/>in<sp/>your<sp/>PATH.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2️⃣<sp/>Open<sp/>the<sp/>Project<sp/>in<sp/>VS<sp/>Code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Open<sp/>VS<sp/>Code.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Go<sp/>to<sp/>**File<sp/>→<sp/>Open<sp/>Folder**.</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>Select<sp/>the<sp/>root<sp/>folder<sp/>of<sp/>the<sp/>SWAN<sp/>module<sp/>project<sp/>(where<sp/>`CMakeLists.txt`<sp/>is<sp/>located).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>3️⃣<sp/>Set<sp/>Up<sp/>ESP-IDF<sp/>Extension</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Press<sp/>`Ctrl+Shift+P`<sp/>→<sp/>**ESP-IDF:<sp/>Configure<sp/>ESP-IDF<sp/>Extension**.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Follow<sp/>the<sp/>prompts<sp/>to<sp/>set:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>ESP-IDF<sp/>directory</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>Python<sp/>interpreter</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>Serial<sp/>port<sp/>(optional)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&gt;<sp/>The<sp/>extension<sp/>automatically<sp/>sets<sp/>environment<sp/>variables<sp/>for<sp/>`idf.py`.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
     </programlisting>
     <location file="docs-site/getting-started/build.md"/>
   </compounddef>
