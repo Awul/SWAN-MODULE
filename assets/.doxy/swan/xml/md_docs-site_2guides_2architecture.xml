@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="md_docs-site_2guides_2architecture" kind="page">
+    <compoundname>md_docs-site_2guides_2architecture</compoundname>
+    <title>Archi</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md_docs-site_2guides_2architecture_1autotoc_md88"/></para>
+<para>The project is a mess </para>
+    </detaileddescription>
+    <location file="docs-site/guides/architecture.md"/>
+  </compounddef>
+</doxygen>

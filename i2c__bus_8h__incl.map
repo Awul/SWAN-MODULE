@@ -1,7 +1,0 @@
-<map id="components/i2c_bus/i2c_bus.h" name="components/i2c_bus/i2c_bus.h">
-<area shape="rect" id="Node000001" title="Thread&#45;safe I2C bus access for multiple sensors." alt="" coords="25,5,179,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,87,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,47,64,84,60,80,86,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="111,93,205,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="118,44,144,80,140,84,113,47"/>
-</map>

@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="structled__strip__config__t" kind="struct" language="C++" prot="public">
+    <compoundname>led_strip_config_t</compoundname>
+    <includes refid="led__strip__types_8h" local="no">led_strip_types.h</includes>
+    <innerclass refid="structled__strip__config__t_1_1led__strip__extra__flags" prot="public">led_strip_config_t::led_strip_extra_flags</innerclass>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structled__strip__config__t_1a606308f9a50c24ce5ea5d55b26502313" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int led_strip_config_t::strip_gpio_num</definition>
+        <argsstring></argsstring>
+        <name>strip_gpio_num</name>
+        <qualifiedname>led_strip_config_t::strip_gpio_num</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>GPIO number that used by LED strip </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_types.h" line="63" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_types.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structled__strip__config__t_1a9d2cc8718131d9a9e3dd15d8496e7941" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t led_strip_config_t::max_leds</definition>
+        <argsstring></argsstring>
+        <name>max_leds</name>
+        <qualifiedname>led_strip_config_t::max_leds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Maximum number of LEDs that can be controlled in a single strip </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_types.h" line="64" column="14" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_types.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structled__strip__config__t_1a37c4df94f484de3c6941e6580a4e91ab" prot="public" static="no" mutable="no">
+        <type>led_model_t</type>
+        <definition>led_model_t led_strip_config_t::led_model</definition>
+        <argsstring></argsstring>
+        <name>led_model</name>
+        <qualifiedname>led_strip_config_t::led_model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Specifies the LED strip model (e.g., WS2812, SK6812) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_types.h" line="65" column="17" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_types.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structled__strip__config__t_1a6a4e80c18b9c6c1855c8c3aa8a65d392" prot="public" static="no" mutable="no">
+        <type><ref refid="unionled__color__component__format__t" kindref="compound">led_color_component_format_t</ref></type>
+        <definition>led_color_component_format_t led_strip_config_t::color_component_format</definition>
+        <argsstring></argsstring>
+        <name>color_component_format</name>
+        <qualifiedname>led_strip_config_t::color_component_format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Specifies the order of color components in each pixel. Use helper macros like <computeroutput>LED_STRIP_COLOR_COMPONENT_FMT_GRB</computeroutput> to set the format LED strip extra driver flags </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_types.h" line="66" column="34" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_types.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structled__strip__config__t_1a941a2be212342c87539f2f7a6bced989" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structled__strip__config__t_1_1led__strip__extra__flags" kindref="compound">led_strip_config_t::led_strip_extra_flags</ref></type>
+        <definition>struct led_strip_config_t::led_strip_extra_flags led_strip_config_t::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <qualifiedname>led_strip_config_t::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Extra driver flags </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_types.h" line="71" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>LED Strip common configurations The common configurations are not specific to any backend peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>led_color_component_format_t</label>
+        <link refid="unionled__color__component__format__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>format</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>led_color_component_format_t::format_layout</label>
+        <link refid="structled__color__component__format__t_1_1format__layout"/>
+      </node>
+      <node id="1">
+        <label>led_strip_config_t</label>
+        <link refid="structled__strip__config__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>color_component_format</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>flags</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>led_strip_config_t::led_strip_extra_flags</label>
+        <link refid="structled__strip__config__t_1_1led__strip__extra__flags"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_types.h" line="62" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_types.h" bodystart="62" bodyend="72"/>
+    <listofallmembers>
+      <member refid="structled__strip__config__t_1a6a4e80c18b9c6c1855c8c3aa8a65d392" prot="public" virt="non-virtual"><scope>led_strip_config_t</scope><name>color_component_format</name></member>
+      <member refid="structled__strip__config__t_1a941a2be212342c87539f2f7a6bced989" prot="public" virt="non-virtual"><scope>led_strip_config_t</scope><name>flags</name></member>
+      <member refid="structled__strip__config__t_1a37c4df94f484de3c6941e6580a4e91ab" prot="public" virt="non-virtual"><scope>led_strip_config_t</scope><name>led_model</name></member>
+      <member refid="structled__strip__config__t_1a9d2cc8718131d9a9e3dd15d8496e7941" prot="public" virt="non-virtual"><scope>led_strip_config_t</scope><name>max_leds</name></member>
+      <member refid="structled__strip__config__t_1a606308f9a50c24ce5ea5d55b26502313" prot="public" virt="non-virtual"><scope>led_strip_config_t</scope><name>strip_gpio_num</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

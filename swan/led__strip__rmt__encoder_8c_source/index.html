@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>File led_strip_rmt_encoder.c - SWAN Module Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "File led_strip_rmt_encoder.c";
+        var mkdocs_page_input_path = "swan\\led__strip__rmt__encoder_8c_source.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> SWAN Module Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/build/">Build & Flash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/style/">Coding Style</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/license/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">SWAN Module Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">File led_strip_rmt_encoder.c</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/led__strip__rmt__encoder_8c_source.md">Edit on Awul/SWAN-MODULE</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="file-led_strip_rmt_encoderc">File led_strip_rmt_encoder.c</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_ed75a055ae422585327f9cac7433a4c6/"><strong>blink</strong></a> <strong>&gt;</strong> <a href="../dir_f14b78939adc8414aa21d6af988468d0/"><strong>managed_components</strong></a> <strong>&gt;</strong> <a href="../dir_d0251c514b1be4d4f41659a309ca9490/"><strong>espressif__led_strip</strong></a> <strong>&gt;</strong> <a href="../dir_163002825b6da09af3d0cb3d07e787f0/"><strong>src</strong></a> <strong>&gt;</strong> <a href="../led__strip__rmt__encoder_8c/"><strong>led_strip_rmt_encoder.c</strong></a></p>
+<p><a href="../led__strip__rmt__encoder_8c/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/*
+ * SPDX-FileCopyrightText: 2022 Espressif Systems (Shanghai) CO LTD
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include &quot;sdkconfig.h&quot;
+#include &quot;esp_idf_version.h&quot;
+#include &quot;esp_check.h&quot;
+#include &quot;esp_attr.h&quot;
+#include &quot;led_strip_rmt_encoder.h&quot;
+
+static const char *TAG = &quot;led_rmt_encoder&quot;;
+
+#if ESP_IDF_VERSION &lt; ESP_IDF_VERSION_VAL(5, 5, 0)
+#if CONFIG_RMT_ISR_IRAM_SAFE
+#define RMT_ENCODER_FUNC_ATTR IRAM_ATTR
+#else
+#define RMT_ENCODER_FUNC_ATTR
+#endif // CONFIG_RMT_ISR_IRAM_SAFE
+#endif // ESP_IDF_VERSION
+
+typedef struct {
+    rmt_encoder_t base;
+    rmt_encoder_t *bytes_encoder;
+    rmt_encoder_t *copy_encoder;
+    int state;
+    rmt_symbol_word_t reset_code;
+} rmt_led_strip_encoder_t;
+
+RMT_ENCODER_FUNC_ATTR
+static size_t rmt_encode_led_strip(rmt_encoder_t *encoder, rmt_channel_handle_t channel, const void *primary_data, size_t data_size, rmt_encode_state_t *ret_state)
+{
+    rmt_led_strip_encoder_t *led_encoder = __containerof(encoder, rmt_led_strip_encoder_t, base);
+    rmt_encoder_handle_t bytes_encoder = led_encoder-&gt;bytes_encoder;
+    rmt_encoder_handle_t copy_encoder = led_encoder-&gt;copy_encoder;
+    rmt_encode_state_t session_state = 0;
+    rmt_encode_state_t state = 0;
+    size_t encoded_symbols = 0;
+    switch (led_encoder-&gt;state) {
+    case 0: // send RGB data
+        encoded_symbols += bytes_encoder-&gt;encode(bytes_encoder, channel, primary_data, data_size, &amp;session_state);
+        if (session_state &amp; RMT_ENCODING_COMPLETE) {
+            led_encoder-&gt;state = 1; // switch to next state when current encoding session finished
+        }
+        if (session_state &amp; RMT_ENCODING_MEM_FULL) {
+            state |= RMT_ENCODING_MEM_FULL;
+            goto out; // yield if there's no free space for encoding artifacts
+        }
+    // fall-through
+    case 1: // send reset code
+        encoded_symbols += copy_encoder-&gt;encode(copy_encoder, channel, &amp;led_encoder-&gt;reset_code,
+                                                sizeof(led_encoder-&gt;reset_code), &amp;session_state);
+        if (session_state &amp; RMT_ENCODING_COMPLETE) {
+            led_encoder-&gt;state = 0; // back to the initial encoding session
+            state |= RMT_ENCODING_COMPLETE;
+        }
+        if (session_state &amp; RMT_ENCODING_MEM_FULL) {
+            state |= RMT_ENCODING_MEM_FULL;
+            goto out; // yield if there's no free space for encoding artifacts
+        }
+    }
+out:
+    *ret_state = state;
+    return encoded_symbols;
+}
+
+static esp_err_t rmt_del_led_strip_encoder(rmt_encoder_t *encoder)
+{
+    rmt_led_strip_encoder_t *led_encoder = __containerof(encoder, rmt_led_strip_encoder_t, base);
+    rmt_del_encoder(led_encoder-&gt;bytes_encoder);
+    rmt_del_encoder(led_encoder-&gt;copy_encoder);
+    free(led_encoder);
+    return ESP_OK;
+}
+
+RMT_ENCODER_FUNC_ATTR
+static esp_err_t rmt_led_strip_encoder_reset(rmt_encoder_t *encoder)
+{
+    rmt_led_strip_encoder_t *led_encoder = __containerof(encoder, rmt_led_strip_encoder_t, base);
+    rmt_encoder_reset(led_encoder-&gt;bytes_encoder);
+    rmt_encoder_reset(led_encoder-&gt;copy_encoder);
+    led_encoder-&gt;state = 0;
+    return ESP_OK;
+}
+
+esp_err_t rmt_new_led_strip_encoder(const led_strip_encoder_config_t *config, rmt_encoder_handle_t *ret_encoder)
+{
+    esp_err_t ret = ESP_OK;
+    rmt_led_strip_encoder_t *led_encoder = NULL;
+    ESP_GOTO_ON_FALSE(config &amp;&amp; ret_encoder, ESP_ERR_INVALID_ARG, err, TAG, &quot;invalid argument&quot;);
+    ESP_GOTO_ON_FALSE(config-&gt;led_model &lt; LED_MODEL_INVALID, ESP_ERR_INVALID_ARG, err, TAG, &quot;invalid led model&quot;);
+    led_encoder = calloc(1, sizeof(rmt_led_strip_encoder_t));
+    ESP_GOTO_ON_FALSE(led_encoder, ESP_ERR_NO_MEM, err, TAG, &quot;no mem for led strip encoder&quot;);
+    led_encoder-&gt;base.encode = rmt_encode_led_strip;
+    led_encoder-&gt;base.del = rmt_del_led_strip_encoder;
+    led_encoder-&gt;base.reset = rmt_led_strip_encoder_reset;
+    rmt_bytes_encoder_config_t bytes_encoder_config;
+    uint32_t reset_ticks = config-&gt;resolution / 1000000 * 280 / 2; // reset code duration defaults to 280us to accommodate WS2812B-V5
+    if (config-&gt;led_model == LED_MODEL_SK6812) {
+        bytes_encoder_config = (rmt_bytes_encoder_config_t) {
+            .bit0 = {
+                .level0 = 1,
+                .duration0 = 0.3 * config-&gt;resolution / 1000000, // T0H=0.3us
+                .level1 = 0,
+                .duration1 = 0.9 * config-&gt;resolution / 1000000, // T0L=0.9us
+            },
+            .bit1 = {
+                .level0 = 1,
+                .duration0 = 0.6 * config-&gt;resolution / 1000000, // T1H=0.6us
+                .level1 = 0,
+                .duration1 = 0.6 * config-&gt;resolution / 1000000, // T1L=0.6us
+            },
+            .flags.msb_first = 1 // SK6812 transfer bit order: G7...G0R7...R0B7...B0(W7...W0)
+        };
+    } else if (config-&gt;led_model == LED_MODEL_WS2812) {
+        // different led strip might have its own timing requirements, following parameter is for WS2812
+        bytes_encoder_config = (rmt_bytes_encoder_config_t) {
+            .bit0 = {
+                .level0 = 1,
+                .duration0 = 0.3 * config-&gt;resolution / 1000000, // T0H=0.3us
+                .level1 = 0,
+                .duration1 = 0.9 * config-&gt;resolution / 1000000, // T0L=0.9us
+            },
+            .bit1 = {
+                .level0 = 1,
+                .duration0 = 0.9 * config-&gt;resolution / 1000000, // T1H=0.9us
+                .level1 = 0,
+                .duration1 = 0.3 * config-&gt;resolution / 1000000, // T1L=0.3us
+            },
+            .flags.msb_first = 1 // WS2812 transfer bit order: G7...G0R7...R0B7...B0
+        };
+    } else if (config-&gt;led_model == LED_MODEL_WS2811) {
+        // different led strip might have its own timing requirements, following parameter is for WS2811
+        bytes_encoder_config = (rmt_bytes_encoder_config_t) {
+            .bit0 = {
+                .level0 = 1,
+                .duration0 = 0.5 * config-&gt;resolution / 1000000., // T0H=0.5us
+                .level1 = 0,
+                .duration1 = 2.0 * config-&gt;resolution / 1000000., // T0L=2.0us
+            },
+            .bit1 = {
+                .level0 = 1,
+                .duration0 = 1.2 * config-&gt;resolution / 1000000., // T1H=1.2us
+                .level1 = 0,
+                .duration1 = 1.3 * config-&gt;resolution / 1000000., // T1L=1.3us
+            },
+            .flags.msb_first = 1
+        };
+        reset_ticks = config-&gt;resolution / 1000000 * 50 / 2; // divide by 2... signal is sent twice
+    } else if (config-&gt;led_model == LED_MODEL_WS2816) {
+        // different led strip might have its own timing requirements, following parameter is for WS2816
+        bytes_encoder_config = (rmt_bytes_encoder_config_t) {
+            .bit0 = {
+                .level0 = 1,
+                .duration0 = 0.3 * config-&gt;resolution / 1000000, // T0H=0.3us
+                .level1 = 0,
+                .duration1 = 0.95 * config-&gt;resolution / 1000000, // T0L=0.95us
+            },
+            .bit1 = {
+                .level0 = 1,
+                .duration0 = 0.75 * config-&gt;resolution / 1000000, // T1H=0.75us
+                .level1 = 0,
+                .duration1 = 0.5 * config-&gt;resolution / 1000000, // T1L=0.5us
+            },
+            .flags.msb_first = 1
+        };
+    } else {
+        assert(false);
+    }
+    ESP_GOTO_ON_ERROR(rmt_new_bytes_encoder(&amp;bytes_encoder_config, &amp;led_encoder-&gt;bytes_encoder), err, TAG, &quot;create bytes encoder failed&quot;);
+    rmt_copy_encoder_config_t copy_encoder_config = {};
+    ESP_GOTO_ON_ERROR(rmt_new_copy_encoder(&amp;copy_encoder_config, &amp;led_encoder-&gt;copy_encoder), err, TAG, &quot;create copy encoder failed&quot;);
+
+    led_encoder-&gt;reset_code = (rmt_symbol_word_t) {
+        .level0 = 0,
+        .duration0 = reset_ticks,
+        .level1 = 0,
+        .duration1 = reset_ticks,
+    };
+    *ret_encoder = &amp;led_encoder-&gt;base;
+    return ESP_OK;
+err:
+    if (led_encoder) {
+        if (led_encoder-&gt;bytes_encoder) {
+            rmt_del_encoder(led_encoder-&gt;bytes_encoder);
+        }
+        if (led_encoder-&gt;copy_encoder) {
+            rmt_del_encoder(led_encoder-&gt;copy_encoder);
+        }
+        free(led_encoder);
+    }
+    return ret;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Awul/SWAN-MODULE" class="fa fa-code-fork" style="color: #fcfcfc"> Awul/SWAN-MODULE</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

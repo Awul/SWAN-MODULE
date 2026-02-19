@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="structled__strip__spi__config__t" kind="struct" language="C++" prot="public">
+    <compoundname>led_strip_spi_config_t</compoundname>
+    <includes refid="led__strip__spi_8h" local="no">led_strip_spi.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structled__strip__spi__config__t_1a35352b41eab07bfd2617813122f675df" prot="public" static="no" mutable="no">
+        <type>spi_clock_source_t</type>
+        <definition>spi_clock_source_t led_strip_spi_config_t::clk_src</definition>
+        <argsstring></argsstring>
+        <name>clk_src</name>
+        <qualifiedname>led_strip_spi_config_t::clk_src</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>SPI clock source </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_spi.h" line="21" column="24" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_spi.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structled__strip__spi__config__t_1a0900424264bc59ab6915c9936532b032" prot="public" static="no" mutable="no">
+        <type>spi_host_device_t</type>
+        <definition>spi_host_device_t led_strip_spi_config_t::spi_bus</definition>
+        <argsstring></argsstring>
+        <name>spi_bus</name>
+        <qualifiedname>led_strip_spi_config_t::spi_bus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>SPI bus ID. Which buses are available depends on the specific chip </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_spi.h" line="22" column="23" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_spi.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structled__strip__spi__config__t_1a627ea85494e4892b1daf4b6832992e00" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t led_strip_spi_config_t::with_dma</definition>
+        <argsstring></argsstring>
+        <name>with_dma</name>
+        <qualifiedname>led_strip_spi_config_t::with_dma</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Use DMA to transmit data </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_spi.h" line="24" column="18" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_spi.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structled__strip__spi__config__t_1ab0e4677ebd48389ddb92f1c9c5a0fd0a" prot="public" static="no" mutable="no">
+        <type>struct led_strip_spi_config_t::@053223203114067335153245354105076245251304020036</type>
+        <definition>struct led_strip_spi_config_t::@053223203114067335153245354105076245251304020036 led_strip_spi_config_t::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <qualifiedname>led_strip_spi_config_t::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Extra driver flags </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_spi.h" line="25" column="36"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>LED Strip SPI specific configuration. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_spi.h" line="20" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_spi.h" bodystart="20" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structled__strip__spi__config__t_1a35352b41eab07bfd2617813122f675df" prot="public" virt="non-virtual"><scope>led_strip_spi_config_t</scope><name>clk_src</name></member>
+      <member refid="structled__strip__spi__config__t_1ab0e4677ebd48389ddb92f1c9c5a0fd0a" prot="public" virt="non-virtual"><scope>led_strip_spi_config_t</scope><name>flags</name></member>
+      <member refid="structled__strip__spi__config__t_1a0900424264bc59ab6915c9936532b032" prot="public" virt="non-virtual"><scope>led_strip_spi_config_t</scope><name>spi_bus</name></member>
+      <member refid="structled__strip__spi__config__t_1a627ea85494e4892b1daf4b6832992e00" prot="public" virt="non-virtual"><scope>led_strip_spi_config_t</scope><name>with_dma</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

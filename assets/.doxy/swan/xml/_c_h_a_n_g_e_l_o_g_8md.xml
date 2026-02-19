@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_c_h_a_n_g_e_l_o_g_8md" kind="file" language="Markdown">
+    <compoundname>CHANGELOG.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">##<sp/>3.0.3</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Support<sp/>WS2816<sp/>with<sp/>16-bit<sp/>color</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>3.0.1</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Support<sp/>WS2811<sp/>bit<sp/>timing</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>3.0.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Discontinued<sp/>support<sp/>for<sp/>ESP-IDF<sp/>v4.x</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>configuration<sp/>for<sp/>user-defined<sp/>color<sp/>component<sp/>format</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.5.5</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Simplified<sp/>the<sp/>led_strip<sp/>component<sp/>dependency,<sp/>the<sp/>time<sp/>of<sp/>full<sp/>build<sp/>with<sp/>ESP-IDF<sp/>v5.3<sp/>can<sp/>now<sp/>be<sp/>shorter.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.5.4</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Inserted<sp/>extra<sp/>delay<sp/>when<sp/>initialize<sp/>the<sp/>SPI<sp/>LED<sp/>device,<sp/>to<sp/>ensure<sp/>all<sp/>LEDs<sp/>are<sp/>in<sp/>the<sp/>reset<sp/>state<sp/>correctly</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.5.3</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Extend<sp/>reset<sp/>time<sp/>(280us)<sp/>to<sp/>support<sp/>WS2812B-V5</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.5.2</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>API<sp/>reference<sp/>doc<sp/>(api.md)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.5.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Enabled<sp/>support<sp/>for<sp/>IDF4.4<sp/>and<sp/>above</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>with<sp/>RMT<sp/>backend<sp/>only</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>API<sp/>`led_strip_set_pixel_hsv`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.4.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Support<sp/>configurable<sp/>SPI<sp/>mode<sp/>to<sp/>control<sp/>leds</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>recommend<sp/>enabling<sp/>DMA<sp/>when<sp/>using<sp/>SPI<sp/>mode</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.3.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Support<sp/>configurable<sp/>RMT<sp/>channel<sp/>size<sp/>by<sp/>setting<sp/>`mem_block_symbols`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.2.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Support<sp/>for<sp/>4<sp/>components<sp/>RGBW<sp/>leds<sp/>(SK6812):</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>in<sp/>led_strip_config_t<sp/>new<sp/>fields</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>led_pixel_format,<sp/>controlling<sp/>byte<sp/>format<sp/>(LED_PIXEL_FORMAT_GRB,<sp/>LED_PIXEL_FORMAT_GRBW)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>led_model,<sp/>used<sp/>to<sp/>configure<sp/>bit<sp/>timing<sp/>(LED_MODEL_WS2812,<sp/>LED_MODEL_SK6812)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>new<sp/>API<sp/>led_strip_set_pixel_rgbw</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>new<sp/>interface<sp/>type<sp/>set_pixel_rgbw</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.1.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Support<sp/>DMA<sp/>feature,<sp/>which<sp/>offloads<sp/>the<sp/>CPU<sp/>by<sp/>a<sp/>lot<sp/>when<sp/>it<sp/>comes<sp/>to<sp/>drive<sp/>a<sp/>bunch<sp/>of<sp/>LEDs</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Support<sp/>various<sp/>RMT<sp/>clock<sp/>sources</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Acquire<sp/>and<sp/>release<sp/>the<sp/>power<sp/>management<sp/>lock<sp/>before<sp/>and<sp/>after<sp/>each<sp/>refresh</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>New<sp/>driver<sp/>flag:<sp/>`invert_out`<sp/>which<sp/>can<sp/>invert<sp/>the<sp/>led<sp/>control<sp/>signal<sp/>by<sp/>hardware</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.0.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Reimplemented<sp/>the<sp/>driver<sp/>using<sp/>the<sp/>new<sp/>RMT<sp/>driver<sp/>(`driver/rmt_tx.h`)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>1.0.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Initial<sp/>driver<sp/>version,<sp/>based<sp/>on<sp/>the<sp/>legacy<sp/>RMT<sp/>driver<sp/>(`driver/rmt.h`)</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/CHANGELOG.md"/>
+  </compounddef>
+</doxygen>

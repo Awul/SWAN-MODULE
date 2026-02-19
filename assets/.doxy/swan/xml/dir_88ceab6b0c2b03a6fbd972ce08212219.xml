@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_88ceab6b0c2b03a6fbd972ce08212219" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/blink/build</compoundname>
+    <innerdir refid="dir_33bdbad01e4a161c31b91726c4cbb3c3">C:/Users/schliep/Documents/Software/ESP32/blink/build/bootloader</innerdir>
+    <innerdir refid="dir_2ff92afa54d63e10ae41d75cf1e6f38a">C:/Users/schliep/Documents/Software/ESP32/blink/build/CMakeFiles</innerdir>
+    <innerdir refid="dir_3b5f99aba4cd4c87b5409b8af677a9db">C:/Users/schliep/Documents/Software/ESP32/blink/build/config</innerdir>
+    <innerfile refid="blink_2build_2project__elf__src__esp32s3_8c">project_elf_src_esp32s3.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/build/"/>
+  </compounddef>
+</doxygen>

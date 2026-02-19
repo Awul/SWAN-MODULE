@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/i2c_tools</compoundname>
+    <innerdir refid="dir_ede94c15cb3e0e8de7ba00822344cd09">C:/Users/schliep/Documents/Software/ESP32/i2c_tools/build</innerdir>
+    <innerdir refid="dir_3218ba971dba91160485f06c6137239b">C:/Users/schliep/Documents/Software/ESP32/i2c_tools/main</innerdir>
+    <innerfile refid="pytest__examples__i2c__tools_8py">pytest_examples_i2c_tools.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C5 | ESP32-C6 | ESP32-C61 | ESP32-H2 | ESP32-H21 | ESP32-P4 | ESP32-S2 | ESP32-S3 | | --------------<mdash/> | --<mdash/> | -----<mdash/> | -----<mdash/> | -----<mdash/> | -----<mdash/> | ------<mdash/> | -----<mdash/> | ------<mdash/> | -----<mdash/> | -----<mdash/> | -----<mdash/> |</para>
+<sect1 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md58">
+<title>I2C Tools Example</title><para>(See the README.md file in the upper level &apos;examples&apos; directory for more information about examples.)</para>
+<sect2 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md59">
+<title>Overview</title><para><ulink url="https://i2c.wiki.kernel.org/index.php/I2C_Tools">I2C Tools</ulink> is a simple but very useful tool for developing I2C related applications, which is also famous in Linux platform. This example just implements some of basic features of <ulink url="https://i2c.wiki.kernel.org/index.php/I2C_Tools">I2C Tools</ulink> based on <ulink url="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/console.html">esp32 console component</ulink>. As follows, this example supports five command-line tools:</para>
+<para><orderedlist>
+<listitem><para><computeroutput>i2cconfig</computeroutput>: It will configure the I2C bus with specific GPIO number, port number and frequency.</para>
+</listitem><listitem><para><computeroutput>i2cdetect</computeroutput>: It will scan an I2C bus for devices and output a table with the list of detected devices on the bus.</para>
+</listitem><listitem><para><computeroutput>i2cget</computeroutput>: It will read registers visible through the I2C bus.</para>
+</listitem><listitem><para><computeroutput>i2cset</computeroutput>: It will set registers visible through the I2C bus.</para>
+</listitem><listitem><para><computeroutput>i2cdump</computeroutput>: It will examine registers visible through the I2C bus.</para>
+</listitem></orderedlist>
+</para>
+<para>If you have some trouble in developing I2C related applications, or just want to test some functions of one I2C device, you can play with this example first.</para>
+</sect2>
+<sect2 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md60">
+<title>How to use example</title><sect3 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md61">
+<title>Hardware Required</title><para>To run this example, you should have any ESP32, ESP32-S, ESP32-C, ESP32-H, ESP32-P based development board. For test purpose, you should have a kind of device with I2C interface as well. Here we will take the CCS811 sensor as an example to show how to test the function of this sensor without writing any code (just use the command-line tools supported by this example). For more information about CCS811, you can consult the <ulink url="http://ams.com/ccs811">online datasheet</ulink>.</para>
+<sect4 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md62">
+<title>Pin Assignment:</title><para><bold>Note:</bold> The following pin assignments are used by default according to <computeroutput>CONFIG_I2C_MASTER_SCL</computeroutput> and <computeroutput>CONFIG_I2C_MASTER_SDA</computeroutput> , you can change them with <computeroutput>i2cconfig</computeroutput> command at any time.</para>
+<para><table rows="8" cols="6"><row>
+<entry thead="yes"><para></para>
+</entry><entry thead="yes"><para>SDA  </para>
+</entry><entry thead="yes"><para>SCL  </para>
+</entry><entry thead="yes"><para>GND  </para>
+</entry><entry thead="yes"><para>Other  </para>
+</entry><entry thead="yes"><para>VCC  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>ESP32 I2C Master  </para>
+</entry><entry thead="no"><para>GPIO18  </para>
+</entry><entry thead="no"><para>GPIO19  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>3.3V  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>ESP32-S2 I2C Master  </para>
+</entry><entry thead="no"><para>GPIO5  </para>
+</entry><entry thead="no"><para>GPIO4  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>3.3V  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>ESP32-S3 I2C Master  </para>
+</entry><entry thead="no"><para>GPIO5  </para>
+</entry><entry thead="no"><para>GPIO4  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>3.3V  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>ESP32-C3 I2C Master  </para>
+</entry><entry thead="no"><para>GPIO5  </para>
+</entry><entry thead="no"><para>GPIO4  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>3.3V  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>ESP32-C2 I2C Master  </para>
+</entry><entry thead="no"><para>GPIO5  </para>
+</entry><entry thead="no"><para>GPIO4  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>3.3V  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>ESP32-H2 I2C Master  </para>
+</entry><entry thead="no"><para>GPIO5  </para>
+</entry><entry thead="no"><para>GPIO4  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>3.3V  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Sensor  </para>
+</entry><entry thead="no"><para>SDA  </para>
+</entry><entry thead="no"><para>SCL  </para>
+</entry><entry thead="no"><para>GND  </para>
+</entry><entry thead="no"><para>WAK  </para>
+</entry><entry thead="no"><para>VCC  </para>
+</entry></row>
+</table>
+</para>
+<para><bold>Note:</bold> It is recommended to add external pull-up resistors for SDA/SCL pins to make the communication more stable, though the driver will enable internal pull-up resistors.</para>
+</sect4>
+</sect3>
+<sect3 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md63">
+<title>Configure the project</title><para>Open the project configuration menu (<computeroutput>idf.py menuconfig</computeroutput>). Then go into <computeroutput>Example Configuration</computeroutput> menu.</para>
+<para><itemizedlist>
+<listitem><para>You can choose whether or not to save command history into flash in <computeroutput>Store command history in flash</computeroutput> option.</para>
+</listitem></itemizedlist>
+</para>
+</sect3>
+<sect3 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md64">
+<title>Build and Flash</title><para>Run <computeroutput>idf.py -p PORT flash monitor</computeroutput> to build and flash the project..</para>
+<para>(To exit the serial monitor, type <computeroutput>Ctrl-]</computeroutput>.)</para>
+<para>See the <ulink url="https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html">Getting Started Guide</ulink> for full steps to configure and use ESP-IDF to build projects.</para>
+</sect3>
+</sect2>
+<sect2 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md65">
+<title>Example Output</title><sect3 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md66">
+<title>Check all supported commands and their usages</title><para><programlisting filename=".bash"><codeline><highlight class="normal"><sp/>==============================================================</highlight></codeline>
+<codeline><highlight class="normal"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Steps<sp/>to<sp/>Use<sp/>i2c-tools<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/>|<sp/><sp/>1.<sp/>Try<sp/>&apos;help&apos;,<sp/>check<sp/>all<sp/>supported<sp/>commands<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/>|<sp/><sp/>2.<sp/>Try<sp/>&apos;i2cconfig&apos;<sp/>to<sp/>configure<sp/>your<sp/>I2C<sp/>bus<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/>|<sp/><sp/>3.<sp/>Try<sp/>&apos;i2cdetect&apos;<sp/>to<sp/>scan<sp/>devices<sp/>on<sp/>the<sp/>bus<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/>|<sp/><sp/>4.<sp/>Try<sp/>&apos;i2cget&apos;<sp/>to<sp/>get<sp/>the<sp/>content<sp/>of<sp/>specific<sp/>register<sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/>|<sp/><sp/>5.<sp/>Try<sp/>&apos;i2cset&apos;<sp/>to<sp/>set<sp/>the<sp/>value<sp/>of<sp/>specific<sp/>register<sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/>|<sp/><sp/>6.<sp/>Try<sp/>&apos;i2cdump&apos;<sp/>to<sp/>dump<sp/>all<sp/>the<sp/>register<sp/>(Experiment)<sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/>==============================================================</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Type<sp/>&apos;help&apos;<sp/>to<sp/>get<sp/>the<sp/>list<sp/>of<sp/>commands.</highlight></codeline>
+<codeline><highlight class="normal">Use<sp/>UP/DOWN<sp/>arrows<sp/>to<sp/>navigate<sp/>through<sp/>command<sp/>history.</highlight></codeline>
+<codeline><highlight class="normal">Press<sp/>TAB<sp/>when<sp/>typing<sp/>command<sp/>name<sp/>to<sp/>auto-complete.</highlight></codeline>
+<codeline><highlight class="normal">I<sp/>(379)<sp/>main_task:<sp/>Returned<sp/>from<sp/>app_main()</highlight></codeline>
+<codeline><highlight class="normal">i2c-tools&gt;<sp/>help</highlight></codeline>
+<codeline><highlight class="normal">help</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Print<sp/>the<sp/>list<sp/>of<sp/>registered<sp/>commands</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">i2cconfig<sp/><sp/>[--port=&lt;0|1&gt;]<sp/>[--freq=&lt;Hz&gt;]<sp/>--sda=&lt;gpio&gt;<sp/>--scl=&lt;gpio&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Config<sp/>I2C<sp/>bus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--port=&lt;0|1&gt;<sp/><sp/>Set<sp/>the<sp/>I2C<sp/>bus<sp/>port<sp/>number</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>--freq=&lt;Hz&gt;<sp/><sp/>Set<sp/>the<sp/>frequency(Hz)<sp/>of<sp/>I2C<sp/>bus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--sda=&lt;gpio&gt;<sp/><sp/>Set<sp/>the<sp/>gpio<sp/>for<sp/>I2C<sp/>SDA</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--scl=&lt;gpio&gt;<sp/><sp/>Set<sp/>the<sp/>gpio<sp/>for<sp/>I2C<sp/>SCL</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">i2cdetect</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Scan<sp/>I2C<sp/>bus<sp/>for<sp/>devices</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">i2cget<sp/><sp/>-c<sp/>&lt;chip_addr&gt;<sp/>[-r<sp/>&lt;register_addr&gt;]<sp/>[-l<sp/>&lt;length&gt;]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Read<sp/>registers<sp/>visible<sp/>through<sp/>the<sp/>I2C<sp/>bus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-c,<sp/>--chip=&lt;chip_addr&gt;<sp/><sp/>Specify<sp/>the<sp/>address<sp/>of<sp/>the<sp/>chip<sp/>on<sp/>that<sp/>bus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-r,<sp/>--register=&lt;register_addr&gt;<sp/><sp/>Specify<sp/>the<sp/>address<sp/>on<sp/>that<sp/>chip<sp/>to<sp/>read<sp/>from</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-l,<sp/>--length=&lt;length&gt;<sp/><sp/>Specify<sp/>the<sp/>length<sp/>to<sp/>read<sp/>from<sp/>that<sp/>data<sp/>address</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">i2cset<sp/><sp/>-c<sp/>&lt;chip_addr&gt;<sp/>[-r<sp/>&lt;register_addr&gt;]<sp/>[&lt;data&gt;]...</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Set<sp/>registers<sp/>visible<sp/>through<sp/>the<sp/>I2C<sp/>bus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-c,<sp/>--chip=&lt;chip_addr&gt;<sp/><sp/>Specify<sp/>the<sp/>address<sp/>of<sp/>the<sp/>chip<sp/>on<sp/>that<sp/>bus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-r,<sp/>--register=&lt;register_addr&gt;<sp/><sp/>Specify<sp/>the<sp/>address<sp/>on<sp/>that<sp/>chip<sp/>to<sp/>read<sp/>from</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;data&gt;<sp/><sp/>Specify<sp/>the<sp/>data<sp/>to<sp/>write<sp/>to<sp/>that<sp/>data<sp/>address</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">i2cdump<sp/><sp/>-c<sp/>&lt;chip_addr&gt;<sp/>[-s<sp/>&lt;size&gt;]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Examine<sp/>registers<sp/>visible<sp/>through<sp/>the<sp/>I2C<sp/>bus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-c,<sp/>--chip=&lt;chip_addr&gt;<sp/><sp/>Specify<sp/>the<sp/>address<sp/>of<sp/>the<sp/>chip<sp/>on<sp/>that<sp/>bus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-s,<sp/>--size=&lt;size&gt;<sp/><sp/>Specify<sp/>the<sp/>size<sp/>of<sp/>each<sp/>read</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">free</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Get<sp/>the<sp/>current<sp/>size<sp/>of<sp/>free<sp/>heap<sp/>memory</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">heap</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Get<sp/>minimum<sp/>size<sp/>of<sp/>free<sp/>heap<sp/>memory<sp/>that<sp/>was<sp/>available<sp/>during<sp/>program<sp/>execu</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>tion</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">version</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Get<sp/>version<sp/>of<sp/>chip<sp/>and<sp/>SDK</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">restart</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Software<sp/>reset<sp/>of<sp/>the<sp/>chip</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">deep_sleep<sp/><sp/>[-t<sp/>&lt;t&gt;]<sp/>[--io=&lt;n&gt;]<sp/>[--io_level=&lt;0|1&gt;]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Enter<sp/>deep<sp/>sleep<sp/>mode.<sp/>Two<sp/>wakeup<sp/>modes<sp/>are<sp/>supported:<sp/>timer<sp/>and<sp/>GPIO.<sp/>If<sp/>no</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>wakeup<sp/>option<sp/>is<sp/>specified,<sp/>will<sp/>sleep<sp/>indefinitely.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-t,<sp/>--time=&lt;t&gt;<sp/><sp/>Wake<sp/>up<sp/>time,<sp/>ms</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>--io=&lt;n&gt;<sp/><sp/>If<sp/>specified,<sp/>wakeup<sp/>using<sp/>GPIO<sp/>with<sp/>given<sp/>number</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--io_level=&lt;0|1&gt;<sp/><sp/>GPIO<sp/>level<sp/>to<sp/>trigger<sp/>wakeup</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">light_sleep<sp/><sp/>[-t<sp/>&lt;t&gt;]<sp/>[--io=&lt;n&gt;]...<sp/>[--io_level=&lt;0|1&gt;]...</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Enter<sp/>light<sp/>sleep<sp/>mode.<sp/>Two<sp/>wakeup<sp/>modes<sp/>are<sp/>supported:<sp/>timer<sp/>and<sp/>GPIO.<sp/>Mult</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>iple<sp/>GPIO<sp/>pins<sp/>can<sp/>be<sp/>specified<sp/>using<sp/>pairs<sp/>of<sp/>&apos;io&apos;<sp/>and<sp/>&apos;io_level&apos;<sp/>arguments</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>.<sp/>Will<sp/>also<sp/>wake<sp/>up<sp/>on<sp/>UART<sp/>input.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-t,<sp/>--time=&lt;t&gt;<sp/><sp/>Wake<sp/>up<sp/>time,<sp/>ms</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>--io=&lt;n&gt;<sp/><sp/>If<sp/>specified,<sp/>wakeup<sp/>using<sp/>GPIO<sp/>with<sp/>given<sp/>number</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--io_level=&lt;0|1&gt;<sp/><sp/>GPIO<sp/>level<sp/>to<sp/>trigger<sp/>wakeup</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">tasks</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Get<sp/>information<sp/>about<sp/>running<sp/>tasks</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md67">
+<title>Configure the I2C bus</title><para><programlisting filename=".bash"><codeline><highlight class="normal">i2c-tools&gt;<sp/>i2cconfig<sp/>--port=0<sp/>--sda=18<sp/>--scl=19<sp/>--freq=100000</highlight></codeline>
+</programlisting></para>
+<para><itemizedlist>
+<listitem><para><computeroutput>--port</computeroutput> option to specify the port of I2C, here we choose port 0 for test.</para>
+</listitem><listitem><para><computeroutput>--sda</computeroutput> and <computeroutput>--scl</computeroutput> options to specify the gpio number used by I2C bus, here we choose GPIO18 as the SDA and GPIO19 as the SCL.</para>
+</listitem><listitem><para><computeroutput>--freq</computeroutput> option to specify the frequency of I2C bus, here we set to 100KHz.</para>
+</listitem></itemizedlist>
+</para>
+</sect3>
+<sect3 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md68">
+<title>Check the I2C address (7 bits) on the I2C bus</title><para><programlisting filename=".bash"><codeline><highlight class="normal">i2c-tools&gt;<sp/>i2cdetect</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>0<sp/><sp/>1<sp/><sp/>2<sp/><sp/>3<sp/><sp/>4<sp/><sp/>5<sp/><sp/>6<sp/><sp/>7<sp/><sp/>8<sp/><sp/>9<sp/><sp/>a<sp/><sp/>b<sp/><sp/>c<sp/><sp/>d<sp/><sp/>e<sp/><sp/>f</highlight></codeline>
+<codeline><highlight class="normal">00:<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--</highlight></codeline>
+<codeline><highlight class="normal">10:<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--</highlight></codeline>
+<codeline><highlight class="normal">20:<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--</highlight></codeline>
+<codeline><highlight class="normal">30:<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--</highlight></codeline>
+<codeline><highlight class="normal">40:<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--</highlight></codeline>
+<codeline><highlight class="normal">50:<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>5b<sp/>--<sp/>--<sp/>--<sp/>--</highlight></codeline>
+<codeline><highlight class="normal">60:<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--</highlight></codeline>
+<codeline><highlight class="normal">70:<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--<sp/>--</highlight></codeline>
+</programlisting></para>
+<para><itemizedlist>
+<listitem><para>Here we found the address of CCS811 is 0x5b.</para>
+</listitem></itemizedlist>
+</para>
+</sect3>
+<sect3 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md69">
+<title>Get the value of status register</title><para><programlisting filename=".bash"><codeline><highlight class="normal">i2c-tools&gt;<sp/>i2cget<sp/>-c<sp/>0x5b<sp/>-r<sp/>0x00<sp/>-l<sp/>1</highlight></codeline>
+<codeline><highlight class="normal">0x10</highlight></codeline>
+</programlisting></para>
+<para><itemizedlist>
+<listitem><para><computeroutput>-c</computeroutput> option to specify the address of I2C device (acquired from <computeroutput>i2cdetect</computeroutput> command).</para>
+</listitem><listitem><para><computeroutput>-r</computeroutput> option to specify the register address you want to inspect.</para>
+</listitem><listitem><para><computeroutput>-l</computeroutput> option to specify the length of the content.</para>
+</listitem><listitem><para>Here the returned value 0x10 means that the sensor is just in the boot mode and is ready to go into application mode. For more information about CCS811 you should consult the <ulink url="http://ams.com/ccs811">official website</ulink>.</para>
+</listitem></itemizedlist>
+</para>
+</sect3>
+<sect3 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md70">
+<title>Change the working mode</title><para><programlisting filename=".bash"><codeline><highlight class="normal">i2c-tools&gt;<sp/>i2cset<sp/>-c<sp/>0x5b<sp/>-r<sp/>0xF4</highlight></codeline>
+<codeline><highlight class="normal">I<sp/>(734717)<sp/>cmd_i2ctools:<sp/>Write<sp/>OK</highlight></codeline>
+<codeline><highlight class="normal">i2c-tools&gt;<sp/>i2cset<sp/>-c<sp/>0x5b<sp/>-r<sp/>0x01<sp/>0x10</highlight></codeline>
+<codeline><highlight class="normal">I<sp/>(1072047)<sp/>cmd_i2ctools:<sp/>Write<sp/>OK</highlight></codeline>
+<codeline><highlight class="normal">i2c-tools&gt;<sp/>i2cget<sp/>-c<sp/>0x5b<sp/>-r<sp/>0x00<sp/>-l<sp/>1</highlight></codeline>
+<codeline><highlight class="normal">0x98</highlight></codeline>
+</programlisting></para>
+<para><itemizedlist>
+<listitem><para>Here we change the mode from boot to application and set a proper measure mode (by writing 0x10 to register 0x01)</para>
+</listitem><listitem><para>Now the status value of the sensor is 0x98, which means a valid data is ready to read</para>
+</listitem></itemizedlist>
+</para>
+</sect3>
+<sect3 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md71">
+<title>Read the sensor data</title><para><programlisting filename=".bash"><codeline><highlight class="normal">i2c-tools&gt;<sp/>i2cget<sp/>-c<sp/>0x5b<sp/>-r<sp/>0x02<sp/>-l<sp/>8</highlight></codeline>
+<codeline><highlight class="normal">0x01<sp/>0xb0<sp/>0x00<sp/>0x04<sp/>0x98<sp/>0x00<sp/>0x19<sp/>0x8f</highlight></codeline>
+</programlisting></para>
+<para><itemizedlist>
+<listitem><para>The register 0x02 will output 8 bytes result, mainly including value of eCO~2~、TVOC and there raw value. So the value of eCO~2~ is 0x01b0 ppm and value of TVOC is 0x04 ppb.</para>
+</listitem></itemizedlist>
+</para>
+</sect3>
+</sect2>
+<sect2 id="dir_8b4e5b8bf912f4cf55ac17b5fb8ec414_1autotoc_md72">
+<title>Troubleshooting</title><para><itemizedlist>
+<listitem><para>I don’t find any available address when running <computeroutput>i2cdetect</computeroutput> command.<itemizedlist>
+<listitem><para>Make sure your wiring connection is right.</para>
+</listitem><listitem><para>Some sensor will have a “wake up” pin, via which user can put the sensor into a sleep mode. So make sure your sensor in <bold>not</bold> in the sleep state.</para>
+</listitem><listitem><para>Reset you I2C device, and then run <computeroutput>i2cdetect</computeroutput> again.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>I can’t get the right content when running <computeroutput>i2cdump</computeroutput> command.<itemizedlist>
+<listitem><para>Currently the <computeroutput>i2cdump</computeroutput> only support those who have the same content length of registers inside the I2C device. For example, if a device have three register addresses, and the content length at these address are 1 byte, 2 bytes and 4 bytes. In this case you should not expect this command to dump the register correctly.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<para>(For any technical queries, please open an <ulink url="https://github.com/espressif/esp-idf/issues">issue</ulink> on GitHub. We will get back to you as soon as possible.) </para>
+</sect2>
+</sect1>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/i2c_tools/"/>
+  </compounddef>
+</doxygen>

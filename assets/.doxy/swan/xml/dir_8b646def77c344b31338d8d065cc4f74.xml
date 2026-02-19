@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_8b646def77c344b31338d8d065cc4f74" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main</compoundname>
+    <innerfile refid="i2s__pdm__example_8h">i2s_pdm_example.h</innerfile>
+    <innerfile refid="i2s__pdm__example__main_8c">i2s_pdm_example_main.c</innerfile>
+    <innerfile refid="i2s__pdm__rx_8c">i2s_pdm_rx.c</innerfile>
+    <innerfile refid="i2s__pdm__tx_8c">i2s_pdm_tx.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/"/>
+  </compounddef>
+</doxygen>

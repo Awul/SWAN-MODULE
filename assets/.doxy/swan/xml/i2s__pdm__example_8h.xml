@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="i2s__pdm__example_8h" kind="file" language="C++">
+    <compoundname>i2s_pdm_example.h</compoundname>
+    <includedby refid="i2s__pdm__example__main_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_example_main.c</includedby>
+    <includedby refid="i2s__pdm__rx_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_rx.c</includedby>
+    <includedby refid="i2s__pdm__tx_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c</includedby>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="i2s__pdm__example_8h_1a7771dbf6b2854f8779dbaa91f66ad4b7" prot="public" static="no">
+        <name>EXAMPLE_BUFF_SIZE</name>
+        <initializer>2048</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_example.h" line="13" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_example.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="i2s__pdm__example_8h_1a7e5c7aa27d071874404ee4fc10ebcefd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void i2s_example_pdm_tx_task</definition>
+        <argsstring>(void *args)</argsstring>
+        <name>i2s_example_pdm_tx_task</name>
+        <param>
+          <type>void *</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>I2S PDM TX example task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The user data given from task creating, not used in this example </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_example.h" line="20" column="6" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="86" bodyend="123" declfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_example.h" declline="20" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="i2s__pdm__example_8h_1ad3f445df5cf8d349d8d0caf198a26fde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void i2s_example_pdm_rx_task</definition>
+        <argsstring>(void *args)</argsstring>
+        <name>i2s_example_pdm_rx_task</name>
+        <param>
+          <type>void *</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>I2S PDM RX example task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The user data given from task creating, not used in this example </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_example.h" line="27" column="6" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_rx.c" bodystart="92" bodyend="115" declfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_example.h" declline="27" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>SPDX-FileCopyrightText:<sp/>2021-2022<sp/>Espressif<sp/>Systems<sp/>(Shanghai)<sp/>CO<sp/>LTD</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>Unlicense<sp/>OR<sp/>CC0-1.0</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_BUFF_SIZE<sp/><sp/><sp/>2048</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>i2s_example_pdm_tx_task(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*args);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>i2s_example_pdm_rx_task(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*args);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_example.h"/>
+  </compounddef>
+</doxygen>

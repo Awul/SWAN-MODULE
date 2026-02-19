@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_853002c9a0c16e1e5afe2f5095699801" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/interface</compoundname>
+    <innerfile refid="led__strip__interface_8h">led_strip_interface.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/interface/"/>
+  </compounddef>
+</doxygen>

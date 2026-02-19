@@ -1,0 +1,406 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="i2s__pdm__tx_8c" kind="file" language="C++">
+    <compoundname>i2s_pdm_tx.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">math.h</includes>
+    <includes local="yes">freertos/FreeRTOS.h</includes>
+    <includes local="yes">freertos/task.h</includes>
+    <includes local="yes">driver/i2s_pdm.h</includes>
+    <includes local="yes">driver/gpio.h</includes>
+    <includes local="yes">esp_check.h</includes>
+    <includes local="yes">sdkconfig.h</includes>
+    <includes refid="i2s__pdm__example_8h" local="yes">i2s_pdm_example.h</includes>
+    <includes local="yes">i2s_example_pins.h</includes>
+    <incdepgraph>
+      <node id="10">
+        <label>i2s_pdm_example.h</label>
+        <link refid="i2s__pdm__example_8h_source"/>
+      </node>
+      <node id="1">
+        <label>C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c</label>
+        <link refid="i2s__pdm__tx_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>driver/gpio.h</label>
+      </node>
+      <node id="6">
+        <label>driver/i2s_pdm.h</label>
+      </node>
+      <node id="8">
+        <label>esp_check.h</label>
+      </node>
+      <node id="4">
+        <label>freertos/FreeRTOS.h</label>
+      </node>
+      <node id="5">
+        <label>freertos/task.h</label>
+      </node>
+      <node id="11">
+        <label>i2s_example_pins.h</label>
+      </node>
+      <node id="3">
+        <label>math.h</label>
+      </node>
+      <node id="9">
+        <label>sdkconfig.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="i2s__pdm__tx_8c_1a6c7ebe1ccf2f59c610bd91f99496994f" prot="public" static="no">
+        <name>EXAMPLE_PDM_TX_CLK_IO</name>
+        <initializer>EXAMPLE_I2S_BCLK_IO1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="18" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2s__pdm__tx_8c_1a89288350b817acff3c7fd3861c49cbd2" prot="public" static="no">
+        <name>EXAMPLE_PDM_TX_DOUT_IO</name>
+        <initializer>EXAMPLE_I2S_DOUT_IO1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="19" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2s__pdm__tx_8c_1a6edb1c0d49f7390e8aa51a6a9710c633" prot="public" static="no">
+        <name>EXAMPLE_PDM_TX_FREQ_HZ</name>
+        <initializer>16000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="21" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2s__pdm__tx_8c_1a4d913cefce7b15a48173c437500f03c9" prot="public" static="no">
+        <name>EXAMPLE_WAVE_AMPLITUDE</name>
+        <initializer>(1000.0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="22" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2s__pdm__tx_8c_1a02b01cde332fa86c92d54802cce7f3d2" prot="public" static="no">
+        <name>CONST_PI</name>
+        <initializer>(3.1416f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="23" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2s__pdm__tx_8c_1aad8838cb1a2b9c15fbae5b073ce1441a" prot="public" static="no">
+        <name>EXAMPLE_SINE_WAVE_LEN</name>
+        <param><defname>tone</defname></param>
+        <initializer>(uint32_t)((EXAMPLE_PDM_TX_FREQ_HZ / (float)tone) + 0.5)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="24" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2s__pdm__tx_8c_1a73db932a9425eaf1d7f6552e7698476c" prot="public" static="no">
+        <name>EXAMPLE_TONE_LAST_TIME_MS</name>
+        <initializer>500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="25" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2s__pdm__tx_8c_1a49439c254db10f51fa1f75fc7d76a6e7" prot="public" static="no">
+        <name>EXAMPLE_BYTE_NUM_EVERY_TONE</name>
+        <initializer>(EXAMPLE_TONE_LAST_TIME_MS * EXAMPLE_PDM_TX_FREQ_HZ / 1000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="26" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="i2s__pdm__tx_8c_1a36cdc6238741faa5b06aebda67a3b7d4" prot="public" static="yes" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t tone[3][7]</definition>
+        <argsstring>[3][7]</argsstring>
+        <name>tone</name>
+        <initializer>                           = {
+    {262, 294, 330, 349, 392, 440, 494},        
+    {523, 587, 659, 698, 784, 880, 988},        
+    {1046, 1175, 1318, 1397, 1568, 1760, 1976}, 
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="29" column="23" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="29" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="variable" id="i2s__pdm__tx_8c_1a743208d3cb73a95fb25cd5ef881a3b6a" prot="public" static="yes" mutable="no">
+        <type>const uint8_t</type>
+        <definition>const uint8_t song[28]</definition>
+        <argsstring>[28]</argsstring>
+        <name>song</name>
+        <initializer>= {1, 1, 5, 5, 6, 6, 5,
+       4, 4, 3, 3, 2, 2, 1,
+       5, 5, 4, 4, 3, 3, 2,
+       5, 5, 4, 4, 3, 3, 2
+      }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="35" column="22" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="35" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="variable" id="i2s__pdm__tx_8c_1aa82ae0fead432cacce5e1cc2abd0da04" prot="public" static="yes" mutable="no">
+        <type>const uint8_t</type>
+        <definition>const uint8_t rhythm[7]</definition>
+        <argsstring>[7]</argsstring>
+        <name>rhythm</name>
+        <initializer>= {1, 1, 1, 1, 1, 1, 2}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="41" column="22" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="variable" id="i2s__pdm__tx_8c_1a144d0470bcc500c42dc185d6b1cb6434" prot="public" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* tone_name[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>tone_name</name>
+        <initializer>= {&quot;bass&quot;, &quot;alto&quot;, &quot;treble&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="43" column="19" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="43" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="i2s__pdm__tx_8c_1ad7b11a5961c50331f30f8525aa35255f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>i2s_chan_handle_t</type>
+        <definition>static i2s_chan_handle_t i2s_example_init_pdm_tx</definition>
+        <argsstring>(void)</argsstring>
+        <name>i2s_example_init_pdm_tx</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="45" column="26" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="45" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="i2s__pdm__tx_8c_1a7e5c7aa27d071874404ee4fc10ebcefd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void i2s_example_pdm_tx_task</definition>
+        <argsstring>(void *args)</argsstring>
+        <name>i2s_example_pdm_tx_task</name>
+        <param>
+          <type>void *</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>I2S PDM TX example task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The user data given from task creating, not used in this example </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" line="86" column="6" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c" bodystart="86" bodyend="123"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>SPDX-FileCopyrightText:<sp/>2021-2024<sp/>Espressif<sp/>Systems<sp/>(Shanghai)<sp/>CO<sp/>LTD</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>Unlicense<sp/>OR<sp/>CC0-1.0</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/FreeRTOS.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/task.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;driver/i2s_pdm.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;driver/gpio.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_check.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sdkconfig.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;i2s_pdm_example.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;i2s_example_pins.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_PDM_TX_CLK_IO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EXAMPLE_I2S_BCLK_IO1<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>I2S<sp/>PDM<sp/>TX<sp/>clock<sp/>io<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_PDM_TX_DOUT_IO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EXAMPLE_I2S_DOUT_IO1<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>I2S<sp/>PDM<sp/>TX<sp/>data<sp/>out<sp/>io<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_PDM_TX_FREQ_HZ<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16000<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>I2S<sp/>PDM<sp/>TX<sp/>frequency</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_WAVE_AMPLITUDE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1000.0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>1~32767</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONST_PI<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(3.1416f)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_SINE_WAVE_LEN(tone)<sp/><sp/><sp/><sp/><sp/>(uint32_t)((EXAMPLE_PDM_TX_FREQ_HZ<sp/>/<sp/>(float)tone)<sp/>+<sp/>0.5)<sp/></highlight><highlight class="comment">//<sp/>The<sp/>sample<sp/>point<sp/>number<sp/>per<sp/>sine<sp/>wave<sp/>to<sp/>generate<sp/>the<sp/>tone</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_TONE_LAST_TIME_MS<sp/><sp/><sp/><sp/><sp/><sp/><sp/>500</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_BYTE_NUM_EVERY_TONE<sp/><sp/><sp/><sp/><sp/>(EXAMPLE_TONE_LAST_TIME_MS<sp/>*<sp/>EXAMPLE_PDM_TX_FREQ_HZ<sp/>/<sp/>1000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>The<sp/>frequency<sp/>of<sp/>tones:<sp/>do,<sp/>re,<sp/>mi,<sp/>fa,<sp/>so,<sp/>la,<sp/>si,<sp/>in<sp/>Hz.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>tone[3][7]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>{262,<sp/>294,<sp/>330,<sp/>349,<sp/>392,<sp/>440,<sp/>494},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bass</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>{523,<sp/>587,<sp/>659,<sp/>698,<sp/>784,<sp/>880,<sp/>988},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>alto</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>{1046,<sp/>1175,<sp/>1318,<sp/>1397,<sp/>1568,<sp/>1760,<sp/>1976},<sp/></highlight><highlight class="comment">//<sp/>treble</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Numbered<sp/>musical<sp/>notation<sp/>of<sp/>&apos;twinkle<sp/>twinkle<sp/>little<sp/>star&apos;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>song[28]<sp/>=<sp/>{1,<sp/>1,<sp/>5,<sp/>5,<sp/>6,<sp/>6,<sp/>5,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4,<sp/>4,<sp/>3,<sp/>3,<sp/>2,<sp/>2,<sp/>1,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>5,<sp/>5,<sp/>4,<sp/>4,<sp/>3,<sp/>3,<sp/>2,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>5,<sp/>5,<sp/>4,<sp/>4,<sp/>3,<sp/>3,<sp/>2</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Rhythm<sp/>of<sp/>&apos;twinkle<sp/>twinkle<sp/>little<sp/>star&apos;,<sp/>it&apos;s<sp/>repeated<sp/>in<sp/>four<sp/>sections<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>rhythm[7]<sp/>=<sp/>{1,<sp/>1,<sp/>1,<sp/>1,<sp/>1,<sp/>1,<sp/>2};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*tone_name[3]<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;bass&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;alto&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;treble&quot;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>i2s_chan_handle_t<sp/>i2s_example_init_pdm_tx(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>i2s_chan_handle_t<sp/>tx_chan;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>I2S<sp/>tx<sp/>channel<sp/>handler</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Setp<sp/>1:<sp/>Determine<sp/>the<sp/>I2S<sp/>channel<sp/>configuration<sp/>and<sp/>allocate<sp/>TX<sp/>channel<sp/>only</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>The<sp/>default<sp/>configuration<sp/>can<sp/>be<sp/>generated<sp/>by<sp/>the<sp/>helper<sp/>macro,</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>it<sp/>only<sp/>requires<sp/>the<sp/>I2S<sp/>controller<sp/>id<sp/>and<sp/>I2S<sp/>role,</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>but<sp/>note<sp/>that<sp/>PDM<sp/>channel<sp/>can<sp/>only<sp/>be<sp/>registered<sp/>on<sp/>I2S_NUM_0<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>i2s_chan_config_t<sp/>tx_chan_cfg<sp/>=<sp/>I2S_CHANNEL_DEFAULT_CONFIG(I2S_NUM_AUTO,<sp/>I2S_ROLE_MASTER);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>tx_chan_cfg.auto_clear<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(i2s_new_channel(&amp;tx_chan_cfg,<sp/>&amp;tx_chan,<sp/>NULL));</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Step<sp/>2:<sp/>Setting<sp/>the<sp/>configurations<sp/>of<sp/>PDM<sp/>TX<sp/>mode<sp/>and<sp/>initialize<sp/>the<sp/>TX<sp/>channel</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>The<sp/>slot<sp/>configuration<sp/>and<sp/>clock<sp/>configuration<sp/>can<sp/>be<sp/>generated<sp/>by<sp/>the<sp/>macros</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>These<sp/>two<sp/>helper<sp/>macros<sp/>is<sp/>defined<sp/>in<sp/>&apos;i2s_pdm.h&apos;<sp/>which<sp/>can<sp/>only<sp/>be<sp/>used<sp/>in<sp/>PDM<sp/>TX<sp/>mode.</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>They<sp/>can<sp/>help<sp/>to<sp/>specify<sp/>the<sp/>slot<sp/>and<sp/>clock<sp/>configurations<sp/>for<sp/>initialization<sp/>or<sp/>re-configuring<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>i2s_pdm_tx_config_t<sp/>pdm_tx_cfg<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>CONFIG_EXAMPLE_PDM_TX_DAC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.clk_cfg<sp/>=<sp/>I2S_PDM_TX_CLK_DAC_DEFAULT_CONFIG(EXAMPLE_PDM_TX_FREQ_HZ),</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>The<sp/>data<sp/>bit-width<sp/>of<sp/>PDM<sp/>mode<sp/>is<sp/>fixed<sp/>to<sp/>16<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.slot_cfg<sp/>=<sp/>I2S_PDM_TX_SLOT_DAC_DEFAULT_CONFIG(I2S_DATA_BIT_WIDTH_16BIT,<sp/>I2S_SLOT_MODE_MONO),</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.clk_cfg<sp/>=<sp/>I2S_PDM_TX_CLK_DEFAULT_CONFIG(EXAMPLE_PDM_TX_FREQ_HZ),</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>The<sp/>data<sp/>bit-width<sp/>of<sp/>PDM<sp/>mode<sp/>is<sp/>fixed<sp/>to<sp/>16<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.slot_cfg<sp/>=<sp/>I2S_PDM_TX_SLOT_DEFAULT_CONFIG(I2S_DATA_BIT_WIDTH_16BIT,<sp/>I2S_SLOT_MODE_MONO),</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.gpio_cfg<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.clk<sp/>=<sp/>EXAMPLE_PDM_TX_CLK_IO,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.dout<sp/>=<sp/>EXAMPLE_PDM_TX_DOUT_IO,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.invert_flags<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.clk_inv<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(i2s_channel_init_pdm_tx_mode(tx_chan,<sp/>&amp;pdm_tx_cfg));</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Step<sp/>3:<sp/>Enable<sp/>the<sp/>tx<sp/>channel<sp/>before<sp/>writing<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(i2s_channel_enable(tx_chan));</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tx_chan;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>i2s_example_pdm_tx_task(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*args)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>*w_buf<sp/>=<sp/>(int16_t<sp/>*)calloc(1,<sp/>EXAMPLE_BUFF_SIZE);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(w_buf);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>i2s_chan_handle_t<sp/>tx_chan<sp/>=<sp/>i2s_example_init_pdm_tx();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>w_bytes<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>cnt<sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>current<sp/>index<sp/>of<sp/>the<sp/>song</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>tone_select<sp/>=<sp/>0;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>To<sp/>selecting<sp/>the<sp/>tone<sp/>level</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Playing<sp/>%s<sp/>`twinkle<sp/>twinkle<sp/>little<sp/>star`\n&quot;</highlight><highlight class="normal">,<sp/>tone_name[tone_select]);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(1)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tone_point<sp/>=<sp/>EXAMPLE_SINE_WAVE_LEN(tone[tone_select][song[cnt]<sp/>-<sp/>1]);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Generate<sp/>the<sp/>tone<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>tone_point;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w_buf[i]<sp/>=<sp/>(int16_t)((sin(2<sp/>*<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)i<sp/>*<sp/>CONST_PI<sp/>/<sp/>tone_point))<sp/>*<sp/>EXAMPLE_WAVE_AMPLITUDE);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tot_bytes<sp/>=<sp/>0;<sp/>tot_bytes<sp/>&lt;<sp/>EXAMPLE_BYTE_NUM_EVERY_TONE<sp/>*<sp/>rhythm[cnt<sp/>%<sp/>7];<sp/>tot_bytes<sp/>+=<sp/>w_bytes)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Play<sp/>the<sp/>tone<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i2s_channel_write(tx_chan,<sp/>w_buf,<sp/>tone_point<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(int16_t),<sp/>&amp;w_bytes,<sp/>1000)<sp/>!=<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Write<sp/>Task:<sp/>i2s<sp/>write<sp/>failed\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cnt++;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>finished<sp/>playing,<sp/>switch<sp/>the<sp/>tone<sp/>level<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cnt<sp/>==<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(song))<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cnt<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tone_select++;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tone_select<sp/>%=<sp/>3;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Playing<sp/>%s<sp/>`twinkle<sp/>twinkle<sp/>little<sp/>star`\n&quot;</highlight><highlight class="normal">,<sp/>tone_name[tone_select]);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Gap<sp/>between<sp/>the<sp/>tones<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vTaskDelay(15);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>free(w_buf);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelete(NULL);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/main/i2s_pdm_tx.c"/>
+  </compounddef>
+</doxygen>

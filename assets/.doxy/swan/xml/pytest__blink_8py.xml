@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="pytest__blink_8py" kind="file" language="Python">
+    <compoundname>pytest_blink.py</compoundname>
+    <innernamespace refid="namespacepytest__blink">pytest_blink</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">#<sp/>SPDX-FileCopyrightText:<sp/>2022-2025<sp/>Espressif<sp/>Systems<sp/>(Shanghai)<sp/>CO<sp/>LTD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">#<sp/>SPDX-License-Identifier:<sp/>CC0-1.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>logging</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>os</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>pytest</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>pytest_embedded_idf.dut<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>IdfDut</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>pytest_embedded_idf.utils<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>idf_parametrize</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">@pytest.mark.generic</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">@idf_parametrize(&apos;target&apos;,<sp/>[&apos;supported_targets&apos;],<sp/>indirect=[&apos;target&apos;])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">test_blink(dut:<sp/>IdfDut)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>check<sp/>and<sp/>log<sp/>bin<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>binary_file<sp/>=<sp/>os.path.join(dut.app.binary_path,<sp/></highlight><highlight class="stringliteral">&apos;blink.bin&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>bin_size<sp/>=<sp/>os.path.getsize(binary_file)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>logging.info(</highlight><highlight class="stringliteral">&apos;blink_bin_size<sp/>:<sp/>{}KB&apos;</highlight><highlight class="normal">.format(bin_size<sp/>//<sp/>1024))</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/pytest_blink.py"/>
+  </compounddef>
+</doxygen>

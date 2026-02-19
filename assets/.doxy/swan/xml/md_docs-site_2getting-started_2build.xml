@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="md_docs-site_2getting-started_2build" kind="page">
+    <compoundname>md_docs-site_2getting-started_2build</compoundname>
+    <title>HOW to build.</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md_docs-site_2getting-started_2build_1autotoc_md86"/></para>
+<para>Press build. done. </para>
+    </detaileddescription>
+    <location file="docs-site/getting-started/build.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_81095178d7219ad8e57214a448b431f7" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/build</compoundname>
+    <innerdir refid="dir_6928d5012515c1fbe404498175813d09">C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/build/bootloader</innerdir>
+    <innerdir refid="dir_6f5473dd3b41407d61d63e7df50f23d9">C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/build/CMakeFiles</innerdir>
+    <innerdir refid="dir_3c80d92de93a1ca19bdb8c19b92fc39a">C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/build/config</innerdir>
+    <innerfile refid="i2s__pdm_2build_2project__elf__src__esp32s3_8c">project_elf_src_esp32s3.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/build/"/>
+  </compounddef>
+</doxygen>

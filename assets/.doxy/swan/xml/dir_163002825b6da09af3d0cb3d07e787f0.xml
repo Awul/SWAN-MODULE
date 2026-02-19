@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_163002825b6da09af3d0cb3d07e787f0" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src</compoundname>
+    <innerfile refid="led__strip__api_8c">led_strip_api.c</innerfile>
+    <innerfile refid="led__strip__rmt__dev_8c">led_strip_rmt_dev.c</innerfile>
+    <innerfile refid="led__strip__rmt__encoder_8c">led_strip_rmt_encoder.c</innerfile>
+    <innerfile refid="led__strip__rmt__encoder_8h">led_strip_rmt_encoder.h</innerfile>
+    <innerfile refid="led__strip__spi__dev_8c">led_strip_spi_dev.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>File cmd_i2ctools.c - SWAN Module Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "File cmd_i2ctools.c";
+        var mkdocs_page_input_path = "swan\\cmd__i2ctools_8c_source.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> SWAN Module Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/build/">Build & Flash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/style/">Coding Style</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/license/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">SWAN Module Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">File cmd_i2ctools.c</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/cmd__i2ctools_8c_source.md">Edit on Awul/SWAN-MODULE</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="file-cmd_i2ctoolsc">File cmd_i2ctools.c</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_8b4e5b8bf912f4cf55ac17b5fb8ec414/"><strong>i2c_tools</strong></a> <strong>&gt;</strong> <a href="../dir_3218ba971dba91160485f06c6137239b/"><strong>main</strong></a> <strong>&gt;</strong> <a href="../cmd__i2ctools_8c/"><strong>cmd_i2ctools.c</strong></a></p>
+<p><a href="../cmd__i2ctools_8c/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/*
+ * SPDX-FileCopyrightText: 2022-2024 Espressif Systems (Shanghai) CO LTD
+ *
+ * SPDX-License-Identifier: Unlicense OR CC0-1.0
+ */
+/* cmd_i2ctools.c
+
+   This example code is in the Public Domain (or CC0 licensed, at your option.)
+
+   Unless required by applicable law or agreed to in writing, this
+   software is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR
+   CONDITIONS OF ANY KIND, either express or implied.
+*/
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &quot;argtable3/argtable3.h&quot;
+#include &quot;driver/i2c_master.h&quot;
+#include &quot;esp_console.h&quot;
+#include &quot;esp_log.h&quot;
+
+static const char *TAG = &quot;cmd_i2ctools&quot;;
+
+#define I2C_TOOL_TIMEOUT_VALUE_MS (50)
+static uint32_t i2c_frequency = 100 * 1000;
+i2c_master_bus_handle_t tool_bus_handle;
+
+static esp_err_t i2c_get_port(int port, i2c_port_t *i2c_port)
+{
+    if (port &gt;= I2C_NUM_MAX) {
+        ESP_LOGE(TAG, &quot;Wrong port number: %d&quot;, port);
+        return ESP_FAIL;
+    }
+    *i2c_port = port;
+    return ESP_OK;
+}
+
+static struct {
+    struct arg_int *port;
+    struct arg_int *freq;
+    struct arg_int *sda;
+    struct arg_int *scl;
+    struct arg_end *end;
+} i2cconfig_args;
+
+static int do_i2cconfig_cmd(int argc, char **argv)
+{
+    int nerrors = arg_parse(argc, argv, (void **)&amp;i2cconfig_args);
+    i2c_port_t i2c_port = I2C_NUM_0;
+    int i2c_gpio_sda = 0;
+    int i2c_gpio_scl = 0;
+    if (nerrors != 0) {
+        arg_print_errors(stderr, i2cconfig_args.end, argv[0]);
+        return 0;
+    }
+
+    /* Check &quot;--port&quot; option */
+    if (i2cconfig_args.port-&gt;count) {
+        if (i2c_get_port(i2cconfig_args.port-&gt;ival[0], &amp;i2c_port) != ESP_OK) {
+            return 1;
+        }
+    }
+    /* Check &quot;--freq&quot; option */
+    if (i2cconfig_args.freq-&gt;count) {
+        i2c_frequency = i2cconfig_args.freq-&gt;ival[0];
+    }
+    /* Check &quot;--sda&quot; option */
+    i2c_gpio_sda = i2cconfig_args.sda-&gt;ival[0];
+    /* Check &quot;--scl&quot; option */
+    i2c_gpio_scl = i2cconfig_args.scl-&gt;ival[0];
+
+    // re-init the bus
+    if (i2c_del_master_bus(tool_bus_handle) != ESP_OK) {
+        return 1;
+    }
+
+    i2c_master_bus_config_t i2c_bus_config = {
+        .clk_source = I2C_CLK_SRC_DEFAULT,
+        .i2c_port = i2c_port,
+        .scl_io_num = i2c_gpio_scl,
+        .sda_io_num = i2c_gpio_sda,
+        .glitch_ignore_cnt = 7,
+        .flags.enable_internal_pullup = true,
+    };
+
+    if (i2c_new_master_bus(&amp;i2c_bus_config, &amp;tool_bus_handle) != ESP_OK) {
+        return 1;
+    }
+
+    return 0;
+}
+
+static void register_i2cconfig(void)
+{
+    i2cconfig_args.port = arg_int0(NULL, &quot;port&quot;, &quot;&lt;0|1&gt;&quot;, &quot;Set the I2C bus port number&quot;);
+    i2cconfig_args.freq = arg_int0(NULL, &quot;freq&quot;, &quot;&lt;Hz&gt;&quot;, &quot;Set the frequency(Hz) of I2C bus&quot;);
+    i2cconfig_args.sda = arg_int1(NULL, &quot;sda&quot;, &quot;&lt;gpio&gt;&quot;, &quot;Set the gpio for I2C SDA&quot;);
+    i2cconfig_args.scl = arg_int1(NULL, &quot;scl&quot;, &quot;&lt;gpio&gt;&quot;, &quot;Set the gpio for I2C SCL&quot;);
+    i2cconfig_args.end = arg_end(2);
+    const esp_console_cmd_t i2cconfig_cmd = {
+        .command = &quot;i2cconfig&quot;,
+        .help = &quot;Config I2C bus&quot;,
+        .hint = NULL,
+        .func = &amp;do_i2cconfig_cmd,
+        .argtable = &amp;i2cconfig_args
+    };
+    ESP_ERROR_CHECK(esp_console_cmd_register(&amp;i2cconfig_cmd));
+}
+
+static int do_i2cdetect_cmd(int argc, char **argv)
+{
+    uint8_t address;
+    printf(&quot;     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f\r\n&quot;);
+    for (int i = 0; i &lt; 128; i += 16) {
+        printf(&quot;%02x: &quot;, i);
+        for (int j = 0; j &lt; 16; j++) {
+            fflush(stdout);
+            address = i + j;
+            esp_err_t ret = i2c_master_probe(tool_bus_handle, address, I2C_TOOL_TIMEOUT_VALUE_MS);
+            if (ret == ESP_OK) {
+                printf(&quot;%02x &quot;, address);
+            } else if (ret == ESP_ERR_TIMEOUT) {
+                printf(&quot;UU &quot;);
+            } else {
+                printf(&quot;-- &quot;);
+            }
+        }
+        printf(&quot;\r\n&quot;);
+    }
+
+    return 0;
+}
+
+static void register_i2cdetect(void)
+{
+    const esp_console_cmd_t i2cdetect_cmd = {
+        .command = &quot;i2cdetect&quot;,
+        .help = &quot;Scan I2C bus for devices&quot;,
+        .hint = NULL,
+        .func = &amp;do_i2cdetect_cmd,
+        .argtable = NULL
+    };
+    ESP_ERROR_CHECK(esp_console_cmd_register(&amp;i2cdetect_cmd));
+}
+
+static struct {
+    struct arg_int *chip_address;
+    struct arg_int *register_address;
+    struct arg_int *data_length;
+    struct arg_end *end;
+} i2cget_args;
+
+static int do_i2cget_cmd(int argc, char **argv)
+{
+    int nerrors = arg_parse(argc, argv, (void **)&amp;i2cget_args);
+    if (nerrors != 0) {
+        arg_print_errors(stderr, i2cget_args.end, argv[0]);
+        return 0;
+    }
+
+    /* Check chip address: &quot;-c&quot; option */
+    int chip_addr = i2cget_args.chip_address-&gt;ival[0];
+    /* Check register address: &quot;-r&quot; option */
+    int data_addr = -1;
+    if (i2cget_args.register_address-&gt;count) {
+        data_addr = i2cget_args.register_address-&gt;ival[0];
+    }
+    /* Check data length: &quot;-l&quot; option */
+    int len = 1;
+    if (i2cget_args.data_length-&gt;count) {
+        len = i2cget_args.data_length-&gt;ival[0];
+    }
+    uint8_t *data = malloc(len);
+
+    i2c_device_config_t i2c_dev_conf = {
+        .scl_speed_hz = i2c_frequency,
+        .device_address = chip_addr,
+    };
+    i2c_master_dev_handle_t dev_handle;
+    if (i2c_master_bus_add_device(tool_bus_handle, &amp;i2c_dev_conf, &amp;dev_handle) != ESP_OK) {
+        return 1;
+    }
+
+    esp_err_t ret = i2c_master_transmit_receive(dev_handle, (uint8_t*)&amp;data_addr, 1, data, len, I2C_TOOL_TIMEOUT_VALUE_MS);
+    if (ret == ESP_OK) {
+        for (int i = 0; i &lt; len; i++) {
+            printf(&quot;0x%02x &quot;, data[i]);
+            if ((i + 1) % 16 == 0) {
+                printf(&quot;\r\n&quot;);
+            }
+        }
+        if (len % 16) {
+            printf(&quot;\r\n&quot;);
+        }
+    } else if (ret == ESP_ERR_TIMEOUT) {
+        ESP_LOGW(TAG, &quot;Bus is busy&quot;);
+    } else {
+        ESP_LOGW(TAG, &quot;Read failed&quot;);
+    }
+    free(data);
+    if (i2c_master_bus_rm_device(dev_handle) != ESP_OK) {
+        return 1;
+    }
+    return 0;
+}
+
+static void register_i2cget(void)
+{
+    i2cget_args.chip_address = arg_int1(&quot;c&quot;, &quot;chip&quot;, &quot;&lt;chip_addr&gt;&quot;, &quot;Specify the address of the chip on that bus&quot;);
+    i2cget_args.register_address = arg_int0(&quot;r&quot;, &quot;register&quot;, &quot;&lt;register_addr&gt;&quot;, &quot;Specify the address on that chip to read from&quot;);
+    i2cget_args.data_length = arg_int0(&quot;l&quot;, &quot;length&quot;, &quot;&lt;length&gt;&quot;, &quot;Specify the length to read from that data address&quot;);
+    i2cget_args.end = arg_end(1);
+    const esp_console_cmd_t i2cget_cmd = {
+        .command = &quot;i2cget&quot;,
+        .help = &quot;Read registers visible through the I2C bus&quot;,
+        .hint = NULL,
+        .func = &amp;do_i2cget_cmd,
+        .argtable = &amp;i2cget_args
+    };
+    ESP_ERROR_CHECK(esp_console_cmd_register(&amp;i2cget_cmd));
+}
+
+static struct {
+    struct arg_int *chip_address;
+    struct arg_int *register_address;
+    struct arg_int *data;
+    struct arg_end *end;
+} i2cset_args;
+
+static int do_i2cset_cmd(int argc, char **argv)
+{
+    int nerrors = arg_parse(argc, argv, (void **)&amp;i2cset_args);
+    if (nerrors != 0) {
+        arg_print_errors(stderr, i2cset_args.end, argv[0]);
+        return 0;
+    }
+
+    /* Check chip address: &quot;-c&quot; option */
+    int chip_addr = i2cset_args.chip_address-&gt;ival[0];
+    /* Check register address: &quot;-r&quot; option */
+    int data_addr = 0;
+    if (i2cset_args.register_address-&gt;count) {
+        data_addr = i2cset_args.register_address-&gt;ival[0];
+    }
+    /* Check data: &quot;-d&quot; option */
+    int len = i2cset_args.data-&gt;count;
+
+    i2c_device_config_t i2c_dev_conf = {
+        .scl_speed_hz = i2c_frequency,
+        .device_address = chip_addr,
+    };
+    i2c_master_dev_handle_t dev_handle;
+    if (i2c_master_bus_add_device(tool_bus_handle, &amp;i2c_dev_conf, &amp;dev_handle) != ESP_OK) {
+        return 1;
+    }
+
+    uint8_t *data = malloc(len + 1);
+    data[0] = data_addr;
+    for (int i = 0; i &lt; len; i++) {
+        data[i + 1] = i2cset_args.data-&gt;ival[i];
+    }
+    esp_err_t ret = i2c_master_transmit(dev_handle, data, len + 1, I2C_TOOL_TIMEOUT_VALUE_MS);
+    if (ret == ESP_OK) {
+        ESP_LOGI(TAG, &quot;Write OK&quot;);
+    } else if (ret == ESP_ERR_TIMEOUT) {
+        ESP_LOGW(TAG, &quot;Bus is busy&quot;);
+    } else {
+        ESP_LOGW(TAG, &quot;Write Failed&quot;);
+    }
+
+    free(data);
+    if (i2c_master_bus_rm_device(dev_handle) != ESP_OK) {
+        return 1;
+    }
+    return 0;
+}
+
+static void register_i2cset(void)
+{
+    i2cset_args.chip_address = arg_int1(&quot;c&quot;, &quot;chip&quot;, &quot;&lt;chip_addr&gt;&quot;, &quot;Specify the address of the chip on that bus&quot;);
+    i2cset_args.register_address = arg_int0(&quot;r&quot;, &quot;register&quot;, &quot;&lt;register_addr&gt;&quot;, &quot;Specify the address on that chip to read from&quot;);
+    i2cset_args.data = arg_intn(NULL, NULL, &quot;&lt;data&gt;&quot;, 0, 256, &quot;Specify the data to write to that data address&quot;);
+    i2cset_args.end = arg_end(2);
+    const esp_console_cmd_t i2cset_cmd = {
+        .command = &quot;i2cset&quot;,
+        .help = &quot;Set registers visible through the I2C bus&quot;,
+        .hint = NULL,
+        .func = &amp;do_i2cset_cmd,
+        .argtable = &amp;i2cset_args
+    };
+    ESP_ERROR_CHECK(esp_console_cmd_register(&amp;i2cset_cmd));
+}
+
+static struct {
+    struct arg_int *chip_address;
+    struct arg_int *size;
+    struct arg_end *end;
+} i2cdump_args;
+
+static int do_i2cdump_cmd(int argc, char **argv)
+{
+    int nerrors = arg_parse(argc, argv, (void **)&amp;i2cdump_args);
+    if (nerrors != 0) {
+        arg_print_errors(stderr, i2cdump_args.end, argv[0]);
+        return 0;
+    }
+
+    /* Check chip address: &quot;-c&quot; option */
+    int chip_addr = i2cdump_args.chip_address-&gt;ival[0];
+    /* Check read size: &quot;-s&quot; option */
+    int size = 1;
+    if (i2cdump_args.size-&gt;count) {
+        size = i2cdump_args.size-&gt;ival[0];
+    }
+    if (size != 1 &amp;&amp; size != 2 &amp;&amp; size != 4) {
+        ESP_LOGE(TAG, &quot;Wrong read size. Only support 1,2,4&quot;);
+        return 1;
+    }
+
+    i2c_device_config_t i2c_dev_conf = {
+        .scl_speed_hz = i2c_frequency,
+        .device_address = chip_addr,
+    };
+    i2c_master_dev_handle_t dev_handle;
+    if (i2c_master_bus_add_device(tool_bus_handle, &amp;i2c_dev_conf, &amp;dev_handle) != ESP_OK) {
+        return 1;
+    }
+
+    uint8_t data_addr;
+    uint8_t data[4];
+    int32_t block[16];
+    printf(&quot;     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f&quot;
+           &quot;    0123456789abcdef\r\n&quot;);
+    for (int i = 0; i &lt; 128; i += 16) {
+        printf(&quot;%02x: &quot;, i);
+        for (int j = 0; j &lt; 16; j += size) {
+            fflush(stdout);
+            data_addr = i + j;
+            esp_err_t ret = i2c_master_transmit_receive(dev_handle, &amp;data_addr, 1, data, size, I2C_TOOL_TIMEOUT_VALUE_MS);
+            if (ret == ESP_OK) {
+                for (int k = 0; k &lt; size; k++) {
+                    printf(&quot;%02x &quot;, data[k]);
+                    block[j + k] = data[k];
+                }
+            } else {
+                for (int k = 0; k &lt; size; k++) {
+                    printf(&quot;XX &quot;);
+                    block[j + k] = -1;
+                }
+            }
+        }
+        printf(&quot;   &quot;);
+        for (int k = 0; k &lt; 16; k++) {
+            if (block[k] &lt; 0) {
+                printf(&quot;X&quot;);
+            }
+            if ((block[k] &amp; 0xff) == 0x00 || (block[k] &amp; 0xff) == 0xff) {
+                printf(&quot;.&quot;);
+            } else if ((block[k] &amp; 0xff) &lt; 32 || (block[k] &amp; 0xff) &gt;= 127) {
+                printf(&quot;?&quot;);
+            } else {
+                printf(&quot;%c&quot;, (char)(block[k] &amp; 0xff));
+            }
+        }
+        printf(&quot;\r\n&quot;);
+    }
+    if (i2c_master_bus_rm_device(dev_handle) != ESP_OK) {
+        return 1;
+    }
+    return 0;
+}
+
+static void register_i2cdump(void)
+{
+    i2cdump_args.chip_address = arg_int1(&quot;c&quot;, &quot;chip&quot;, &quot;&lt;chip_addr&gt;&quot;, &quot;Specify the address of the chip on that bus&quot;);
+    i2cdump_args.size = arg_int0(&quot;s&quot;, &quot;size&quot;, &quot;&lt;size&gt;&quot;, &quot;Specify the size of each read&quot;);
+    i2cdump_args.end = arg_end(1);
+    const esp_console_cmd_t i2cdump_cmd = {
+        .command = &quot;i2cdump&quot;,
+        .help = &quot;Examine registers visible through the I2C bus&quot;,
+        .hint = NULL,
+        .func = &amp;do_i2cdump_cmd,
+        .argtable = &amp;i2cdump_args
+    };
+    ESP_ERROR_CHECK(esp_console_cmd_register(&amp;i2cdump_cmd));
+}
+
+void register_i2ctools(void)
+{
+    register_i2cconfig();
+    register_i2cdetect();
+    register_i2cget();
+    register_i2cset();
+    register_i2cdump();
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Awul/SWAN-MODULE" class="fa fa-code-fork" style="color: #fcfcfc"> Awul/SWAN-MODULE</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

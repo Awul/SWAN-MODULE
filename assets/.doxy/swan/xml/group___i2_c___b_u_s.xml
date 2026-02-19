@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="group___i2_c___b_u_s" kind="group">
+    <compoundname>I2C_BUS</compoundname>
+    <title>I2C Bus Module</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group___i2_c___b_u_s_1ga47974f18a15ed3b8a3b65a1a8167c47c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_bus_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>i2c_bus_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize the I2C bus. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets up the I2C peripheral with predefined SDA/SCL pins (8, 9) and frequency (100kHz). Creates a mutex for thread-safe access.</para>
+<para><simplesect kind="return"><para>ESP_OK if bus initialized successfully </para>
+</simplesect>
+<simplesect kind="return"><para>ESP_ERR_INVALID_ARG if configuration fails </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="29" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="10" bodyend="31" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" declline="29" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___i2_c___b_u_s_1ga3d633f2ba7f05e5425f0293eca192e55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_bus_write_read</definition>
+        <argsstring>(uint8_t addr, uint8_t *write_buf, size_t write_len, uint8_t *read_buf, size_t read_len, TickType_t ticks_to_wait)</argsstring>
+        <name>i2c_bus_write_read</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>write_buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>write_len</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>read_buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>read_len</declname>
+        </param>
+        <param>
+          <type>TickType_t</type>
+          <declname>ticks_to_wait</declname>
+        </param>
+        <briefdescription>
+<para>Perform a write/read operation on the I2C bus. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is mutex-protected to allow multiple sensors to safely share the same I2C bus.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 7-bit I2C address of the device </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>write_buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data to write (can be NULL if no write) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>write_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to write </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>read_buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to buffer for read data (can be NULL if no read) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>read_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to read </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ticks_to_wait</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum time to wait for bus access (FreeRTOS ticks)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success </para>
+</simplesect>
+<simplesect kind="return"><para>ESP_ERR_TIMEOUT if mutex or bus timed out </para>
+</simplesect>
+<simplesect kind="return"><para>Other ESP_ERR_* codes if I2C operation fails </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="48" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c" bodystart="33" bodyend="51" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" declline="48" declcolumn="11"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="group___i2_c___b_u_s_1gad9ecf80e1eac083d16ec47f9d3aeb39f" prot="public" static="no">
+        <name>I2C_PORT</name>
+        <initializer>I2C_NUM_0</initializer>
+        <briefdescription>
+<para>The I2C port used by the bus. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" line="18" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This module provides a singleton I2C bus instance and thread-safe functions to read/write over the bus. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

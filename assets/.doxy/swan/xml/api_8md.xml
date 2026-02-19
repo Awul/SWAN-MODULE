@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="api_8md" kind="file" language="Markdown">
+    <compoundname>api.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>API<sp/>Reference</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;div<sp/>class=&quot;warning&quot;&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>file<sp/>is<sp/>automatically<sp/>generated<sp/>by<sp/>esp-doxybook.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">DO<sp/>NOT<sp/>edit<sp/>it<sp/>manually.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;/div&gt;</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/docs/src/api.md"/>
+  </compounddef>
+</doxygen>

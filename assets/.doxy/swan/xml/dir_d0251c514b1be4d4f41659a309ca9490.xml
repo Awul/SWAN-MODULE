@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_d0251c514b1be4d4f41659a309ca9490" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip</compoundname>
+    <innerdir refid="dir_d45d9b56b2f85a854115f2ad650cf8e7">C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/docs</innerdir>
+    <innerdir refid="dir_b29a9b692691c0bf29bb1cf5ebdcb579">C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/examples</innerdir>
+    <innerdir refid="dir_9798d67173f3cb6f216c73c0b3ea0b46">C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include</innerdir>
+    <innerdir refid="dir_853002c9a0c16e1e5afe2f5095699801">C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/interface</innerdir>
+    <innerdir refid="dir_163002825b6da09af3d0cb3d07e787f0">C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="dir_d0251c514b1be4d4f41659a309ca9490_1autotoc_md38">
+<title>LED Strip Driver</title><para><ulink url="https://components.espressif.com/components/espressif/led_strip"><image type="html" name="https://components.espressif.com/components/espressif/led_strip/badge.svg" alt="Component Registry" inline="yes"></image>
+</ulink></para>
+<para>This driver is designed for addressable LEDs like <ulink url="http://www.world-semi.com/Certifications/WS2812B.html">WS2812</ulink>, where each LED is controlled by a single data line.</para>
+</sect1>
+<sect1 id="dir_d0251c514b1be4d4f41659a309ca9490_1autotoc_md39">
+<title>Supported Backend Peripherals</title><para>The LED strip driver supports two different backend peripherals to generate the timing signals required by addressable LEDs:</para>
+<sect2 id="dir_d0251c514b1be4d4f41659a309ca9490_1autotoc_md40">
+<title>The <ulink url="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/rmt.html">RMT</ulink> Peripheral</title><para>This is the most economical way to drive the LEDs because it only consumes one RMT channel, leaving other channels free to use. However, the memory usage increases dramatically with the number of LEDs. If the RMT hardware can&apos;t be assist by DMA, the driver will going into interrupt very frequently, thus result in a high CPU usage. What&apos;s worse, if the RMT interrupt is delayed or not serviced in time (e.g. if Wi-Fi interrupt happens on the same CPU core), the RMT transaction will be corrupted and the LEDs will display incorrect colors. If you want to use RMT to drive a large number of LEDs, you&apos;d better to enable the DMA feature if possible [^1].</para>
+</sect2>
+<sect2 id="dir_d0251c514b1be4d4f41659a309ca9490_1autotoc_md41">
+<title>The <ulink url="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/spi_master.html">SPI</ulink> Peripheral</title><para>SPI peripheral can also be used to generate the timing required by the LED strip, in a so-called &quot;Clock-less&quot; mode. However this backend is not as economical as the RMT one, because it will take up the whole <bold>bus</bold>. You <bold>CANNOT</bold> connect other devices to the same SPI bus if it&apos;s been used by the led_strip, because the led_strip doesn&apos;t have the concept of &quot;Chip Select&quot;.</para>
+</sect2>
+</sect1>
+<sect1 id="dir_d0251c514b1be4d4f41659a309ca9490_1autotoc_md42">
+<title>Documentation</title><para>For detailed information about the LED Strip component, including API reference and user guides, please visit:</para>
+<para><itemizedlist>
+<listitem><para><bold>Programming Guide &amp; API Reference</bold>: <ulink url="https://espressif.github.io/idf-extra-components/latest/led_strip/index.html">LED Strip Documentation</ulink> </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/"/>
+  </compounddef>
+</doxygen>

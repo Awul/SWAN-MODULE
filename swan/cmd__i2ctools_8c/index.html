@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>File cmd_i2ctools.c - SWAN Module Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "File cmd_i2ctools.c";
+        var mkdocs_page_input_path = "swan\\cmd__i2ctools_8c.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> SWAN Module Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/build/">Build & Flash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/style/">Coding Style</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/license/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">SWAN Module Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">File cmd_i2ctools.c</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/cmd__i2ctools_8c.md">Edit on Awul/SWAN-MODULE</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="file-cmd_i2ctoolsc">File cmd_i2ctools.c</h1>
+<p><a href="../files/"><strong>FileList</strong></a> <strong>&gt;</strong> <a href="../dir_8b4e5b8bf912f4cf55ac17b5fb8ec414/"><strong>i2c_tools</strong></a> <strong>&gt;</strong> <a href="../dir_3218ba971dba91160485f06c6137239b/"><strong>main</strong></a> <strong>&gt;</strong> <a href="./"><strong>cmd_i2ctools.c</strong></a></p>
+<p><a href="../cmd__i2ctools_8c_source/">Go to the source code of this file</a></p>
+<ul>
+<li><code>#include &lt;stdio.h&gt;</code></li>
+<li><code>#include &lt;string.h&gt;</code></li>
+<li><code>#include "argtable3/argtable3.h"</code></li>
+<li><code>#include "driver/i2c_master.h"</code></li>
+<li><code>#include "esp_console.h"</code></li>
+<li><code>#include "esp_log.h"</code></li>
+</ul>
+<h2 id="public-attributes">Public Attributes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">struct arg_int *</td>
+<td style="text-align: left;"><a href="#variable-chip_address"><strong>chip_address</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct arg_int *</td>
+<td style="text-align: left;"><a href="#variable-data"><strong>data</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct arg_int *</td>
+<td style="text-align: left;"><a href="#variable-data_length"><strong>data_length</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct arg_end *</td>
+<td style="text-align: left;"><a href="#variable-end"><strong>end</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct arg_int *</td>
+<td style="text-align: left;"><a href="#variable-freq"><strong>freq</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct arg_int *</td>
+<td style="text-align: left;"><a href="#variable-port"><strong>port</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct arg_int *</td>
+<td style="text-align: left;"><a href="#variable-register_address"><strong>register_address</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct arg_int *</td>
+<td style="text-align: left;"><a href="#variable-scl"><strong>scl</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct arg_int *</td>
+<td style="text-align: left;"><a href="#variable-sda"><strong>sda</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct arg_int *</td>
+<td style="text-align: left;"><a href="#variable-size"><strong>size</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">i2c_master_bus_handle_t</td>
+<td style="text-align: left;"><a href="#variable-tool_bus_handle"><strong>tool_bus_handle</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-attributes">Public Static Attributes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">const char *</td>
+<td style="text-align: left;"><a href="#variable-tag"><strong>TAG</strong></a>   = <code>"cmd\_i2ctools"</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">uint32_t</td>
+<td style="text-align: left;"><a href="#variable-i2c_frequency"><strong>i2c_frequency</strong></a>   = <code>100 \* 1000</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct @006345325225170224270346213365257010302276277367</td>
+<td style="text-align: left;"><a href="#variable-i2cconfig_args"><strong>i2cconfig_args</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct @374242015051045112272110213124235243134127322141</td>
+<td style="text-align: left;"><a href="#variable-i2cdump_args"><strong>i2cdump_args</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct @200013266364245204255007115214317010012107171171</td>
+<td style="text-align: left;"><a href="#variable-i2cget_args"><strong>i2cget_args</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct @066222152236124227220100022255143322065315221323</td>
+<td style="text-align: left;"><a href="#variable-i2cset_args"><strong>i2cset_args</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-register_i2ctools"><strong>register_i2ctools</strong></a> (void) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-functions">Public Static Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-do_i2cconfig_cmd"><strong>do_i2cconfig_cmd</strong></a> (int argc, char ** argv) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-do_i2cdetect_cmd"><strong>do_i2cdetect_cmd</strong></a> (int argc, char ** argv) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-do_i2cdump_cmd"><strong>do_i2cdump_cmd</strong></a> (int argc, char ** argv) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-do_i2cget_cmd"><strong>do_i2cget_cmd</strong></a> (int argc, char ** argv) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-do_i2cset_cmd"><strong>do_i2cset_cmd</strong></a> (int argc, char ** argv) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-i2c_get_port"><strong>i2c_get_port</strong></a> (int port, i2c_port_t * i2c_port) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-register_i2cconfig"><strong>register_i2cconfig</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-register_i2cdetect"><strong>register_i2cdetect</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-register_i2cdump"><strong>register_i2cdump</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-register_i2cget"><strong>register_i2cget</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-register_i2cset"><strong>register_i2cset</strong></a> (void) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="macros">Macros</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-i2c_tool_timeout_value_ms"><strong>I2C_TOOL_TIMEOUT_VALUE_MS</strong></a>  <code>(50)</code><br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-attributes-documentation">Public Attributes Documentation</h2>
+<h3 id="variable-chip_address">variable chip_address</h3>
+<pre><code class="language-C++">struct arg_int* chip_address;
+</code></pre>
+<hr>
+
+<h3 id="variable-data">variable data</h3>
+<pre><code class="language-C++">struct arg_int* data;
+</code></pre>
+<hr>
+
+<h3 id="variable-data_length">variable data_length</h3>
+<pre><code class="language-C++">struct arg_int* data_length;
+</code></pre>
+<hr>
+
+<h3 id="variable-end">variable end</h3>
+<pre><code class="language-C++">struct arg_end* end;
+</code></pre>
+<hr>
+
+<h3 id="variable-freq">variable freq</h3>
+<pre><code class="language-C++">struct arg_int* freq;
+</code></pre>
+<hr>
+
+<h3 id="variable-port">variable port</h3>
+<pre><code class="language-C++">struct arg_int* port;
+</code></pre>
+<hr>
+
+<h3 id="variable-register_address">variable register_address</h3>
+<pre><code class="language-C++">struct arg_int* register_address;
+</code></pre>
+<hr>
+
+<h3 id="variable-scl">variable scl</h3>
+<pre><code class="language-C++">struct arg_int* scl;
+</code></pre>
+<hr>
+
+<h3 id="variable-sda">variable sda</h3>
+<pre><code class="language-C++">struct arg_int* sda;
+</code></pre>
+<hr>
+
+<h3 id="variable-size">variable size</h3>
+<pre><code class="language-C++">struct arg_int* size;
+</code></pre>
+<hr>
+
+<h3 id="variable-tool_bus_handle">variable tool_bus_handle</h3>
+<pre><code class="language-C++">i2c_master_bus_handle_t tool_bus_handle;
+</code></pre>
+<hr>
+<h2 id="public-static-attributes-documentation">Public Static Attributes Documentation</h2>
+<h3 id="variable-tag">variable TAG</h3>
+<pre><code class="language-C++">const char* TAG;
+</code></pre>
+<hr>
+
+<h3 id="variable-i2c_frequency">variable i2c_frequency</h3>
+<pre><code class="language-C++">uint32_t i2c_frequency;
+</code></pre>
+<hr>
+
+<h3 id="variable-i2cconfig_args">variable i2cconfig_args</h3>
+<pre><code class="language-C++">struct @006345325225170224270346213365257010302276277367 i2cconfig_args;
+</code></pre>
+<hr>
+
+<h3 id="variable-i2cdump_args">variable i2cdump_args</h3>
+<pre><code class="language-C++">struct @374242015051045112272110213124235243134127322141 i2cdump_args;
+</code></pre>
+<hr>
+
+<h3 id="variable-i2cget_args">variable i2cget_args</h3>
+<pre><code class="language-C++">struct @200013266364245204255007115214317010012107171171 i2cget_args;
+</code></pre>
+<hr>
+
+<h3 id="variable-i2cset_args">variable i2cset_args</h3>
+<pre><code class="language-C++">struct @066222152236124227220100022255143322065315221323 i2cset_args;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-register_i2ctools">function register_i2ctools</h3>
+<pre><code class="language-C++">void register_i2ctools (
+    void
+) 
+</code></pre>
+<hr>
+<h2 id="public-static-functions-documentation">Public Static Functions Documentation</h2>
+<h3 id="function-do_i2cconfig_cmd">function do_i2cconfig_cmd</h3>
+<pre><code class="language-C++">static int do_i2cconfig_cmd (
+    int argc,
+    char ** argv
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-do_i2cdetect_cmd">function do_i2cdetect_cmd</h3>
+<pre><code class="language-C++">static int do_i2cdetect_cmd (
+    int argc,
+    char ** argv
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-do_i2cdump_cmd">function do_i2cdump_cmd</h3>
+<pre><code class="language-C++">static int do_i2cdump_cmd (
+    int argc,
+    char ** argv
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-do_i2cget_cmd">function do_i2cget_cmd</h3>
+<pre><code class="language-C++">static int do_i2cget_cmd (
+    int argc,
+    char ** argv
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-do_i2cset_cmd">function do_i2cset_cmd</h3>
+<pre><code class="language-C++">static int do_i2cset_cmd (
+    int argc,
+    char ** argv
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-i2c_get_port">function i2c_get_port</h3>
+<pre><code class="language-C++">static esp_err_t i2c_get_port (
+    int port,
+    i2c_port_t * i2c_port
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-register_i2cconfig">function register_i2cconfig</h3>
+<pre><code class="language-C++">static void register_i2cconfig (
+    void
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-register_i2cdetect">function register_i2cdetect</h3>
+<pre><code class="language-C++">static void register_i2cdetect (
+    void
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-register_i2cdump">function register_i2cdump</h3>
+<pre><code class="language-C++">static void register_i2cdump (
+    void
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-register_i2cget">function register_i2cget</h3>
+<pre><code class="language-C++">static void register_i2cget (
+    void
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-register_i2cset">function register_i2cset</h3>
+<pre><code class="language-C++">static void register_i2cset (
+    void
+) 
+</code></pre>
+<hr>
+<h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
+<h3 id="define-i2c_tool_timeout_value_ms">define I2C_TOOL_TIMEOUT_VALUE_MS</h3>
+<pre><code class="language-C++">#define I2C_TOOL_TIMEOUT_VALUE_MS `(50)`
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>C:/Users/schliep/Documents/Software/ESP32/i2c_tools/main/cmd_i2ctools.c</code></p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Awul/SWAN-MODULE" class="fa fa-code-fork" style="color: #fcfcfc"> Awul/SWAN-MODULE</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

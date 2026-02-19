@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>SWAN-MODULE - ESP32 Multi-Sensor Framework</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Welcome to the documentation for the ESP32 multi-sensor framework.</para>
+<para>This project contains the following modules:</para>
+<para><itemizedlist>
+<listitem><para><ref refid="group___i2_c___b_u_s" kindref="compound">I2C Bus Module</ref></para>
+</listitem><listitem><para>VEML7700</para>
+</listitem><listitem><para>BME280</para>
+</listitem></itemizedlist>
+</para>
+<para>YES.</para>
+<para><simplesect kind="note"><para>All components are designed to be modular and thread-safe. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="mainpage.h"/>
+  </compounddef>
+</doxygen>

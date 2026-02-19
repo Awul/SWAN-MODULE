@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_e8e6b92788b8da09eadcb6c47acc5c0a" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/i2c_basic/build/CMakeFiles/3.30.2</compoundname>
+    <innerdir refid="dir_4a16c16f6d3fb6d7a0156ec3906ddc34">C:/Users/schliep/Documents/Software/ESP32/i2c_basic/build/CMakeFiles/3.30.2/CompilerIdC</innerdir>
+    <innerdir refid="dir_e89402e42104cd914056c020417916fb">C:/Users/schliep/Documents/Software/ESP32/i2c_basic/build/CMakeFiles/3.30.2/CompilerIdCXX</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/i2c_basic/build/CMakeFiles/3.30.2/"/>
+  </compounddef>
+</doxygen>

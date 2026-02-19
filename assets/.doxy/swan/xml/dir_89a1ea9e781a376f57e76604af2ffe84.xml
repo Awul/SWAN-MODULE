@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_89a1ea9e781a376f57e76604af2ffe84" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/i2c_basic/build/config</compoundname>
+    <innerfile refid="i2c__basic_2build_2config_2sdkconfig_8h">sdkconfig.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/i2c_basic/build/config/"/>
+  </compounddef>
+</doxygen>

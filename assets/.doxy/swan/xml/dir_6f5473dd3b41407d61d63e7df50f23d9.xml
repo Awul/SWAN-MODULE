@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_6f5473dd3b41407d61d63e7df50f23d9" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/build/CMakeFiles</compoundname>
+    <innerdir refid="dir_b7d3ea53c55e9eb844d39a8ec7624f56">C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/build/CMakeFiles/3.30.2</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/i2s_pdm/build/CMakeFiles/"/>
+  </compounddef>
+</doxygen>

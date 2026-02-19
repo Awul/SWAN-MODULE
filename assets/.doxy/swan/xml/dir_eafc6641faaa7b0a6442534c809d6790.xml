@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_eafc6641faaa7b0a6442534c809d6790" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/blink/build/bootloader/CMakeFiles/3.30.2/CompilerIdCXX</compoundname>
+    <innerfile refid="blink_2build_2bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp">CMakeCXXCompilerId.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/build/bootloader/CMakeFiles/3.30.2/CompilerIdCXX/"/>
+  </compounddef>
+</doxygen>

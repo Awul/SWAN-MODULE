@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="md_docs-site_2index" kind="page">
+    <compoundname>md_docs-site_2index</compoundname>
+    <title>SWAN Module</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md_docs-site_2index_1autotoc_md90"/></para>
+<para>ESP32 multi-sensor framework.</para>
+<sect1 id="md_docs-site_2index_1autotoc_md91">
+<title>API Reference</title><para>Documentation of the stuff. </para>
+</sect1>
+    </detaileddescription>
+    <location file="docs-site/index.md"/>
+  </compounddef>
+</doxygen>

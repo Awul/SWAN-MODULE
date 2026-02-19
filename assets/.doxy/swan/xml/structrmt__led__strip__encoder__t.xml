@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="structrmt__led__strip__encoder__t" kind="struct" language="C++" prot="public">
+    <compoundname>rmt_led_strip_encoder_t</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrmt__led__strip__encoder__t_1a80856b3af2bf77c775eb27c928c3d335" prot="public" static="no" mutable="no">
+        <type>rmt_encoder_t</type>
+        <definition>rmt_encoder_t rmt_led_strip_encoder_t::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <qualifiedname>rmt_led_strip_encoder_t::base</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" line="24" column="19" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrmt__led__strip__encoder__t_1adf500f22126a5249f9c24600172ec446" prot="public" static="no" mutable="no">
+        <type>rmt_encoder_t *</type>
+        <definition>rmt_encoder_t* rmt_led_strip_encoder_t::bytes_encoder</definition>
+        <argsstring></argsstring>
+        <name>bytes_encoder</name>
+        <qualifiedname>rmt_led_strip_encoder_t::bytes_encoder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" line="25" column="19" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrmt__led__strip__encoder__t_1afdc40089f38b07e16bd09f5c61a93ad1" prot="public" static="no" mutable="no">
+        <type>rmt_encoder_t *</type>
+        <definition>rmt_encoder_t* rmt_led_strip_encoder_t::copy_encoder</definition>
+        <argsstring></argsstring>
+        <name>copy_encoder</name>
+        <qualifiedname>rmt_led_strip_encoder_t::copy_encoder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" line="26" column="19" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrmt__led__strip__encoder__t_1a0471ba99f129e342cbdd1859d12b38f3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int rmt_led_strip_encoder_t::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>rmt_led_strip_encoder_t::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" line="27" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrmt__led__strip__encoder__t_1ac7be06cc3488fbfc1bc0c1e58f51d8dd" prot="public" static="no" mutable="no">
+        <type>rmt_symbol_word_t</type>
+        <definition>rmt_symbol_word_t rmt_led_strip_encoder_t::reset_code</definition>
+        <argsstring></argsstring>
+        <name>reset_code</name>
+        <qualifiedname>rmt_led_strip_encoder_t::reset_code</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" line="28" column="23" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" line="23" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c" bodystart="23" bodyend="29"/>
+    <listofallmembers>
+      <member refid="structrmt__led__strip__encoder__t_1a80856b3af2bf77c775eb27c928c3d335" prot="public" virt="non-virtual"><scope>rmt_led_strip_encoder_t</scope><name>base</name></member>
+      <member refid="structrmt__led__strip__encoder__t_1adf500f22126a5249f9c24600172ec446" prot="public" virt="non-virtual"><scope>rmt_led_strip_encoder_t</scope><name>bytes_encoder</name></member>
+      <member refid="structrmt__led__strip__encoder__t_1afdc40089f38b07e16bd09f5c61a93ad1" prot="public" virt="non-virtual"><scope>rmt_led_strip_encoder_t</scope><name>copy_encoder</name></member>
+      <member refid="structrmt__led__strip__encoder__t_1ac7be06cc3488fbfc1bc0c1e58f51d8dd" prot="public" virt="non-virtual"><scope>rmt_led_strip_encoder_t</scope><name>reset_code</name></member>
+      <member refid="structrmt__led__strip__encoder__t_1a0471ba99f129e342cbdd1859d12b38f3" prot="public" virt="non-virtual"><scope>rmt_led_strip_encoder_t</scope><name>state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

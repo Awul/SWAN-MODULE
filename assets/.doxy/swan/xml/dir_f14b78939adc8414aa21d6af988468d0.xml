@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_f14b78939adc8414aa21d6af988468d0" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/blink/managed_components</compoundname>
+    <innerdir refid="dir_d0251c514b1be4d4f41659a309ca9490">C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/"/>
+  </compounddef>
+</doxygen>

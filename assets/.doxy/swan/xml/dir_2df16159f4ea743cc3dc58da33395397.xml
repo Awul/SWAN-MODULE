@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_2df16159f4ea743cc3dc58da33395397" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/i2c_tools/build/bootloader</compoundname>
+    <innerdir refid="dir_a2124bf33909b41936d0ebdec759c4f7">C:/Users/schliep/Documents/Software/ESP32/i2c_tools/build/bootloader/CMakeFiles</innerdir>
+    <innerdir refid="dir_d5adb2d9686e23287c3fd36f7502c252">C:/Users/schliep/Documents/Software/ESP32/i2c_tools/build/bootloader/config</innerdir>
+    <innerfile refid="i2c__tools_2build_2bootloader_2project__elf__src__esp32s3_8c">project_elf_src_esp32s3.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/i2c_tools/build/bootloader/"/>
+  </compounddef>
+</doxygen>

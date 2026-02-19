@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="blink_2managed__components_2espressif____led__strip_2_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>LED<sp/>Strip<sp/>Driver</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[![Component<sp/>Registry](https://components.espressif.com/components/espressif/led_strip/badge.svg)](https://components.espressif.com/components/espressif/led_strip)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>driver<sp/>is<sp/>designed<sp/>for<sp/>addressable<sp/>LEDs<sp/>like<sp/>[WS2812](http://www.world-semi.com/Certifications/WS2812B.html),<sp/>where<sp/>each<sp/>LED<sp/>is<sp/>controlled<sp/>by<sp/>a<sp/>single<sp/>data<sp/>line.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Supported<sp/>Backend<sp/>Peripherals</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>LED<sp/>strip<sp/>driver<sp/>supports<sp/>two<sp/>different<sp/>backend<sp/>peripherals<sp/>to<sp/>generate<sp/>the<sp/>timing<sp/>signals<sp/>required<sp/>by<sp/>addressable<sp/>LEDs:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>The<sp/>[RMT](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/rmt.html)<sp/>Peripheral</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>the<sp/>most<sp/>economical<sp/>way<sp/>to<sp/>drive<sp/>the<sp/>LEDs<sp/>because<sp/>it<sp/>only<sp/>consumes<sp/>one<sp/>RMT<sp/>channel,<sp/>leaving<sp/>other<sp/>channels<sp/>free<sp/>to<sp/>use.<sp/>However,<sp/>the<sp/>memory<sp/>usage<sp/>increases<sp/>dramatically<sp/>with<sp/>the<sp/>number<sp/>of<sp/>LEDs.<sp/>If<sp/>the<sp/>RMT<sp/>hardware<sp/>can&apos;t<sp/>be<sp/>assist<sp/>by<sp/>DMA,<sp/>the<sp/>driver<sp/>will<sp/>going<sp/>into<sp/>interrupt<sp/>very<sp/>frequently,<sp/>thus<sp/>result<sp/>in<sp/>a<sp/>high<sp/>CPU<sp/>usage.<sp/>What&apos;s<sp/>worse,<sp/>if<sp/>the<sp/>RMT<sp/>interrupt<sp/>is<sp/>delayed<sp/>or<sp/>not<sp/>serviced<sp/>in<sp/>time<sp/>(e.g.<sp/>if<sp/>Wi-Fi<sp/>interrupt<sp/>happens<sp/>on<sp/>the<sp/>same<sp/>CPU<sp/>core),<sp/>the<sp/>RMT<sp/>transaction<sp/>will<sp/>be<sp/>corrupted<sp/>and<sp/>the<sp/>LEDs<sp/>will<sp/>display<sp/>incorrect<sp/>colors.<sp/>If<sp/>you<sp/>want<sp/>to<sp/>use<sp/>RMT<sp/>to<sp/>drive<sp/>a<sp/>large<sp/>number<sp/>of<sp/>LEDs,<sp/>you&apos;d<sp/>better<sp/>to<sp/>enable<sp/>the<sp/>DMA<sp/>feature<sp/>if<sp/>possible<sp/>[^1].</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>The<sp/>[SPI](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/spi_master.html)<sp/>Peripheral</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">SPI<sp/>peripheral<sp/>can<sp/>also<sp/>be<sp/>used<sp/>to<sp/>generate<sp/>the<sp/>timing<sp/>required<sp/>by<sp/>the<sp/>LED<sp/>strip,<sp/>in<sp/>a<sp/>so-called<sp/>&quot;Clock-less&quot;<sp/>mode.<sp/>However<sp/>this<sp/>backend<sp/>is<sp/>not<sp/>as<sp/>economical<sp/>as<sp/>the<sp/>RMT<sp/>one,<sp/>because<sp/>it<sp/>will<sp/>take<sp/>up<sp/>the<sp/>whole<sp/>**bus**.<sp/>You<sp/>**CANNOT**<sp/>connect<sp/>other<sp/>devices<sp/>to<sp/>the<sp/>same<sp/>SPI<sp/>bus<sp/>if<sp/>it&apos;s<sp/>been<sp/>used<sp/>by<sp/>the<sp/>led_strip,<sp/>because<sp/>the<sp/>led_strip<sp/>doesn&apos;t<sp/>have<sp/>the<sp/>concept<sp/>of<sp/>&quot;Chip<sp/>Select&quot;.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>detailed<sp/>information<sp/>about<sp/>the<sp/>LED<sp/>Strip<sp/>component,<sp/>including<sp/>API<sp/>reference<sp/>and<sp/>user<sp/>guides,<sp/>please<sp/>visit:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/><sp/><sp/>**Programming<sp/>Guide<sp/>&amp;<sp/>API<sp/>Reference**:<sp/>[LED<sp/>Strip<sp/>Documentation](https://espressif.github.io/idf-extra-components/latest/led_strip/index.html)</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/README.md"/>
+  </compounddef>
+</doxygen>

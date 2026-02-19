@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_66d2e45a40d98921f58fab97258c3166" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus</compoundname>
+    <innerfile refid="i2c__bus_8c">i2c_bus.c</innerfile>
+    <innerfile refid="i2c__bus_8h">i2c_bus.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/"/>
+  </compounddef>
+</doxygen>

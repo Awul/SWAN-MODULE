@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="structled__strip__encoder__config__t" kind="struct" language="C++" prot="public">
+    <compoundname>led_strip_encoder_config_t</compoundname>
+    <includes refid="led__strip__rmt__encoder_8h" local="no">led_strip_rmt_encoder.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structled__strip__encoder__config__t_1a9ab68c581424c5fbd050fa68d679f063" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t led_strip_encoder_config_t::resolution</definition>
+        <argsstring></argsstring>
+        <name>resolution</name>
+        <qualifiedname>led_strip_encoder_config_t::resolution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Encoder resolution, in Hz </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.h" line="20" column="14" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structled__strip__encoder__config__t_1a430d07ba9efa456d9adc58215ada7098" prot="public" static="no" mutable="no">
+        <type>led_model_t</type>
+        <definition>led_model_t led_strip_encoder_config_t::led_model</definition>
+        <argsstring></argsstring>
+        <name>led_model</name>
+        <qualifiedname>led_strip_encoder_config_t::led_model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>LED model </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.h" line="21" column="17" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Type of led strip encoder configuration. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.h" line="19" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.h" bodystart="19" bodyend="22"/>
+    <listofallmembers>
+      <member refid="structled__strip__encoder__config__t_1a430d07ba9efa456d9adc58215ada7098" prot="public" virt="non-virtual"><scope>led_strip_encoder_config_t</scope><name>led_model</name></member>
+      <member refid="structled__strip__encoder__config__t_1a9ab68c581424c5fbd050fa68d679f063" prot="public" virt="non-virtual"><scope>led_strip_encoder_config_t</scope><name>resolution</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

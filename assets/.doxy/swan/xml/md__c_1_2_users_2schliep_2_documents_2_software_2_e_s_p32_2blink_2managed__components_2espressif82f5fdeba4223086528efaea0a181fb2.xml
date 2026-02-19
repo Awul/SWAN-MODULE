@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2" kind="page">
+    <compoundname>md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif____led__strip_2_c_h_a_n_g_e_l_o_g</compoundname>
+    <title>3.0.3</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md0"/></para>
+<para><itemizedlist>
+<listitem><para>Support WS2816 with 16-bit color</para>
+</listitem></itemizedlist>
+</para>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md1">
+<title>3.0.1</title><para><itemizedlist>
+<listitem><para>Support WS2811 bit timing</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md2">
+<title>3.0.0</title><para><itemizedlist>
+<listitem><para>Discontinued support for ESP-IDF v4.x</para>
+</listitem><listitem><para>Added configuration for user-defined color component format</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md3">
+<title>2.5.5</title><para><itemizedlist>
+<listitem><para>Simplified the led_strip component dependency, the time of full build with ESP-IDF v5.3 can now be shorter.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md4">
+<title>2.5.4</title><para><itemizedlist>
+<listitem><para>Inserted extra delay when initialize the SPI LED device, to ensure all LEDs are in the reset state correctly</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md5">
+<title>2.5.3</title><para><itemizedlist>
+<listitem><para>Extend reset time (280us) to support WS2812B-V5</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md6">
+<title>2.5.2</title><para><itemizedlist>
+<listitem><para>Added API reference doc (api.md)</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md7">
+<title>2.5.0</title><para><itemizedlist>
+<listitem><para>Enabled support for IDF4.4 and above<itemizedlist>
+<listitem><para>with RMT backend only</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Added API <computeroutput>led_strip_set_pixel_hsv</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md8">
+<title>2.4.0</title><para><itemizedlist>
+<listitem><para>Support configurable SPI mode to control leds<itemizedlist>
+<listitem><para>recommend enabling DMA when using SPI mode</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md9">
+<title>2.3.0</title><para><itemizedlist>
+<listitem><para>Support configurable RMT channel size by setting <computeroutput>mem_block_symbols</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md10">
+<title>2.2.0</title><para><itemizedlist>
+<listitem><para>Support for 4 components RGBW leds (SK6812):<itemizedlist>
+<listitem><para>in <ref refid="structled__strip__config__t" kindref="compound">led_strip_config_t</ref> new fields led_pixel_format, controlling byte format (LED_PIXEL_FORMAT_GRB, LED_PIXEL_FORMAT_GRBW) led_model, used to configure bit timing (LED_MODEL_WS2812, LED_MODEL_SK6812)</para>
+</listitem><listitem><para>new API led_strip_set_pixel_rgbw</para>
+</listitem><listitem><para>new interface type set_pixel_rgbw</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md11">
+<title>2.1.0</title><para><itemizedlist>
+<listitem><para>Support DMA feature, which offloads the CPU by a lot when it comes to drive a bunch of LEDs</para>
+</listitem><listitem><para>Support various RMT clock sources</para>
+</listitem><listitem><para>Acquire and release the power management lock before and after each refresh</para>
+</listitem><listitem><para>New driver flag: <computeroutput>invert_out</computeroutput> which can invert the led control signal by hardware</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md12">
+<title>2.0.0</title><para><itemizedlist>
+<listitem><para>Reimplemented the driver using the new RMT driver (<computeroutput>driver/rmt_tx.h</computeroutput>)</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2schliep_2_documents_2_software_2_e_s_p32_2blink_2managed__components_2espressif82f5fdeba4223086528efaea0a181fb2_1autotoc_md13">
+<title>1.0.0</title><para><itemizedlist>
+<listitem><para>Initial driver version, based on the legacy RMT driver (<computeroutput>driver/rmt.h</computeroutput>) </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/CHANGELOG.md"/>
+  </compounddef>
+</doxygen>

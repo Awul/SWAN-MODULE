@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Group I2C_BUS - SWAN Module Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Group I2C_BUS";
+        var mkdocs_page_input_path = "swan\\group___i2_c___b_u_s.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> SWAN Module Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/build/">Build & Flash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/style/">Coding Style</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/license/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">SWAN Module Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Group I2C_BUS</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/group___i2_c___b_u_s.md">Edit on Awul/SWAN-MODULE</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="group-i2c_bus">Group I2C_BUS</h1>
+<p><a href="../modules/"><strong>Modules</strong></a> <strong>&gt;</strong> <a href="./"><strong>I2C_BUS</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-i2c_bus_init"><strong>i2c_bus_init</strong></a> (void) <br><em>Initialize the I2C bus.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-i2c_bus_write_read"><strong>i2c_bus_write_read</strong></a> (uint8_t addr, uint8_t * write_buf, size_t write_len, uint8_t * read_buf, size_t read_len, TickType_t ticks_to_wait) <br><em>Perform a write/read operation on the I2C bus.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="macros">Macros</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-i2c_port"><strong>I2C_PORT</strong></a>  <code>I2C\_NUM\_0</code><br><em>The I2C port used by the bus.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>This module provides a singleton I2C bus instance and thread-safe functions to read/write over the bus. </p>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-i2c_bus_init">function i2c_bus_init</h3>
+<p><em>Initialize the I2C bus.</em> </p>
+<pre><code>esp_err_t i2c_bus_init (
+    void
+) 
+</code></pre>
+<p>Sets up the I2C peripheral with predefined SDA/SCL pins (8, 9) and frequency (100kHz). Creates a mutex for thread-safe access.</p>
+<p><strong>Returns:</strong></p>
+<p>ESP_OK if bus initialized successfully </p>
+<p><strong>Returns:</strong></p>
+<p>ESP_ERR_INVALID_ARG if configuration fails </p>
+<hr>
+
+<h3 id="function-i2c_bus_write_read">function i2c_bus_write_read</h3>
+<p><em>Perform a write/read operation on the I2C bus.</em> </p>
+<pre><code>esp_err_t i2c_bus_write_read (
+    uint8_t addr,
+    uint8_t * write_buf,
+    size_t write_len,
+    uint8_t * read_buf,
+    size_t read_len,
+    TickType_t ticks_to_wait
+) 
+</code></pre>
+<p>This function is mutex-protected to allow multiple sensors to safely share the same I2C bus.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>addr</code> The 7-bit I2C address of the device </li>
+<li><code>write_buf</code> Pointer to data to write (can be NULL if no write) </li>
+<li><code>write_len</code> Number of bytes to write </li>
+<li><code>read_buf</code> Pointer to buffer for read data (can be NULL if no read) </li>
+<li><code>read_len</code> Number of bytes to read </li>
+<li><code>ticks_to_wait</code> Maximum time to wait for bus access (FreeRTOS ticks)</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>ESP_OK on success </p>
+<p><strong>Returns:</strong></p>
+<p>ESP_ERR_TIMEOUT if mutex or bus timed out </p>
+<p><strong>Returns:</strong></p>
+<p>Other ESP_ERR_* codes if I2C operation fails </p>
+<hr>
+<h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
+<h3 id="define-i2c_port">define I2C_PORT</h3>
+<p><em>The I2C port used by the bus.</em> </p>
+<pre><code>#define I2C_PORT `I2C_NUM_0`
+</code></pre>
+<hr>
+
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Awul/SWAN-MODULE" class="fa fa-code-fork" style="color: #fcfcfc"> Awul/SWAN-MODULE</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="structled__strip__rmt__config__t" kind="struct" language="C++" prot="public">
+    <compoundname>led_strip_rmt_config_t</compoundname>
+    <includes refid="led__strip__rmt_8h" local="no">led_strip_rmt.h</includes>
+    <innerclass refid="structled__strip__rmt__config__t_1_1led__strip__rmt__extra__config" prot="public">led_strip_rmt_config_t::led_strip_rmt_extra_config</innerclass>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structled__strip__rmt__config__t_1aadffab2adfd58f5bd1c99ed36dc371c6" prot="public" static="no" mutable="no">
+        <type>rmt_clock_source_t</type>
+        <definition>rmt_clock_source_t led_strip_rmt_config_t::clk_src</definition>
+        <argsstring></argsstring>
+        <name>clk_src</name>
+        <qualifiedname>led_strip_rmt_config_t::clk_src</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>RMT clock source </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_rmt.h" line="22" column="24" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_rmt.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structled__strip__rmt__config__t_1ac0a5bfa5fdd021a41de4e6dfaf9b1113" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t led_strip_rmt_config_t::resolution_hz</definition>
+        <argsstring></argsstring>
+        <name>resolution_hz</name>
+        <qualifiedname>led_strip_rmt_config_t::resolution_hz</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>RMT tick resolution, if set to zero, a default resolution (10MHz) will be applied </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_rmt.h" line="23" column="14" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_rmt.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structled__strip__rmt__config__t_1ae261b7a06d5971e52679eb58b91f4a43" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t led_strip_rmt_config_t::mem_block_symbols</definition>
+        <argsstring></argsstring>
+        <name>mem_block_symbols</name>
+        <qualifiedname>led_strip_rmt_config_t::mem_block_symbols</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>How many RMT symbols can one RMT channel hold at one time. Set to 0 will fallback to use the default size. Extra RMT specific driver flags </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_rmt.h" line="24" column="12" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_rmt.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structled__strip__rmt__config__t_1a3b4179e0521ed754142ef558a6c5c94b" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structled__strip__rmt__config__t_1_1led__strip__rmt__extra__config" kindref="compound">led_strip_rmt_config_t::led_strip_rmt_extra_config</ref></type>
+        <definition>struct led_strip_rmt_config_t::led_strip_rmt_extra_config led_strip_rmt_config_t::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <qualifiedname>led_strip_rmt_config_t::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Extra driver flags </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_rmt.h" line="28" column="36"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>LED Strip RMT specific configuration. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>led_strip_rmt_config_t</label>
+        <link refid="structled__strip__rmt__config__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>flags</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>led_strip_rmt_config_t::led_strip_rmt_extra_config</label>
+        <link refid="structled__strip__rmt__config__t_1_1led__strip__rmt__extra__config"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_rmt.h" line="21" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/include/led_strip_rmt.h" bodystart="21" bodyend="29"/>
+    <listofallmembers>
+      <member refid="structled__strip__rmt__config__t_1aadffab2adfd58f5bd1c99ed36dc371c6" prot="public" virt="non-virtual"><scope>led_strip_rmt_config_t</scope><name>clk_src</name></member>
+      <member refid="structled__strip__rmt__config__t_1a3b4179e0521ed754142ef558a6c5c94b" prot="public" virt="non-virtual"><scope>led_strip_rmt_config_t</scope><name>flags</name></member>
+      <member refid="structled__strip__rmt__config__t_1ae261b7a06d5971e52679eb58b91f4a43" prot="public" virt="non-virtual"><scope>led_strip_rmt_config_t</scope><name>mem_block_symbols</name></member>
+      <member refid="structled__strip__rmt__config__t_1ac0a5bfa5fdd021a41de4e6dfaf9b1113" prot="public" virt="non-virtual"><scope>led_strip_rmt_config_t</scope><name>resolution_hz</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

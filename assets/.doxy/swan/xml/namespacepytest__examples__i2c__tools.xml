@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespacepytest__examples__i2c__tools" kind="namespace" language="Python">
+    <compoundname>pytest_examples_i2c_tools</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="pytest__examples__i2c__tools_8py_1ad2ba7ebde43d488003d25b303297d00b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int pytest_examples_i2c_tools.EXPECT_TIMEOUT</definition>
+        <argsstring></argsstring>
+        <name>EXPECT_TIMEOUT</name>
+        <qualifiedname>pytest_examples_i2c_tools.EXPECT_TIMEOUT</qualifiedname>
+        <initializer>=  20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2c_tools/pytest_examples_i2c_tools.py" line="7" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2c_tools/pytest_examples_i2c_tools.py" bodystart="7" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="pytest__examples__i2c__tools_8py_1aa307562c4ad82ca7039bee016165c07e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>None</type>
+        <definition> None pytest_examples_i2c_tools.test_i2ctools_example</definition>
+        <argsstring>(IdfDut dut)</argsstring>
+        <name>test_i2ctools_example</name>
+        <qualifiedname>pytest_examples_i2c_tools.test_i2ctools_example</qualifiedname>
+        <param>
+          <type>IdfDut</type>
+          <declname>dut</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/i2c_tools/pytest_examples_i2c_tools.py" line="12" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/i2c_tools/pytest_examples_i2c_tools.py" bodystart="12" bodyend="34"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/i2c_tools/pytest_examples_i2c_tools.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

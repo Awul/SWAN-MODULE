@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="blink_2managed__components_2espressif____led__strip_2examples_2led__strip__spi__ws2812_2_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>LED<sp/>Strip<sp/>Example<sp/>(SPI<sp/>backend<sp/>+<sp/>WS2812)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>example<sp/>demonstrates<sp/>how<sp/>to<sp/>blink<sp/>the<sp/>WS2812<sp/>LED<sp/>using<sp/>the<sp/>[led_strip](https://components.espressif.com/component/espressif/led_strip)<sp/>component.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>How<sp/>to<sp/>Use<sp/>Example</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Hardware<sp/>Required</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>A<sp/>development<sp/>board<sp/>with<sp/>Espressif<sp/>SoC</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>A<sp/>USB<sp/>cable<sp/>for<sp/>Power<sp/>supply<sp/>and<sp/>programming</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>WS2812<sp/>LED<sp/>strip</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Configure<sp/>the<sp/>Example</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Before<sp/>project<sp/>configuration<sp/>and<sp/>build,<sp/>be<sp/>sure<sp/>to<sp/>set<sp/>the<sp/>correct<sp/>chip<sp/>target<sp/>using<sp/>`idf.py<sp/>set-target<sp/>&lt;chip_name&gt;`.<sp/>Then<sp/>assign<sp/>the<sp/>proper<sp/>GPIO<sp/>in<sp/>the<sp/>[source<sp/>file](main/led_strip_spi_ws2812_main.c).<sp/>If<sp/>your<sp/>led<sp/>strip<sp/>has<sp/>multiple<sp/>LEDs,<sp/>don&apos;t<sp/>forget<sp/>update<sp/>the<sp/>number.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Build<sp/>and<sp/>Flash</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Run<sp/>`idf.py<sp/>-p<sp/>PORT<sp/>build<sp/>flash<sp/>monitor`<sp/>to<sp/>build,<sp/>flash<sp/>and<sp/>monitor<sp/>the<sp/>project.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">(To<sp/>exit<sp/>the<sp/>serial<sp/>monitor,<sp/>type<sp/>``Ctrl-]``.)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">See<sp/>the<sp/>[Getting<sp/>Started<sp/>Guide](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html)<sp/>for<sp/>full<sp/>steps<sp/>to<sp/>configure<sp/>and<sp/>use<sp/>ESP-IDF<sp/>to<sp/>build<sp/>projects.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Example<sp/>Output</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```text</highlight></codeline>
+<codeline><highlight class="normal">I<sp/>(299)<sp/>gpio:<sp/>GPIO[14]|<sp/>InputEn:<sp/>0|<sp/>OutputEn:<sp/>1|<sp/>OpenDrain:<sp/>0|<sp/>Pullup:<sp/>1|<sp/>Pulldown:<sp/>0|<sp/>Intr:0</highlight></codeline>
+<codeline><highlight class="normal">I<sp/>(309)<sp/>example:<sp/>Created<sp/>LED<sp/>strip<sp/>object<sp/>with<sp/>SPI<sp/>backend</highlight></codeline>
+<codeline><highlight class="normal">I<sp/>(309)<sp/>example:<sp/>Start<sp/>blinking<sp/>LED<sp/>strip</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/managed_components/espressif__led_strip/examples/led_strip_spi_ws2812/README.md"/>
+  </compounddef>
+</doxygen>

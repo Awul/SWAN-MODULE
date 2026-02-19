@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_3218ba971dba91160485f06c6137239b" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/i2c_tools/main</compoundname>
+    <innerfile refid="cmd__i2ctools_8c">cmd_i2ctools.c</innerfile>
+    <innerfile refid="cmd__i2ctools_8h">cmd_i2ctools.h</innerfile>
+    <innerfile refid="i2ctools__example__main_8c">i2ctools_example_main.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/i2c_tools/main/"/>
+  </compounddef>
+</doxygen>

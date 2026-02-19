@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_d2e6f58d505f20cf0fabd2e05e91e83b" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/blink/main</compoundname>
+    <innerfile refid="blink__example__main_8c">blink_example_main.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/blink/main/"/>
+  </compounddef>
+</doxygen>
