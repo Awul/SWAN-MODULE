@@ -40,9 +40,9 @@ plugins:
   - mkdoxy:
       projects:
         swan:
-          src-dirs: ../../
-          doxygen: ../../Doxyfile
-          xml: ../xml
+          src-dirs: ../
+          doxygen: ../Doxyfile
+          xml: xml
 
 markdown_extensions:
   # Basic
