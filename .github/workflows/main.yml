@@ -21,7 +21,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install mkdocs mkdocs-material pymdown-extensions
+          pip install mkdocs mkdocs-material pymdown-extensions mkdoxy
 
       - name: Deploy MkDocs to GitHub Pages
         run: |
