@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_4fef79e7177ba769987a8da36c892c5f" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build</compoundname>
+    <innerdir refid="dir_95184fd9bed3ca1f63a503303d942f41">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/bootloader</innerdir>
+    <innerdir refid="dir_63772b626f2709090f0bdca0f40827b4">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/CMakeFiles</innerdir>
+    <innerdir refid="dir_8165d963cd765c284d618d89479b5e59">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/config</innerdir>
+    <innerfile refid="project__elf__src__esp32s3_8c">project_elf_src_esp32s3.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/"/>
+  </compounddef>
+</doxygen>

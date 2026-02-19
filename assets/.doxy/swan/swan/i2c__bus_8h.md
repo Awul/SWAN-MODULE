@@ -4,7 +4,7 @@
 
 
 
-[**FileList**](files.md) **>** [**components**](dir_09a931ae38154143140b5beb2823466c.md) **>** [**i2c\_bus**](dir_66d2e45a40d98921f58fab97258c3166.md) **>** [**i2c\_bus.h**](i2c__bus_8h.md)
+[**FileList**](files.md) **>** [**components**](dir_409f97388efe006bc3438b95e9edef48.md) **>** [**i2c\_bus**](dir_b27305f47d68ba65b41a21460fb415ed.md) **>** [**i2c\_bus.h**](i2c__bus_8h.md)
 
 [Go to the source code of this file](i2c__bus_8h_source.md)
 

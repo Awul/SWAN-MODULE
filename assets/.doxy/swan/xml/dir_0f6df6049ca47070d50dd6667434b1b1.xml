@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_0f6df6049ca47070d50dd6667434b1b1" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/bootloader/CMakeFiles/3.30.2</compoundname>
+    <innerdir refid="dir_a475dc0e3e2becd67b49ff98224b81b7">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/bootloader/CMakeFiles/3.30.2/CompilerIdC</innerdir>
+    <innerdir refid="dir_cd8a82c70073d51225b783e30ef2842c">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/bootloader/CMakeFiles/3.30.2/CompilerIdCXX</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/bootloader/CMakeFiles/3.30.2/"/>
+  </compounddef>
+</doxygen>
