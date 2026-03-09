@@ -20,7 +20,7 @@
 #include "freertos/task.h"
 
 /**
- * @defgroup veml7700 VEML7700 Ambient Light Sensor
+ * @defgroup VEML7700 VEML7700 Ambient Light Sensor
  * @{
  */
 
