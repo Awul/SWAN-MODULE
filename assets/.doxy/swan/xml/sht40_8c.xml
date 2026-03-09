@@ -51,223 +51,11 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
-      <memberdef kind="function" id="sht40_8c_1a93d83b5605a4e207b3eba103008d0caa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>esp_err_t</type>
-        <definition>esp_err_t sht40_init</definition>
-        <argsstring>(sht40_t *dev, i2c_port_t i2c_port, uint8_t addr)</argsstring>
-        <name>sht40_init</name>
-        <param>
-          <type><ref refid="structsht40__t" kindref="compound">sht40_t</ref> *</type>
-          <declname>dev</declname>
-        </param>
-        <param>
-          <type>i2c_port_t</type>
-          <declname>i2c_port</declname>
-        </param>
-        <param>
-          <type>uint8_t</type>
-          <declname>addr</declname>
-        </param>
-        <briefdescription>
-<para>Initialize SHT40 device. </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Sets I2C port and address, then performs a soft reset.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>dev</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>i2c_port</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>I2C port number </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>addr</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>I2C device address </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>ESP_OK on success, error code otherwise </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" line="17" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" bodystart="17" bodyend="36"/>
-      </memberdef>
-      <memberdef kind="function" id="sht40_8c_1ae2a297ab00cf0746fc52671eccaf0713" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>esp_err_t</type>
-        <definition>esp_err_t sht40_reset</definition>
-        <argsstring>(sht40_t *dev)</argsstring>
-        <name>sht40_reset</name>
-        <param>
-          <type><ref refid="structsht40__t" kindref="compound">sht40_t</ref> *</type>
-          <declname>dev</declname>
-        </param>
-        <briefdescription>
-<para>Soft reset the SHT40 sensor. </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Soft reset the SHT40.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>dev</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>ESP_OK on success </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" line="44" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" bodystart="44" bodyend="53"/>
-      </memberdef>
-      <memberdef kind="function" id="sht40_8c_1afd25d7e5d5b7ea36371106c31cc8d64f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>esp_err_t</type>
-        <definition>esp_err_t sht40_read_temp_humidity</definition>
-        <argsstring>(sht40_t *dev, float *temperature, float *humidity)</argsstring>
-        <name>sht40_read_temp_humidity</name>
-        <param>
-          <type><ref refid="structsht40__t" kindref="compound">sht40_t</ref> *</type>
-          <declname>dev</declname>
-        </param>
-        <param>
-          <type>float *</type>
-          <declname>temperature</declname>
-        </param>
-        <param>
-          <type>float *</type>
-          <declname>humidity</declname>
-        </param>
-        <briefdescription>
-<para>Read temperature (°C) and humidity (RH) from SHT40. </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Read temperature and humidity.</para>
-<para>Uses high repeatability measurement by default.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>dev</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>temperature</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to float to store temperature </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>humidity</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to float to store relative humidity </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>ESP_OK on success </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" line="65" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" bodystart="65" bodyend="115"/>
-      </memberdef>
-      <memberdef kind="function" id="sht40_8c_1aa6206d07803ca016575217381e7e48aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>esp_err_t</type>
-        <definition>esp_err_t sht40_read_serial</definition>
-        <argsstring>(sht40_t *dev, uint32_t *serial)</argsstring>
-        <name>sht40_read_serial</name>
-        <param>
-          <type><ref refid="structsht40__t" kindref="compound">sht40_t</ref> *</type>
-          <declname>dev</declname>
-        </param>
-        <param>
-          <type>uint32_t *</type>
-          <declname>serial</declname>
-        </param>
-        <briefdescription>
-<para>Read 32-bit serial number of SHT40. </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Read serial number.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>dev</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>serial</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to store serial number </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>ESP_OK on success </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" line="124" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" bodystart="124" bodyend="174"/>
-      </memberdef>
-      <memberdef kind="function" id="sht40_8c_1a44a92252180982d743e19540f7d1e213" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>esp_err_t</type>
-        <definition>esp_err_t sht40_activate_heater</definition>
-        <argsstring>(sht40_t *dev)</argsstring>
-        <name>sht40_activate_heater</name>
-        <param>
-          <type><ref refid="structsht40__t" kindref="compound">sht40_t</ref> *</type>
-          <declname>dev</declname>
-        </param>
-        <briefdescription>
-<para>Activate the SHT40 heater. </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Enable or disable the heater.</para>
-<para>Heater is mainly for anti-condensation. Should not be used during measurement. Heater commands are defined in the <ref refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373" kindref="member">sht40_cmd_t</ref> enum. This function uses the high power long duration command.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>dev</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>ESP_OK on success </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" line="185" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" bodystart="185" bodyend="197"/>
-      </memberdef>
+      <member refid="group___s_h_t40_1ga93d83b5605a4e207b3eba103008d0caa" kind="function"><name>sht40_init</name></member>
+      <member refid="group___s_h_t40_1gae2a297ab00cf0746fc52671eccaf0713" kind="function"><name>sht40_reset</name></member>
+      <member refid="group___s_h_t40_1gafd25d7e5d5b7ea36371106c31cc8d64f" kind="function"><name>sht40_read_temp_humidity</name></member>
+      <member refid="group___s_h_t40_1gaa6206d07803ca016575217381e7e48aa" kind="function"><name>sht40_read_serial</name></member>
+      <member refid="group___s_h_t40_1ga44a92252180982d743e19540f7d1e213" kind="function"><name>sht40_activate_heater</name></member>
       <memberdef kind="function" id="sht40_8c_1afb34c23383d64651daad74dc25458cf8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>esp_err_t</type>
         <definition>static esp_err_t sht40_send_cmd</definition>
@@ -301,7 +89,7 @@
 <codeline lineno="4"><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*TAG<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;SHT40&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal">esp_err_t<sp/><ref refid="sht40_8h_1a93d83b5605a4e207b3eba103008d0caa" kindref="member">sht40_init</ref>(<ref refid="structsht40__t" kindref="compound">sht40_t</ref><sp/>*dev,<sp/>i2c_port_t<sp/>i2c_port,<sp/>uint8_t<sp/>addr)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">esp_err_t<sp/><ref refid="group___s_h_t40_1ga93d83b5605a4e207b3eba103008d0caa" kindref="member">sht40_init</ref>(<ref refid="structsht40__t" kindref="compound">sht40_t</ref><sp/>*dev,<sp/>i2c_port_t<sp/>i2c_port,<sp/>uint8_t<sp/>addr)</highlight></codeline>
 <codeline lineno="18"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dev)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_ERR_INVALID_ARG;</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
@@ -310,7 +98,7 @@
 <codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>dev-&gt;<ref refid="structsht40__t_1a2fa497333dcc40009a8a954e28a37027" kindref="member">i2c_addr</ref><sp/>=<sp/>addr;</highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Initializing<sp/>SHT40<sp/>at<sp/>0x%02X<sp/>on<sp/>I2C<sp/>port<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>addr,<sp/>i2c_port);</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>esp_err_t<sp/>err<sp/>=<sp/><ref refid="sht40_8h_1ae2a297ab00cf0746fc52671eccaf0713" kindref="member">sht40_reset</ref>(dev);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>esp_err_t<sp/>err<sp/>=<sp/><ref refid="group___s_h_t40_1gae2a297ab00cf0746fc52671eccaf0713" kindref="member">sht40_reset</ref>(dev);</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(err<sp/>!=<sp/>ESP_OK)<sp/>{</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>reset<sp/>SHT40<sp/>(err=%d)&quot;</highlight><highlight class="normal">,<sp/>err);</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
@@ -318,13 +106,13 @@
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//wait<sp/>READ_WRITE_DELAY_MS<sp/>after<sp/>init<sp/>reset</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(<ref refid="sht40_8h_1a852347f3a7a29a64224f9fbe08f38ff8" kindref="member">READ_WRITE_DELAY_MS</ref>));<sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(<ref refid="group___s_h_t40_1ga852347f3a7a29a64224f9fbe08f38ff8" kindref="member">READ_WRITE_DELAY_MS</ref>));<sp/></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>err;</highlight></codeline>
 <codeline lineno="36"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal">esp_err_t<sp/><ref refid="sht40_8h_1ae2a297ab00cf0746fc52671eccaf0713" kindref="member">sht40_reset</ref>(<ref refid="structsht40__t" kindref="compound">sht40_t</ref><sp/>*dev)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">esp_err_t<sp/><ref refid="group___s_h_t40_1gae2a297ab00cf0746fc52671eccaf0713" kindref="member">sht40_reset</ref>(<ref refid="structsht40__t" kindref="compound">sht40_t</ref><sp/>*dev)</highlight></codeline>
 <codeline lineno="45"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>cmd<sp/>=<sp/><ref refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373ab24c602029f6e3d68618d0d9721c1c4b" kindref="member">SHT40_CMD_SOFT_RESET</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>cmd<sp/>=<sp/><ref refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373ab24c602029f6e3d68618d0d9721c1c4b" kindref="member">SHT40_CMD_SOFT_RESET</ref>;</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Sending<sp/>soft<sp/>reset<sp/>command:<sp/>0x%02X&quot;</highlight><highlight class="normal">,<sp/>cmd);</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>esp_err_t<sp/>err<sp/>=<sp/>i2c_master_write_to_device(dev-&gt;<ref refid="structsht40__t_1a807b5c8813fbd8830505f82cdcb3ae6f" kindref="member">i2c_port</ref>,<sp/>dev-&gt;<ref refid="structsht40__t_1a2fa497333dcc40009a8a954e28a37027" kindref="member">i2c_addr</ref>,<sp/>&amp;cmd,<sp/>1,<sp/>pdMS_TO_TICKS(100));</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(err<sp/>!=<sp/>ESP_OK)<sp/>{</highlight></codeline>
@@ -333,11 +121,11 @@
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>err;</highlight></codeline>
 <codeline lineno="53"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal">esp_err_t<sp/><ref refid="sht40_8h_1afd25d7e5d5b7ea36371106c31cc8d64f" kindref="member">sht40_read_temp_humidity</ref>(<ref refid="structsht40__t" kindref="compound">sht40_t</ref><sp/>*dev,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*temperature,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*humidity)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">esp_err_t<sp/><ref refid="group___s_h_t40_1gafd25d7e5d5b7ea36371106c31cc8d64f" kindref="member">sht40_read_temp_humidity</ref>(<ref refid="structsht40__t" kindref="compound">sht40_t</ref><sp/>*dev,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*temperature,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*humidity)</highlight></codeline>
 <codeline lineno="66"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dev<sp/>||<sp/>!temperature<sp/>||<sp/>!humidity)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_ERR_INVALID_ARG;</highlight></codeline>
 <codeline lineno="68"><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>cmd<sp/>=<sp/><ref refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a30cf0019e4747b648bdae99338cf5fa6" kindref="member">SHT40_CMD_MEASURE_HIGHREP</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>cmd<sp/>=<sp/><ref refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a30cf0019e4747b648bdae99338cf5fa6" kindref="member">SHT40_CMD_MEASURE_HIGHREP</ref>;</highlight></codeline>
 <codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>data[6]<sp/>=<sp/>{0};</highlight></codeline>
 <codeline lineno="71"><highlight class="normal"></highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Starting<sp/>high<sp/>repeatability<sp/>measurement:<sp/>0x%02X&quot;</highlight><highlight class="normal">,<sp/>cmd);</highlight></codeline>
@@ -356,7 +144,7 @@
 <codeline lineno="85"><highlight class="normal"></highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGD(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Waiting<sp/>READ_WRITE_DELAY_MS<sp/>for<sp/>SHT40<sp/>to<sp/>prepare<sp/>serial<sp/>number...&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Step<sp/>2:<sp/>wait<sp/>READ_WRITE_DELAY_MS<sp/>for<sp/>sensor<sp/>to<sp/>prepare<sp/>the<sp/>measurement</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(<ref refid="sht40_8h_1a852347f3a7a29a64224f9fbe08f38ff8" kindref="member">READ_WRITE_DELAY_MS</ref>));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(<ref refid="group___s_h_t40_1ga852347f3a7a29a64224f9fbe08f38ff8" kindref="member">READ_WRITE_DELAY_MS</ref>));</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"></highlight></codeline>
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>err<sp/>=<sp/>i2c_master_read_from_device(</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;<ref refid="structsht40__t_1a807b5c8813fbd8830505f82cdcb3ae6f" kindref="member">i2c_port</ref>,</highlight></codeline>
@@ -380,16 +168,16 @@
 <codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGD(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Temperature:<sp/>%.2f<sp/>°C,<sp/>Humidity:<sp/>%.2f<sp/>%%RH&quot;</highlight><highlight class="normal">,<sp/>*temperature,<sp/>*humidity);</highlight></codeline>
 <codeline lineno="110"><highlight class="normal"></highlight></codeline>
 <codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGD(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Waiting<sp/>READ_WRITE_DELAY_MS<sp/>after<sp/>reading<sp/>temperature<sp/>and<sp/>humidity...&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(<ref refid="sht40_8h_1a852347f3a7a29a64224f9fbe08f38ff8" kindref="member">READ_WRITE_DELAY_MS</ref>));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(<ref refid="group___s_h_t40_1ga852347f3a7a29a64224f9fbe08f38ff8" kindref="member">READ_WRITE_DELAY_MS</ref>));</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"></highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_OK;</highlight></codeline>
 <codeline lineno="115"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="116"><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal">esp_err_t<sp/><ref refid="sht40_8h_1aa6206d07803ca016575217381e7e48aa" kindref="member">sht40_read_serial</ref>(<ref refid="structsht40__t" kindref="compound">sht40_t</ref><sp/>*dev,<sp/>uint32_t<sp/>*serial)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">esp_err_t<sp/><ref refid="group___s_h_t40_1gaa6206d07803ca016575217381e7e48aa" kindref="member">sht40_read_serial</ref>(<ref refid="structsht40__t" kindref="compound">sht40_t</ref><sp/>*dev,<sp/>uint32_t<sp/>*serial)</highlight></codeline>
 <codeline lineno="125"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dev<sp/>||<sp/>!serial)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_ERR_INVALID_ARG;</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>cmd<sp/>=<sp/><ref refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a61b3ca8484e03ae52af2d3cf783205a6" kindref="member">SHT40_CMD_READ_SERIAL</ref>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>cmd<sp/>=<sp/><ref refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a61b3ca8484e03ae52af2d3cf783205a6" kindref="member">SHT40_CMD_READ_SERIAL</ref>;</highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>data[6];</highlight></codeline>
 <codeline lineno="130"><highlight class="normal"></highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Reading<sp/>serial<sp/>number<sp/>with<sp/>command:<sp/>0x%02X&quot;</highlight><highlight class="normal">,<sp/>cmd);</highlight></codeline>
@@ -409,7 +197,7 @@
 <codeline lineno="145"><highlight class="normal"></highlight></codeline>
 <codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGD(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Waiting<sp/>READ_WRITE_DELAY_MS<sp/>for<sp/>SHT40<sp/>to<sp/>prepare<sp/>serial<sp/>number...&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>READ_WRITE_DELAY_MS<sp/>for<sp/>sensor<sp/>to<sp/>prepare<sp/>the<sp/>serial</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(<ref refid="sht40_8h_1a852347f3a7a29a64224f9fbe08f38ff8" kindref="member">READ_WRITE_DELAY_MS</ref>));</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(<ref refid="group___s_h_t40_1ga852347f3a7a29a64224f9fbe08f38ff8" kindref="member">READ_WRITE_DELAY_MS</ref>));</highlight></codeline>
 <codeline lineno="149"><highlight class="normal"></highlight></codeline>
 <codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>6<sp/>bytes</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>err<sp/>=<sp/>i2c_master_read_from_device(</highlight></codeline>
@@ -432,16 +220,16 @@
 <codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;SHT40<sp/>Serial<sp/>number<sp/>read<sp/>successfully:<sp/>0x%08X&quot;</highlight><highlight class="normal">,<sp/>*serial);</highlight></codeline>
 <codeline lineno="169"><highlight class="normal"></highlight></codeline>
 <codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGD(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Waiting<sp/>READ_WRITE_DELAY_MS<sp/>after<sp/>reading<sp/>serial<sp/>number...&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(<ref refid="sht40_8h_1a852347f3a7a29a64224f9fbe08f38ff8" kindref="member">READ_WRITE_DELAY_MS</ref>));</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(<ref refid="group___s_h_t40_1ga852347f3a7a29a64224f9fbe08f38ff8" kindref="member">READ_WRITE_DELAY_MS</ref>));</highlight></codeline>
 <codeline lineno="172"><highlight class="normal"></highlight></codeline>
 <codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_OK;</highlight></codeline>
 <codeline lineno="174"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="175"><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal">esp_err_t<sp/><ref refid="sht40_8h_1a44a92252180982d743e19540f7d1e213" kindref="member">sht40_activate_heater</ref>(<ref refid="structsht40__t" kindref="compound">sht40_t</ref><sp/>*dev)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">esp_err_t<sp/><ref refid="group___s_h_t40_1ga44a92252180982d743e19540f7d1e213" kindref="member">sht40_activate_heater</ref>(<ref refid="structsht40__t" kindref="compound">sht40_t</ref><sp/>*dev)</highlight></codeline>
 <codeline lineno="186"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dev)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_ERR_INVALID_ARG;</highlight></codeline>
 <codeline lineno="188"><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>cmd<sp/>=<sp/><ref refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a270c7b7b055eb394ba54ae9488662c5a" kindref="member">SHT40_CMD_ACTIVATE_HEATER_HIGH_LONG</ref>;<sp/></highlight><highlight class="comment">//<sp/>Turn<sp/>on<sp/>heater<sp/>for<sp/>1<sp/>second<sp/>at<sp/>high<sp/>power</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>cmd<sp/>=<sp/><ref refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a270c7b7b055eb394ba54ae9488662c5a" kindref="member">SHT40_CMD_ACTIVATE_HEATER_HIGH_LONG</ref>;<sp/></highlight><highlight class="comment">//<sp/>Turn<sp/>on<sp/>heater<sp/>for<sp/>1<sp/>second<sp/>at<sp/>high<sp/>power</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Turning<sp/>heater<sp/>ON:<sp/>0x%02X&quot;</highlight><highlight class="normal">,<sp/>cmd);</highlight></codeline>
 <codeline lineno="191"><highlight class="normal"></highlight></codeline>
 <codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>esp_err_t<sp/>err<sp/>=<sp/>sht40_send_cmd(dev,<sp/>cmd);</highlight></codeline>

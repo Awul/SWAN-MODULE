@@ -15,7 +15,6 @@
 
 ## s
 
-* **sht40\_cmd\_t** ([**sht40.h**](sht40_8h.md))
 * **sht\_sensor** ([**main.c**](main_8c.md))
 
 

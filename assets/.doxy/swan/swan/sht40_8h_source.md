@@ -14,6 +14,7 @@
 #include "driver/i2c.h"
 #include "esp_err.h"
 
+
 #define SHT40_I2C_ADDR_DEFAULT 0x44
 
 #define READ_WRITE_DELAY_MS 4
@@ -46,6 +47,7 @@ esp_err_t sht40_read_serial(sht40_t *dev, uint32_t *serial);
 esp_err_t sht40_activate_heater(sht40_t *dev);
 
 static esp_err_t sht40_send_cmd(sht40_t *dev, uint16_t cmd);
+
 ```
 
 

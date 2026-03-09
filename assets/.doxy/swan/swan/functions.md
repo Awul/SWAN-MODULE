@@ -15,12 +15,7 @@
 
 ## s
 
-* **sht40\_activate\_heater** ([**sht40.c**](sht40_8c.md), [**sht40.h**](sht40_8h.md))
-* **sht40\_init** ([**sht40.c**](sht40_8c.md), [**sht40.h**](sht40_8h.md))
-* **sht40\_read\_serial** ([**sht40.c**](sht40_8c.md), [**sht40.h**](sht40_8h.md))
-* **sht40\_read\_temp\_humidity** ([**sht40.c**](sht40_8c.md), [**sht40.h**](sht40_8h.md))
-* **sht40\_reset** ([**sht40.c**](sht40_8c.md), [**sht40.h**](sht40_8h.md))
-* **sht40\_send\_cmd** ([**sht40.c**](sht40_8c.md), [**sht40.h**](sht40_8h.md))
+* **sht40\_send\_cmd** ([**sht40.c**](sht40_8c.md))
 * **setup** ([**main.c**](main_8c.md))
 
 

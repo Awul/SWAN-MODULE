@@ -17,6 +17,21 @@ Here is a list of all modules:
 
 
 
+* [**SHT40 Temperature & Humidity Sensor**](group___s_h_t40.md) 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 * [**VEML7700 Ambient Light Sensor**](group___v_e_m_l7700.md) 
     
 

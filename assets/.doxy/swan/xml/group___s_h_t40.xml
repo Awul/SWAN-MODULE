@@ -1,0 +1,468 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="group___s_h_t40" kind="group">
+    <compoundname>SHT40</compoundname>
+    <title>SHT40 Temperature &amp; Humidity Sensor</title>
+    <innerclass refid="structsht40__t" prot="public">sht40_t</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="group___s_h_t40_1ga1e0ae1bd06142feb52e4bcf236d03373" prot="public" static="no" strong="no">
+        <type></type>
+        <name>sht40_cmd_t</name>
+        <enumvalue id="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a30cf0019e4747b648bdae99338cf5fa6" prot="public">
+          <name>SHT40_CMD_MEASURE_HIGHREP</name>
+          <initializer>= 0xFD</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Measure T &amp; RH, high repeatability, clock stretching disabled </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a98c9f8d52719ff4a2d4354634a1238d6" prot="public">
+          <name>SHT40_CMD_MEASURE_MEDREP</name>
+          <initializer>= 0xF6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Measure T &amp; RH, medium repeatability </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373ace13dc624893ae265105f9e5b6a67911" prot="public">
+          <name>SHT40_CMD_MEASURE_LOWREP</name>
+          <initializer>= 0xE0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Measure T &amp; RH, low repeatability </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a61b3ca8484e03ae52af2d3cf783205a6" prot="public">
+          <name>SHT40_CMD_READ_SERIAL</name>
+          <initializer>= 0x89</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Read device serial number </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373ab24c602029f6e3d68618d0d9721c1c4b" prot="public">
+          <name>SHT40_CMD_SOFT_RESET</name>
+          <initializer>= 0x94</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Soft reset command </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a270c7b7b055eb394ba54ae9488662c5a" prot="public">
+          <name>SHT40_CMD_ACTIVATE_HEATER_HIGH_LONG</name>
+          <initializer>= 0x39</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Activate heater for 1 second at high power (200mW) </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a7b3ecc662457f84f24cac85a07045e5a" prot="public">
+          <name>SHT40_CMD_ACTIVATE_HEATER_HIGH_SHORT</name>
+          <initializer>= 0x32</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Activate heater for 0.1 second at high power (200mW) </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373aefb9900db3eddbfe89b29b941e610a08" prot="public">
+          <name>SHT40_CMD_ACTIVATE_HEATER_LOW_LONG</name>
+          <initializer>= 0x1E</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Activate heater for 1 second at low power (20mW) </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a901820425f8eda27d0a4218253b09847" prot="public">
+          <name>SHT40_CMD_ACTIVATE_HEATER_LOW_SHORT</name>
+          <initializer>= 0x15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Activate heater for 0.1 second at low power (20mW) </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>SHT40 commands. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" line="33" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" bodystart="33" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group___s_h_t40_1ga93d83b5605a4e207b3eba103008d0caa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t sht40_init</definition>
+        <argsstring>(sht40_t *dev, i2c_port_t i2c_port, uint8_t addr)</argsstring>
+        <name>sht40_init</name>
+        <param>
+          <type><ref refid="structsht40__t" kindref="compound">sht40_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>i2c_port</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>addr</declname>
+        </param>
+        <briefdescription>
+<para>Initialize SHT40 device. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>i2c_port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>I2C port number </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>I2C device address </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success</para>
+</simplesect>
+Sets I2C port and address, then performs a soft reset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>i2c_port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>I2C port number </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>I2C device address </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success, error code otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" line="60" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" bodystart="17" bodyend="36" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" declline="60" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___s_h_t40_1gae2a297ab00cf0746fc52671eccaf0713" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t sht40_reset</definition>
+        <argsstring>(sht40_t *dev)</argsstring>
+        <name>sht40_reset</name>
+        <param>
+          <type><ref refid="structsht40__t" kindref="compound">sht40_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <briefdescription>
+<para>Soft reset the SHT40. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success</para>
+</simplesect>
+Soft reset the SHT40.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" line="67" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" bodystart="44" bodyend="53" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" declline="67" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___s_h_t40_1gafd25d7e5d5b7ea36371106c31cc8d64f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t sht40_read_temp_humidity</definition>
+        <argsstring>(sht40_t *dev, float *temperature, float *humidity)</argsstring>
+        <name>sht40_read_temp_humidity</name>
+        <param>
+          <type><ref refid="structsht40__t" kindref="compound">sht40_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>temperature</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>humidity</declname>
+        </param>
+        <briefdescription>
+<para>Read temperature and humidity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>temperature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to float to store temperature (°C) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>humidity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to float to store relative humidity (RH) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success</para>
+</simplesect>
+Read temperature and humidity.</para>
+<para>Uses high repeatability measurement by default.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>temperature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to float to store temperature </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>humidity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to float to store relative humidity </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" line="76" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" bodystart="65" bodyend="115" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" declline="76" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___s_h_t40_1gaa6206d07803ca016575217381e7e48aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t sht40_read_serial</definition>
+        <argsstring>(sht40_t *dev, uint32_t *serial)</argsstring>
+        <name>sht40_read_serial</name>
+        <param>
+          <type><ref refid="structsht40__t" kindref="compound">sht40_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>serial</declname>
+        </param>
+        <briefdescription>
+<para>Read serial number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>serial</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to 32-bit variable to store serial number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success</para>
+</simplesect>
+Read serial number.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>serial</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to store serial number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" line="84" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" bodystart="124" bodyend="174" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" declline="84" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___s_h_t40_1ga44a92252180982d743e19540f7d1e213" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t sht40_activate_heater</definition>
+        <argsstring>(sht40_t *dev)</argsstring>
+        <name>sht40_activate_heater</name>
+        <param>
+          <type><ref refid="structsht40__t" kindref="compound">sht40_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <briefdescription>
+<para>Enable or disable the heater. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> structure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success</para>
+</simplesect>
+Enable or disable the heater.</para>
+<para>Heater is mainly for anti-condensation. Should not be used during measurement. Heater commands are defined in the <ref refid="group___s_h_t40_1ga1e0ae1bd06142feb52e4bcf236d03373" kindref="member">sht40_cmd_t</ref> enum. This function uses the high power long duration command.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to <ref refid="structsht40__t" kindref="compound">sht40_t</ref> struct </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" line="92" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c" bodystart="185" bodyend="197" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" declline="92" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___s_h_t40_1gafb34c23383d64651daad74dc25458cf8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>static esp_err_t sht40_send_cmd</definition>
+        <argsstring>(sht40_t *dev, uint16_t cmd)</argsstring>
+        <name>sht40_send_cmd</name>
+        <param>
+          <type><ref refid="structsht40__t" kindref="compound">sht40_t</ref> *</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>cmd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" line="94" column="18" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" declline="94" declcolumn="18"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="group___s_h_t40_1ga74999863e3bd29b0f16440b635452c50" prot="public" static="no">
+        <name>SHT40_I2C_ADDR_DEFAULT</name>
+        <initializer>0x44</initializer>
+        <briefdescription>
+<para>SHT40 I2C default address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" line="23" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___s_h_t40_1ga852347f3a7a29a64224f9fbe08f38ff8" prot="public" static="no">
+        <name>READ_WRITE_DELAY_MS</name>
+        <initializer>4</initializer>
+        <briefdescription>
+<para>Delay in milliseconds between write and read operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" line="28" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

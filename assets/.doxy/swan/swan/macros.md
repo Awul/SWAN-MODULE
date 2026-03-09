@@ -1107,16 +1107,10 @@
 * **PLATFORM\_ID** ([**CMakeCCompilerId.c**](_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md), [**CMakeCCompilerId.c**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md))
 
 
-## r
-
-* **READ\_WRITE\_DELAY\_MS** ([**sht40.h**](sht40_8h.md))
-
-
 ## s
 
 * **STRINGIFY** ([**CMakeCCompilerId.c**](_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md), [**CMakeCCompilerId.c**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md))
 * **STRINGIFY\_HELPER** ([**CMakeCCompilerId.c**](_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md), [**CMakeCCompilerId.c**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md))
-* **SHT40\_I2C\_ADDR\_DEFAULT** ([**sht40.h**](sht40_8h.md))
 
 
 ## t

@@ -1884,32 +1884,23 @@
   </compound>
   <compound refid="sht40_8c" kind="file"><name>sht40.c</name>
     <member refid="sht40_8c_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>
-    <member refid="sht40_8c_1a93d83b5605a4e207b3eba103008d0caa" kind="function"><name>sht40_init</name></member>
-    <member refid="sht40_8c_1ae2a297ab00cf0746fc52671eccaf0713" kind="function"><name>sht40_reset</name></member>
-    <member refid="sht40_8c_1afd25d7e5d5b7ea36371106c31cc8d64f" kind="function"><name>sht40_read_temp_humidity</name></member>
-    <member refid="sht40_8c_1aa6206d07803ca016575217381e7e48aa" kind="function"><name>sht40_read_serial</name></member>
-    <member refid="sht40_8c_1a44a92252180982d743e19540f7d1e213" kind="function"><name>sht40_activate_heater</name></member>
+    <member refid="group___s_h_t40_1ga93d83b5605a4e207b3eba103008d0caa" kind="function"><name>sht40_init</name></member>
+    <member refid="group___s_h_t40_1gae2a297ab00cf0746fc52671eccaf0713" kind="function"><name>sht40_reset</name></member>
+    <member refid="group___s_h_t40_1gafd25d7e5d5b7ea36371106c31cc8d64f" kind="function"><name>sht40_read_temp_humidity</name></member>
+    <member refid="group___s_h_t40_1gaa6206d07803ca016575217381e7e48aa" kind="function"><name>sht40_read_serial</name></member>
+    <member refid="group___s_h_t40_1ga44a92252180982d743e19540f7d1e213" kind="function"><name>sht40_activate_heater</name></member>
     <member refid="sht40_8c_1afb34c23383d64651daad74dc25458cf8" kind="function"><name>sht40_send_cmd</name></member>
   </compound>
   <compound refid="sht40_8h" kind="file"><name>sht40.h</name>
-    <member refid="sht40_8h_1a74999863e3bd29b0f16440b635452c50" kind="define"><name>SHT40_I2C_ADDR_DEFAULT</name></member>
-    <member refid="sht40_8h_1a852347f3a7a29a64224f9fbe08f38ff8" kind="define"><name>READ_WRITE_DELAY_MS</name></member>
-    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373" kind="enum"><name>sht40_cmd_t</name></member>
-    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a30cf0019e4747b648bdae99338cf5fa6" kind="enumvalue"><name>SHT40_CMD_MEASURE_HIGHREP</name></member>
-    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a98c9f8d52719ff4a2d4354634a1238d6" kind="enumvalue"><name>SHT40_CMD_MEASURE_MEDREP</name></member>
-    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373ace13dc624893ae265105f9e5b6a67911" kind="enumvalue"><name>SHT40_CMD_MEASURE_LOWREP</name></member>
-    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a61b3ca8484e03ae52af2d3cf783205a6" kind="enumvalue"><name>SHT40_CMD_READ_SERIAL</name></member>
-    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373ab24c602029f6e3d68618d0d9721c1c4b" kind="enumvalue"><name>SHT40_CMD_SOFT_RESET</name></member>
-    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a270c7b7b055eb394ba54ae9488662c5a" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_HIGH_LONG</name></member>
-    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a7b3ecc662457f84f24cac85a07045e5a" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_HIGH_SHORT</name></member>
-    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373aefb9900db3eddbfe89b29b941e610a08" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_LOW_LONG</name></member>
-    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a901820425f8eda27d0a4218253b09847" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_LOW_SHORT</name></member>
-    <member refid="sht40_8h_1a93d83b5605a4e207b3eba103008d0caa" kind="function"><name>sht40_init</name></member>
-    <member refid="sht40_8h_1ae2a297ab00cf0746fc52671eccaf0713" kind="function"><name>sht40_reset</name></member>
-    <member refid="sht40_8h_1afd25d7e5d5b7ea36371106c31cc8d64f" kind="function"><name>sht40_read_temp_humidity</name></member>
-    <member refid="sht40_8h_1aa6206d07803ca016575217381e7e48aa" kind="function"><name>sht40_read_serial</name></member>
-    <member refid="sht40_8h_1a44a92252180982d743e19540f7d1e213" kind="function"><name>sht40_activate_heater</name></member>
-    <member refid="sht40_8h_1afb34c23383d64651daad74dc25458cf8" kind="function"><name>sht40_send_cmd</name></member>
+    <member refid="group___s_h_t40_1ga74999863e3bd29b0f16440b635452c50" kind="define"><name>SHT40_I2C_ADDR_DEFAULT</name></member>
+    <member refid="group___s_h_t40_1ga852347f3a7a29a64224f9fbe08f38ff8" kind="define"><name>READ_WRITE_DELAY_MS</name></member>
+    <member refid="group___s_h_t40_1ga1e0ae1bd06142feb52e4bcf236d03373" kind="enum"><name>sht40_cmd_t</name></member>
+    <member refid="group___s_h_t40_1ga93d83b5605a4e207b3eba103008d0caa" kind="function"><name>sht40_init</name></member>
+    <member refid="group___s_h_t40_1gae2a297ab00cf0746fc52671eccaf0713" kind="function"><name>sht40_reset</name></member>
+    <member refid="group___s_h_t40_1gafd25d7e5d5b7ea36371106c31cc8d64f" kind="function"><name>sht40_read_temp_humidity</name></member>
+    <member refid="group___s_h_t40_1gaa6206d07803ca016575217381e7e48aa" kind="function"><name>sht40_read_serial</name></member>
+    <member refid="group___s_h_t40_1ga44a92252180982d743e19540f7d1e213" kind="function"><name>sht40_activate_heater</name></member>
+    <member refid="group___s_h_t40_1gafb34c23383d64651daad74dc25458cf8" kind="function"><name>sht40_send_cmd</name></member>
   </compound>
   <compound refid="veml7700_8c" kind="file"><name>veml7700.c</name>
     <member refid="veml7700_8c_1ae07d3b9e289868dfd2a524a25caa8005" kind="function"><name>veml7700_write16</name></member>
@@ -1969,6 +1960,26 @@
     <member refid="group___i2_c___b_u_s_1ga18aefd12ad84d4c33dc97923cb821e47" kind="define"><name>I2C_SDA</name></member>
     <member refid="group___i2_c___b_u_s_1ga212ca328a6409c98f8c3dfbbe1ba561d" kind="define"><name>I2C_SCL</name></member>
     <member refid="group___i2_c___b_u_s_1ga8b7500a141450a9df212017430c0df9e" kind="define"><name>I2C_FREQ</name></member>
+  </compound>
+  <compound refid="group___s_h_t40" kind="group"><name>SHT40</name>
+    <member refid="group___s_h_t40_1ga1e0ae1bd06142feb52e4bcf236d03373" kind="enum"><name>sht40_cmd_t</name></member>
+    <member refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a30cf0019e4747b648bdae99338cf5fa6" kind="enumvalue"><name>SHT40_CMD_MEASURE_HIGHREP</name></member>
+    <member refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a98c9f8d52719ff4a2d4354634a1238d6" kind="enumvalue"><name>SHT40_CMD_MEASURE_MEDREP</name></member>
+    <member refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373ace13dc624893ae265105f9e5b6a67911" kind="enumvalue"><name>SHT40_CMD_MEASURE_LOWREP</name></member>
+    <member refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a61b3ca8484e03ae52af2d3cf783205a6" kind="enumvalue"><name>SHT40_CMD_READ_SERIAL</name></member>
+    <member refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373ab24c602029f6e3d68618d0d9721c1c4b" kind="enumvalue"><name>SHT40_CMD_SOFT_RESET</name></member>
+    <member refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a270c7b7b055eb394ba54ae9488662c5a" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_HIGH_LONG</name></member>
+    <member refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a7b3ecc662457f84f24cac85a07045e5a" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_HIGH_SHORT</name></member>
+    <member refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373aefb9900db3eddbfe89b29b941e610a08" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_LOW_LONG</name></member>
+    <member refid="group___s_h_t40_1gga1e0ae1bd06142feb52e4bcf236d03373a901820425f8eda27d0a4218253b09847" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_LOW_SHORT</name></member>
+    <member refid="group___s_h_t40_1ga93d83b5605a4e207b3eba103008d0caa" kind="function"><name>sht40_init</name></member>
+    <member refid="group___s_h_t40_1gae2a297ab00cf0746fc52671eccaf0713" kind="function"><name>sht40_reset</name></member>
+    <member refid="group___s_h_t40_1gafd25d7e5d5b7ea36371106c31cc8d64f" kind="function"><name>sht40_read_temp_humidity</name></member>
+    <member refid="group___s_h_t40_1gaa6206d07803ca016575217381e7e48aa" kind="function"><name>sht40_read_serial</name></member>
+    <member refid="group___s_h_t40_1ga44a92252180982d743e19540f7d1e213" kind="function"><name>sht40_activate_heater</name></member>
+    <member refid="group___s_h_t40_1gafb34c23383d64651daad74dc25458cf8" kind="function"><name>sht40_send_cmd</name></member>
+    <member refid="group___s_h_t40_1ga74999863e3bd29b0f16440b635452c50" kind="define"><name>SHT40_I2C_ADDR_DEFAULT</name></member>
+    <member refid="group___s_h_t40_1ga852347f3a7a29a64224f9fbe08f38ff8" kind="define"><name>READ_WRITE_DELAY_MS</name></member>
   </compound>
   <compound refid="group___v_e_m_l7700" kind="group"><name>VEML7700</name>
     <member refid="group___v_e_m_l7700_1ga006e7792045ae69f92ba4e700c13fe7a" kind="function"><name>veml7700_init</name></member>
