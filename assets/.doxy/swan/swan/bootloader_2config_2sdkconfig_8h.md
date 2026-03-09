@@ -316,12 +316,12 @@
 | define  | [**CONFIG\_LIBC\_TIME\_SYSCALL\_USE\_RTC\_HRT**](bootloader_2config_2sdkconfig_8h.md#define-config_libc_time_syscall_use_rtc_hrt)  `1`<br> |
 | define  | [**CONFIG\_LOG\_BOOTLOADER\_LEVEL**](bootloader_2config_2sdkconfig_8h.md#define-config_log_bootloader_level)  `CONFIG\_BOOTLOADER\_LOG\_LEVEL`<br> |
 | define  | [**CONFIG\_LOG\_BOOTLOADER\_LEVEL\_INFO**](bootloader_2config_2sdkconfig_8h.md#define-config_log_bootloader_level_info)  `CONFIG\_BOOTLOADER\_LOG\_LEVEL\_INFO`<br> |
-| define  | [**CONFIG\_LOG\_DEFAULT\_LEVEL**](bootloader_2config_2sdkconfig_8h.md#define-config_log_default_level)  `3`<br> |
-| define  | [**CONFIG\_LOG\_DEFAULT\_LEVEL\_INFO**](bootloader_2config_2sdkconfig_8h.md#define-config_log_default_level_info)  `1`<br> |
+| define  | [**CONFIG\_LOG\_DEFAULT\_LEVEL**](bootloader_2config_2sdkconfig_8h.md#define-config_log_default_level)  `4`<br> |
+| define  | [**CONFIG\_LOG\_DEFAULT\_LEVEL\_DEBUG**](bootloader_2config_2sdkconfig_8h.md#define-config_log_default_level_debug)  `1`<br> |
 | define  | [**CONFIG\_LOG\_DYNAMIC\_LEVEL\_CONTROL**](bootloader_2config_2sdkconfig_8h.md#define-config_log_dynamic_level_control)  `1`<br> |
 | define  | [**CONFIG\_LOG\_IN\_IRAM**](bootloader_2config_2sdkconfig_8h.md#define-config_log_in_iram)  `1`<br> |
 | define  | [**CONFIG\_LOG\_MAXIMUM\_EQUALS\_DEFAULT**](bootloader_2config_2sdkconfig_8h.md#define-config_log_maximum_equals_default)  `1`<br> |
-| define  | [**CONFIG\_LOG\_MAXIMUM\_LEVEL**](bootloader_2config_2sdkconfig_8h.md#define-config_log_maximum_level)  `3`<br> |
+| define  | [**CONFIG\_LOG\_MAXIMUM\_LEVEL**](bootloader_2config_2sdkconfig_8h.md#define-config_log_maximum_level)  `4`<br> |
 | define  | [**CONFIG\_LOG\_MODE\_TEXT**](bootloader_2config_2sdkconfig_8h.md#define-config_log_mode_text)  `1`<br> |
 | define  | [**CONFIG\_LOG\_MODE\_TEXT\_EN**](bootloader_2config_2sdkconfig_8h.md#define-config_log_mode_text_en)  `1`<br> |
 | define  | [**CONFIG\_LOG\_TAG\_LEVEL\_CACHE\_BINARY\_MIN\_HEAP**](bootloader_2config_2sdkconfig_8h.md#define-config_log_tag_level_cache_binary_min_heap)  `1`<br> |
@@ -3877,7 +3877,7 @@
 ### define CONFIG\_LOG\_DEFAULT\_LEVEL 
 
 ```C++
-#define CONFIG_LOG_DEFAULT_LEVEL `3`
+#define CONFIG_LOG_DEFAULT_LEVEL `4`
 ```
 
 
@@ -3887,10 +3887,10 @@
 
 
 
-### define CONFIG\_LOG\_DEFAULT\_LEVEL\_INFO 
+### define CONFIG\_LOG\_DEFAULT\_LEVEL\_DEBUG 
 
 ```C++
-#define CONFIG_LOG_DEFAULT_LEVEL_INFO `1`
+#define CONFIG_LOG_DEFAULT_LEVEL_DEBUG `1`
 ```
 
 
@@ -3942,7 +3942,7 @@
 ### define CONFIG\_LOG\_MAXIMUM\_LEVEL 
 
 ```C++
-#define CONFIG_LOG_MAXIMUM_LEVEL `3`
+#define CONFIG_LOG_MAXIMUM_LEVEL `4`
 ```
 
 

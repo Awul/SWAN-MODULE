@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.16.1" xml:lang="en-US">
+  <compound refid="structsht40__t" kind="struct"><name>sht40_t</name>
+    <member refid="structsht40__t_1a807b5c8813fbd8830505f82cdcb3ae6f" kind="variable"><name>i2c_port</name></member>
+    <member refid="structsht40__t_1a2fa497333dcc40009a8a954e28a37027" kind="variable"><name>i2c_addr</name></member>
+  </compound>
   <compound refid="structveml7700__t" kind="struct"><name>veml7700_t</name>
     <member refid="structveml7700__t_1ad1f0f7733534deeaef959b9fcb340115" kind="variable"><name>i2c_port</name></member>
     <member refid="structveml7700__t_1ab2cce0803e5b6c79f176e22e51181e0a" kind="variable"><name>i2c_addr</name></member>
@@ -693,7 +697,7 @@
     <member refid="bootloader_2config_2sdkconfig_8h_1a499c9e83e6c30d0d67f164352e816fd9" kind="define"><name>CONFIG_HAL_WDT_USE_ROM_IMPL</name></member>
     <member refid="bootloader_2config_2sdkconfig_8h_1a1dc1b9afdb4c07d8a89e0b1db32642af" kind="define"><name>CONFIG_LOG_VERSION_1</name></member>
     <member refid="bootloader_2config_2sdkconfig_8h_1a7994db00334711045a44301e9a1c204f" kind="define"><name>CONFIG_LOG_VERSION</name></member>
-    <member refid="bootloader_2config_2sdkconfig_8h_1a104a75c383f8d0bf29f73ff2880d8c6e" kind="define"><name>CONFIG_LOG_DEFAULT_LEVEL_INFO</name></member>
+    <member refid="bootloader_2config_2sdkconfig_8h_1a193da3d9c79e005e36a81703041a74f1" kind="define"><name>CONFIG_LOG_DEFAULT_LEVEL_DEBUG</name></member>
     <member refid="bootloader_2config_2sdkconfig_8h_1ac618493585bc226f18f36b6a2ad7e8d5" kind="define"><name>CONFIG_LOG_DEFAULT_LEVEL</name></member>
     <member refid="bootloader_2config_2sdkconfig_8h_1a954bbe749f1c30d484c03feef5342a8c" kind="define"><name>CONFIG_LOG_MAXIMUM_EQUALS_DEFAULT</name></member>
     <member refid="bootloader_2config_2sdkconfig_8h_1afad1dfc6d0a194c1e84906db33deb806" kind="define"><name>CONFIG_LOG_MAXIMUM_LEVEL</name></member>
@@ -1505,7 +1509,7 @@
     <member refid="config_2sdkconfig_8h_1a83cca71de4d639c7c0c2243408d91366" kind="define"><name>CONFIG_HEAP_TRACING_OFF</name></member>
     <member refid="config_2sdkconfig_8h_1a1dc1b9afdb4c07d8a89e0b1db32642af" kind="define"><name>CONFIG_LOG_VERSION_1</name></member>
     <member refid="config_2sdkconfig_8h_1a7994db00334711045a44301e9a1c204f" kind="define"><name>CONFIG_LOG_VERSION</name></member>
-    <member refid="config_2sdkconfig_8h_1a104a75c383f8d0bf29f73ff2880d8c6e" kind="define"><name>CONFIG_LOG_DEFAULT_LEVEL_INFO</name></member>
+    <member refid="config_2sdkconfig_8h_1a193da3d9c79e005e36a81703041a74f1" kind="define"><name>CONFIG_LOG_DEFAULT_LEVEL_DEBUG</name></member>
     <member refid="config_2sdkconfig_8h_1ac618493585bc226f18f36b6a2ad7e8d5" kind="define"><name>CONFIG_LOG_DEFAULT_LEVEL</name></member>
     <member refid="config_2sdkconfig_8h_1a954bbe749f1c30d484c03feef5342a8c" kind="define"><name>CONFIG_LOG_MAXIMUM_EQUALS_DEFAULT</name></member>
     <member refid="config_2sdkconfig_8h_1afad1dfc6d0a194c1e84906db33deb806" kind="define"><name>CONFIG_LOG_MAXIMUM_LEVEL</name></member>
@@ -1878,6 +1882,35 @@
     <member refid="group___i2_c___b_u_s_1ga10bdee66bb314fb8a15303e94fee1284" kind="function"><name>i2c_bus_status</name></member>
     <member refid="group___i2_c___b_u_s_1gaa819bd0ae3c495644c3a9ffc26abee4e" kind="function"><name>i2c_scan</name></member>
   </compound>
+  <compound refid="sht40_8c" kind="file"><name>sht40.c</name>
+    <member refid="sht40_8c_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>
+    <member refid="sht40_8c_1a93d83b5605a4e207b3eba103008d0caa" kind="function"><name>sht40_init</name></member>
+    <member refid="sht40_8c_1ae2a297ab00cf0746fc52671eccaf0713" kind="function"><name>sht40_reset</name></member>
+    <member refid="sht40_8c_1afd25d7e5d5b7ea36371106c31cc8d64f" kind="function"><name>sht40_read_temp_humidity</name></member>
+    <member refid="sht40_8c_1aa6206d07803ca016575217381e7e48aa" kind="function"><name>sht40_read_serial</name></member>
+    <member refid="sht40_8c_1a44a92252180982d743e19540f7d1e213" kind="function"><name>sht40_activate_heater</name></member>
+    <member refid="sht40_8c_1afb34c23383d64651daad74dc25458cf8" kind="function"><name>sht40_send_cmd</name></member>
+  </compound>
+  <compound refid="sht40_8h" kind="file"><name>sht40.h</name>
+    <member refid="sht40_8h_1a74999863e3bd29b0f16440b635452c50" kind="define"><name>SHT40_I2C_ADDR_DEFAULT</name></member>
+    <member refid="sht40_8h_1a852347f3a7a29a64224f9fbe08f38ff8" kind="define"><name>READ_WRITE_DELAY_MS</name></member>
+    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373" kind="enum"><name>sht40_cmd_t</name></member>
+    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a30cf0019e4747b648bdae99338cf5fa6" kind="enumvalue"><name>SHT40_CMD_MEASURE_HIGHREP</name></member>
+    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a98c9f8d52719ff4a2d4354634a1238d6" kind="enumvalue"><name>SHT40_CMD_MEASURE_MEDREP</name></member>
+    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373ace13dc624893ae265105f9e5b6a67911" kind="enumvalue"><name>SHT40_CMD_MEASURE_LOWREP</name></member>
+    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a61b3ca8484e03ae52af2d3cf783205a6" kind="enumvalue"><name>SHT40_CMD_READ_SERIAL</name></member>
+    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373ab24c602029f6e3d68618d0d9721c1c4b" kind="enumvalue"><name>SHT40_CMD_SOFT_RESET</name></member>
+    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a270c7b7b055eb394ba54ae9488662c5a" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_HIGH_LONG</name></member>
+    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a7b3ecc662457f84f24cac85a07045e5a" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_HIGH_SHORT</name></member>
+    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373aefb9900db3eddbfe89b29b941e610a08" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_LOW_LONG</name></member>
+    <member refid="sht40_8h_1a1e0ae1bd06142feb52e4bcf236d03373a901820425f8eda27d0a4218253b09847" kind="enumvalue"><name>SHT40_CMD_ACTIVATE_HEATER_LOW_SHORT</name></member>
+    <member refid="sht40_8h_1a93d83b5605a4e207b3eba103008d0caa" kind="function"><name>sht40_init</name></member>
+    <member refid="sht40_8h_1ae2a297ab00cf0746fc52671eccaf0713" kind="function"><name>sht40_reset</name></member>
+    <member refid="sht40_8h_1afd25d7e5d5b7ea36371106c31cc8d64f" kind="function"><name>sht40_read_temp_humidity</name></member>
+    <member refid="sht40_8h_1aa6206d07803ca016575217381e7e48aa" kind="function"><name>sht40_read_serial</name></member>
+    <member refid="sht40_8h_1a44a92252180982d743e19540f7d1e213" kind="function"><name>sht40_activate_heater</name></member>
+    <member refid="sht40_8h_1afb34c23383d64651daad74dc25458cf8" kind="function"><name>sht40_send_cmd</name></member>
+  </compound>
   <compound refid="veml7700_8c" kind="file"><name>veml7700.c</name>
     <member refid="veml7700_8c_1ae07d3b9e289868dfd2a524a25caa8005" kind="function"><name>veml7700_write16</name></member>
     <member refid="veml7700_8c_1a90daf0d5a7c6e40015c3e88799c58715" kind="function"><name>veml7700_read16</name></member>
@@ -1922,6 +1955,7 @@
   <compound refid="main_8c" kind="file"><name>main.c</name>
     <member refid="main_8c_1afc3d101f633a076cc1ca84b85b6224b2" kind="define"><name>TAG</name></member>
     <member refid="main_8c_1ac55f65f43cff21488f5811f6298df93f" kind="variable"><name>veml_sensor</name></member>
+    <member refid="main_8c_1a7be508e655d51f9bbad6c829a86d8c1a" kind="variable"><name>sht_sensor</name></member>
     <member refid="main_8c_1a4fc01d736fe50cf5b977f755b675f11d" kind="function"><name>setup</name></member>
     <member refid="main_8c_1a630544a7f0a2cc40d8a7fefab7e2fe70" kind="function"><name>app_main</name></member>
   </compound>
@@ -2002,6 +2036,8 @@
   <compound refid="dir_b27305f47d68ba65b41a21460fb415ed" kind="dir"><name>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus</name>
   </compound>
   <compound refid="dir_5c982d53a68cdbcd421152b4020263a9" kind="dir"><name>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/main</name>
+  </compound>
+  <compound refid="dir_180d7217a87f12caa6a5edfd7755cc1b" kind="dir"><name>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40</name>
   </compound>
   <compound refid="dir_0150b187d0697ce476d48596f0c108de" kind="dir"><name>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700</name>
   </compound>

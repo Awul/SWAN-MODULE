@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Class Index - SWAN Module Documentation</title>
+    <title>File sht40.h - SWAN Module Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Class Index";
-        var mkdocs_page_input_path = "swan\\classes.md";
+        var mkdocs_page_name = "File sht40.h";
+        var mkdocs_page_input_path = "swan\\sht40_8h_source.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -83,9 +83,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Class Index</li>
+      <li class="breadcrumb-item active">File sht40.h</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/classes.md">Edit on Awul/SWAN-MODULE</a>
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/sht40_8h_source.md">Edit on Awul/SWAN-MODULE</a>
     </li>
   </ul>
   <hr/>
@@ -93,15 +93,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="class-index">Class Index</h1>
-<h2 id="s">s</h2>
-<ul>
-<li><a href="../structsht40__t/"><strong>sht40_t</strong></a></li>
-</ul>
-<h2 id="v">v</h2>
-<ul>
-<li><a href="../structveml7700__t/"><strong>veml7700_t</strong></a></li>
-</ul>
+                <h1 id="file-sht40h">File sht40.h</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_409f97388efe006bc3438b95e9edef48/"><strong>components</strong></a> <strong>&gt;</strong> <a href="../dir_180d7217a87f12caa6a5edfd7755cc1b/"><strong>sht40</strong></a> <strong>&gt;</strong> <a href="../sht40_8h/"><strong>sht40.h</strong></a></p>
+<p><a href="../sht40_8h/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">
+
+#pragma once
+#include &quot;driver/i2c.h&quot;
+#include &quot;esp_err.h&quot;
+
+#define SHT40_I2C_ADDR_DEFAULT 0x44
+
+#define READ_WRITE_DELAY_MS 4
+
+typedef enum {
+    SHT40_CMD_MEASURE_HIGHREP               = 0xFD, 
+    SHT40_CMD_MEASURE_MEDREP                = 0xF6, 
+    SHT40_CMD_MEASURE_LOWREP                = 0xE0, 
+    SHT40_CMD_READ_SERIAL                   = 0x89, 
+    SHT40_CMD_SOFT_RESET                    = 0x94, 
+    SHT40_CMD_ACTIVATE_HEATER_HIGH_LONG     = 0x39, 
+    SHT40_CMD_ACTIVATE_HEATER_HIGH_SHORT    = 0x32, 
+    SHT40_CMD_ACTIVATE_HEATER_LOW_LONG      = 0x1E, 
+    SHT40_CMD_ACTIVATE_HEATER_LOW_SHORT     = 0x15  
+} sht40_cmd_t;
+
+typedef struct {
+    i2c_port_t i2c_port;  
+    uint8_t i2c_addr;     
+} sht40_t;
+
+esp_err_t sht40_init(sht40_t *dev, i2c_port_t i2c_port, uint8_t addr);
+
+esp_err_t sht40_reset(sht40_t *dev);
+
+esp_err_t sht40_read_temp_humidity(sht40_t *dev, float *temperature, float *humidity);
+
+esp_err_t sht40_read_serial(sht40_t *dev, uint32_t *serial);
+
+esp_err_t sht40_activate_heater(sht40_t *dev);
+
+static esp_err_t sht40_send_cmd(sht40_t *dev, uint16_t cmd);
+</code></pre>
               
             </div>
           </div><footer>

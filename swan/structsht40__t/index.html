@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Class Index - SWAN Module Documentation</title>
+    <title>Struct sht40_t - SWAN Module Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Class Index";
-        var mkdocs_page_input_path = "swan\\classes.md";
+        var mkdocs_page_name = "Struct sht40_t";
+        var mkdocs_page_input_path = "swan\\structsht40__t.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -83,9 +83,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Class Index</li>
+      <li class="breadcrumb-item active">Struct sht40_t</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/classes.md">Edit on Awul/SWAN-MODULE</a>
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/structsht40__t.md">Edit on Awul/SWAN-MODULE</a>
     </li>
   </ul>
   <hr/>
@@ -93,15 +93,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="class-index">Class Index</h1>
-<h2 id="s">s</h2>
+                <h1 id="struct-sht40_t">Struct sht40_t</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>sht40_t</strong></a></p>
+<p><em>SHT40 device structure.</em> </p>
 <ul>
-<li><a href="../structsht40__t/"><strong>sht40_t</strong></a></li>
+<li><code>#include &lt;sht40.h&gt;</code></li>
 </ul>
-<h2 id="v">v</h2>
-<ul>
-<li><a href="../structveml7700__t/"><strong>veml7700_t</strong></a></li>
-</ul>
+<h2 id="public-attributes">Public Attributes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">uint8_t</td>
+<td style="text-align: left;"><a href="#variable-i2c_addr"><strong>i2c_addr</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">i2c_port_t</td>
+<td style="text-align: left;"><a href="#variable-i2c_port"><strong>i2c_port</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-attributes-documentation">Public Attributes Documentation</h2>
+<h3 id="variable-i2c_addr">variable i2c_addr</h3>
+<pre><code class="language-C++">uint8_t sht40_t::i2c_addr;
+</code></pre>
+<p>Device I2C address </p>
+<hr>
+
+<h3 id="variable-i2c_port">variable i2c_port</h3>
+<pre><code class="language-C++">i2c_port_t sht40_t::i2c_port;
+</code></pre>
+<p>I2C port </p>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h</code></p>
               
             </div>
           </div><footer>

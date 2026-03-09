@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>File sht40.c - SWAN Module Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "File sht40.c";
+        var mkdocs_page_input_path = "swan\\sht40_8c.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> SWAN Module Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/build/">Build & Flash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/style/">Coding Style</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/license/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">SWAN Module Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">File sht40.c</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/sht40_8c.md">Edit on Awul/SWAN-MODULE</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="file-sht40c">File sht40.c</h1>
+<p><a href="../files/"><strong>FileList</strong></a> <strong>&gt;</strong> <a href="../dir_409f97388efe006bc3438b95e9edef48/"><strong>components</strong></a> <strong>&gt;</strong> <a href="../dir_180d7217a87f12caa6a5edfd7755cc1b/"><strong>sht40</strong></a> <strong>&gt;</strong> <a href="./"><strong>sht40.c</strong></a></p>
+<p><a href="../sht40_8c_source/">Go to the source code of this file</a></p>
+<ul>
+<li><code>#include "sht40.h"</code></li>
+<li><code>#include "driver/i2c.h"</code></li>
+<li><code>#include "esp_log.h"</code></li>
+</ul>
+<h2 id="public-static-attributes">Public Static Attributes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">const char *</td>
+<td style="text-align: left;"><a href="#variable-tag"><strong>TAG</strong></a>   = <code>"SHT40"</code><br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-sht40_activate_heater"><strong>sht40_activate_heater</strong></a> (<a href="../structsht40__t/"><strong>sht40_t</strong></a> * dev) <br><em>Activate the SHT40 heater.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-sht40_init"><strong>sht40_init</strong></a> (<a href="../structsht40__t/"><strong>sht40_t</strong></a> * dev, i2c_port_t i2c_port, uint8_t addr) <br><em>Initialize SHT40 device.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-sht40_read_serial"><strong>sht40_read_serial</strong></a> (<a href="../structsht40__t/"><strong>sht40_t</strong></a> * dev, uint32_t * serial) <br><em>Read 32-bit serial number of SHT40.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-sht40_read_temp_humidity"><strong>sht40_read_temp_humidity</strong></a> (<a href="../structsht40__t/"><strong>sht40_t</strong></a> * dev, float * temperature, float * humidity) <br><em>Read temperature (°C) and humidity (RH) from SHT40.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-sht40_reset"><strong>sht40_reset</strong></a> (<a href="../structsht40__t/"><strong>sht40_t</strong></a> * dev) <br><em>Soft reset the SHT40 sensor.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-functions">Public Static Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-sht40_send_cmd"><strong>sht40_send_cmd</strong></a> (<a href="../structsht40__t/"><strong>sht40_t</strong></a> * dev, uint16_t cmd) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-attributes-documentation">Public Static Attributes Documentation</h2>
+<h3 id="variable-tag">variable TAG</h3>
+<pre><code class="language-C++">const char* TAG;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-sht40_activate_heater">function sht40_activate_heater</h3>
+<p><em>Activate the SHT40 heater.</em> </p>
+<pre><code class="language-C++">esp_err_t sht40_activate_heater (
+    sht40_t * dev
+) 
+</code></pre>
+<p>Enable or disable the heater.</p>
+<p>Heater is mainly for anti-condensation. Should not be used during measurement. Heater commands are defined in the <a href="../sht40_8h/#enum-sht40_cmd_t"><strong>sht40_cmd_t</strong></a> enum. This function uses the high power long duration command.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>dev</code> Pointer to <a href="../structsht40__t/"><strong>sht40_t</strong></a> struct </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>ESP_OK on success </p>
+<hr>
+
+<h3 id="function-sht40_init">function sht40_init</h3>
+<p><em>Initialize SHT40 device.</em> </p>
+<pre><code class="language-C++">esp_err_t sht40_init (
+    sht40_t * dev,
+    i2c_port_t i2c_port,
+    uint8_t addr
+) 
+</code></pre>
+<p>Sets I2C port and address, then performs a soft reset.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>dev</code> Pointer to <a href="../structsht40__t/"><strong>sht40_t</strong></a> struct </li>
+<li><code>i2c_port</code> I2C port number </li>
+<li><code>addr</code> I2C device address </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>ESP_OK on success, error code otherwise </p>
+<hr>
+
+<h3 id="function-sht40_read_serial">function sht40_read_serial</h3>
+<p><em>Read 32-bit serial number of SHT40.</em> </p>
+<pre><code class="language-C++">esp_err_t sht40_read_serial (
+    sht40_t * dev,
+    uint32_t * serial
+) 
+</code></pre>
+<p>Read serial number.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>dev</code> Pointer to <a href="../structsht40__t/"><strong>sht40_t</strong></a> struct </li>
+<li><code>serial</code> Pointer to store serial number </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>ESP_OK on success </p>
+<hr>
+
+<h3 id="function-sht40_read_temp_humidity">function sht40_read_temp_humidity</h3>
+<p><em>Read temperature (°C) and humidity (RH) from SHT40.</em> </p>
+<pre><code class="language-C++">esp_err_t sht40_read_temp_humidity (
+    sht40_t * dev,
+    float * temperature,
+    float * humidity
+) 
+</code></pre>
+<p>Read temperature and humidity.</p>
+<p>Uses high repeatability measurement by default.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>dev</code> Pointer to <a href="../structsht40__t/"><strong>sht40_t</strong></a> struct </li>
+<li><code>temperature</code> Pointer to float to store temperature </li>
+<li><code>humidity</code> Pointer to float to store relative humidity </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>ESP_OK on success </p>
+<hr>
+
+<h3 id="function-sht40_reset">function sht40_reset</h3>
+<p><em>Soft reset the SHT40 sensor.</em> </p>
+<pre><code class="language-C++">esp_err_t sht40_reset (
+    sht40_t * dev
+) 
+</code></pre>
+<p>Soft reset the SHT40.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>dev</code> Pointer to <a href="../structsht40__t/"><strong>sht40_t</strong></a> struct </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>ESP_OK on success </p>
+<hr>
+<h2 id="public-static-functions-documentation">Public Static Functions Documentation</h2>
+<h3 id="function-sht40_send_cmd">function sht40_send_cmd</h3>
+<pre><code class="language-C++">static esp_err_t sht40_send_cmd (
+    sht40_t * dev,
+    uint16_t cmd
+) 
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.c</code></p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Awul/SWAN-MODULE" class="fa fa-code-fork" style="color: #fcfcfc"> Awul/SWAN-MODULE</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

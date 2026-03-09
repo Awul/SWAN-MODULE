@@ -13,9 +13,15 @@
 * **i2c\_mutex** ([**i2c\_bus.c**](i2c__bus_8c.md))
 
 
+## s
+
+* **sht40\_cmd\_t** ([**sht40.h**](sht40_8h.md))
+* **sht\_sensor** ([**main.c**](main_8c.md))
+
+
 ## t
 
-* **TAG** ([**i2c\_bus.c**](i2c__bus_8c.md))
+* **TAG** ([**i2c\_bus.c**](i2c__bus_8c.md), [**sht40.c**](sht40_8c.md))
 
 
 ## v

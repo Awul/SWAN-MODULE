@@ -17,6 +17,7 @@
 * `#include "esp_err.h"`
 * `#include "i2c_bus.h"`
 * `#include "veml7700.h"`
+* `#include "sht40.h"`
 
 
 
@@ -42,6 +43,7 @@
 
 | Type | Name |
 | ---: | :--- |
+|  [**sht40\_t**](structsht40__t.md) | [**sht\_sensor**](#variable-sht_sensor)  <br> |
 |  [**veml7700\_t**](structveml7700__t.md) | [**veml\_sensor**](#variable-veml_sensor)  <br> |
 
 
@@ -100,6 +102,19 @@
 
 ## Public Attributes Documentation
 
+
+
+
+### variable sht\_sensor 
+
+```C++
+sht40_t sht_sensor;
+```
+
+
+
+
+<hr>
 
 
 

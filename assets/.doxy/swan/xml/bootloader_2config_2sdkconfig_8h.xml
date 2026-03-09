@@ -6603,8 +6603,8 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/bootloader/config/sdkconfig.h" line="605" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/bootloader/config/sdkconfig.h" bodystart="605" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a104a75c383f8d0bf29f73ff2880d8c6e" prot="public" static="no">
-        <name>CONFIG_LOG_DEFAULT_LEVEL_INFO</name>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a193da3d9c79e005e36a81703041a74f1" prot="public" static="no">
+        <name>CONFIG_LOG_DEFAULT_LEVEL_DEBUG</name>
         <initializer>1</initializer>
         <briefdescription>
         </briefdescription>
@@ -6616,7 +6616,7 @@
       </memberdef>
       <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ac618493585bc226f18f36b6a2ad7e8d5" prot="public" static="no">
         <name>CONFIG_LOG_DEFAULT_LEVEL</name>
-        <initializer>3</initializer>
+        <initializer>4</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -6638,7 +6638,7 @@
       </memberdef>
       <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1afad1dfc6d0a194c1e84906db33deb806" prot="public" static="no">
         <name>CONFIG_LOG_MAXIMUM_LEVEL</name>
-        <initializer>3</initializer>
+        <initializer>4</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -8259,10 +8259,10 @@
 <codeline lineno="603"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_HAL_WDT_USE_ROM_IMPL<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="604"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_VERSION_1<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="605"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_VERSION<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="606"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DEFAULT_LEVEL_INFO<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="607"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DEFAULT_LEVEL<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="606"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DEFAULT_LEVEL_DEBUG<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="607"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DEFAULT_LEVEL<sp/>4</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="608"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_MAXIMUM_EQUALS_DEFAULT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="609"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_MAXIMUM_LEVEL<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="609"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_MAXIMUM_LEVEL<sp/>4</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="610"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DYNAMIC_LEVEL_CONTROL<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="611"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_TAG_LEVEL_IMPL_CACHE_AND_LINKED_LIST<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="612"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_TAG_LEVEL_CACHE_BINARY_MIN_HEAP<sp/>1</highlight><highlight class="normal"></highlight></codeline>

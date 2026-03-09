@@ -7868,8 +7868,8 @@
         </inbodydescription>
         <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/config/sdkconfig.h" line="720" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/build/config/sdkconfig.h" bodystart="720" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="config_2sdkconfig_8h_1a104a75c383f8d0bf29f73ff2880d8c6e" prot="public" static="no">
-        <name>CONFIG_LOG_DEFAULT_LEVEL_INFO</name>
+      <memberdef kind="define" id="config_2sdkconfig_8h_1a193da3d9c79e005e36a81703041a74f1" prot="public" static="no">
+        <name>CONFIG_LOG_DEFAULT_LEVEL_DEBUG</name>
         <initializer>1</initializer>
         <briefdescription>
         </briefdescription>
@@ -7881,7 +7881,7 @@
       </memberdef>
       <memberdef kind="define" id="config_2sdkconfig_8h_1ac618493585bc226f18f36b6a2ad7e8d5" prot="public" static="no">
         <name>CONFIG_LOG_DEFAULT_LEVEL</name>
-        <initializer>3</initializer>
+        <initializer>4</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -7903,7 +7903,7 @@
       </memberdef>
       <memberdef kind="define" id="config_2sdkconfig_8h_1afad1dfc6d0a194c1e84906db33deb806" prot="public" static="no">
         <name>CONFIG_LOG_MAXIMUM_LEVEL</name>
-        <initializer>3</initializer>
+        <initializer>4</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -12466,10 +12466,10 @@
 <codeline lineno="718"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_HEAP_TRACING_OFF<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="719"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_VERSION_1<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="720"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_VERSION<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="721"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DEFAULT_LEVEL_INFO<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="722"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DEFAULT_LEVEL<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="721"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DEFAULT_LEVEL_DEBUG<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="722"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DEFAULT_LEVEL<sp/>4</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="723"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_MAXIMUM_EQUALS_DEFAULT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="724"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_MAXIMUM_LEVEL<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="724"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_MAXIMUM_LEVEL<sp/>4</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="725"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DYNAMIC_LEVEL_CONTROL<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="726"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_TAG_LEVEL_IMPL_CACHE_AND_LINKED_LIST<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="727"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_TAG_LEVEL_CACHE_BINARY_MIN_HEAP<sp/>1</highlight><highlight class="normal"></highlight></codeline>
