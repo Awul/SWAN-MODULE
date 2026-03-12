@@ -18,6 +18,12 @@
 <para>Create a heartbeat JSON object. </para>
         </briefdescription>
         <detaileddescription>
+<para>It has the structure: <programlisting><codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;firmware&quot;:<sp/>firmare_version,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;uptime&quot;:<sp/>uptime_seconds,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;sensors&quot;:<sp/>[&quot;Sensor1&quot;,<sp/>&quot;Sensor2&quot;,<sp/>&quot;...&quot;]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+</programlisting></para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>info</parametername>
@@ -33,7 +39,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" line="37" column="7" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.c" bodystart="4" bodyend="26" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" declline="37" declcolumn="7"/>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" line="47" column="7" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.c" bodystart="4" bodyend="26" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" declline="47" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="group___j_s_o_n___p_a_y_l_o_a_d_1gac60d100a0f630e8e78cc9646c5f8c888" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>cJSON *</type>
@@ -63,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" line="44" column="7" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.c" bodystart="28" bodyend="36" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" declline="44" declcolumn="7"/>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" line="54" column="7" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.c" bodystart="28" bodyend="36" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" declline="54" declcolumn="7"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

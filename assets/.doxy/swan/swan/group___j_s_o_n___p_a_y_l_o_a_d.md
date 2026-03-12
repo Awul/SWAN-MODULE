@@ -102,6 +102,17 @@ cJSON * build_heartbeat_json (
 
 
 
+It has the structure: 
+```
+{
+             "firmware": firmare_version,
+             "uptime": uptime_seconds,
+             "sensors": ["Sensor1", "Sensor2", "..."]
+         }
+```
+
+
+
 
 
 **Parameters:**

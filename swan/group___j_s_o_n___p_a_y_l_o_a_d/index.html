@@ -136,6 +136,13 @@
     const heartbeat_info_t * info
 ) 
 </code></pre>
+<p>It has the structure: </p>
+<pre><code>{
+             &quot;firmware&quot;: firmare_version,
+             &quot;uptime&quot;: uptime_seconds,
+             &quot;sensors&quot;: [&quot;Sensor1&quot;, &quot;Sensor2&quot;, &quot;...&quot;]
+         }
+</code></pre>
 <p><strong>Parameters:</strong></p>
 <ul>
 <li><code>info</code> Pointer to the heartbeat information structure </li>
