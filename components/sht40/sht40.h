@@ -9,8 +9,14 @@
  */
 
 #pragma once
-#include "driver/i2c.h"
+#include "i2c_bus.h"
 #include "esp_err.h"
+#include "esp_log.h"
+
+/**
+ * @defgroup SHT40 SHT40 Temperature & Humidity Sensor
+ * @{
+ */
 
 /**
  * @brief SHT40 I2C default address
@@ -20,7 +26,7 @@
 /**
  * @brief Delay in milliseconds between write and read operations
  */
-#define READ_WRITE_DELAY_MS 4
+#define READ_WRITE_DELAY_MS 10
 
 /**
  * @brief SHT40 commands
@@ -86,4 +92,6 @@ esp_err_t sht40_read_serial(sht40_t *dev, uint32_t *serial);
  */
 esp_err_t sht40_activate_heater(sht40_t *dev);
 
-static esp_err_t sht40_send_cmd(sht40_t *dev, uint16_t cmd);
+esp_err_t sht40_send_cmd(sht40_t *dev, uint8_t cmd);
+
+/** @} */

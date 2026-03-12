@@ -5,11 +5,18 @@
  * 
  * This project contains the following modules:
  *
+ * # Sensor Drivers
  * - @ref I2C_BUS
  * - @ref VEML7700
- * - @ref BME280
+ * - @ref SHT40
+ * - @ref IM72D128
+ * 
+ * # Networking Components
+ * - @ref WIFI_MANAGER
+ * - @ref SWANMQTT
+ * # Utility Components
+ * - @ref JSON_PAYLOAD
  *
- * YES.
  *
- * @note All components are designed to be modular and thread-safe.
+ * @note SWAN-HUB is required.
  */

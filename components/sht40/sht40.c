@@ -1,6 +1,5 @@
 #include "sht40.h"
-#include "driver/i2c.h"
-#include "esp_log.h"
+
 
 static const char *TAG = "SHT40";
 
@@ -186,7 +185,7 @@ esp_err_t sht40_activate_heater(sht40_t *dev)
 {
     if (!dev) return ESP_ERR_INVALID_ARG;
 
-    uint16_t cmd = SHT40_CMD_ACTIVATE_HEATER_HIGH_LONG; // Turn on heater for 1 second at high power
+    uint8_t cmd = SHT40_CMD_ACTIVATE_HEATER_HIGH_LONG; // Turn on heater for 1 second at high power
     ESP_LOGI(TAG, "Turning heater ON: 0x%02X", cmd);
 
     esp_err_t err = sht40_send_cmd(dev, cmd);
@@ -198,7 +197,7 @@ esp_err_t sht40_activate_heater(sht40_t *dev)
 
 /* Internal helper to send commands */
 // implemented this later, so it is not used everywhere yet.
-static esp_err_t sht40_send_cmd(sht40_t *dev, uint16_t cmd)
+esp_err_t sht40_send_cmd(sht40_t *dev, uint8_t cmd)
 {
     return i2c_master_write_to_device(
         dev->i2c_port,
