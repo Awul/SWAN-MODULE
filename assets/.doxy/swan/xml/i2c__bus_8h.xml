@@ -5,6 +5,7 @@
     <includes local="yes">esp_err.h</includes>
     <includes local="yes">driver/i2c.h</includes>
     <includedby refid="i2c__bus_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus/i2c_bus.c</includedby>
+    <includedby refid="sht40_8h" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h</includedby>
     <includedby refid="veml7700_8h" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h</includedby>
     <includedby refid="main_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/main/main.c</includedby>
     <incdepgraph>
@@ -29,15 +30,21 @@
         <link refid="i2c__bus_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
-      <node id="3">
+      <node id="2">
+        <label>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40/sht40.h</label>
+        <link refid="sht40_8h"/>
+      </node>
+      <node id="4">
         <label>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.c</label>
         <link refid="veml7700_8c"/>
       </node>
-      <node id="2">
+      <node id="3">
         <label>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700/veml7700.h</label>
         <link refid="veml7700_8h"/>
-        <childnode refid="3" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

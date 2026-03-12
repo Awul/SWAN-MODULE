@@ -102,9 +102,17 @@
 <li><code>#include "freertos/task.h"</code></li>
 <li><code>#include "esp_log.h"</code></li>
 <li><code>#include "esp_err.h"</code></li>
+<li><code>#include "math.h"</code></li>
+<li><code>#include "driver/uart.h"</code></li>
+<li><code>#include "esp_timer.h"</code></li>
+<li><code>#include "secrets.h"</code></li>
 <li><code>#include "i2c_bus.h"</code></li>
 <li><code>#include "veml7700.h"</code></li>
 <li><code>#include "sht40.h"</code></li>
+<li><code>#include "im72d128.h"</code></li>
+<li><code>#include "wifi_manager.h"</code></li>
+<li><code>#include "swan_mqtt_client.h"</code></li>
+<li><code>#include "json_payload.h"</code></li>
 </ul>
 <h2 id="public-attributes">Public Attributes</h2>
 <table>
@@ -115,6 +123,14 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align: right;"><a href="../structim72d128__t/"><strong>im72d128_t</strong></a></td>
+<td style="text-align: left;"><a href="#variable-mic_sensor"><strong>mic_sensor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">const char *</td>
+<td style="text-align: left;"><a href="#variable-sensors"><strong>sensors</strong></a>   = <code>{"temperature", "humidity", "light"}</code><br></td>
+</tr>
 <tr>
 <td style="text-align: right;"><a href="../structsht40__t/"><strong>sht40_t</strong></a></td>
 <td style="text-align: left;"><a href="#variable-sht_sensor"><strong>sht_sensor</strong></a>  <br></td>
@@ -142,6 +158,30 @@
 <td style="text-align: right;">void</td>
 <td style="text-align: left;"><a href="#function-setup"><strong>setup</strong></a> () <br></td>
 </tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setup_i2c"><strong>setup_i2c</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setup_im72d128"><strong>setup_im72d128</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setup_mqtt"><strong>setup_mqtt</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setup_sht40"><strong>setup_sht40</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setup_veml7700"><strong>setup_veml7700</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setup_wifi"><strong>setup_wifi</strong></a> () <br></td>
+</tr>
 </tbody>
 </table>
 <h2 id="macros">Macros</h2>
@@ -155,11 +195,49 @@
 <tbody>
 <tr>
 <td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-firmware_version"><strong>FIRMWARE_VERSION</strong></a>  <code>"0.1.0"</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-mqtt_id"><strong>MQTT_ID</strong></a>  <code>NODE\_ID</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-mqtt_uri"><strong>MQTT_URI</strong></a>  <code>"mqtt://192.168.122.237:1883"</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-mqtt_username"><strong>MQTT_USERNAME</strong></a>  <code>"swan"</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-node_id"><strong>NODE_ID</strong></a>  <code>"swan-module-TEST"</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-sensor_count"><strong>SENSOR_COUNT</strong></a>  <code>3</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
 <td style="text-align: left;"><a href="./#define-tag"><strong>TAG</strong></a>  <code>"MAIN"</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-wifi_ssid"><strong>WIFI_SSID</strong></a>  <code>"swan-net"</code><br></td>
 </tr>
 </tbody>
 </table>
 <h2 id="public-attributes-documentation">Public Attributes Documentation</h2>
+<h3 id="variable-mic_sensor">variable mic_sensor</h3>
+<pre><code class="language-C++">im72d128_t mic_sensor;
+</code></pre>
+<hr>
+
+<h3 id="variable-sensors">variable sensors</h3>
+<pre><code class="language-C++">const char* sensors[];
+</code></pre>
+<hr>
+
 <h3 id="variable-sht_sensor">variable sht_sensor</h3>
 <pre><code class="language-C++">sht40_t sht_sensor;
 </code></pre>
@@ -181,9 +259,74 @@
 <pre><code class="language-C++">void setup () 
 </code></pre>
 <hr>
+
+<h3 id="function-setup_i2c">function setup_i2c</h3>
+<pre><code class="language-C++">void setup_i2c () 
+</code></pre>
+<hr>
+
+<h3 id="function-setup_im72d128">function setup_im72d128</h3>
+<pre><code class="language-C++">void setup_im72d128 () 
+</code></pre>
+<hr>
+
+<h3 id="function-setup_mqtt">function setup_mqtt</h3>
+<pre><code class="language-C++">void setup_mqtt () 
+</code></pre>
+<hr>
+
+<h3 id="function-setup_sht40">function setup_sht40</h3>
+<pre><code class="language-C++">void setup_sht40 () 
+</code></pre>
+<hr>
+
+<h3 id="function-setup_veml7700">function setup_veml7700</h3>
+<pre><code class="language-C++">void setup_veml7700 () 
+</code></pre>
+<hr>
+
+<h3 id="function-setup_wifi">function setup_wifi</h3>
+<pre><code class="language-C++">void setup_wifi () 
+</code></pre>
+<hr>
 <h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
+<h3 id="define-firmware_version">define FIRMWARE_VERSION</h3>
+<pre><code class="language-C++">#define FIRMWARE_VERSION `&quot;0.1.0&quot;`
+</code></pre>
+<hr>
+
+<h3 id="define-mqtt_id">define MQTT_ID</h3>
+<pre><code class="language-C++">#define MQTT_ID `NODE_ID`
+</code></pre>
+<hr>
+
+<h3 id="define-mqtt_uri">define MQTT_URI</h3>
+<pre><code class="language-C++">#define MQTT_URI `&quot;mqtt://192.168.122.237:1883&quot;`
+</code></pre>
+<hr>
+
+<h3 id="define-mqtt_username">define MQTT_USERNAME</h3>
+<pre><code class="language-C++">#define MQTT_USERNAME `&quot;swan&quot;`
+</code></pre>
+<hr>
+
+<h3 id="define-node_id">define NODE_ID</h3>
+<pre><code class="language-C++">#define NODE_ID `&quot;swan-module-TEST&quot;`
+</code></pre>
+<hr>
+
+<h3 id="define-sensor_count">define SENSOR_COUNT</h3>
+<pre><code class="language-C++">#define SENSOR_COUNT `3`
+</code></pre>
+<hr>
+
 <h3 id="define-tag">define TAG</h3>
 <pre><code class="language-C++">#define TAG `&quot;MAIN&quot;`
+</code></pre>
+<hr>
+
+<h3 id="define-wifi_ssid">define WIFI_SSID</h3>
+<pre><code class="language-C++">#define WIFI_SSID `&quot;swan-net&quot;`
 </code></pre>
 <hr>
 

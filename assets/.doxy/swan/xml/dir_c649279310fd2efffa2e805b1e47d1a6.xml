@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_c649279310fd2efffa2e805b1e47d1a6" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128</compoundname>
+    <innerfile refid="im72d128_8c">im72d128.c</innerfile>
+    <innerfile refid="im72d128_8h">im72d128.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/"/>
+  </compounddef>
+</doxygen>

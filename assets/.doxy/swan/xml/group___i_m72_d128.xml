@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="group___i_m72_d128" kind="group">
+    <compoundname>IM72D128</compoundname>
+    <title>IM72D128 PDM Microphone</title>
+    <innerclass refid="structim72d128__t" prot="public">im72d128_t</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group___i_m72_d128_1ga150325ec4b64bf4cdaec35d7a88bf947" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t im72d128_init</definition>
+        <argsstring>(im72d128_t *mic, i2s_port_t port, gpio_num_t clk_pin, gpio_num_t data_pin, uint32_t sample_rate)</argsstring>
+        <name>im72d128_init</name>
+        <param>
+          <type><ref refid="structim72d128__t" kindref="compound">im72d128_t</ref> *</type>
+          <declname>mic</declname>
+        </param>
+        <param>
+          <type>i2s_port_t</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>gpio_num_t</type>
+          <declname>clk_pin</declname>
+        </param>
+        <param>
+          <type>gpio_num_t</type>
+          <declname>data_pin</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sample_rate</declname>
+        </param>
+        <briefdescription>
+<para>Initialize IM72D128 microphone. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Configures the ESP32 I2S peripheral in PDM receive mode.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to microphone structure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>I2S port (I2S_NUM_0 or I2S_NUM_1) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clk_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>GPIO used for PDM clock </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>GPIO used for microphone data </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sample_rate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired PCM sample rate</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success</para>
+</simplesect>
+Initialize IM72D128 microphone. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.h" line="50" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.c" bodystart="10" bodyend="73" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.h" declline="50" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___i_m72_d128_1ga3c01d4546fbeeac213e4100d8f230237" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t im72d128_read</definition>
+        <argsstring>(im72d128_t *mic, int16_t *buffer, size_t samples, size_t *bytes_read)</argsstring>
+        <name>im72d128_read</name>
+        <param>
+          <type><ref refid="structim72d128__t" kindref="compound">im72d128_t</ref> *</type>
+          <declname>mic</declname>
+        </param>
+        <param>
+          <type>int16_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>bytes_read</declname>
+        </param>
+        <briefdescription>
+<para>Read PCM audio samples. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads audio samples converted from the PDM microphone.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to microphone structure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to sample buffer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>samples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of samples to read </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytes_read</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional pointer returning bytes read</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ESP_OK on success</para>
+</simplesect>
+Read PCM audio samples. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.h" line="69" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.c" bodystart="78" bodyend="105" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.h" declline="69" declcolumn="11"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="group___i_m72_d128_1ga4942f6af60413f84254472e76b52d29a" prot="public" static="no">
+        <name>MIC_CLK_PIN</name>
+        <initializer>GPIO_NUM_5</initializer>
+        <briefdescription>
+<para>PDM microphone pins. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.h" line="22" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___i_m72_d128_1gacc0730bde656718cccbf63b422efbd6a" prot="public" static="no">
+        <name>MIC_DATA_PIN</name>
+        <initializer>GPIO_NUM_4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.h" line="23" column="9" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

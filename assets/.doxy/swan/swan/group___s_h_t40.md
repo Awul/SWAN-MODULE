@@ -66,13 +66,9 @@
 |  esp\_err\_t | [**sht40\_read\_serial**](#function-sht40_read_serial) ([**sht40\_t**](structsht40__t.md) \* dev, uint32\_t \* serial) <br>_Read serial number._  |
 |  esp\_err\_t | [**sht40\_read\_temp\_humidity**](#function-sht40_read_temp_humidity) ([**sht40\_t**](structsht40__t.md) \* dev, float \* temperature, float \* humidity) <br>_Read temperature and humidity._  |
 |  esp\_err\_t | [**sht40\_reset**](#function-sht40_reset) ([**sht40\_t**](structsht40__t.md) \* dev) <br>_Soft reset the SHT40._  |
+|  esp\_err\_t | [**sht40\_send\_cmd**](#function-sht40_send_cmd) ([**sht40\_t**](structsht40__t.md) \* dev, uint8\_t cmd) <br> |
 
 
-## Public Static Functions
-
-| Type | Name |
-| ---: | :--- |
-|  esp\_err\_t | [**sht40\_send\_cmd**](#function-sht40_send_cmd) ([**sht40\_t**](structsht40__t.md) \* dev, uint16\_t cmd) <br> |
 
 
 
@@ -102,7 +98,7 @@
 
 | Type | Name |
 | ---: | :--- |
-| define  | [**READ\_WRITE\_DELAY\_MS**](group___s_h_t40.md#define-read_write_delay_ms)  `4`<br>_Delay in milliseconds between write and read operations._  |
+| define  | [**READ\_WRITE\_DELAY\_MS**](group___s_h_t40.md#define-read_write_delay_ms)  `10`<br>_Delay in milliseconds between write and read operations._  |
 | define  | [**SHT40\_I2C\_ADDR\_DEFAULT**](group___s_h_t40.md#define-sht40_i2c_addr_default)  `0x44`<br>_SHT40 I2C default address._  |
 
 ## Public Types Documentation
@@ -409,17 +405,15 @@ ESP\_OK on success
         
 
 <hr>
-## Public Static Functions Documentation
-
 
 
 
 ### function sht40\_send\_cmd 
 
 ```
-static esp_err_t sht40_send_cmd (
+esp_err_t sht40_send_cmd (
     sht40_t * dev,
-    uint16_t cmd
+    uint8_t cmd
 ) 
 ```
 
@@ -437,7 +431,7 @@ static esp_err_t sht40_send_cmd (
 
 _Delay in milliseconds between write and read operations._ 
 ```
-#define READ_WRITE_DELAY_MS `4`
+#define READ_WRITE_DELAY_MS `10`
 ```
 
 

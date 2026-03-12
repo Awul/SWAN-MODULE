@@ -11,13 +11,14 @@
 
 
 #pragma once
-#include "driver/i2c.h"
+#include "i2c_bus.h"
 #include "esp_err.h"
+#include "esp_log.h"
 
 
 #define SHT40_I2C_ADDR_DEFAULT 0x44
 
-#define READ_WRITE_DELAY_MS 4
+#define READ_WRITE_DELAY_MS 10
 
 typedef enum {
     SHT40_CMD_MEASURE_HIGHREP               = 0xFD, 
@@ -46,7 +47,7 @@ esp_err_t sht40_read_serial(sht40_t *dev, uint32_t *serial);
 
 esp_err_t sht40_activate_heater(sht40_t *dev);
 
-static esp_err_t sht40_send_cmd(sht40_t *dev, uint16_t cmd);
+esp_err_t sht40_send_cmd(sht40_t *dev, uint8_t cmd);
 
 ```
 

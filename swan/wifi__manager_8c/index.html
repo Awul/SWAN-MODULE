@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>File wifi_manager.c - SWAN Module Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "File wifi_manager.c";
+        var mkdocs_page_input_path = "swan\\wifi__manager_8c.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> SWAN Module Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/build/">Build & Flash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/style/">Coding Style</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/license/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">SWAN Module Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">File wifi_manager.c</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/wifi__manager_8c.md">Edit on Awul/SWAN-MODULE</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="file-wifi_managerc">File wifi_manager.c</h1>
+<p><a href="../files/"><strong>FileList</strong></a> <strong>&gt;</strong> <a href="../dir_409f97388efe006bc3438b95e9edef48/"><strong>components</strong></a> <strong>&gt;</strong> <a href="../dir_fe90acb48b1d14dd9ed13ebfae9d32ea/"><strong>wifi_manager</strong></a> <strong>&gt;</strong> <a href="./"><strong>wifi_manager.c</strong></a></p>
+<p><a href="../wifi__manager_8c_source/">Go to the source code of this file</a></p>
+<ul>
+<li><code>#include "wifi_manager.h"</code></li>
+</ul>
+<h2 id="public-static-attributes">Public Static Attributes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">const char *</td>
+<td style="text-align: left;"><a href="#variable-tag"><strong>TAG</strong></a>   = <code>"wifi\_manager"</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#variable-retry_count"><strong>retry_count</strong></a>   = <code>0</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#variable-wifi_connected"><strong>wifi_connected</strong></a>   = <code>false</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">EventGroupHandle_t</td>
+<td style="text-align: left;"><a href="#variable-wifi_event_group"><strong>wifi_event_group</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-functions">Public Static Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-event_handler"><strong>event_handler</strong></a> (void * arg, esp_event_base_t event_base, int32_t event_id, void * event_data) <br><em>Internal WiFi event handler.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="macros">Macros</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-wifi_connected_bit"><strong>WIFI_CONNECTED_BIT</strong></a>  <code>BIT0</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-wifi_fail_bit"><strong>WIFI_FAIL_BIT</strong></a>  <code>BIT1</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-wifi_max_retry"><strong>WIFI_MAX_RETRY</strong></a>  <code>5</code><br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-attributes-documentation">Public Static Attributes Documentation</h2>
+<h3 id="variable-tag">variable TAG</h3>
+<pre><code class="language-C++">const char* TAG;
+</code></pre>
+<hr>
+
+<h3 id="variable-retry_count">variable retry_count</h3>
+<pre><code class="language-C++">int retry_count;
+</code></pre>
+<hr>
+
+<h3 id="variable-wifi_connected">variable wifi_connected</h3>
+<pre><code class="language-C++">bool wifi_connected;
+</code></pre>
+<hr>
+
+<h3 id="variable-wifi_event_group">variable wifi_event_group</h3>
+<pre><code class="language-C++">EventGroupHandle_t wifi_event_group;
+</code></pre>
+<hr>
+<h2 id="public-static-functions-documentation">Public Static Functions Documentation</h2>
+<h3 id="function-event_handler">function event_handler</h3>
+<p><em>Internal WiFi event handler.</em> </p>
+<pre><code class="language-C++">static void event_handler (
+    void * arg,
+    esp_event_base_t event_base,
+    int32_t event_id,
+    void * event_data
+) 
+</code></pre>
+<p>Handles WiFi and IP events generated by the ESP-IDF event loop.</p>
+<p>Events handled:
+* WIFI_EVENT_STA_START
+* WIFI_EVENT_STA_DISCONNECTED
+* IP_EVENT_STA_GOT_IP</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>arg</code> User argument (unused) </li>
+<li><code>event_base</code> Event base </li>
+<li><code>event_id</code> Event identifier </li>
+<li><code>event_data</code> Event data payload </li>
+</ul>
+<hr>
+<h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
+<h3 id="define-wifi_connected_bit">define WIFI_CONNECTED_BIT</h3>
+<pre><code class="language-C++">#define WIFI_CONNECTED_BIT `BIT0`
+</code></pre>
+<hr>
+
+<h3 id="define-wifi_fail_bit">define WIFI_FAIL_BIT</h3>
+<pre><code class="language-C++">#define WIFI_FAIL_BIT `BIT1`
+</code></pre>
+<hr>
+
+<h3 id="define-wifi_max_retry">define WIFI_MAX_RETRY</h3>
+<pre><code class="language-C++">#define WIFI_MAX_RETRY `5`
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.c</code></p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Awul/SWAN-MODULE" class="fa fa-code-fork" style="color: #fcfcfc"> Awul/SWAN-MODULE</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

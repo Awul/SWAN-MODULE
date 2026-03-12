@@ -1097,9 +1097,27 @@
 * **DEC** ([**CMakeCCompilerId.c**](_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md), [**CMakeCCompilerId.c**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md))
 
 
+## f
+
+* **FIRMWARE\_VERSION** ([**main.c**](main_8c.md))
+
+
 ## h
 
 * **HEX** ([**CMakeCCompilerId.c**](_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md), [**CMakeCCompilerId.c**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md))
+
+
+## m
+
+* **MQTT\_ID** ([**main.c**](main_8c.md))
+* **MQTT\_URI** ([**main.c**](main_8c.md))
+* **MQTT\_USERNAME** ([**main.c**](main_8c.md))
+* **MQTT\_PASSWORD\_SECRET** ([**secrets.h**](secrets_8h.md))
+
+
+## n
+
+* **NODE\_ID** ([**main.c**](main_8c.md))
 
 
 ## p
@@ -1111,11 +1129,21 @@
 
 * **STRINGIFY** ([**CMakeCCompilerId.c**](_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md), [**CMakeCCompilerId.c**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md))
 * **STRINGIFY\_HELPER** ([**CMakeCCompilerId.c**](_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md), [**CMakeCCompilerId.c**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.md), [**CMakeCXXCompilerId.cpp**](bootloader_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.md))
+* **SENSOR\_COUNT** ([**main.c**](main_8c.md))
 
 
 ## t
 
 * **TAG** ([**main.c**](main_8c.md))
+
+
+## w
+
+* **WIFI\_CONNECTED\_BIT** ([**wifi\_manager.c**](wifi__manager_8c.md))
+* **WIFI\_FAIL\_BIT** ([**wifi\_manager.c**](wifi__manager_8c.md))
+* **WIFI\_MAX\_RETRY** ([**wifi\_manager.c**](wifi__manager_8c.md))
+* **WIFI\_SSID** ([**main.c**](main_8c.md))
+* **WIFI\_PASSWORD\_SECRET** ([**secrets.h**](secrets_8h.md))
 
 
 ## _

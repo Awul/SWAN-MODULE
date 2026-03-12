@@ -3,8 +3,12 @@
   <compounddef id="dir_409f97388efe006bc3438b95e9edef48" kind="dir">
     <compoundname>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components</compoundname>
     <innerdir refid="dir_b27305f47d68ba65b41a21460fb415ed">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/i2c_bus</innerdir>
+    <innerdir refid="dir_c649279310fd2efffa2e805b1e47d1a6">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128</innerdir>
+    <innerdir refid="dir_8c609162cce0e03ddff604c565ee243e">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload</innerdir>
     <innerdir refid="dir_180d7217a87f12caa6a5edfd7755cc1b">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/sht40</innerdir>
+    <innerdir refid="dir_549ee75ff438e1a8fde58d8b9df43ea6">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client</innerdir>
     <innerdir refid="dir_0150b187d0697ce476d48596f0c108de">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/veml7700</innerdir>
+    <innerdir refid="dir_fe90acb48b1d14dd9ed13ebfae9d32ea">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager</innerdir>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

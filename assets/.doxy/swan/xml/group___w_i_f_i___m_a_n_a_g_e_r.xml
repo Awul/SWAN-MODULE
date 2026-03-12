@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="group___w_i_f_i___m_a_n_a_g_e_r" kind="group">
+    <compoundname>WIFI_MANAGER</compoundname>
+    <title>WiFi Manager</title>
+    <innerclass refid="structwifi__manager__config__t" prot="public">wifi_manager_config_t</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group___w_i_f_i___m_a_n_a_g_e_r_1ga2525b45cecfbdaaff4192d8c07c46e7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t wifi_manager_init</definition>
+        <argsstring>(wifi_manager_config_t *config)</argsstring>
+        <name>wifi_manager_init</name>
+        <param>
+          <type><ref refid="structwifi__manager__config__t" kindref="compound">wifi_manager_config_t</ref> *</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the WiFi manager and start connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function initializes:<itemizedlist>
+<listitem><para>NVS storage</para>
+</listitem><listitem><para>network interface</para>
+</listitem><listitem><para>WiFi driver</para>
+</listitem><listitem><para>event handlers</para>
+</listitem></itemizedlist>
+</para>
+<para>The WiFi connection process is started immediately.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to configuration structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><itemizedlist>
+<listitem><para>ESP_OK on success</para>
+</listitem><listitem><para>ESP_ERR_INVALID_ARG if config is invalid</para>
+</listitem><listitem><para>Other ESP-IDF error codes on failure </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" line="85" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.c" bodystart="77" bodyend="134" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" declline="85" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___w_i_f_i___m_a_n_a_g_e_r_1gac7920c9879ed462d91e613ca5026920f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t wifi_manager_wait_connected</definition>
+        <argsstring>(void)</argsstring>
+        <name>wifi_manager_wait_connected</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Block until WiFi connection is established. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function waits until the ESP32 receives an IP address from the access point.</para>
+<para>Useful to ensure the network is ready before starting services such as:</para>
+<para><itemizedlist>
+<listitem><para>MQTT clients</para>
+</listitem><listitem><para>TCP servers</para>
+</listitem><listitem><para>UDP streaming</para>
+</listitem><listitem><para>HTTP requests</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="return"><para><itemizedlist>
+<listitem><para>ESP_OK if connection successful</para>
+</listitem><listitem><para>ESP_FAIL if connection failed </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" line="106" column="11" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.c" bodystart="137" bodyend="156" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" declline="106" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___w_i_f_i___m_a_n_a_g_e_r_1ga4a623cea6c0aa29b3664d4d0629d38e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool wifi_manager_is_connected</definition>
+        <argsstring>(void)</argsstring>
+        <name>wifi_manager_is_connected</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether WiFi is currently connected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function can be called by other components to verify that the device still has network connectivity.</para>
+<para><simplesect kind="return"><para>true if connected to WiFi, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" line="117" column="6" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.c" bodystart="159" bodyend="162" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" declline="117" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

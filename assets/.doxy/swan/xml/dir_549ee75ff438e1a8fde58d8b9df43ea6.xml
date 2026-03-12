@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_549ee75ff438e1a8fde58d8b9df43ea6" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client</compoundname>
+    <innerfile refid="swan__mqtt__client_8c">swan_mqtt_client.c</innerfile>
+    <innerfile refid="swan__mqtt__client_8h">swan_mqtt_client.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/"/>
+  </compounddef>
+</doxygen>

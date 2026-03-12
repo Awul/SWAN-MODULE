@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="structswan__mqtt__config__t" kind="struct" language="C++" prot="public">
+    <compoundname>swan_mqtt_config_t</compoundname>
+    <includes refid="swan__mqtt__client_8h" local="no">swan_mqtt_client.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structswan__mqtt__config__t_1ad1d16b71d6a44a9ee9c1a59c87481c3e" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* swan_mqtt_config_t::broker_uri</definition>
+        <argsstring></argsstring>
+        <name>broker_uri</name>
+        <qualifiedname>swan_mqtt_config_t::broker_uri</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Broker URI, e.g. &quot;mqtt://192.168.1.100&quot; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h" line="21" column="16" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structswan__mqtt__config__t_1a91fe7c10c3cadd476598384088aec0d7" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* swan_mqtt_config_t::client_id</definition>
+        <argsstring></argsstring>
+        <name>client_id</name>
+        <qualifiedname>swan_mqtt_config_t::client_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>MQTT client ID </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h" line="22" column="16" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structswan__mqtt__config__t_1abb363dc92dae6e37361b28f6217ced0e" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* swan_mqtt_config_t::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>swan_mqtt_config_t::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Optional username </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h" line="23" column="16" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structswan__mqtt__config__t_1aaa6b4dba530aaa030777ec3cef2c8b1f" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* swan_mqtt_config_t::password</definition>
+        <argsstring></argsstring>
+        <name>password</name>
+        <qualifiedname>swan_mqtt_config_t::password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Optional password </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h" line="24" column="16" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Configuration for MQTT client. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h" line="20" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h" bodystart="20" bodyend="25"/>
+    <listofallmembers>
+      <member refid="structswan__mqtt__config__t_1ad1d16b71d6a44a9ee9c1a59c87481c3e" prot="public" virt="non-virtual"><scope>swan_mqtt_config_t</scope><name>broker_uri</name></member>
+      <member refid="structswan__mqtt__config__t_1a91fe7c10c3cadd476598384088aec0d7" prot="public" virt="non-virtual"><scope>swan_mqtt_config_t</scope><name>client_id</name></member>
+      <member refid="structswan__mqtt__config__t_1aaa6b4dba530aaa030777ec3cef2c8b1f" prot="public" virt="non-virtual"><scope>swan_mqtt_config_t</scope><name>password</name></member>
+      <member refid="structswan__mqtt__config__t_1abb363dc92dae6e37361b28f6217ced0e" prot="public" virt="non-virtual"><scope>swan_mqtt_config_t</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

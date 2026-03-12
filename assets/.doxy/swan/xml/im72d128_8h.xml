@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="im72d128_8h" kind="file" language="C++">
+    <compoundname>im72d128.h</compoundname>
+    <includes local="yes">driver/i2s_pdm.h</includes>
+    <includes local="yes">driver/gpio.h</includes>
+    <includes local="yes">freertos/FreeRTOS.h</includes>
+    <includes local="yes">esp_err.h</includes>
+    <includedby refid="im72d128_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.c</includedby>
+    <includedby refid="main_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/main/main.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.h</label>
+        <link refid="im72d128_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>driver/gpio.h</label>
+      </node>
+      <node id="2">
+        <label>driver/i2s_pdm.h</label>
+      </node>
+      <node id="5">
+        <label>esp_err.h</label>
+      </node>
+      <node id="4">
+        <label>freertos/FreeRTOS.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structim72d128__t" prot="public">im72d128_t</innerclass>
+    <sectiondef kind="define">
+      <member refid="group___i_m72_d128_1ga4942f6af60413f84254472e76b52d29a" kind="define"><name>MIC_CLK_PIN</name></member>
+      <member refid="group___i_m72_d128_1gacc0730bde656718cccbf63b422efbd6a" kind="define"><name>MIC_DATA_PIN</name></member>
+    </sectiondef>
+    <sectiondef kind="func">
+      <member refid="group___i_m72_d128_1ga150325ec4b64bf4cdaec35d7a88bf947" kind="function"><name>im72d128_init</name></member>
+      <member refid="group___i_m72_d128_1ga3c01d4546fbeeac213e4100d8f230237" kind="function"><name>im72d128_read</name></member>
+    </sectiondef>
+    <briefdescription>
+<para>Driver for the IM72D128 PDM microphone. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This driver provides initialization and audio reading functions for the IM72D128 PDM microphone using the ESP-IDF I2S peripheral in PDM receive mode. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;driver/i2s_pdm.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;driver/gpio.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/FreeRTOS.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_err.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="group___i_m72_d128_1ga4942f6af60413f84254472e76b52d29a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MIC_CLK_PIN<sp/><sp/>GPIO_NUM_5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MIC_DATA_PIN<sp/>GPIO_NUM_4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="structim72d128__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>i2s_chan_handle_t<sp/>rx_handle;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>gpio_num_t<sp/>clk_pin;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>gpio_num_t<sp/>data_pin;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>sample_rate;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}<sp/><ref refid="structim72d128__t" kindref="compound">im72d128_t</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">esp_err_t<sp/><ref refid="group___i_m72_d128_1ga150325ec4b64bf4cdaec35d7a88bf947" kindref="member">im72d128_init</ref>(<ref refid="structim72d128__t" kindref="compound">im72d128_t</ref><sp/>*mic,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i2s_port_t<sp/>port,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gpio_num_t<sp/>clk_pin,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gpio_num_t<sp/>data_pin,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>sample_rate);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">esp_err_t<sp/><ref refid="group___i_m72_d128_1ga3c01d4546fbeeac213e4100d8f230237" kindref="member">im72d128_read</ref>(<ref refid="structim72d128__t" kindref="compound">im72d128_t</ref><sp/>*mic,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/>*buffer,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>samples,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>*bytes_read);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/im72d128/im72d128.h"/>
+  </compounddef>
+</doxygen>

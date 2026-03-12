@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="json__payload_8h" kind="file" language="C++">
+    <compoundname>json_payload.h</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes local="yes">cJSON.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includedby refid="json__payload_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.c</includedby>
+    <includedby refid="main_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/main/main.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h</label>
+        <link refid="json__payload_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>cJSON.h</label>
+      </node>
+      <node id="2">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structheartbeat__info__t" prot="public">heartbeat_info_t</innerclass>
+    <sectiondef kind="func">
+      <member refid="group___j_s_o_n___p_a_y_l_o_a_d_1ga31e1dddb8d1d5d4445050716d8d25961" kind="function"><name>build_heartbeat_json</name></member>
+      <member refid="group___j_s_o_n___p_a_y_l_o_a_d_1gac60d100a0f630e8e78cc9646c5f8c888" kind="function"><name>build_sensor_json</name></member>
+    </sectiondef>
+    <briefdescription>
+<para>Utility functions for building JSON payloads for MQTT messages. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This component provides helper functions to construct JSON objects for heartbeat messages and sensor data, using the cJSON library.</para>
+<para>Have fun. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;cJSON.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="structheartbeat__info__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>firmware;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>firmware<sp/>version</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>uptime;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>seconds<sp/>since<sp/>boot</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>sensors;<sp/><sp/></highlight><highlight class="comment">//<sp/>array<sp/>of<sp/>sensor<sp/>names</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sensor_count;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>number<sp/>of<sp/>sensors<sp/>in<sp/>the<sp/>array</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}<sp/><ref refid="structheartbeat__info__t" kindref="compound">heartbeat_info_t</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">cJSON*<sp/><ref refid="group___j_s_o_n___p_a_y_l_o_a_d_1ga31e1dddb8d1d5d4445050716d8d25961" kindref="member">build_heartbeat_json</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structheartbeat__info__t" kindref="compound">heartbeat_info_t</ref>*<sp/>info);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">cJSON*<sp/><ref refid="group___j_s_o_n___p_a_y_l_o_a_d_1gac60d100a0f630e8e78cc9646c5f8c888" kindref="member">build_sensor_json</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>value_str);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h"/>
+  </compounddef>
+</doxygen>

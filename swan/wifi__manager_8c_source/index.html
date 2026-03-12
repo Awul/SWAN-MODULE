@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>File wifi_manager.c - SWAN Module Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "File wifi_manager.c";
+        var mkdocs_page_input_path = "swan\\wifi__manager_8c_source.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> SWAN Module Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/build/">Build & Flash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/style/">Coding Style</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/license/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">SWAN Module Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">File wifi_manager.c</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/wifi__manager_8c_source.md">Edit on Awul/SWAN-MODULE</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="file-wifi_managerc">File wifi_manager.c</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_409f97388efe006bc3438b95e9edef48/"><strong>components</strong></a> <strong>&gt;</strong> <a href="../dir_fe90acb48b1d14dd9ed13ebfae9d32ea/"><strong>wifi_manager</strong></a> <strong>&gt;</strong> <a href="../wifi__manager_8c/"><strong>wifi_manager.c</strong></a></p>
+<p><a href="../wifi__manager_8c/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">#include &quot;wifi_manager.h&quot;
+
+
+static const char *TAG = &quot;wifi_manager&quot;;
+
+/* Event group bits */
+#define WIFI_CONNECTED_BIT BIT0
+#define WIFI_FAIL_BIT      BIT1
+
+/* Maximum number of reconnection attempts */
+#define WIFI_MAX_RETRY 5
+
+static EventGroupHandle_t wifi_event_group;
+static int retry_count = 0;
+static bool wifi_connected = false;
+
+
+static void event_handler(void *arg,
+                          esp_event_base_t event_base,
+                          int32_t event_id,
+                          void *event_data)
+{
+    if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_START)
+    {
+        ESP_LOGI(TAG, &quot;Connecting to WiFi...&quot;);
+        esp_wifi_connect();
+    }
+
+    else if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_DISCONNECTED)
+    {
+        wifi_connected = false;
+
+        if (retry_count &lt; WIFI_MAX_RETRY)
+        {
+            esp_wifi_connect();
+            retry_count++;
+
+            ESP_LOGW(TAG, &quot;WiFi disconnected, retry %d/%d&quot;,
+                     retry_count, WIFI_MAX_RETRY);
+        }
+        else
+        {
+            xEventGroupSetBits(wifi_event_group, WIFI_FAIL_BIT);
+        }
+    }
+
+    else if (event_base == IP_EVENT &amp;&amp; event_id == IP_EVENT_STA_GOT_IP)
+    {
+        ip_event_got_ip_t *event = (ip_event_got_ip_t *)event_data;
+
+        ESP_LOGI(TAG, &quot;Got IP address: &quot; IPSTR,
+                 IP2STR(&amp;event-&gt;ip_info.ip));
+
+        retry_count = 0;
+        wifi_connected = true;
+
+        xEventGroupSetBits(wifi_event_group, WIFI_CONNECTED_BIT);
+    }
+}
+
+
+esp_err_t wifi_manager_init(wifi_manager_config_t *config)
+{
+    if (!config || !config-&gt;ssid)
+    {
+        return ESP_ERR_INVALID_ARG;
+    }
+
+    wifi_event_group = xEventGroupCreate();
+
+    ESP_ERROR_CHECK(nvs_flash_init());
+
+    ESP_ERROR_CHECK(esp_netif_init());
+
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+
+    esp_netif_create_default_wifi_sta();
+
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+
+    ESP_ERROR_CHECK(esp_wifi_init(&amp;cfg));
+
+    /* Register event handlers */
+
+    ESP_ERROR_CHECK(
+        esp_event_handler_register(WIFI_EVENT,
+                                   ESP_EVENT_ANY_ID,
+                                   &amp;event_handler,
+                                   NULL));
+
+    ESP_ERROR_CHECK(
+        esp_event_handler_register(IP_EVENT,
+                                   IP_EVENT_STA_GOT_IP,
+                                   &amp;event_handler,
+                                   NULL));
+
+    /* Configure WiFi credentials */
+
+    wifi_config_t wifi_config = {0};
+
+    strncpy((char *)wifi_config.sta.ssid,
+            config-&gt;ssid,
+            sizeof(wifi_config.sta.ssid));
+
+    strncpy((char *)wifi_config.sta.password,
+            config-&gt;password,
+            sizeof(wifi_config.sta.password));
+
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+
+    ESP_ERROR_CHECK(
+        esp_wifi_set_config(WIFI_IF_STA, &amp;wifi_config));
+
+    ESP_ERROR_CHECK(esp_wifi_start());
+
+    ESP_LOGI(TAG, &quot;WiFi manager initialized&quot;);
+
+    return ESP_OK;
+}
+
+
+esp_err_t wifi_manager_wait_connected(void)
+{
+    EventBits_t bits = xEventGroupWaitBits(
+        wifi_event_group,
+        WIFI_CONNECTED_BIT | WIFI_FAIL_BIT,
+        pdFALSE,
+        pdFALSE,
+        portMAX_DELAY);
+
+    if (bits &amp; WIFI_CONNECTED_BIT)
+    {
+        ESP_LOGI(TAG, &quot;WiFi connected&quot;);
+        return ESP_OK;
+    }
+    else
+    {
+        ESP_LOGE(TAG, &quot;WiFi connection failed&quot;);
+        return ESP_FAIL;
+    }
+}
+
+
+bool wifi_manager_is_connected(void)
+{
+    return wifi_connected;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Awul/SWAN-MODULE" class="fa fa-code-fork" style="color: #fcfcfc"> Awul/SWAN-MODULE</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

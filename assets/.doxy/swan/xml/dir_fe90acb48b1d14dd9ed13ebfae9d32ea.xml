@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_fe90acb48b1d14dd9ed13ebfae9d32ea" kind="dir">
+    <compoundname>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager</compoundname>
+    <innerfile refid="wifi__manager_8c">wifi_manager.c</innerfile>
+    <innerfile refid="wifi__manager_8h">wifi_manager.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/"/>
+  </compounddef>
+</doxygen>

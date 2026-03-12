@@ -102,19 +102,49 @@
 #include &quot;esp_log.h&quot;
 #include &quot;esp_err.h&quot;
 
+#include &quot;math.h&quot;
+#include &quot;driver/uart.h&quot;
+#include &quot;esp_timer.h&quot;
+
+#include &quot;secrets.h&quot;
+
 #include &quot;i2c_bus.h&quot;
 #include &quot;veml7700.h&quot;
 #include &quot;sht40.h&quot;
+#include &quot;im72d128.h&quot;
+
+#include &quot;wifi_manager.h&quot;
+#include &quot;swan_mqtt_client.h&quot;
+#include &quot;json_payload.h&quot;
+
 
 #define TAG &quot;MAIN&quot;
 
+// Device Specific properties
+#define NODE_ID &quot;swan-module-TEST&quot;
+const char* sensors[] = {&quot;temperature&quot;, &quot;humidity&quot;, &quot;light&quot;};
+#define SENSOR_COUNT 3
+#define FIRMWARE_VERSION &quot;0.1.0&quot;
+
+
+
+#define WIFI_SSID &quot;swan-net&quot;
+
+// Change when i have a proper DNS server
+#define MQTT_URI &quot;mqtt://192.168.122.237:1883&quot;
+#define MQTT_ID NODE_ID
+#define MQTT_USERNAME &quot;swan&quot;
+
+
+
 veml7700_t veml_sensor;
 sht40_t sht_sensor;
+im72d128_t mic_sensor;
 
-void setup() {
-    ESP_LOGI(TAG, &quot;Setting up SWAN MODULE...&quot;);
 
+void setup_i2c(){
     // Initialize the I2C bus
+    ESP_LOGI(TAG, &quot;Starting I2C bus initialization...&quot;);
     esp_err_t ret = i2c_bus_init();
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, &quot;Failed to initialize I2C: %s&quot;, esp_err_to_name(ret));
@@ -126,16 +156,145 @@ void setup() {
 
     // Scan for devices
     i2c_scan();
+    ESP_LOGI(TAG, &quot;I2C bus initialized successfully&quot;);
+}
 
-    veml7700_init(&amp;veml_sensor, I2C_PORT);
+void setup_veml7700() {
+    // Initialize the light sensor
+    ESP_LOGI(TAG, &quot;Starting VEML7700 initialization...&quot;);
+    esp_err_t ret = veml7700_init(&amp;veml_sensor, I2C_PORT);
+
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, &quot;Failed to initialize VEML7700: %s&quot;, esp_err_to_name(ret));
+        return;
+    }
 
     veml7700_print_registers(&amp;veml_sensor);
+    ESP_LOGI(TAG, &quot;VEML7700 initialized successfully&quot;);
+}
 
-    sht40_init(&amp;sht_sensor, I2C_PORT, SHT40_I2C_ADDR_DEFAULT);
+void setup_sht40() {
+    // Initialize the temperature/humidity sensor
+    ESP_LOGI(TAG, &quot;Starting SHT40 initialization...&quot;); 
+    esp_err_t ret = sht40_init(&amp;sht_sensor, I2C_PORT, SHT40_I2C_ADDR_DEFAULT);
+
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, &quot;Failed to initialize SHT40: %s&quot;, esp_err_to_name(ret));
+        return;
+    }
 
     uint32_t serial;
     sht40_read_serial(&amp;sht_sensor, &amp;serial);
     ESP_LOGI(TAG, &quot;SHT40 Serial Number: 0x%08X&quot;, serial);
+    ESP_LOGI(TAG, &quot;SHT40 initialized successfully&quot;);
+}
+
+void setup_im72d128() {
+    // Initialize the microphone
+    ESP_LOGI(TAG, &quot;Starting IM72D128 initialization...&quot;);
+    esp_err_t ret = im72d128_init(&amp;mic_sensor,
+                                  I2S_NUM_0,
+                                  MIC_CLK_PIN,
+                                  MIC_DATA_PIN,
+                                  48000);
+
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, &quot;Failed to initialize IM72D128: %s&quot;, esp_err_to_name(ret));
+        return;
+    }
+
+    // Test reading from microphone (read 1024 samples)
+    size_t bytes_read = 0;
+    int16_t *audio_buffer = heap_caps_malloc(1024 * sizeof(int16_t), MALLOC_CAP_DMA);
+
+    if (!audio_buffer) {
+        ESP_LOGE(TAG, &quot;Failed to allocate DMA buffer&quot;);
+        return;
+    }
+
+    ret = im72d128_read(&amp;mic_sensor, audio_buffer, 1024, &amp;bytes_read);
+    ESP_LOGI(TAG, &quot;Read %d bytes from microphone (err=%d)&quot;, bytes_read, ret);
+
+    float sum_sq = 0;
+    for (int i = 0; i &lt; 1024; i++) {
+        sum_sq += audio_buffer[i] * audio_buffer[i];
+    }
+    float rms = sqrtf(sum_sq / 1024);
+    ESP_LOGI(TAG, &quot;RMS amplitude: %.2f&quot;, rms);
+
+    heap_caps_free(audio_buffer);
+
+    ESP_LOGI(TAG, &quot;IM72D128 initialized successfully&quot;);
+}
+
+void setup_wifi(){
+    // Initialize WIFI
+    ESP_LOGI(TAG, &quot;Starting WiFi initialization...&quot;);
+    wifi_manager_config_t wifi_cfg = {
+        .ssid = WIFI_SSID,
+        .password = WIFI_PASSWORD_SECRET,
+    };
+
+    /* Initialize WiFi */
+    ESP_ERROR_CHECK(wifi_manager_init(&amp;wifi_cfg));
+
+    /* Wait until connected */
+    if (wifi_manager_wait_connected() == ESP_OK)
+    {
+        ESP_LOGI(TAG, &quot;WiFi connected successfully&quot;);
+    }
+    else
+    {
+        ESP_LOGE(TAG, &quot;WiFi connection failed&quot;);
+        return;
+    }
+    ESP_LOGI(TAG, &quot;WiFi initialization complete&quot;);
+}
+
+void setup_mqtt() {
+    ESP_LOGI(TAG, &quot;Starting MQTT initialization...&quot;);
+    swan_mqtt_config_t config = {
+        .broker_uri = MQTT_URI,
+        .username   = MQTT_USERNAME,
+        .password   = MQTT_PASSWORD_SECRET,
+        .client_id  = NODE_ID,
+    };
+
+    swan_mqtt_client_init(&amp;config);
+
+        // Optionally wait until connected
+    while (!swan_mqtt_client_is_connected()) {
+        ESP_LOGI(TAG, &quot;Waiting for MQTT connection...&quot;);
+        vTaskDelay(pdMS_TO_TICKS(500));  // wait 500ms
+    }
+
+    ESP_LOGI(TAG, &quot;MQTT initialization complete&quot;);
+}
+
+void setup() {
+
+    ESP_LOGI(TAG, &quot;Setting up SWAN MODULE...&quot;);
+    ESP_LOGI(TAG, &quot;#########################&quot;);
+    setup_i2c();
+    ESP_LOGI(TAG, &quot;#########################&quot;);
+    setup_veml7700();
+    ESP_LOGI(TAG, &quot;#########################&quot;);
+    setup_sht40();
+    ESP_LOGI(TAG, &quot;#########################&quot;);
+    setup_im72d128();
+    ESP_LOGI(TAG, &quot;#########################&quot;);
+    setup_wifi();
+    ESP_LOGI(TAG, &quot;#########################&quot;);
+    setup_mqtt();
+    ESP_LOGI(TAG, &quot;#########################&quot;);
+
+
+    //xTaskCreate(mic_task, &quot;mic_task&quot;, AUDIO_TASK_STACK, &amp;mic_sensor, AUDIO_TASK_PRIORITY, NULL);
+
+
+
+
+
 
 }
 
@@ -161,11 +320,90 @@ void app_main(void)
             ESP_LOGE(TAG, &quot;Failed to read temperature/humidity: %s&quot;, esp_err_to_name(err));
         }
 
+        // Wifi connection check!
+        if (wifi_manager_is_connected())
+        {
+            ESP_LOGI(TAG, &quot;WiFi still connected&quot;);
+        }
+        else
+        {
+            ESP_LOGW(TAG, &quot;WiFi lost connection&quot;);
+        }
+
+        // Test broadcasting MQTT message
+        if (swan_mqtt_client_is_connected()) {
+            // Build heartbeat JSON
+            heartbeat_info_t hb = {
+                .firmware = FIRMWARE_VERSION,
+                .uptime = esp_timer_get_time() / 1000000, // Convert microseconds to seconds
+                .sensors = sensors,
+                .sensor_count = SENSOR_COUNT
+            };
+            cJSON* heartbeat = build_heartbeat_json(&amp;hb);
+            char* heartbeat_str = cJSON_PrintUnformatted(heartbeat);
+
+            ESP_LOGD(TAG, &quot;Publishing heartbeat: %s&quot;, heartbeat_str);
+            swan_mqtt_client_publish(&quot;swan-hub/node/&quot; NODE_ID &quot;/heartbeat&quot;, heartbeat_str, 0, false);
+
+            // avoid memory leak pls
+            cJSON_Delete(heartbeat);
+            free(heartbeat_str);
+
+            // PUBLISH Temperature
+            char temperature_str[32];  // buffer to hold the string
+            // Convert float to string
+            snprintf(temperature_str, sizeof(temperature_str), &quot;%.2f&quot;, temperature);
+            ESP_LOGD(TAG, &quot;Converted temperature to string: %s&quot;, temperature_str);
+
+            cJSON* temp_sensor_json = build_sensor_json(temperature_str);
+            char* temp_sensor_str = cJSON_PrintUnformatted(temp_sensor_json);
+
+            ESP_LOGD(TAG, &quot;Publishing temp sensor data: %s&quot;, temp_sensor_str);
+            swan_mqtt_client_publish(&quot;swan-hub/node/&quot; NODE_ID &quot;/temperature&quot;, temp_sensor_str, 0, false);
+
+            // avoid memory leak again pls
+            cJSON_Delete(temp_sensor_json);
+            free(temp_sensor_str);
+
+            //PUBLISH Humidity
+            char humidity_str[32];  // buffer to hold the string
+            // Convert float to string
+            snprintf(humidity_str, sizeof(humidity_str), &quot;%.2f&quot;, humidity);
+            ESP_LOGD(TAG, &quot;Converted humidity to string: %s&quot;, humidity_str);
+
+            cJSON* humidity_sensor_json = build_sensor_json(humidity_str);
+            char* humidity_sensor_str = cJSON_PrintUnformatted(humidity_sensor_json);
+
+            ESP_LOGD(TAG, &quot;Publishing humidity sensor data: %s&quot;, humidity_sensor_str);
+            swan_mqtt_client_publish(&quot;swan-hub/node/&quot; NODE_ID &quot;/humidity&quot;, humidity_sensor_str, 0, false);
+
+            // avoid memory leak again pls
+            cJSON_Delete(humidity_sensor_json);
+            free(humidity_sensor_str);
+
+            //PUBLISH Light
+            char light_str[32];  // buffer to hold the string
+            // Convert float to string
+            snprintf(light_str, sizeof(light_str), &quot;%.2f&quot;, lux);
+            ESP_LOGD(TAG, &quot;Converted light to string: %s&quot;, light_str);
+
+            cJSON* light_sensor_json = build_sensor_json(light_str);
+            char* light_sensor_str = cJSON_PrintUnformatted(light_sensor_json);
+
+            ESP_LOGD(TAG, &quot;Publishing light sensor data: %s&quot;, light_sensor_str);
+            swan_mqtt_client_publish(&quot;swan-hub/node/&quot; NODE_ID &quot;/light&quot;, light_sensor_str, 0, false);
+
+            // avoid memory leak again pls
+            cJSON_Delete(light_sensor_json);
+            free(light_sensor_str);
+        }
+
         vTaskDelay(pdMS_TO_TICKS(5000));
 
         i2c_scan();
     }
 }
+
 </code></pre>
               
             </div>

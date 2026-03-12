@@ -98,8 +98,6 @@
 <p><a href="../sht40_8c_source/">Go to the source code of this file</a></p>
 <ul>
 <li><code>#include "sht40.h"</code></li>
-<li><code>#include "driver/i2c.h"</code></li>
-<li><code>#include "esp_log.h"</code></li>
 </ul>
 <h2 id="public-static-attributes">Public Static Attributes</h2>
 <table>
@@ -116,32 +114,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="public-static-functions">Public Static Functions</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">Type</th>
-<th style="text-align: left;">Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">esp_err_t</td>
-<td style="text-align: left;"><a href="#function-sht40_send_cmd"><strong>sht40_send_cmd</strong></a> (<a href="../structsht40__t/"><strong>sht40_t</strong></a> * dev, uint16_t cmd) <br></td>
-</tr>
-</tbody>
-</table>
 <h2 id="public-static-attributes-documentation">Public Static Attributes Documentation</h2>
 <h3 id="variable-tag">variable TAG</h3>
 <pre><code class="language-C++">const char* TAG;
-</code></pre>
-<hr>
-<h2 id="public-static-functions-documentation">Public Static Functions Documentation</h2>
-<h3 id="function-sht40_send_cmd">function sht40_send_cmd</h3>
-<pre><code class="language-C++">static esp_err_t sht40_send_cmd (
-    sht40_t * dev,
-    uint16_t cmd
-) 
 </code></pre>
 <hr>
 

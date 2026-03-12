@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="structwifi__manager__config__t" kind="struct" language="C++" prot="public">
+    <compoundname>wifi_manager_config_t</compoundname>
+    <includes refid="wifi__manager_8h" local="no">wifi_manager.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structwifi__manager__config__t_1a4ac0d1d76c7b49b94a8958eef493c977" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* wifi_manager_config_t::ssid</definition>
+        <argsstring></argsstring>
+        <name>ssid</name>
+        <qualifiedname>wifi_manager_config_t::ssid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>WiFi SSID (network name) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" line="59" column="16" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structwifi__manager__config__t_1aa87c0c38d4c1a25a121e24e2d0f06870" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* wifi_manager_config_t::password</definition>
+        <argsstring></argsstring>
+        <name>password</name>
+        <qualifiedname>wifi_manager_config_t::password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>WiFi password </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" line="62" column="16" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>WiFi configuration parameters. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" line="56" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/wifi_manager/wifi_manager.h" bodystart="57" bodyend="64"/>
+    <listofallmembers>
+      <member refid="structwifi__manager__config__t_1aa87c0c38d4c1a25a121e24e2d0f06870" prot="public" virt="non-virtual"><scope>wifi_manager_config_t</scope><name>password</name></member>
+      <member refid="structwifi__manager__config__t_1a4ac0d1d76c7b49b94a8958eef493c977" prot="public" virt="non-virtual"><scope>wifi_manager_config_t</scope><name>ssid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

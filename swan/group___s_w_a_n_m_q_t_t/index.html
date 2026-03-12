@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Group SWANMQTT - SWAN Module Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Group SWANMQTT";
+        var mkdocs_page_input_path = "swan\\group___s_w_a_n_m_q_t_t.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> SWAN Module Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/build/">Build & Flash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/style/">Coding Style</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/license/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">SWAN Module Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Group SWANMQTT</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/group___s_w_a_n_m_q_t_t.md">Edit on Awul/SWAN-MODULE</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="group-swanmqtt">Group SWANMQTT</h1>
+<p><a href="../modules/"><strong>Modules</strong></a> <strong>&gt;</strong> <a href="./"><strong>SWANMQTT</strong></a></p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structswan__mqtt__config__t/"><strong>swan_mqtt_config_t</strong></a> <br><em>Configuration for MQTT client.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-swan_mqtt_client_init"><strong>swan_mqtt_client_init</strong></a> (const <a href="../structswan__mqtt__config__t/"><strong>swan_mqtt_config_t</strong></a> * config) <br><em>Initialize the MQTT client and connect to broker.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-swan_mqtt_client_is_connected"><strong>swan_mqtt_client_is_connected</strong></a> (void) <br><em>Returns whether the client is connected.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-swan_mqtt_client_publish"><strong>swan_mqtt_client_publish</strong></a> (const char * topic, const char * payload, int qos, bool retain) <br><em>Publish message to a topic.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-swan_mqtt_client_init">function swan_mqtt_client_init</h3>
+<p><em>Initialize the MQTT client and connect to broker.</em> </p>
+<pre><code>esp_err_t swan_mqtt_client_init (
+    const swan_mqtt_config_t * config
+) 
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>config</code> Pointer to configuration struct </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>ESP_OK if client started successfully, otherwise error code </p>
+<hr>
+
+<h3 id="function-swan_mqtt_client_is_connected">function swan_mqtt_client_is_connected</h3>
+<p><em>Returns whether the client is connected.</em> </p>
+<pre><code>bool swan_mqtt_client_is_connected (
+    void
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-swan_mqtt_client_publish">function swan_mqtt_client_publish</h3>
+<p><em>Publish message to a topic.</em> </p>
+<pre><code>esp_err_t swan_mqtt_client_publish (
+    const char * topic,
+    const char * payload,
+    int qos,
+    bool retain
+) 
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>topic</code> MQTT topic string </li>
+<li><code>payload</code> Message payload </li>
+<li><code>qos</code> Quality of service (0 or 1) </li>
+<li><code>retain</code> Retain flag </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>ESP_OK on success, ESP_FAIL otherwise </p>
+<hr>
+
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Awul/SWAN-MODULE" class="fa fa-code-fork" style="color: #fcfcfc"> Awul/SWAN-MODULE</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

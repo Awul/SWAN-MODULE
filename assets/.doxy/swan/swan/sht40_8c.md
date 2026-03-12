@@ -11,8 +11,6 @@
 
 
 * `#include "sht40.h"`
-* `#include "driver/i2c.h"`
-* `#include "esp_log.h"`
 
 
 
@@ -57,11 +55,6 @@
 
 
 
-## Public Static Functions
-
-| Type | Name |
-| ---: | :--- |
-|  esp\_err\_t | [**sht40\_send\_cmd**](#function-sht40_send_cmd) ([**sht40\_t**](structsht40__t.md) \* dev, uint16\_t cmd) <br> |
 
 
 
@@ -97,24 +90,6 @@
 
 ```C++
 const char* TAG;
-```
-
-
-
-
-<hr>
-## Public Static Functions Documentation
-
-
-
-
-### function sht40\_send\_cmd 
-
-```C++
-static esp_err_t sht40_send_cmd (
-    sht40_t * dev,
-    uint16_t cmd
-) 
 ```
 
 

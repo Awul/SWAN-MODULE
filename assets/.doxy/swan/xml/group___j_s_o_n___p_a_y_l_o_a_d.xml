@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="group___j_s_o_n___p_a_y_l_o_a_d" kind="group">
+    <compoundname>JSON_PAYLOAD</compoundname>
+    <title>JSON Payload Builder</title>
+    <innerclass refid="structheartbeat__info__t" prot="public">heartbeat_info_t</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group___j_s_o_n___p_a_y_l_o_a_d_1ga31e1dddb8d1d5d4445050716d8d25961" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>cJSON *</type>
+        <definition>cJSON * build_heartbeat_json</definition>
+        <argsstring>(const heartbeat_info_t *info)</argsstring>
+        <name>build_heartbeat_json</name>
+        <param>
+          <type>const <ref refid="structheartbeat__info__t" kindref="compound">heartbeat_info_t</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>Create a heartbeat JSON object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the heartbeat information structure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the created JSON object, or NULL on failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" line="37" column="7" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.c" bodystart="4" bodyend="26" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" declline="37" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="group___j_s_o_n___p_a_y_l_o_a_d_1gac60d100a0f630e8e78cc9646c5f8c888" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>cJSON *</type>
+        <definition>cJSON * build_sensor_json</definition>
+        <argsstring>(const char *value_str)</argsstring>
+        <name>build_sensor_json</name>
+        <param>
+          <type>const char *</type>
+          <declname>value_str</declname>
+        </param>
+        <briefdescription>
+<para>Create a sensor value JSON object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value_str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String representation of the sensor value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the created JSON object, or NULL on failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" line="44" column="7" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.c" bodystart="28" bodyend="36" declfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" declline="44" declcolumn="7"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

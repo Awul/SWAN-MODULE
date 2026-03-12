@@ -97,8 +97,7 @@
 <p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_409f97388efe006bc3438b95e9edef48/"><strong>components</strong></a> <strong>&gt;</strong> <a href="../dir_180d7217a87f12caa6a5edfd7755cc1b/"><strong>sht40</strong></a> <strong>&gt;</strong> <a href="../sht40_8c/"><strong>sht40.c</strong></a></p>
 <p><a href="../sht40_8c/">Go to the documentation of this file</a></p>
 <pre><code class="language-C++">#include &quot;sht40.h&quot;
-#include &quot;driver/i2c.h&quot;
-#include &quot;esp_log.h&quot;
+
 
 static const char *TAG = &quot;SHT40&quot;;
 
@@ -242,7 +241,7 @@ esp_err_t sht40_activate_heater(sht40_t *dev)
 {
     if (!dev) return ESP_ERR_INVALID_ARG;
 
-    uint16_t cmd = SHT40_CMD_ACTIVATE_HEATER_HIGH_LONG; // Turn on heater for 1 second at high power
+    uint8_t cmd = SHT40_CMD_ACTIVATE_HEATER_HIGH_LONG; // Turn on heater for 1 second at high power
     ESP_LOGI(TAG, &quot;Turning heater ON: 0x%02X&quot;, cmd);
 
     esp_err_t err = sht40_send_cmd(dev, cmd);
@@ -254,7 +253,7 @@ esp_err_t sht40_activate_heater(sht40_t *dev)
 
 /* Internal helper to send commands */
 // implemented this later, so it is not used everywhere yet.
-static esp_err_t sht40_send_cmd(sht40_t *dev, uint16_t cmd)
+esp_err_t sht40_send_cmd(sht40_t *dev, uint8_t cmd)
 {
     return i2c_master_write_to_device(
         dev-&gt;i2c_port,

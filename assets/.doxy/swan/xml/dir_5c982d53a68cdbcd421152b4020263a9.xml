@@ -3,6 +3,7 @@
   <compounddef id="dir_5c982d53a68cdbcd421152b4020263a9" kind="dir">
     <compoundname>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/main</compoundname>
     <innerfile refid="main_8c">main.c</innerfile>
+    <innerfile refid="secrets_8h">secrets.h</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

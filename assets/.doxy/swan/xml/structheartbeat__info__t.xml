@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="structheartbeat__info__t" kind="struct" language="C++" prot="public">
+    <compoundname>heartbeat_info_t</compoundname>
+    <includes refid="json__payload_8h" local="no">json_payload.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structheartbeat__info__t_1aae1de33d286e11839246b79934d4ec3b" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* heartbeat_info_t::firmware</definition>
+        <argsstring></argsstring>
+        <name>firmware</name>
+        <qualifiedname>heartbeat_info_t::firmware</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" line="26" column="16" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structheartbeat__info__t_1ae889068fc4184e654d1ec28cbd269de0" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t heartbeat_info_t::uptime</definition>
+        <argsstring></argsstring>
+        <name>uptime</name>
+        <qualifiedname>heartbeat_info_t::uptime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" line="27" column="14" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structheartbeat__info__t_1ade79f2e9a280cfbcd8923074a86cce4a" prot="public" static="no" mutable="no">
+        <type>const char **</type>
+        <definition>const char** heartbeat_info_t::sensors</definition>
+        <argsstring></argsstring>
+        <name>sensors</name>
+        <qualifiedname>heartbeat_info_t::sensors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" line="28" column="16" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structheartbeat__info__t_1a13de22dc35a387a290eaa83fb73f07df" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t heartbeat_info_t::sensor_count</definition>
+        <argsstring></argsstring>
+        <name>sensor_count</name>
+        <qualifiedname>heartbeat_info_t::sensor_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" line="29" column="12" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Information structure for heartbeat messages. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" line="25" column="1" bodyfile="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/json_payload/json_payload.h" bodystart="25" bodyend="30"/>
+    <listofallmembers>
+      <member refid="structheartbeat__info__t_1aae1de33d286e11839246b79934d4ec3b" prot="public" virt="non-virtual"><scope>heartbeat_info_t</scope><name>firmware</name></member>
+      <member refid="structheartbeat__info__t_1a13de22dc35a387a290eaa83fb73f07df" prot="public" virt="non-virtual"><scope>heartbeat_info_t</scope><name>sensor_count</name></member>
+      <member refid="structheartbeat__info__t_1ade79f2e9a280cfbcd8923074a86cce4a" prot="public" virt="non-virtual"><scope>heartbeat_info_t</scope><name>sensors</name></member>
+      <member refid="structheartbeat__info__t_1ae889068fc4184e654d1ec28cbd269de0" prot="public" virt="non-virtual"><scope>heartbeat_info_t</scope><name>uptime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

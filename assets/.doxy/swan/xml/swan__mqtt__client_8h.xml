@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="swan__mqtt__client_8h" kind="file" language="C++">
+    <compoundname>swan_mqtt_client.h</compoundname>
+    <includes local="yes">esp_err.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includedby refid="swan__mqtt__client_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.c</includedby>
+    <includedby refid="main_8c" local="yes">C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/main/main.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h</label>
+        <link refid="swan__mqtt__client_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>esp_err.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structswan__mqtt__config__t" prot="public">swan_mqtt_config_t</innerclass>
+    <sectiondef kind="func">
+      <member refid="group___s_w_a_n_m_q_t_t_1gab3bf2b0e27fc8b784614e7fed722214b" kind="function"><name>swan_mqtt_client_init</name></member>
+      <member refid="group___s_w_a_n_m_q_t_t_1gadbd4c4cdb520272872b7f533ac6a02de" kind="function"><name>swan_mqtt_client_publish</name></member>
+      <member refid="group___s_w_a_n_m_q_t_t_1ga53565c1ee69e27ad7aecb4d211b18aee" kind="function"><name>swan_mqtt_client_is_connected</name></member>
+    </sectiondef>
+    <briefdescription>
+<para>Simple MQTT client wrapper for ESP-IDF. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This component provides a minimal interface to connect to an MQTT broker and publish messages. It uses the ESP-IDF MQTT client under the hood and handles connection management. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_err.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="structswan__mqtt__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21" refid="structswan__mqtt__config__t_1ad1d16b71d6a44a9ee9c1a59c87481c3e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structswan__mqtt__config__t_1ad1d16b71d6a44a9ee9c1a59c87481c3e" kindref="member">broker_uri</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="22" refid="structswan__mqtt__config__t_1a91fe7c10c3cadd476598384088aec0d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structswan__mqtt__config__t_1a91fe7c10c3cadd476598384088aec0d7" kindref="member">client_id</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23" refid="structswan__mqtt__config__t_1abb363dc92dae6e37361b28f6217ced0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structswan__mqtt__config__t_1abb363dc92dae6e37361b28f6217ced0e" kindref="member">username</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24" refid="structswan__mqtt__config__t_1aaa6b4dba530aaa030777ec3cef2c8b1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structswan__mqtt__config__t_1aaa6b4dba530aaa030777ec3cef2c8b1f" kindref="member">password</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}<sp/><ref refid="structswan__mqtt__config__t" kindref="compound">swan_mqtt_config_t</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">esp_err_t<sp/><ref refid="group___s_w_a_n_m_q_t_t_1gab3bf2b0e27fc8b784614e7fed722214b" kindref="member">swan_mqtt_client_init</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structswan__mqtt__config__t" kindref="compound">swan_mqtt_config_t</ref><sp/>*config);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">esp_err_t<sp/><ref refid="group___s_w_a_n_m_q_t_t_1gadbd4c4cdb520272872b7f533ac6a02de" kindref="member">swan_mqtt_client_publish</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*topic,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*payload,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>qos,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>retain);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group___s_w_a_n_m_q_t_t_1ga53565c1ee69e27ad7aecb4d211b18aee" kindref="member">swan_mqtt_client_is_connected</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/schliep/Documents/Software/ESP32/SWAN-MODULE/components/swan_mqtt_client/swan_mqtt_client.h"/>
+  </compounddef>
+</doxygen>

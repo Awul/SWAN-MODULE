@@ -28,14 +28,27 @@ Here is a list of all files with brief descriptions:
     * **dir** [**i2c\_bus**](dir_b27305f47d68ba65b41a21460fb415ed.md)     
         * **file** [**i2c\_bus.c**](i2c__bus_8c.md)     
         * **file** [**i2c\_bus.h**](i2c__bus_8h.md) _I2C Bus testing and utility module._ 
+    * **dir** [**im72d128**](dir_c649279310fd2efffa2e805b1e47d1a6.md)     
+        * **file** [**im72d128.c**](im72d128_8c.md)     
+        * **file** [**im72d128.h**](im72d128_8h.md) _Driver for the IM72D128 PDM microphone._     
+    * **dir** [**json\_payload**](dir_8c609162cce0e03ddff604c565ee243e.md)     
+        * **file** [**json\_payload.c**](json__payload_8c.md) 
+        * **file** [**json\_payload.h**](json__payload_8h.md) _Utility functions for building JSON payloads for MQTT messages._     
     * **dir** [**sht40**](dir_180d7217a87f12caa6a5edfd7755cc1b.md)     
         * **file** [**sht40.c**](sht40_8c.md)     
         * **file** [**sht40.h**](sht40_8h.md) _Driver for SHT40 temperature & humidity sensor._     
+    * **dir** [**swan\_mqtt\_client**](dir_549ee75ff438e1a8fde58d8b9df43ea6.md)     
+        * **file** [**swan\_mqtt\_client.c**](swan__mqtt__client_8c.md)     
+        * **file** [**swan\_mqtt\_client.h**](swan__mqtt__client_8h.md) _Simple MQTT client wrapper for ESP-IDF._     
     * **dir** [**veml7700**](dir_0150b187d0697ce476d48596f0c108de.md)     
         * **file** [**veml7700.c**](veml7700_8c.md) _VEML7700 ambient light sensor driver implementation._     
         * **file** [**veml7700.h**](veml7700_8h.md) _Driver for the Vishay VEML7700 ambient light sensor._     
+    * **dir** [**wifi\_manager**](dir_fe90acb48b1d14dd9ed13ebfae9d32ea.md)     
+        * **file** [**wifi\_manager.c**](wifi__manager_8c.md)     
+        * **file** [**wifi\_manager.h**](wifi__manager_8h.md) _Simple WiFi station manager for ESP-IDF._     
 * **dir** [**main**](dir_5c982d53a68cdbcd421152b4020263a9.md)     
     * **file** [**main.c**](main_8c.md)     
+    * **file** [**secrets.h**](secrets_8h.md)     
 * **file** [**README.md**](_r_e_a_d_m_e_8md.md) 
 * **file** [**architecture.md**](architecture_8md.md) 
 * **file** [**build.md**](build_8md.md) 

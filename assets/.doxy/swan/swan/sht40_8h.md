@@ -10,8 +10,9 @@
 
 _Driver for SHT40 temperature & humidity sensor._ [More...](#detailed-description)
 
-* `#include "driver/i2c.h"`
+* `#include "i2c_bus.h"`
 * `#include "esp_err.h"`
+* `#include "esp_log.h"`
 
 
 

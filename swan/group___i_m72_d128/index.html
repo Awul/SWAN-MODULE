@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="SWAN Team" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Group IM72D128 - SWAN Module Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Group IM72D128";
+        var mkdocs_page_input_path = "swan\\group___i_m72_d128.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> SWAN Module Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/build/">Build & Flash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/style/">Coding Style</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/license/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">SWAN Module Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Group IM72D128</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Awul/SWAN-MODULE/edit/master/docs/swan/group___i_m72_d128.md">Edit on Awul/SWAN-MODULE</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="group-im72d128">Group IM72D128</h1>
+<p><a href="../modules/"><strong>Modules</strong></a> <strong>&gt;</strong> <a href="./"><strong>IM72D128</strong></a></p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structim72d128__t/"><strong>im72d128_t</strong></a> <br><em>IM72D128 microphone configuration structure.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-im72d128_init"><strong>im72d128_init</strong></a> (<a href="../structim72d128__t/"><strong>im72d128_t</strong></a> * mic, i2s_port_t port, gpio_num_t clk_pin, gpio_num_t data_pin, uint32_t sample_rate) <br><em>Initialize IM72D128 microphone.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">esp_err_t</td>
+<td style="text-align: left;"><a href="#function-im72d128_read"><strong>im72d128_read</strong></a> (<a href="../structim72d128__t/"><strong>im72d128_t</strong></a> * mic, int16_t * buffer, size_t samples, size_t * bytes_read) <br><em>Read PCM audio samples.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="macros">Macros</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-mic_clk_pin"><strong>MIC_CLK_PIN</strong></a>  <code>GPIO\_NUM\_5</code><br><em>PDM microphone pins.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-mic_data_pin"><strong>MIC_DATA_PIN</strong></a>  <code>GPIO\_NUM\_4</code><br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-im72d128_init">function im72d128_init</h3>
+<p><em>Initialize IM72D128 microphone.</em> </p>
+<pre><code>esp_err_t im72d128_init (
+    im72d128_t * mic,
+    i2s_port_t port,
+    gpio_num_t clk_pin,
+    gpio_num_t data_pin,
+    uint32_t sample_rate
+) 
+</code></pre>
+<p>Configures the ESP32 I2S peripheral in PDM receive mode.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>mic</code> Pointer to microphone structure </li>
+<li><code>port</code> I2S port (I2S_NUM_0 or I2S_NUM_1) </li>
+<li><code>clk_pin</code> GPIO used for PDM clock </li>
+<li><code>data_pin</code> GPIO used for microphone data </li>
+<li><code>sample_rate</code> Desired PCM sample rate</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>ESP_OK on success</p>
+<p>Initialize IM72D128 microphone. </p>
+<hr>
+
+<h3 id="function-im72d128_read">function im72d128_read</h3>
+<p><em>Read PCM audio samples.</em> </p>
+<pre><code>esp_err_t im72d128_read (
+    im72d128_t * mic,
+    int16_t * buffer,
+    size_t samples,
+    size_t * bytes_read
+) 
+</code></pre>
+<p>Reads audio samples converted from the PDM microphone.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>mic</code> Pointer to microphone structure </li>
+<li><code>buffer</code> Pointer to sample buffer </li>
+<li><code>samples</code> Number of samples to read </li>
+<li><code>bytes_read</code> Optional pointer returning bytes read</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>ESP_OK on success</p>
+<p>Read PCM audio samples. </p>
+<hr>
+<h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
+<h3 id="define-mic_clk_pin">define MIC_CLK_PIN</h3>
+<p><em>PDM microphone pins.</em> </p>
+<pre><code>#define MIC_CLK_PIN `GPIO_NUM_5`
+</code></pre>
+<hr>
+
+<h3 id="define-mic_data_pin">define MIC_DATA_PIN</h3>
+<pre><code>#define MIC_DATA_PIN `GPIO_NUM_4`
+</code></pre>
+<hr>
+
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Awul/SWAN-MODULE" class="fa fa-code-fork" style="color: #fcfcfc"> Awul/SWAN-MODULE</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
