@@ -23,14 +23,24 @@
  * @brief Information structure for heartbeat messages
  */
 typedef struct {
-    const char* firmware;   // firmware version
-    uint32_t uptime;        // seconds since boot
+    const char* firmware;  // firmware version
+    int64_t uptime;        // seconds since boot
     const char** sensors;  // array of sensor names
-    size_t sensor_count;    // number of sensors in the array
+    size_t sensor_count;   // number of sensors in the array
 } heartbeat_info_t;
 
 /**
  * @brief Create a heartbeat JSON object
+ * 
+ * It has the structure:
+ * @code
+ * {
+                "firmware": firmare_version,
+                "uptime": uptime_seconds,
+                "sensors": ["Sensor1", "Sensor2", "..."]
+            }
+ * @endcode
+ * 
  * @param info Pointer to the heartbeat information structure
  * @return Pointer to the created JSON object, or NULL on failure
  */

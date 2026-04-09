@@ -7,6 +7,9 @@ static const char *TAG = "SWAN_MQTT";
 static esp_mqtt_client_handle_t client = NULL;
 static bool mqtt_connected = false;
 
+// Storing the command callback
+static mqtt_command_cb_t command_cb = NULL;
+
 /* MQTT event handler */
 static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
 {
@@ -28,6 +31,12 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
             ESP_LOGE(TAG, "MQTT error");
             mqtt_connected = false;
             break;
+        case MQTT_EVENT_DATA:
+            if (command_cb) {
+                // Forward the message to the registered command callback
+                command_cb(event->topic, event->data);
+            }
+    break;
         default:
             break;
     }
@@ -60,6 +69,9 @@ esp_err_t swan_mqtt_client_init(const swan_mqtt_config_t *config)
         return err;
     }
 
+    // Subscribe to the command topic
+    esp_mqtt_client_subscribe(client, "swan-hub/command/#", 0);
+
     return ESP_OK;
 }
 
@@ -83,4 +95,12 @@ esp_err_t swan_mqtt_client_publish(const char *topic,
 bool swan_mqtt_client_is_connected(void)
 {
     return mqtt_connected;
+}
+
+
+// Here the function is registered to handle incoming mqtt topics, in this architecture main is responsible for this
+// Please hit me with a PR if you disagree.
+esp_err_t swan_mqtt_client_register_command_callback(mqtt_command_cb_t cb) {
+    command_cb = cb;
+    return ESP_OK;
 }

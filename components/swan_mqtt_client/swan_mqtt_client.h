@@ -51,4 +51,11 @@ esp_err_t swan_mqtt_client_publish(const char *topic,
  */
 bool swan_mqtt_client_is_connected(void);
 
+
+/**
+ * @brief Register a callback for incoming MQTT commands
+ */
+typedef void (*mqtt_command_cb_t)(const char *topic, const char *payload);
+esp_err_t swan_mqtt_client_register_command_callback(mqtt_command_cb_t cb);
+
 /** @} */

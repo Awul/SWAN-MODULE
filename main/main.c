@@ -24,8 +24,6 @@
 
 // Device Specific properties
 #define NODE_ID "swan-module-TEST"
-const char* sensors[] = {"temperature", "humidity", "light"};
-#define SENSOR_COUNT 3
 #define FIRMWARE_VERSION "0.1.0"
 
 
@@ -33,15 +31,193 @@ const char* sensors[] = {"temperature", "humidity", "light"};
 #define WIFI_SSID "swan-net"
 
 // Change when i have a proper DNS server
-#define MQTT_URI "mqtt://192.168.122.237:1883"
+/**
+ * @brief the SWAB-HUB must have a static IP.
+ */
+#define MQTT_URI "mqtt://192.168.1.100:1883"
 #define MQTT_ID NODE_ID
 #define MQTT_USERNAME "swan"
 
+int READ_INTERVAL = 2000; // ms
+int HEARTBEAT_INTERVAL = 10000; // ms
 
 
+/**
+ * @brief Generic callback type to read a sensor. This ensures that the sensors can be expanded later.
+ *
+ * @param value Pointer to float where the sensor value should be stored
+ * @return ESP_OK if read was successful, otherwise an error code
+ */
+typedef esp_err_t (*sensor_read_cb_t)(float *value);
+
+/**
+ * @brief Sensor struct to hold name and callback function.
+ */
+typedef struct {
+    const char *name;          ///< Name of the sensor for JSON keys
+    sensor_read_cb_t read_cb;  ///< Function to read the sensor
+} sensor_t;
+
+/**
+ * @brief Sensor definitions. Add new sensors here.
+ */
 veml7700_t veml_sensor;
 sht40_t sht_sensor;
 im72d128_t mic_sensor;
+
+// Add new sensors callbacks here!
+
+// Temperature callback
+esp_err_t read_temperature(float *value) {
+    float t, h;
+    esp_err_t err = sht40_read_temp_humidity(&sht_sensor, &t, &h);
+    if (err == ESP_OK) *value = t;
+    return err;
+}
+
+// Humidity callback
+esp_err_t read_humidity(float *value) {
+    float t, h;
+    esp_err_t err = sht40_read_temp_humidity(&sht_sensor, &t, &h);
+    if (err == ESP_OK) *value = h;
+    return err;
+}
+
+// Light (lux) callback
+esp_err_t read_lux(float *value) {
+    return veml7700_read_lux(&veml_sensor, value);
+}
+
+// Microphone callback
+esp_err_t read_mic(float *value) {
+    // Implement my readings...
+    *value = 0.0f; // placeholder
+    return ESP_OK;
+}
+
+/**
+* @brief Sensors and their Callbacks, add new Sensors here!
+*/
+sensor_t sensors_table[] = {
+    {"temperature", read_temperature},
+    {"humidity", read_humidity},
+    {"light", read_lux},
+    {"audio", read_mic}
+};
+
+#define SENSOR_COUNT (sizeof(sensors_table) / sizeof(sensor_t))
+
+/**
+ * @brief Array to hold sensor names for the heartbeat message, populated from sensors_table. To avoid reading the names each time.
+ */
+const char* sensor_names[SENSOR_COUNT];
+
+void setup_sensor_names() {
+    ESP_LOGI(TAG, "Starting sensor name population...");
+    for (int i = 0; i < SENSOR_COUNT; i++) {
+        sensor_names[i] = sensors_table[i].name;
+        ESP_LOGI(TAG, "Sensor name populated: %s", sensor_names[i]);
+    }
+    ESP_LOGI(TAG, "Sensor names populated successfully");
+}
+
+
+
+/**
+ * @brief Struct to hold the a generic sensor readings (float values)
+ */
+typedef struct {
+    const char *name;
+    float value;
+    esp_err_t err; // optional: store read status
+} sensor_reading_t;
+
+/**
+ * @brief Function to read all sensors and return their readings as an array of sensor_reading_t
+ * @param readings Pointer to the array where sensor readings will be stored
+ * @return Number of sensors read successfully, or -1 on error
+ */
+esp_err_t read_all_sensors(sensor_reading_t *readings)
+{
+    if (!readings) return ESP_FAIL;
+
+    // Value variable to be filled by callbacks
+    float value;
+
+    // Iterate over all sensors and read their values using the callbacks
+    for (int i = 0; i < SENSOR_COUNT; i++) {
+        // Get pointer to sensor
+        sensor_t *sensor = &sensors_table[i];
+
+        // Call sensor callback
+        esp_err_t err = sensor->read_cb(&value);
+
+        // Store the result in the readings array as sensor_reading_t
+        readings[i].name = sensor->name;
+        readings[i].value = value;
+        readings[i].err = err;
+
+        if (err != ESP_OK) {
+            ESP_LOGE(TAG, "Failed to read sensor %s: %s", sensor->name, esp_err_to_name(err));
+        } else {
+            ESP_LOGD(TAG, "Read sensor %s: %.2f", sensor->name, value);
+        }
+    }
+
+    // Is okay if the loop had errors, we can check the individual readings for that. So we return ESP_OK as long as the function executed.
+    return ESP_OK;
+}
+
+
+/**
+ * @brief Wait until the TSF reaches the specified future timestamp.
+ * 
+ * @param future_tsf_us Target TSF time in microseconds
+ * @return int64_t Estimated timing error (us) due to polling granularity and TSF measurement
+ */
+/*static int64_t wait_for_tsf(int64_t future_tsf_us)
+{
+    const int64_t poll_interval_us = 500; // microseconds
+    int64_t tsf_now = esp_wifi_get_tsf_time(WIFI_IF_STA);
+    while(tsf_now > 0 && tsf_now < future_tsf_us) {
+        ets_delay_us(poll_interval_us); // tight wait (blocking)
+        tsf_now = esp_wifi_get_tsf_time(WIFI_IF_STA);
+    }
+
+    int64_t error_us = tsf_now - future_tsf_us;
+    return error_us;
+}*/
+
+/*cJSON* sync_read_modular(int64_t future_tsf_us, sensor_read_cb_t cb, void* ctx, int64_t* tsf_error_est, bool fallback)
+{
+    if(!cb) return NULL;
+
+    int64_t tsf_error = 0;
+
+    if(!fallback) {
+        // Wait until target TSF
+        tsf_error = wait_for_tsf(future_tsf_us);
+        ESP_LOGI(TAG, "Sync read triggered at TSF delta: %lld us", tsf_error);
+    } else {
+        ESP_LOGW(TAG, "Fallback: performing read immediately (no TSF sync)");
+    }
+
+    // Allocate JSON for this read
+    cJSON* root = cJSON_CreateObject();
+    if(!root) return NULL;
+
+    // Add timestamp
+    cJSON_AddNumberToObject(root, "tsf_timestamp_us", future_tsf_us);
+    cJSON_AddNumberToObject(root, "tsf_error_us", tsf_error);
+
+    // Call the sensor callback to fill the JSON
+    //cb(root, ctx);
+
+    if(tsf_error_est) *tsf_error_est = tsf_error;
+
+    return root;
+}*/
+
 
 
 void setup_i2c(){
@@ -153,6 +329,24 @@ void setup_wifi(){
     ESP_LOGI(TAG, "WiFi initialization complete");
 }
 
+// mqtt command handler for incoming MQTT commands, needs to be registered with the MQTT component
+void mqtt_command_handler(const char* topic, const char* payload) {
+    // react to individual
+    if (strcmp(topic, "swan-hub/command/" NODE_ID "/last_read") == 0 || strcmp(topic, "swan-hub/command/ALL/last_read") == 0) {
+        // trigger sensor read task
+        //publish_all_sensors();
+        ESP_LOGI(TAG, "Received command for last read: %s - payload %s", topic, payload);
+    }
+    if (strcmp(topic, "swan-hub/command/" NODE_ID "/sync_read") == 0 || strcmp(topic, "swan-hub/command/ALL/sync_read") == 0) {
+        // trigger sensor read task
+        //read_and_publish_all_sensors();
+        ESP_LOGI(TAG, "Received command for sync read: %s - payload %s", topic, payload);
+    }
+     else {
+        ESP_LOGW(TAG, "Received command for unknown topic: %s", topic);
+    }
+}
+
 void setup_mqtt() {
     ESP_LOGI(TAG, "Starting MQTT initialization...");
     swan_mqtt_config_t config = {
@@ -161,6 +355,9 @@ void setup_mqtt() {
         .password   = MQTT_PASSWORD_SECRET,
         .client_id  = NODE_ID,
     };
+
+    // Register main's callback with MQTT
+    swan_mqtt_client_register_command_callback(mqtt_command_handler);
 
     swan_mqtt_client_init(&config);
 
@@ -171,6 +368,61 @@ void setup_mqtt() {
     }
 
     ESP_LOGI(TAG, "MQTT initialization complete");
+}
+
+// Task to periodically publish heartbeat and sensor data to MQTT
+void heartbeat_task(void *arg)
+{
+    while (1) {
+
+
+        heartbeat_info_t hb = {
+            .firmware = FIRMWARE_VERSION,
+            .uptime = esp_timer_get_time() / 1000000, // Convert microseconds to seconds
+            .sensors = sensor_names,
+            .sensor_count = SENSOR_COUNT
+        };
+
+        cJSON* heartbeat = build_heartbeat_json(&hb);
+        char* heartbeat_str = cJSON_PrintUnformatted(heartbeat);
+
+        ESP_LOGD(TAG, "Publishing heartbeat: %s", heartbeat_str);
+        swan_mqtt_client_publish(
+            "swan-hub/node/" NODE_ID "/heartbeat",
+            heartbeat_str,
+            0,
+            false
+        );
+
+        cJSON_Delete(heartbeat);
+        free(heartbeat_str);
+
+        vTaskDelay(pdMS_TO_TICKS(HEARTBEAT_INTERVAL)); // every HEARTBEAT_INTERVAL ms
+    }
+}
+
+
+/**
+ * @brief Debug function to read sensors and print their values, can be adapted to publish to MQTT instead
+ */
+void print_sensor_data(void *arg)
+{
+    // Array to hold sensor readings
+    sensor_reading_t readings[SENSOR_COUNT];
+
+    // Infinite loop to read sensors periodically and printing the results
+    while (1) {
+        esp_err_t err = read_all_sensors(readings);
+
+        for (int i = 0; i < SENSOR_COUNT; i++) {
+            if (readings[i].err == ESP_OK)
+                ESP_LOGI(TAG, "%s: %.2f", readings[i].name, readings[i].value);
+            else
+                ESP_LOGW(TAG, "Failed to read %s", readings[i].name);
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(READ_INTERVAL));
+    }
 }
 
 void setup() {
@@ -189,38 +441,20 @@ void setup() {
     ESP_LOGI(TAG, "#########################");
     setup_mqtt();
     ESP_LOGI(TAG, "#########################");
-
+    setup_sensor_names();
+    ESP_LOGI(TAG, "#########################");
 
     //xTaskCreate(mic_task, "mic_task", AUDIO_TASK_STACK, &mic_sensor, AUDIO_TASK_PRIORITY, NULL);
-
-
-
-
-    
-
 }
 
 void app_main(void)
 {
     setup();
 
+    xTaskCreate(print_sensor_data, "print_sensor_data", 4096, NULL, 5, NULL);
+    xTaskCreate(heartbeat_task, "heartbeat_task", 4096, NULL, 4, NULL);
+
     while (1) {
-
-        float lux;
-        esp_err_t err = veml7700_read_lux(&veml_sensor, &lux);
-        if (err == ESP_OK) {
-            ESP_LOGI(TAG, "Ambient Light: %.2f lux", lux);
-        } else {
-            ESP_LOGE(TAG, "Failed to read lux: %s", esp_err_to_name(err));
-        }
-
-        float temperature, humidity;
-        err = sht40_read_temp_humidity(&sht_sensor, &temperature, &humidity);
-        if (err == ESP_OK) {
-            ESP_LOGI(TAG, "Temperature: %.2f °C, Humidity: %.2f %%RH", temperature, humidity);
-        } else {
-            ESP_LOGE(TAG, "Failed to read temperature/humidity: %s", esp_err_to_name(err));
-        }
 
         // Wifi connection check!
         if (wifi_manager_is_connected())
@@ -233,24 +467,7 @@ void app_main(void)
         }
 
         // Test broadcasting MQTT message
-        if (swan_mqtt_client_is_connected()) {
-            // Build heartbeat JSON
-            heartbeat_info_t hb = {
-                .firmware = FIRMWARE_VERSION,
-                .uptime = esp_timer_get_time() / 1000000, // Convert microseconds to seconds
-                .sensors = sensors,
-                .sensor_count = SENSOR_COUNT
-            };
-            cJSON* heartbeat = build_heartbeat_json(&hb);
-            char* heartbeat_str = cJSON_PrintUnformatted(heartbeat);
-
-            ESP_LOGD(TAG, "Publishing heartbeat: %s", heartbeat_str);
-            swan_mqtt_client_publish("swan-hub/node/" NODE_ID "/heartbeat", heartbeat_str, 0, false);
-            
-            // avoid memory leak pls
-            cJSON_Delete(heartbeat);
-            free(heartbeat_str);
-
+        /*if (false) { // deactivated for now
             // PUBLISH Temperature
             char temperature_str[32];  // buffer to hold the string
             // Convert float to string
@@ -298,7 +515,7 @@ void app_main(void)
             // avoid memory leak again pls
             cJSON_Delete(light_sensor_json);
             free(light_sensor_str);
-        }
+        }*/
 
         vTaskDelay(pdMS_TO_TICKS(5000));
 
