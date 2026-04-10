@@ -19,10 +19,16 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
         case MQTT_EVENT_CONNECTED:
             ESP_LOGI(TAG, "MQTT connected");
             mqtt_connected = true;
+            // Subscribe to the command topic
+            esp_mqtt_client_subscribe(client, "swan-hub/command/#", 0);
+            ESP_LOGI(TAG, "MQTT subscribed to command topic (swan-hub/command/#)");
             break;
         case MQTT_EVENT_DISCONNECTED:
             ESP_LOGW(TAG, "MQTT disconnected");
             mqtt_connected = false;
+            break;
+        case MQTT_EVENT_SUBSCRIBED:
+            ESP_LOGI(TAG, "Subscribed, msg_id=%d", event->msg_id);
             break;
         case MQTT_EVENT_PUBLISHED:
             ESP_LOGD(TAG, "Message published, msg_id=%d", event->msg_id);
@@ -32,12 +38,31 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
             mqtt_connected = false;
             break;
         case MQTT_EVENT_DATA:
+        {   // Read the topic and payload from the event
+            char topic[event->topic_len + 1];
+            char data[event->data_len + 1];
+
+            // Copy topic and payload to null-terminated strings
+            memcpy(topic, event->topic, event->topic_len);
+            topic[event->topic_len] = '\0';
+            
+            memcpy(data, event->data, event->data_len);
+            data[event->data_len] = '\0';
+            
+            ESP_LOGD(TAG, "Message received, topic=%s, data=%s", topic, data);
             if (command_cb) {
                 // Forward the message to the registered command callback
-                command_cb(event->topic, event->data);
+                command_cb(topic, data);
             }
-    break;
+            break;
+        }
+        case MQTT_EVENT_UNSUBSCRIBED:
+        case MQTT_EVENT_BEFORE_CONNECT:
+        case MQTT_EVENT_DELETED:
+        case MQTT_EVENT_ANY:
+        case MQTT_USER_EVENT:
         default:
+            ESP_LOGW(TAG, "MQTT unknown event_id=%d handler", event->event_id);
             break;
     }
 }
@@ -69,8 +94,6 @@ esp_err_t swan_mqtt_client_init(const swan_mqtt_config_t *config)
         return err;
     }
 
-    // Subscribe to the command topic
-    esp_mqtt_client_subscribe(client, "swan-hub/command/#", 0);
 
     return ESP_OK;
 }

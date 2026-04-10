@@ -3,6 +3,7 @@
 #include "freertos/task.h"
 #include "esp_log.h"
 #include "esp_err.h"
+#include "esp_random.h"
 
 #include "math.h"
 #include "driver/uart.h"
@@ -40,6 +41,7 @@
 
 int READ_INTERVAL = 2000; // ms
 int HEARTBEAT_INTERVAL = 10000; // ms
+int JITTER_INTERVAL = 3000; // ms, added to sync read to avoid clashing with other nodes
 
 
 /**
@@ -169,55 +171,73 @@ esp_err_t read_all_sensors(sensor_reading_t *readings)
 }
 
 
-/**
- * @brief Wait until the TSF reaches the specified future timestamp.
- * 
- * @param future_tsf_us Target TSF time in microseconds
- * @return int64_t Estimated timing error (us) due to polling granularity and TSF measurement
- */
-/*static int64_t wait_for_tsf(int64_t future_tsf_us)
+void sync_read_and_publish(uint64_t scheduled_tsf)
 {
-    const int64_t poll_interval_us = 500; // microseconds
-    int64_t tsf_now = esp_wifi_get_tsf_time(WIFI_IF_STA);
-    while(tsf_now > 0 && tsf_now < future_tsf_us) {
-        ets_delay_us(poll_interval_us); // tight wait (blocking)
-        tsf_now = esp_wifi_get_tsf_time(WIFI_IF_STA);
+    sensor_reading_t readings[SENSOR_COUNT];
+
+    // Waiting for goal TSF
+    int64_t diff;
+    while (1) {
+        diff = (int64_t)(scheduled_tsf - esp_wifi_get_tsf_time(WIFI_IF_STA));
+
+        if (diff <= 0) break;
+
+        if (diff > 2000) {
+            esp_rom_delay_us(diff / 2);
+        } else if (diff > 200) {
+            esp_rom_delay_us(50);
+        }
     }
 
-    int64_t error_us = tsf_now - future_tsf_us;
-    return error_us;
-}*/
+    // Get TSF when actually reading
+    int64_t actual_tsf = esp_wifi_get_tsf_time(WIFI_IF_STA);
+    // Time sensor readings
+    int64_t start_us = esp_timer_get_time();
 
-/*cJSON* sync_read_modular(int64_t future_tsf_us, sensor_read_cb_t cb, void* ctx, int64_t* tsf_error_est, bool fallback)
-{
-    if(!cb) return NULL;
+    // Read all sensors
+    read_all_sensors(readings);
 
-    int64_t tsf_error = 0;
+    int64_t end_us = esp_timer_get_time();
 
-    if(!fallback) {
-        // Wait until target TSF
-        tsf_error = wait_for_tsf(future_tsf_us);
-        ESP_LOGI(TAG, "Sync read triggered at TSF delta: %lld us", tsf_error);
-    } else {
-        ESP_LOGW(TAG, "Fallback: performing read immediately (no TSF sync)");
+    // Calculate total time taken for sensor readings
+    int32_t dt_ms = (int32_t)((end_us - start_us) / 1000);
+
+    // build json
+    cJSON *root = cJSON_CreateObject();
+
+    cJSON *sensors = cJSON_CreateObject();
+
+    for (int i = 0; i < SENSOR_COUNT; i++) {
+
+        if (readings[i].err == ESP_OK) {
+            cJSON_AddNumberToObject(
+                sensors,
+                readings[i].name,
+                readings[i].value
+            );
+        }
     }
+    
+    cJSON_AddNumberToObject(root, "tsf_excecuted", actual_tsf);
+    cJSON_AddNumberToObject(root, "tsf_scheduled", scheduled_tsf);
+    cJSON_AddItemToObject(root, "s", sensors);
+    cJSON_AddNumberToObject(root, "dt_ms", dt_ms);
 
-    // Allocate JSON for this read
-    cJSON* root = cJSON_CreateObject();
-    if(!root) return NULL;
+    // Add jitter when sending to reduce clashing with other nodes.
+    esp_rom_delay_us(esp_random() % JITTER_INTERVAL); // 0–3ms
 
-    // Add timestamp
-    cJSON_AddNumberToObject(root, "tsf_timestamp_us", future_tsf_us);
-    cJSON_AddNumberToObject(root, "tsf_error_us", tsf_error);
+    char *payload = cJSON_PrintUnformatted(root);
 
-    // Call the sensor callback to fill the JSON
-    //cb(root, ctx);
+    swan_mqtt_client_publish(
+        "swan-hub/node/" NODE_ID "/sync_data",
+        payload,
+        0,
+        false
+    );
 
-    if(tsf_error_est) *tsf_error_est = tsf_error;
-
-    return root;
-}*/
-
+    free(payload);
+    cJSON_Delete(root);
+}
 
 
 void setup_i2c(){
@@ -337,10 +357,29 @@ void mqtt_command_handler(const char* topic, const char* payload) {
         //publish_all_sensors();
         ESP_LOGI(TAG, "Received command for last read: %s - payload %s", topic, payload);
     }
-    if (strcmp(topic, "swan-hub/command/" NODE_ID "/sync_read") == 0 || strcmp(topic, "swan-hub/command/ALL/sync_read") == 0) {
+    else if (strcmp(topic, "swan-hub/command/" NODE_ID "/sync_read") == 0 || strcmp(topic, "swan-hub/command/ALL/sync_read") == 0) {
         // trigger sensor read task
         //read_and_publish_all_sensors();
         ESP_LOGI(TAG, "Received command for sync read: %s - payload %s", topic, payload);
+        // Parse Payload
+        cJSON *root = cJSON_Parse(payload);
+        if (!root) {
+            ESP_LOGE(TAG, "Invalid JSON payload");
+            return;
+        }
+
+        cJSON *tsf_item = cJSON_GetObjectItem(root, "tsf_scheduled");
+        if (!cJSON_IsNumber(tsf_item)) {
+            ESP_LOGE(TAG, "Missing or invalid tsf field");
+            cJSON_Delete(root);
+            return;
+        }
+        // Cast to int
+        uint64_t scheduled_tsf = (uint64_t) tsf_item->valuedouble;
+
+        cJSON_Delete(root);
+
+        sync_read_and_publish(scheduled_tsf);
     }
      else {
         ESP_LOGW(TAG, "Received command for unknown topic: %s", topic);
