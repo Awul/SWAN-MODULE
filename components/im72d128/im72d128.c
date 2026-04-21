@@ -84,22 +84,50 @@ esp_err_t im72d128_read(im72d128_t *mic,
         return ESP_ERR_INVALID_ARG;
     }
 
+    // temp 32-bit buffer
+    /*int32_t *temp = heap_caps_malloc(samples * sizeof(int32_t), MALLOC_CAP_DEFAULT);
+
+    if (!temp) {
+        ESP_LOGE(TAG, "Failed to allocate memory for temporary buffer");
+        return ESP_ERR_NO_MEM;
+    }*/
+
     size_t bytes_to_read = samples * sizeof(int16_t);
+    //size_t bytes_read_32 = 0;
 
     esp_err_t err = i2s_channel_read(
         mic->rx_handle,
         buffer,
         bytes_to_read,
         bytes_read,
-        pdMS_TO_TICKS(1000)  // 1 second timeout
+        pdMS_TO_TICKS(1000)
     );
 
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "I2S read failed (%d)", err);
+        //free(temp);
         return err;
     }
 
-    ESP_LOGD(TAG, "Read %u bytes from microphone", (unsigned)*bytes_read);
+    //size_t n = bytes_read_32 / sizeof(int32_t);
+
+    // Convert 32-bit to 16-bit
+    /*for (size_t i = 0; i < n; i++) {
+        int32_t s = temp[i];
+
+        // shift to usable range
+        s >>= 11;
+
+        // clamp to int16 range
+        if (s > 32767) s = 32767;
+        if (s < -32768) s = -32768;
+
+        buffer[i] = (int16_t)s;
+    }*/
+
+    //*bytes_read = n * sizeof(int16_t);
+
+    //free(temp);
 
     return ESP_OK;
 }

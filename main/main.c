@@ -19,15 +19,17 @@
 #include "wifi_manager.h"
 #include "swan_mqtt_client.h"
 #include "json_payload.h"
+#include "audio_stream.h"
 
 
 #define TAG "MAIN"
 
 // Device Specific properties
 #define NODE_ID "swan-module-TEST"
-#define FIRMWARE_VERSION "0.1.0"
+#define FIRMWARE_VERSION "0.1.1"
 
-
+#define AUDIO_SERVER_PORT 9000
+#define AUDIO_SERVER_IP "192.168.1.102"
 
 #define WIFI_SSID "swan-net"
 
@@ -42,6 +44,7 @@
 int READ_INTERVAL = 2000; // ms
 int HEARTBEAT_INTERVAL = 10000; // ms
 int JITTER_INTERVAL = 3000; // ms, added to sync read to avoid clashing with other nodes
+static bool audio_enabled = false; // Is true if microphone is registered as a sensor.
 
 
 /**
@@ -322,6 +325,7 @@ void setup_im72d128() {
 
     heap_caps_free(audio_buffer);
 
+    audio_enabled = true; // Set to true if microphone initialized successfully
     ESP_LOGI(TAG, "IM72D128 initialized successfully");
 }
 
@@ -349,17 +353,41 @@ void setup_wifi(){
     ESP_LOGI(TAG, "WiFi initialization complete");
 }
 
+void setup_audio_stream()
+{
+    if (!audio_enabled) {
+        ESP_LOGW(TAG, "Audio stream setup called but audio is not enabled. Skipping.");
+        return;
+    }
+    ESP_LOGI(TAG, "setting up audio stream...");
+    audio_stream_config_t cfg = {
+        .server_ip = AUDIO_SERVER_IP,
+        .port = AUDIO_SERVER_PORT,
+        .sample_rate = 48000,
+        .frame_size = 256,
+        .audio_queque_size = 8,
+        .mic = &mic_sensor,
+    };
+
+    ESP_ERROR_CHECK(audio_stream_init(&cfg));
+    ESP_LOGI(TAG, "Audio stream initialized");
+}
+
 // mqtt command handler for incoming MQTT commands, needs to be registered with the MQTT component
 void mqtt_command_handler(const char* topic, const char* payload) {
-    // react to individual
-    if (strcmp(topic, "swan-hub/command/" NODE_ID "/last_read") == 0 || strcmp(topic, "swan-hub/command/ALL/last_read") == 0) {
-        // trigger sensor read task
-        //publish_all_sensors();
-        ESP_LOGI(TAG, "Received command for last read: %s - payload %s", topic, payload);
+
+    if (strcmp(topic, "swan-hub/command/" NODE_ID "/audio-start") == 0 || strcmp(topic, "swan-hub/command/ALL/audio-start") == 0) {
+
+        ESP_LOGI(TAG, "Audio stream START requested");
+        audio_stream_start();
     }
-    else if (strcmp(topic, "swan-hub/command/" NODE_ID "/sync_read") == 0 || strcmp(topic, "swan-hub/command/ALL/sync_read") == 0) {
-        // trigger sensor read task
-        //read_and_publish_all_sensors();
+    else if (strcmp(topic, "swan-hub/command/" NODE_ID "/audio-stop") == 0 || strcmp(topic, "swan-hub/command/ALL/audio-stop") == 0) {
+
+        ESP_LOGI(TAG, "Audio stream STOP requested");
+        audio_stream_stop();
+    }
+    else if (strcmp(topic, "swan-hub/command/" NODE_ID "/sync-read") == 0 || strcmp(topic, "swan-hub/command/ALL/sync-read") == 0) {
+
         ESP_LOGI(TAG, "Received command for sync read: %s - payload %s", topic, payload);
         // Parse Payload
         cJSON *root = cJSON_Parse(payload);
@@ -482,6 +510,8 @@ void setup() {
     ESP_LOGI(TAG, "#########################");
     setup_sensor_names();
     ESP_LOGI(TAG, "#########################");
+    setup_audio_stream();
+    ESP_LOGI(TAG, "#########################");
 
     //xTaskCreate(mic_task, "mic_task", AUDIO_TASK_STACK, &mic_sensor, AUDIO_TASK_PRIORITY, NULL);
 }
@@ -495,15 +525,15 @@ void app_main(void)
 
     while (1) {
 
-        // Wifi connection check!
-        if (wifi_manager_is_connected())
-        {
-            ESP_LOGI(TAG, "WiFi still connected");
+        if (!wifi_manager_is_connected()) {
+            ESP_LOGW(TAG, "WiFi lost");
         }
-        else
-        {
-            ESP_LOGW(TAG, "WiFi lost connection");
+
+        if (!swan_mqtt_client_is_connected()) {
+            ESP_LOGW(TAG, "MQTT disconnected");
         }
+
+        i2c_scan();
 
         // Test broadcasting MQTT message
         /*if (false) { // deactivated for now
@@ -556,9 +586,8 @@ void app_main(void)
             free(light_sensor_str);
         }*/
 
-        vTaskDelay(pdMS_TO_TICKS(5000));
-
-        i2c_scan();
+        vTaskDelay(pdMS_TO_TICKS(10000));
+     
     }
 }
 
