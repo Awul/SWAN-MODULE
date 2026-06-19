@@ -37,10 +37,9 @@ esp_err_t im72d128_init(im72d128_t *mic,
         return err;
     }
 
-    /* PDM RX configuration */
+    // PDM RX configuration
     i2s_pdm_rx_config_t pdm_cfg = {
         .clk_cfg = I2S_PDM_RX_CLK_DEFAULT_CONFIG(sample_rate),
-
         .slot_cfg = I2S_PDM_RX_SLOT_DEFAULT_CONFIG(
             I2S_DATA_BIT_WIDTH_16BIT,
             I2S_SLOT_MODE_MONO
@@ -55,9 +54,13 @@ esp_err_t im72d128_init(im72d128_t *mic,
         },
     };
 
+
+
     err = i2s_channel_init_pdm_rx_mode(mic->rx_handle, &pdm_cfg);
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize PDM RX mode (%d)", err);
+        i2s_del_channel(mic->rx_handle);
+        mic->rx_handle = NULL;
         return err;
     }
 
@@ -78,11 +81,13 @@ esp_err_t im72d128_init(im72d128_t *mic,
 esp_err_t im72d128_read(im72d128_t *mic,
                         int16_t *buffer,
                         size_t samples,
-                        size_t *bytes_read)
+                        size_t *bytes_read,
+                        uint8_t gain)
 {
     if (!mic || !buffer) {
         return ESP_ERR_INVALID_ARG;
     }
+
 
     size_t bytes_to_read = samples * sizeof(int16_t);
 
@@ -91,15 +96,30 @@ esp_err_t im72d128_read(im72d128_t *mic,
         buffer,
         bytes_to_read,
         bytes_read,
-        pdMS_TO_TICKS(1000)  // 1 second timeout
+        100 //timeout in ms (?)
     );
 
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "I2S read failed (%d)", err);
+
         return err;
     }
 
-    ESP_LOGD(TAG, "Read %u bytes from microphone", (unsigned)*bytes_read);
+    // Apply gain if needed, with simple clipping to avoid overflow
+    if (gain != 1) {
+        for (size_t i = 0; i < *bytes_read / sizeof(int16_t); i++) {
+            int32_t s = (int32_t)buffer[i] * gain;
+            if (s >  32767){
+                s =  32767;
+                ESP_LOGE(TAG, "Microphone value clipping!");
+            } 
+            else if (s < -32768){
+                s = -32768;
+                ESP_LOGE(TAG, "Microphone value clipping!");
+            }
+            buffer[i] = (int16_t)s;
+        }
+    }
 
     return ESP_OK;
 }

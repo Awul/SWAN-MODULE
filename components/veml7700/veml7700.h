@@ -106,6 +106,16 @@ esp_err_t veml7700_read_als(veml7700_t *dev, uint16_t *als);
 esp_err_t veml7700_read_lux(veml7700_t *dev, float *lux);
 
 /**
+ * @brief Read a raw VEML7700 register for diagnostics.
+ *
+ * @param[in]  dev  Pointer to initialized VEML7700 device descriptor
+ * @param[in]  reg  Register address
+ * @param[out] val  Pointer to store the register value
+ * @return ESP_OK on success, ESP_ERR_* on I2C or argument error
+ */
+esp_err_t veml7700_read_register(veml7700_t *dev, uint8_t reg, uint16_t *val);
+
+/**
  * @brief Gets the responsivity (lux/count) based on the integration time setting
  * 
  * The VEML7700's responsivity changes based on the integration time setting. This function calculates the lux/count factor for the current integration time configuration.

@@ -10,6 +10,7 @@
 #pragma once
 #include "esp_err.h"
 #include "driver/i2c.h"
+#include "freertos/FreeRTOS.h"
 
 /**
  * @brief The I2C port used by the bus
@@ -39,6 +40,21 @@
  * @return ESP_ERR_INVALID_ARG if configuration fails
  */
 esp_err_t i2c_bus_init(void);
+
+/**
+ * @brief Lock the shared I2C bus for an exclusive transaction.
+ *
+ * @param timeout Maximum time to wait for the lock
+ * @return ESP_OK when the lock was acquired
+ * @return ESP_ERR_INVALID_STATE when the bus mutex is not initialized
+ * @return ESP_ERR_TIMEOUT when the lock could not be acquired in time
+ */
+esp_err_t i2c_bus_lock(TickType_t timeout);
+
+/**
+ * @brief Unlock the shared I2C bus after a transaction.
+ */
+void i2c_bus_unlock(void);
 
 /**
  * @brief Print the current I2C bus status

@@ -19,15 +19,17 @@
 #include "wifi_manager.h"
 #include "swan_mqtt_client.h"
 #include "json_payload.h"
+#include "audio_stream.h"
 
 
 #define TAG "MAIN"
 
 // Device Specific properties
 #define NODE_ID "swan-module-TEST"
-#define FIRMWARE_VERSION "0.1.0"
+#define FIRMWARE_VERSION "0.1.1"
 
-
+#define AUDIO_SERVER_PORT 9000
+#define AUDIO_SERVER_IP "192.168.1.102"
 
 #define WIFI_SSID "swan-net"
 
@@ -39,9 +41,16 @@
 #define MQTT_ID NODE_ID
 #define MQTT_USERNAME "swan"
 
-int READ_INTERVAL = 2000; // ms
-int HEARTBEAT_INTERVAL = 10000; // ms
+int READ_INTERVAL = 5000; // ms
+int HEARTBEAT_INTERVAL = 15000; // ms
 int JITTER_INTERVAL = 3000; // ms, added to sync read to avoid clashing with other nodes
+static bool audio_enabled = false; // Is true if microphone is registered as a sensor.
+
+#define VEML7700_ZERO_CHECK_THRESHOLD 6
+#define VEML7700_ZERO_REINIT_THRESHOLD 12
+#define VEML7700_EXPECTED_ID_LSB 0x81
+
+static int consecutive_light_zero_count = 0;
 
 
 /**
@@ -69,6 +78,105 @@ im72d128_t mic_sensor;
 
 // Add new sensors callbacks here!
 
+static bool veml7700_it_bits_valid(uint8_t it_bits)
+{
+    return it_bits == 0x0 || it_bits == 0x1 || it_bits == 0x2 ||
+           it_bits == 0x3 || it_bits == 0x8 || it_bits == 0xC;
+}
+
+static bool diagnose_veml7700_zero_reading(void)
+{
+    uint16_t als_conf = 0;
+    uint16_t power_save = 0;
+    uint16_t als = 0;
+    uint16_t id = 0;
+
+    esp_err_t conf_err = veml7700_read_register(&veml_sensor, VEML7700_REG_ALS_CONF_0, &als_conf);
+    esp_err_t power_err = veml7700_read_register(&veml_sensor, VEML7700_REG_POWER_SAVING, &power_save);
+    esp_err_t als_err = veml7700_read_register(&veml_sensor, VEML7700_REG_ALS, &als);
+    esp_err_t id_err = veml7700_read_register(&veml_sensor, VEML7700_REG_ID, &id);
+
+    if (conf_err != ESP_OK || power_err != ESP_OK || als_err != ESP_OK || id_err != ESP_OK) {
+        ESP_LOGW(TAG,
+                 "VEML7700 zero diagnostic read failed: conf=%s power=%s als=%s id=%s",
+                 esp_err_to_name(conf_err),
+                 esp_err_to_name(power_err),
+                 esp_err_to_name(als_err),
+                 esp_err_to_name(id_err));
+        return true;
+    }
+
+    uint8_t gain_bits = (als_conf >> 11) & 0x03;
+    uint8_t it_bits = (als_conf >> 6) & 0x0F;
+    bool shutdown = (als_conf & 0x01) != 0;
+    bool psm_enabled = (power_save & 0x01) != 0;
+    bool id_valid = (id & 0xFF) == VEML7700_EXPECTED_ID_LSB;
+    bool it_valid = veml7700_it_bits_valid(it_bits);
+
+    ESP_LOGW(TAG,
+             "VEML7700 zero diagnostic: ALS_CONF_0=0x%04X POWER_SAVE=0x%04X ALS=%u ID=0x%04X gain=%u it=0x%X shutdown=%s psm=%s id=%s",
+             als_conf,
+             power_save,
+             als,
+             id,
+             gain_bits,
+             it_bits,
+             shutdown ? "YES" : "NO",
+             psm_enabled ? "YES" : "NO",
+             id_valid ? "VALID" : "BAD");
+
+    if (!id_valid) {
+        ESP_LOGW(TAG, "VEML7700 appears missing or misread: unexpected device ID");
+        return true;
+    }
+
+    if (shutdown || psm_enabled || !it_valid) {
+        ESP_LOGW(TAG, "VEML7700 appears misconfigured: shutdown=%d psm=%d it_valid=%d", shutdown, psm_enabled, it_valid);
+        return true;
+    }
+
+    ESP_LOGW(TAG, "VEML7700 is active and still reports raw ALS=0; this may be true darkness or a stuck sensor state");
+    return false;
+}
+
+static void handle_veml7700_light_result(esp_err_t err, float lux)
+{
+    if (err != ESP_OK) {
+        consecutive_light_zero_count++;
+        ESP_LOGW(TAG, "VEML7700 light read failed %d time(s) in a row: %s",
+                 consecutive_light_zero_count,
+                 esp_err_to_name(err));
+
+        if (consecutive_light_zero_count >= VEML7700_ZERO_REINIT_THRESHOLD) {
+            ESP_LOGW(TAG, "Reinitializing VEML7700 after repeated read failures");
+            esp_err_t init_err = veml7700_init(&veml_sensor, I2C_PORT);
+            ESP_LOGW(TAG, "VEML7700 reinit result: %s", esp_err_to_name(init_err));
+            consecutive_light_zero_count = 0;
+        }
+        return;
+    }
+
+    if (lux > 0.0f) {
+        consecutive_light_zero_count = 0;
+        return;
+    }
+
+    consecutive_light_zero_count++;
+
+    if (consecutive_light_zero_count < VEML7700_ZERO_CHECK_THRESHOLD) {
+        return;
+    }
+
+    bool should_reinit = diagnose_veml7700_zero_reading();
+    if (should_reinit || consecutive_light_zero_count >= VEML7700_ZERO_REINIT_THRESHOLD) {
+        ESP_LOGW(TAG, "Reinitializing VEML7700 after %d consecutive zero light readings",
+                 consecutive_light_zero_count);
+        esp_err_t init_err = veml7700_init(&veml_sensor, I2C_PORT);
+        ESP_LOGW(TAG, "VEML7700 reinit result: %s", esp_err_to_name(init_err));
+        consecutive_light_zero_count = 0;
+    }
+}
+
 // Temperature callback
 esp_err_t read_temperature(float *value) {
     float t, h;
@@ -87,7 +195,9 @@ esp_err_t read_humidity(float *value) {
 
 // Light (lux) callback
 esp_err_t read_lux(float *value) {
-    return veml7700_read_lux(&veml_sensor, value);
+    esp_err_t err = veml7700_read_lux(&veml_sensor, value);
+    handle_veml7700_light_result(err, err == ESP_OK ? *value : 0.0f);
+    return err;
 }
 
 // Microphone callback
@@ -152,6 +262,7 @@ esp_err_t read_all_sensors(sensor_reading_t *readings)
         sensor_t *sensor = &sensors_table[i];
 
         // Call sensor callback
+        value = 0.0f;
         esp_err_t err = sensor->read_cb(&value);
 
         // Store the result in the readings array as sensor_reading_t
@@ -310,7 +421,7 @@ void setup_im72d128() {
         return;
     }
 
-    ret = im72d128_read(&mic_sensor, audio_buffer, 1024, &bytes_read);
+    ret = im72d128_read(&mic_sensor, audio_buffer, 1024, &bytes_read, 1);
     ESP_LOGI(TAG, "Read %d bytes from microphone (err=%d)", bytes_read, ret);
 
     float sum_sq = 0;
@@ -322,6 +433,7 @@ void setup_im72d128() {
 
     heap_caps_free(audio_buffer);
 
+    audio_enabled = true; // Set to true if microphone initialized successfully
     ESP_LOGI(TAG, "IM72D128 initialized successfully");
 }
 
@@ -349,17 +461,41 @@ void setup_wifi(){
     ESP_LOGI(TAG, "WiFi initialization complete");
 }
 
+void setup_audio_stream()
+{
+    if (!audio_enabled) {
+        ESP_LOGW(TAG, "Audio stream setup called but audio is not enabled. Skipping.");
+        return;
+    }
+    ESP_LOGI(TAG, "setting up audio stream...");
+    audio_stream_config_t cfg = {
+        .server_ip = AUDIO_SERVER_IP,
+        .port = AUDIO_SERVER_PORT,
+        .sample_rate = 48000,
+        .frame_size = 256,
+        .audio_queque_size = 8,
+        .mic = &mic_sensor,
+    };
+
+    ESP_ERROR_CHECK(audio_stream_init(&cfg));
+    ESP_LOGI(TAG, "Audio stream initialized");
+}
+
 // mqtt command handler for incoming MQTT commands, needs to be registered with the MQTT component
 void mqtt_command_handler(const char* topic, const char* payload) {
-    // react to individual
-    if (strcmp(topic, "swan-hub/command/" NODE_ID "/last_read") == 0 || strcmp(topic, "swan-hub/command/ALL/last_read") == 0) {
-        // trigger sensor read task
-        //publish_all_sensors();
-        ESP_LOGI(TAG, "Received command for last read: %s - payload %s", topic, payload);
+
+    if (strcmp(topic, "swan-hub/command/" NODE_ID "/audio-start") == 0 || strcmp(topic, "swan-hub/command/ALL/audio-start") == 0) {
+
+        ESP_LOGI(TAG, "Audio stream START requested");
+        audio_stream_start();
     }
-    else if (strcmp(topic, "swan-hub/command/" NODE_ID "/sync_read") == 0 || strcmp(topic, "swan-hub/command/ALL/sync_read") == 0) {
-        // trigger sensor read task
-        //read_and_publish_all_sensors();
+    else if (strcmp(topic, "swan-hub/command/" NODE_ID "/audio-stop") == 0 || strcmp(topic, "swan-hub/command/ALL/audio-stop") == 0) {
+
+        ESP_LOGI(TAG, "Audio stream STOP requested");
+        audio_stream_stop();
+    }
+    else if (strcmp(topic, "swan-hub/command/" NODE_ID "/sync-read") == 0 || strcmp(topic, "swan-hub/command/ALL/sync-read") == 0) {
+
         ESP_LOGI(TAG, "Received command for sync read: %s - payload %s", topic, payload);
         // Parse Payload
         cJSON *root = cJSON_Parse(payload);
@@ -414,6 +550,8 @@ void heartbeat_task(void *arg)
 {
     while (1) {
 
+        sensor_reading_t readings[SENSOR_COUNT];
+        read_all_sensors(readings);
 
         heartbeat_info_t hb = {
             .firmware = FIRMWARE_VERSION,
@@ -423,6 +561,26 @@ void heartbeat_task(void *arg)
         };
 
         cJSON* heartbeat = build_heartbeat_json(&hb);
+        if (!heartbeat) {
+            ESP_LOGE(TAG, "Failed to build heartbeat JSON");
+            vTaskDelay(pdMS_TO_TICKS(HEARTBEAT_INTERVAL));
+            continue;
+        }
+
+        cJSON* sensor_values = cJSON_CreateObject();
+        if (sensor_values) {
+            for (int i = 0; i < SENSOR_COUNT; i++) {
+                if (readings[i].err == ESP_OK) {
+                    cJSON_AddNumberToObject(sensor_values, readings[i].name, readings[i].value);
+                } else {
+                    cJSON_AddNullToObject(sensor_values, readings[i].name);
+                }
+            }
+            cJSON_AddItemToObject(heartbeat, "sensor_data", sensor_values);
+        } else {
+            ESP_LOGE(TAG, "Failed to create heartbeat sensor_data object");
+        }
+
         char* heartbeat_str = cJSON_PrintUnformatted(heartbeat);
 
         ESP_LOGD(TAG, "Publishing heartbeat: %s", heartbeat_str);
@@ -451,7 +609,7 @@ void print_sensor_data(void *arg)
 
     // Infinite loop to read sensors periodically and printing the results
     while (1) {
-        esp_err_t err = read_all_sensors(readings);
+        read_all_sensors(readings);
 
         for (int i = 0; i < SENSOR_COUNT; i++) {
             if (readings[i].err == ESP_OK)
@@ -482,6 +640,8 @@ void setup() {
     ESP_LOGI(TAG, "#########################");
     setup_sensor_names();
     ESP_LOGI(TAG, "#########################");
+    setup_audio_stream();
+    ESP_LOGI(TAG, "#########################");
 
     //xTaskCreate(mic_task, "mic_task", AUDIO_TASK_STACK, &mic_sensor, AUDIO_TASK_PRIORITY, NULL);
 }
@@ -495,70 +655,15 @@ void app_main(void)
 
     while (1) {
 
-        // Wifi connection check!
-        if (wifi_manager_is_connected())
-        {
-            ESP_LOGI(TAG, "WiFi still connected");
-        }
-        else
-        {
-            ESP_LOGW(TAG, "WiFi lost connection");
+        if (!wifi_manager_is_connected()) {
+            ESP_LOGW(TAG, "WiFi lost");
         }
 
-        // Test broadcasting MQTT message
-        /*if (false) { // deactivated for now
-            // PUBLISH Temperature
-            char temperature_str[32];  // buffer to hold the string
-            // Convert float to string
-            snprintf(temperature_str, sizeof(temperature_str), "%.2f", temperature);
-            ESP_LOGD(TAG, "Converted temperature to string: %s", temperature_str);
+        if (!swan_mqtt_client_is_connected()) {
+            ESP_LOGW(TAG, "MQTT disconnected");
+        }
 
-            cJSON* temp_sensor_json = build_sensor_json(temperature_str);
-            char* temp_sensor_str = cJSON_PrintUnformatted(temp_sensor_json);
-
-            ESP_LOGD(TAG, "Publishing temp sensor data: %s", temp_sensor_str);
-            swan_mqtt_client_publish("swan-hub/node/" NODE_ID "/temperature", temp_sensor_str, 0, false);
-
-            // avoid memory leak again pls
-            cJSON_Delete(temp_sensor_json);
-            free(temp_sensor_str);
-
-            //PUBLISH Humidity
-            char humidity_str[32];  // buffer to hold the string
-            // Convert float to string
-            snprintf(humidity_str, sizeof(humidity_str), "%.2f", humidity);
-            ESP_LOGD(TAG, "Converted humidity to string: %s", humidity_str);
-
-            cJSON* humidity_sensor_json = build_sensor_json(humidity_str);
-            char* humidity_sensor_str = cJSON_PrintUnformatted(humidity_sensor_json);
-
-            ESP_LOGD(TAG, "Publishing humidity sensor data: %s", humidity_sensor_str);
-            swan_mqtt_client_publish("swan-hub/node/" NODE_ID "/humidity", humidity_sensor_str, 0, false);
-
-            // avoid memory leak again pls
-            cJSON_Delete(humidity_sensor_json);
-            free(humidity_sensor_str);
-
-            //PUBLISH Light
-            char light_str[32];  // buffer to hold the string
-            // Convert float to string
-            snprintf(light_str, sizeof(light_str), "%.2f", lux);
-            ESP_LOGD(TAG, "Converted light to string: %s", light_str);
-
-            cJSON* light_sensor_json = build_sensor_json(light_str);
-            char* light_sensor_str = cJSON_PrintUnformatted(light_sensor_json);
-
-            ESP_LOGD(TAG, "Publishing light sensor data: %s", light_sensor_str);
-            swan_mqtt_client_publish("swan-hub/node/" NODE_ID "/light", light_sensor_str, 0, false);
-
-            // avoid memory leak again pls
-            cJSON_Delete(light_sensor_json);
-            free(light_sensor_str);
-        }*/
-
-        vTaskDelay(pdMS_TO_TICKS(5000));
-
-        i2c_scan();
+        vTaskDelay(pdMS_TO_TICKS(10000));
+     
     }
 }
-

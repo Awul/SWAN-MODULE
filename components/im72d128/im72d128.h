@@ -1,3 +1,5 @@
+#ifndef IM72D128_H
+#define IM72D128_H
 /** 
  * @file im72d128.h
  * @brief Driver for the IM72D128 PDM microphone
@@ -60,17 +62,22 @@ esp_err_t im72d128_init(im72d128_t *mic,
  * Reads audio samples converted from the PDM microphone.
  *
  * @param mic Pointer to microphone structure
- * @param buffer Pointer to sample buffer
+ * @param buffer Pointer to sample buffer (32 bit here)
  * @param samples Number of samples to read
  * @param bytes_read Optional pointer returning bytes read
+ * @param gain Optional gain setting, set 1 for skipping gain
  *
  * @return ESP_OK on success
  */
 esp_err_t im72d128_read(im72d128_t *mic,
                         int16_t *buffer,
                         size_t samples,
-                        size_t *bytes_read);
+                        size_t *bytes_read,
+                        uint8_t gain);
+
 
 
 
 /** @} */
+
+#endif // IM72D128_H
