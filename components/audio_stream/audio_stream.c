@@ -140,7 +140,8 @@ static void audio_capture_task(void *arg)
             cfg.mic,
             buffer,
             cfg.frame_size,
-            &bytes_read
+            &bytes_read,
+            10
         );
 
         if (err != ESP_OK) {
