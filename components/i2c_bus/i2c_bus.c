@@ -45,6 +45,26 @@ esp_err_t i2c_bus_init(void)
     return ESP_OK;
 }
 
+esp_err_t i2c_bus_lock(TickType_t timeout)
+{
+    if (!i2c_mutex) {
+        return ESP_ERR_INVALID_STATE;
+    }
+
+    if (xSemaphoreTake(i2c_mutex, timeout) != pdTRUE) {
+        return ESP_ERR_TIMEOUT;
+    }
+
+    return ESP_OK;
+}
+
+void i2c_bus_unlock(void)
+{
+    if (i2c_mutex) {
+        xSemaphoreGive(i2c_mutex);
+    }
+}
+
 
 /**
  * @brief Print the current I2C bus status

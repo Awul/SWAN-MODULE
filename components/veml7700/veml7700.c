@@ -6,6 +6,8 @@
 #include "veml7700.h"
 
 
+#define VEML7700_I2C_TIMEOUT pdMS_TO_TICKS(250)
+
 
 /**
  * @brief Write a 16-bit value to a VEML7700 register
@@ -33,6 +35,18 @@ static esp_err_t veml7700_write16(const veml7700_t *dev, uint8_t reg, uint16_t v
         sizeof(data),
         pdMS_TO_TICKS(100)
     );
+}
+
+static esp_err_t veml7700_write16_locked(const veml7700_t *dev, uint8_t reg, uint16_t val)
+{
+    esp_err_t err = i2c_bus_lock(VEML7700_I2C_TIMEOUT);
+    if (err != ESP_OK) {
+        return err;
+    }
+
+    err = veml7700_write16(dev, reg, val);
+    i2c_bus_unlock();
+    return err;
 }
 
 /**
@@ -67,13 +81,25 @@ static esp_err_t veml7700_read16(const veml7700_t *dev, uint8_t reg, uint16_t *v
     return err;
 }
 
+static esp_err_t veml7700_read16_locked(const veml7700_t *dev, uint8_t reg, uint16_t *val)
+{
+    esp_err_t err = i2c_bus_lock(VEML7700_I2C_TIMEOUT);
+    if (err != ESP_OK) {
+        return err;
+    }
+
+    err = veml7700_read16(dev, reg, val);
+    i2c_bus_unlock();
+    return err;
+}
+
 void veml7700_print_registers(const veml7700_t *dev)
 {
     // The registers are all 16-bit
     uint16_t r[8];
 
     for (uint8_t i = 0; i <= 7; i++) {
-        if (veml7700_read16(dev, i, &r[i]) != ESP_OK) {
+        if (veml7700_read16_locked(dev, i, &r[i]) != ESP_OK) {
             ESP_LOGE("VEML7700", "Failed to read register 0x%02X", i);
             return;
         }
@@ -159,14 +185,20 @@ esp_err_t veml7700_init(veml7700_t *dev, i2c_port_t port)
     dev->i2c_addr = VEML7700_I2C_ADDR_DEFAULT;
 
     /* Power on the sensor */
-    ESP_ERROR_CHECK(veml7700_write16(dev, VEML7700_REG_POWER_SAVING, 0x0000));
+    esp_err_t err = veml7700_write16_locked(dev, VEML7700_REG_POWER_SAVING, 0x0000);
+    if (err != ESP_OK) {
+        return err;
+    }
 
     /* Default ALS configuration:
      * Gain = 1×
      * Integration time = 100 ms
      * ALS enabled
      */
-    ESP_ERROR_CHECK(veml7700_write16(dev, VEML7700_REG_ALS_CONF_0, 0x0000));
+    err = veml7700_write16_locked(dev, VEML7700_REG_ALS_CONF_0, 0x0000);
+    if (err != ESP_OK) {
+        return err;
+    }
 
     vTaskDelay(pdMS_TO_TICKS(10));
     return ESP_OK;
@@ -180,7 +212,16 @@ esp_err_t veml7700_read_als(veml7700_t *dev, uint16_t *als)
 
     // The ALS register is 16-bit, so we can use the read16 helper function
     // This reads the ALS but not the WHITE channel. The white channel can be read separately if needed.
-    return veml7700_read16(dev, VEML7700_REG_ALS, als);
+    return veml7700_read16_locked(dev, VEML7700_REG_ALS, als);
+}
+
+esp_err_t veml7700_read_register(veml7700_t *dev, uint8_t reg, uint16_t *val)
+{
+    if (!dev || !val) {
+        return ESP_ERR_INVALID_ARG;
+    }
+
+    return veml7700_read16_locked(dev, reg, val);
 }
 
 /**@
@@ -220,12 +261,19 @@ esp_err_t veml7700_read_lux(veml7700_t *dev, float *lux)
     uint16_t als_conf, als_data;
     esp_err_t ret;
 
-    //read ALS_CONF_0
-    ret = veml7700_read16(dev, VEML7700_REG_ALS_CONF_0, &als_conf);
+    ret = i2c_bus_lock(VEML7700_I2C_TIMEOUT);
     if (ret != ESP_OK) return ret;
 
+    //read ALS_CONF_0
+    ret = veml7700_read16(dev, VEML7700_REG_ALS_CONF_0, &als_conf);
+    if (ret != ESP_OK) {
+        i2c_bus_unlock();
+        return ret;
+    }
+
     //read ALS data
-    ret = veml7700_read_als(dev, &als_data);
+    ret = veml7700_read16(dev, VEML7700_REG_ALS, &als_data);
+    i2c_bus_unlock();
     if (ret != ESP_OK) return ret;
     
     // Extract gain and integration time settings from the configuration register

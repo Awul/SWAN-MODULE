@@ -3,6 +3,8 @@
 
 static const char *TAG = "SHT40";
 
+#define SHT40_I2C_TIMEOUT pdMS_TO_TICKS(250)
+
 /**
  * @brief Initialize SHT40 device
  * 
@@ -44,7 +46,16 @@ esp_err_t sht40_reset(sht40_t *dev)
 {
     uint8_t cmd = SHT40_CMD_SOFT_RESET;
     ESP_LOGI(TAG, "Sending soft reset command: 0x%02X", cmd);
-    esp_err_t err = i2c_master_write_to_device(dev->i2c_port, dev->i2c_addr, &cmd, 1, pdMS_TO_TICKS(100));
+
+    esp_err_t err = i2c_bus_lock(SHT40_I2C_TIMEOUT);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to lock I2C bus for soft reset (err=%d)", err);
+        return err;
+    }
+
+    err = i2c_master_write_to_device(dev->i2c_port, dev->i2c_addr, &cmd, 1, pdMS_TO_TICKS(100));
+    i2c_bus_unlock();
+
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Soft reset failed (err=%d)", err);
     }
@@ -69,7 +80,14 @@ esp_err_t sht40_read_temp_humidity(sht40_t *dev, float *temperature, float *humi
     uint8_t data[6] = {0};
 
     ESP_LOGI(TAG, "Starting high repeatability measurement: 0x%02X", cmd);
-    esp_err_t err = i2c_master_write_to_device(
+
+    esp_err_t err = i2c_bus_lock(SHT40_I2C_TIMEOUT);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to lock I2C bus for measurement (err=%d)", err);
+        return err;
+    }
+
+    err = i2c_master_write_to_device(
         dev->i2c_port,
         dev->i2c_addr,
         &cmd,
@@ -79,6 +97,7 @@ esp_err_t sht40_read_temp_humidity(sht40_t *dev, float *temperature, float *humi
 
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Writing measurement command failed (err=%d)", err);
+        i2c_bus_unlock();
         return err;
     }
 
@@ -96,8 +115,11 @@ esp_err_t sht40_read_temp_humidity(sht40_t *dev, float *temperature, float *humi
 
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Failed to read temperature and humidity (err=%d)", err);
+        i2c_bus_unlock();
         return err;
     }
+
+    i2c_bus_unlock();
 
     uint16_t raw_temp = (data[0] << 8) | data[1];
     uint16_t raw_hum  = (data[3] << 8) | data[4];
@@ -128,8 +150,15 @@ esp_err_t sht40_read_serial(sht40_t *dev, uint32_t *serial)
     uint8_t data[6];
 
     ESP_LOGI(TAG, "Reading serial number with command: 0x%02X", cmd);
+
+    esp_err_t err = i2c_bus_lock(SHT40_I2C_TIMEOUT);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to lock I2C bus for serial read (err=%d)", err);
+        return err;
+    }
+
     // Write command
-    esp_err_t err = i2c_master_write_to_device(
+    err = i2c_master_write_to_device(
         dev->i2c_port,
          dev->i2c_addr,
           &cmd,
@@ -139,6 +168,7 @@ esp_err_t sht40_read_serial(sht40_t *dev, uint32_t *serial)
 
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Failed to send serial command (err=%d)", err);
+        i2c_bus_unlock();
         return err;
     }
 
@@ -157,8 +187,11 @@ esp_err_t sht40_read_serial(sht40_t *dev, uint32_t *serial)
 
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Failed to read serial number (err=%d)", err);
+        i2c_bus_unlock();
         return err;
     }
+
+    i2c_bus_unlock();
 
     // Sensirion uses data[0..1] + data[3..4] for serial
     *serial = ((uint32_t)data[0] << 24) | ((uint32_t)data[1] << 16) |
@@ -199,11 +232,19 @@ esp_err_t sht40_activate_heater(sht40_t *dev)
 // implemented this later, so it is not used everywhere yet.
 esp_err_t sht40_send_cmd(sht40_t *dev, uint8_t cmd)
 {
-    return i2c_master_write_to_device(
+    esp_err_t err = i2c_bus_lock(SHT40_I2C_TIMEOUT);
+    if (err != ESP_OK) {
+        return err;
+    }
+
+    err = i2c_master_write_to_device(
         dev->i2c_port,
         dev->i2c_addr,
         &cmd,
         1,
         pdMS_TO_TICKS(100)
         );
+
+    i2c_bus_unlock();
+    return err;
 }
